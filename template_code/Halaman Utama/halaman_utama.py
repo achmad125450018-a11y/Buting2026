@@ -3,6 +3,9 @@ from streamlit_option_menu import option_menu
 import requests
 from PIL import Image, ImageOps
 from io import BytesIO
+from urllib.parse import urlparse, parse_qs
+import base64
+import html
 
 # UI/UX PUNYA POISSON YEAHH
 st.markdown("""
@@ -168,17 +171,73 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-@st.cache_data
-def load_image(url):
-    response = requests.get(url)
-    if response.status_code != 200:
-        return None
+def get_drive_file_id(url):
+    """Mengambil ID file dari beberapa format link Google Drive."""
     try:
-        img = Image.open(BytesIO(response.content))
-        img = ImageOps.exif_transpose(img)
-        return img
+        parsed = urlparse(url)
+        query = parse_qs(parsed.query)
+
+        # Format: drive.google.com/uc?id=FILE_ID atau ...?id=FILE_ID
+        if query.get("id"):
+            return query["id"][0]
+
+        # Format: drive.google.com/file/d/FILE_ID/view
+        parts = parsed.path.split("/")
+        if "d" in parts:
+            idx = parts.index("d")
+            if idx + 1 < len(parts):
+                return parts[idx + 1]
     except Exception:
+        pass
+    return None
+
+
+@st.cache_data(show_spinner=False)
+def load_image(url):
+    """Mengunduh gambar dari Google Drive atau URL gambar langsung."""
+    file_id = get_drive_file_id(url)
+    candidate_urls = []
+
+    if file_id:
+        # Thumbnail biasanya lebih konsisten untuk penyematan gambar.
+        candidate_urls.extend([
+            f"https://drive.google.com/thumbnail?id={file_id}&sz=w1600",
+            f"https://drive.google.com/uc?export=download&id={file_id}",
+            f"https://drive.google.com/uc?export=view&id={file_id}",
+        ])
+    candidate_urls.append(url)
+
+    headers = {"User-Agent": "Mozilla/5.0"}
+    for candidate in dict.fromkeys(candidate_urls):
+        try:
+            response = requests.get(
+                candidate,
+                headers=headers,
+                timeout=25,
+                allow_redirects=True,
+            )
+            response.raise_for_status()
+            img = Image.open(BytesIO(response.content))
+            img = ImageOps.exif_transpose(img).convert("RGB")
+            img.load()
+            return img
+        except Exception:
+            continue
+
+    return None
+
+
+@st.cache_data(show_spinner=False)
+def image_data_uri(url):
+    """Mengubah gambar menjadi data URI agar bisa dipakai oleh HTML img."""
+    img = load_image(url)
+    if img is None:
         return None
+
+    buffer = BytesIO()
+    img.save(buffer, format="JPEG", quality=88, optimize=True)
+    encoded = base64.b64encode(buffer.getvalue()).decode("utf-8")
+    return f"data:image/jpeg;base64,{encoded}"
 
 # Header Utama
 st.markdown("""
@@ -195,8 +254,10 @@ def layout_logo(url):
     col1, col2, col3 = st.columns([1.5, 1, 1.5])
     with col2:
         img = load_image(url)
-        if img:
+        if img is not None:
             st.image(img, use_container_width=True)
+        else:
+            st.warning("Gambar gagal dimuat. Pastikan file Google Drive dapat diakses oleh siapa saja yang memiliki link.")
 
 layout_logo(url)
 st.write("")
@@ -264,15 +325,19 @@ if menu == "Home":
                 if idx < len(kegiatan_poisson):
                     item = kegiatan_poisson[idx]
                     with cols[j]:
-                        st.markdown(f"""
-                            <div class="photo-card">
-                                <img src="{item['url']}" alt="{item['judul']}">
-                                <div class="overlay">
-                                    <div class="overlay-title">{item['judul']}</div>
-                                    <div class="overlay-desc">{item['desc']}</div>
+                        img_src = image_data_uri(item["url"])
+                        if img_src:
+                            st.markdown(f"""
+                                <div class="photo-card">
+                                    <img src="{img_src}" alt="{html.escape(item['judul'], quote=True)}">
+                                    <div class="overlay">
+                                        <div class="overlay-title">{html.escape(item['judul'])}</div>
+                                        <div class="overlay-desc">{html.escape(item['desc'])}</div>
+                                    </div>
                                 </div>
-                            </div>
-                        """, unsafe_allow_html=True)
+                            """, unsafe_allow_html=True)
+                        else:
+                            st.warning(f"Foto '{item['judul']}' gagal dimuat. Periksa izin Google Drive.")
         
         st.markdown("""
             <div class='content-box'>
@@ -324,23 +389,32 @@ elif menu == "About Us":
                     img_url = gambar_urls[idx]
                     
                     with cols[j]:
-                        st.markdown(f"""
-                            <div class="flip-card">
-                                <div class="flip-card-inner">
-                                    <div class="flip-card-front">
-                                        <img src="{img_url}" alt="{member['nama']}">
-                                        <h4>{member['nama']}</h4>
-                                        <span style="font-size:11px; color:#888;">(Arahkan kursor untuk balik)</span>
-                                    </div>
-                                    <div class="flip-card-back">
-                                        <h4>{member['nama']}</h4>
-                                        <p><span class="label">Sebagai:</span> {member['sebagai']}</p>
-                                        <p><span class="label">NIM:</span> {member['nim']}</p>
-                                        <p><span class="label">Fun Fact:</span> {member['fun_fact']}</p>
-                                        <p><span class="label">Motto:</span> {member['motto_hidup']}</p>
+                        img_src = image_data_uri(img_url)
+                        if img_src:
+                            nama = html.escape(member["nama"])
+                            sebagai = html.escape(member["sebagai"])
+                            nim = html.escape(member["nim"])
+                            fun_fact = html.escape(member["fun_fact"])
+                            motto = html.escape(member["motto_hidup"])
+                            st.markdown(f"""
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <img src="{img_src}" alt="{html.escape(member['nama'], quote=True)}">
+                                            <h4>{nama}</h4>
+                                            <span style="font-size:11px; color:#888;">(Arahkan kursor untuk balik)</span>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <h4>{nama}</h4>
+                                            <p><span class="label">Sebagai:</span> {sebagai}</p>
+                                            <p><span class="label">NIM:</span> {nim}</p>
+                                            <p><span class="label">Fun Fact:</span> {fun_fact}</p>
+                                            <p><span class="label">Motto:</span> {motto}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        """, unsafe_allow_html=True)
+                            """, unsafe_allow_html=True)
+                        else:
+                            st.warning(f"Foto untuk {member['nama']} gagal dimuat. Periksa izin Google Drive.")
 
     about_page()
