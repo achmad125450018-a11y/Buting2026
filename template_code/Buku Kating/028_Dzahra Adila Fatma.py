@@ -84,18 +84,49 @@ def streamlit_menu():
     )
     return selected
 
-@st.cache_data
+# ============ FUNGSI LOAD_IMAGE YANG DIPERBAIKI ============
+@st.cache_data(show_spinner=False)
 def load_image(url):
-    response = requests.get(url)
-    if response.status_code != 200:
-        return None
     try:
-        img = Image.open(BytesIO(response.content))
-        img = ImageOps.exif_transpose(img)
-        img = img.resize((300, 400))
-        return img
+        # 1. Ekstrak ID dari URL Google Drive
+        if "id=" in url:
+            file_id = url.split("id=")[1].split("&")[0]
+        else:
+            return None
+        
+        # 2. Coba beberapa format URL (dari yang paling stabil)
+        urls_to_try = [
+            f"https://drive.google.com/thumbnail?id={file_id}&sz=w1000",
+            f"https://lh3.googleusercontent.com/d/{file_id}=w1000",
+            f"https://drive.google.com/uc?export=download&id={file_id}",
+        ]
+        
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        }
+        
+        for direct_url in urls_to_try:
+            try:
+                response = requests.get(direct_url, headers=headers, timeout=15, allow_redirects=True)
+                if response.status_code != 200:
+                    continue
+                
+                content_type = response.headers.get('Content-Type', '')
+                if 'image' not in content_type:
+                    continue
+                
+                img = Image.open(BytesIO(response.content))
+                img = ImageOps.exif_transpose(img)
+                img = img.convert("RGB")
+                img = img.resize((300, 400))
+                return img
+            except Exception:
+                continue
+        
+        return None
     except Exception:
         return None
+# ==========================================================
 
 def get_cached_images(gambar_urls):
     images = []
@@ -115,7 +146,7 @@ def display_images_with_data(gambar_urls, data_list):
                 if img is not None:
                     st.image(img, use_container_width=True)
                 else:
-                    st.warning("Gagal memuat gambar.")
+                    st.warning(f"Gagal memuat gambar untuk {data_list[i]['nama']}. Cek link Google Drive.")
             with col2:
                 st.markdown(f"""
                     <div class='profile-card'>
@@ -140,10 +171,10 @@ if menu == "Kesekjenan":
     gambar_urls = [
         "https://drive.google.com/uc?export=view&id=1bHJycPWekuNo4NTeBkwAd01NHnXCNiv7",
         "https://drive.google.com/uc?export=view&id=10xTGX5x5WLsi8NB5gMtuFLVGESC95VQ9",
-         "https://drive.google.com/uc?export=view&id=1OhUSv5lsAF5HieksWaBsblEzK3StcDI7",
-                "https://drive.google.com/uc?export=view&id=1OLnmPM3f1ztfBq21DtQdMsXRc6PfiHa3",
-                "https://drive.google.com/uc?export=view&id=1Y5Gx9FpRu6gAu-MdWQqI1w8htvMialqe",
-                "https://drive.google.com/uc?export=view&id=1I1UyEmXuqU08haxg66acTm_a82WvlxCc"
+        "https://drive.google.com/uc?export=view&id=1OhUSv5lsAF5HieksWaBsblEzK3StcDI7",
+        "https://drive.google.com/uc?export=view&id=1OLnmPM3f1ztfBq21DtQdMsXRc6PfiHa3",
+        "https://drive.google.com/uc?export=view&id=1Y5Gx9FpRu6gAu-MdWQqI1w8htvMialqe",
+        "https://drive.google.com/uc?export=view&id=1I1UyEmXuqU08haxg66acTm_a82WvlxCc"
     ]
     data_list = [
         {"nama": "Ginda Fajar Riadi Marpaung", "nim": "123450103", "umur": "22", "asal": "Batam", "alamat": "Kesekretariat HMSD", "hobbi": "Push IMO", "sosmed": "@jars_mrp", "kesan": "Abangnya seruu, dlu pernah jadi kadiv op pas natal SD25 bisa diajak serius dan bercanda.", "pesan": "Semangat dan sukses selalu bangg!!"},
@@ -152,7 +183,6 @@ if menu == "Kesekjenan":
         {"nama": "Qois Olifio", "nim": "123450067", "umur": "22", "asal": "Batam", "alamat": "Kota Baru", "hobbi": "Mainin surat", "sosmed": "@qoisolifio_", "kesan": "Abangnya soft spoken, lucuu.", "pesan": "Sukses selalu dan semangat bang!!"},
         {"nama": "Hafsa Fazila Arradhi", "nim": "123450079", "umur": "21", "asal": "Bandar Lampung", "alamat": "Bandar Lampung", "hobbi": "Bertemu Luluk", "sosmed": "@hafsafazilahh", "kesan": "Kakaknya baik, murah senyum, dan suka duit.", "pesan": "Sukses selalu dan semangat kakk!!"},
         {"nama": "Luthfia Laila Ramadhani", "nim": "123450004", "umur": "20", "asal": "Bengkulu", "alamat": "Airan", "hobbi": "Keliling Balam", "sosmed": "@luthhifiarmdhni", "kesan": "Kakaknya seru, lucuu, baikk.", "pesan": "Sukses selalu dan semangat kakkk!!"}
-
     ]
     display_images_with_data(gambar_urls, data_list)
 
@@ -166,7 +196,7 @@ elif menu == "Baleg":
 elif menu == "Senator":
     gambar_urls = [
         "https://drive.google.com/uc?export=view&id=1iwQT9-8ZVR2UA7YuUBSteXFBrqSQFNSq",
-                "https://drive.google.com/uc?export=view&id=1Ro12i6tMYvQPqpEPA3ywc6uMhrhO4vCx",
+        "https://drive.google.com/uc?export=view&id=1Ro12i6tMYvQPqpEPA3ywc6uMhrhO4vCx",
         "https://drive.google.com/uc?export=view&id=1hl-9hUW838NaebEADDOADkaiOEUJHt_N",
         "https://drive.google.com/uc?export=view&id=17bSim4ApeDZb1q_0OsqNeI9OkvBM_IMS",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
@@ -174,12 +204,10 @@ elif menu == "Senator":
         "https://drive.google.com/uc?export=view&id=10OvO7M9lJapJtx9rC46Fb7gwAfGNOJZ1",
         "https://drive.google.com/uc?export=view&id=11_x37gi7Bus2_Qn7_ApQ46paOPrZ_FAg",
         "https://drive.google.com/uc?export=view&id=160IfGFPZsvUV786ppmmUUrh6f-0sc248",
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
     ]
     data_list = [
         {"nama": "Anggota Senator", "nim": "122450022", "umur": "21", "asal": "Jakarta", "alamat": "Sukarame", "hobbi": "Debat", "sosmed": "@senator", "kesan": "Informatif", "pesan": "Terus berkarya!"},
-                {"nama": "Anggota Senator", "nim": "122450022", "umur": "21", "asal": "Jakarta", "alamat": "Sukarame", "hobbi": "Debat", "sosmed": "@senator", "kesan": "Informatif", "pesan": "Terus berkarya!"},
         {"nama": "Anggota Senator", "nim": "122450022", "umur": "21", "asal": "Jakarta", "alamat": "Sukarame", "hobbi": "Debat", "sosmed": "@senator", "kesan": "Informatif", "pesan": "Terus berkarya!"},
         {"nama": "Anggota Senator", "nim": "122450022", "umur": "21", "asal": "Jakarta", "alamat": "Sukarame", "hobbi": "Debat", "sosmed": "@senator", "kesan": "Informatif", "pesan": "Terus berkarya!"},
         {"nama": "Anggota Senator", "nim": "122450022", "umur": "21", "asal": "Jakarta", "alamat": "Sukarame", "hobbi": "Debat", "sosmed": "@senator", "kesan": "Informatif", "pesan": "Terus berkarya!"},
@@ -189,7 +217,6 @@ elif menu == "Senator":
         {"nama": "Anggota Senator", "nim": "122450022", "umur": "21", "asal": "Jakarta", "alamat": "Sukarame", "hobbi": "Debat", "sosmed": "@senator", "kesan": "Informatif", "pesan": "Terus berkarya!"},
         {"nama": "Anggota Senator", "nim": "122450022", "umur": "21", "asal": "Jakarta", "alamat": "Sukarame", "hobbi": "Debat", "sosmed": "@senator", "kesan": "Informatif", "pesan": "Terus berkarya!"},
         {"nama": "Anggota Senator", "nim": "122450022", "umur": "21", "asal": "Jakarta", "alamat": "Sukarame", "hobbi": "Debat", "sosmed": "@senator", "kesan": "Informatif", "pesan": "Terus berkarya!"}
-
     ]
     display_images_with_data(gambar_urls, data_list)
 
@@ -210,7 +237,7 @@ elif menu == "Departemen MIKFES":
 elif menu == "Departemen Eksternal":
     gambar_urls = [
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-                "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
@@ -231,11 +258,10 @@ elif menu == "Departemen Eksternal":
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
-
-                  ]
+    ]
     data_list = [
         {"nama": "Anggota Eksternal", "nim": "122450055", "umur": "20", "asal": "Palembang", "alamat": "Korpri", "hobbi": "Networking", "sosmed": "@eksternal", "kesan": "Ramah", "pesan": "Jalin relasi luas!"},
-                {"nama": "Anggota Eksternal", "nim": "122450055", "umur": "20", "asal": "Palembang", "alamat": "Korpri", "hobbi": "Networking", "sosmed": "@eksternal", "kesan": "Ramah", "pesan": "Jalin relasi luas!"},
+        {"nama": "Anggota Eksternal", "nim": "122450055", "umur": "20", "asal": "Palembang", "alamat": "Korpri", "hobbi": "Networking", "sosmed": "@eksternal", "kesan": "Ramah", "pesan": "Jalin relasi luas!"},
         {"nama": "Anggota Eksternal", "nim": "122450055", "umur": "20", "asal": "Palembang", "alamat": "Korpri", "hobbi": "Networking", "sosmed": "@eksternal", "kesan": "Ramah", "pesan": "Jalin relasi luas!"},
         {"nama": "Anggota Eksternal", "nim": "122450055", "umur": "20", "asal": "Palembang", "alamat": "Korpri", "hobbi": "Networking", "sosmed": "@eksternal", "kesan": "Ramah", "pesan": "Jalin relasi luas!"},
         {"nama": "Anggota Eksternal", "nim": "122450055", "umur": "20", "asal": "Palembang", "alamat": "Korpri", "hobbi": "Networking", "sosmed": "@eksternal", "kesan": "Ramah", "pesan": "Jalin relasi luas!"},
@@ -256,7 +282,6 @@ elif menu == "Departemen Eksternal":
         {"nama": "Anggota Eksternal", "nim": "122450055", "umur": "20", "asal": "Palembang", "alamat": "Korpri", "hobbi": "Networking", "sosmed": "@eksternal", "kesan": "Ramah", "pesan": "Jalin relasi luas!"},
         {"nama": "Anggota Eksternal", "nim": "122450055", "umur": "20", "asal": "Palembang", "alamat": "Korpri", "hobbi": "Networking", "sosmed": "@eksternal", "kesan": "Ramah", "pesan": "Jalin relasi luas!"},
         {"nama": "Anggota Eksternal", "nim": "122450055", "umur": "20", "asal": "Palembang", "alamat": "Korpri", "hobbi": "Networking", "sosmed": "@eksternal", "kesan": "Ramah", "pesan": "Jalin relasi luas!"}
-
     ]
     display_images_with_data(gambar_urls, data_list)
 
@@ -270,7 +295,7 @@ elif menu == "Departemen Internal":
 elif menu == "Departemen SSD":
     gambar_urls = [
         "https://drive.google.com/uc?export=view&id=1ERRnfaaLA4hmMMkfzRasqDTcJSM6CUrI",
-                "https://drive.google.com/uc?export=view&id=1IEiVXggdT_PQUJ0Z1-eR6ADv8oLbJ9mw",
+        "https://drive.google.com/uc?export=view&id=1IEiVXggdT_PQUJ0Z1-eR6ADv8oLbJ9mw",
         "https://drive.google.com/uc?export=view&id=1gmAlqbm_PZ3ajz10X_D2RdfxEDbbl7Gc",
         "https://drive.google.com/uc?export=view&id=1GIQ8OOfiuSVKG2FbPOJPX5lB3oJQ0WiP",
         "https://drive.google.com/uc?export=view&id=1B9xSMc3EbXXvcQEi4UhpB6xhGP1vNuSa",
@@ -281,11 +306,10 @@ elif menu == "Departemen SSD":
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1W3SHZAYr2Ze8i30J03TwrpezCUhwnODB"
-
-                  ]
+    ]
     data_list = [
         {"nama": "Ihsan Maulana Yusuf", "nim": "123450110", "umur": "21", "asal": "Sumatera Barat", "alamat": "Belwis", "hobbi": "Cari dan baca jurnal, cari pak lucky, jualan", "sosmed": "@ihsan.myusuf", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
-                {"nama": "Hanifah Inaya Sani", "nim": "123450123", "umur": "20", "asal": "Bandar Lampung", "alamat": "Bandar Lampung", "hobbi": "Masak", "sosmed": "@_inayasani", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
+        {"nama": "Hanifah Inaya Sani", "nim": "123450123", "umur": "20", "asal": "Bandar Lampung", "alamat": "Bandar Lampung", "hobbi": "Masak", "sosmed": "@_inayasani", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
         {"nama": "Afifah Fauziah", "nim": "12345002", "umur": "20", "asal": "Bandung", "alamat": "Airan", "hobbi": "Nonton Marvel", "sosmed": "@fifah.zy", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
         {"nama": "Hasan Nur Ramadhan", "nim": "1234500", "umur": "20", "asal": "Depok", "alamat": "Korpri", "hobbi": "Coding", "sosmed": "@hasan.ramadhan08", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
         {"nama": "Layina Ropiqo", "nim": "124450016", "umur": "19", "asal": "Bandar Lampung", "alamat": "Bandar Lampung", "hobbi": "nonton dracin", "sosmed": "@lay.inr_", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
@@ -296,7 +320,6 @@ elif menu == "Departemen SSD":
         {"nama": "Afdhal Rahmad Setiawan", "nim": "124450008", "umur": "20", "asal": "Depok", "alamat": "Korpri", "hobbi": "Coding", "sosmed": "@dhal_setiawan", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
         {"nama": "Anggun Nita", "nim": "124450009", "umur": "20", "asal": "Lampung Utara", "alamat": "Belwis", "hobbi": "Nonton kartun", "sosmed": "@anggunitaaaa", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
         {"nama": "Della Anisa Fitri", "nim": "124450095", "umur": "18", "asal": "Lampung Timur", "alamat": "Margo Lestari", "hobbi": "Lagi ga punya hobi", "sosmed": "@dellaansaftr", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"}
-
     ]
     display_images_with_data(gambar_urls, data_list)
 
@@ -320,8 +343,7 @@ elif menu == "Departemen Medkraf":
         "https://drive.google.com/uc?export=view&id=1ATCPWdkLwWtCMlz49j7gyuypsD1kHCK9",
         "https://drive.google.com/uc?export=view&id=1PaSfCj8UMMs9Lzyp72SigsCnat0NXNmd",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
-
-                  ]
+    ]
     data_list = [
         {"nama": "Nayla Salsabila Fathianisa", "nim": "123450082", "umur": "20", "asal": "Payakumbuh, Sumatera Barat", "alamat": "Way Huwi", "hobbi": "Musingin TA", "sosmed": "@naylasalsabilaa._", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
         {"nama": "Donna Maya Puspita", "nim": "123450028", "umur": "20", "asal": "Bekasi", "alamat": "Way Huwi", "hobbi": "Berenang", "sosmed": "@donnamaya.p", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
@@ -341,6 +363,5 @@ elif menu == "Departemen Medkraf":
         {"nama": "Lucia Advencia Rachel Nainggolan", "nim": "124450085", "umur": "20", "asal": "Bekasi", "alamat": "Belwis", "hobbi": "Nonton star wars", "sosmed": "@luciarachel_", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
         {"nama": "Shafa Delaila Azzahra", "nim": "124450124", "umur": "20", "asal": "Lampung tengah", "alamat": "Pemda", "hobbi": "Ngoding", "sosmed": "@_shaazzh", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
         {"nama": "Anggota Medkraf", "nim": "122450088", "umur": "20", "asal": "Yogyakarta", "alamat": "Airan", "hobbi": "Editing & Foto", "sosmed": "@medkraf", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"}
-
     ]
     display_images_with_data(gambar_urls, data_list)
