@@ -565,7 +565,7 @@ if menu == "Departemen Minbak":
 if menu == "Departemen MIKFES":
     def departemen_mikfes():
         gambar_urls = [
-                "https://drive.google.com/thumbnail?id=1iSvUBeHHIBq2lXajNPWHGXlQ3MApuOgt&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1IxHDZ28tJbvUsNi3BS4qQhsL5sv1zkL9&sz=w1000",
                 "https://drive.google.com/thumbnail?id=1REPKmZjLeQrNhFGrDwy46n3UlgwattNv&sz=w1000",
         ]
 
