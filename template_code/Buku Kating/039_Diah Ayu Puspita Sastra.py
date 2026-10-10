@@ -20,7 +20,7 @@ def streamlit_menu():
             "Departemen Eksternal",
             "Departemen Internal",
             "Departemen SSD",
-            "Departemen Medkraf"
+            "Departemen Medkraf",
             "Departemen Minbak",
         ],
         icons=[
@@ -39,7 +39,7 @@ def streamlit_menu():
         orientation="horizontal",
         styles={
             "container": {"padding": "0!important", "background-color": "#fafafa"},
-            "icon": {"color": "black", "font-size": "19px"},
+            "icon": {"color": "black", "font-size": "16px"},
             "nav-link": {
                 "font-size": "13px",
                 "text-align": "left",
