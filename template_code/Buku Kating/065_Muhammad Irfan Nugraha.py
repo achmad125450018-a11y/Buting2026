@@ -800,7 +800,7 @@ if menu == "Departemen Medkraf":
                 "hobbi": "Musingin TA",
                 "sosmed": "@naylasalsabilaa._",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan": "semangat terus kuliahnya kakak !!!"# 1
+                "pesan": "semoga terus semangat kak"# 1
             },
             {
                 "nama": " Donna Maya Puspita",
