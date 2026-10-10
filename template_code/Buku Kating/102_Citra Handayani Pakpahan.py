@@ -99,13 +99,15 @@ menu = streamlit_menu()
 if menu == "Kesekjenan":
     def kesekjenan():
         gambar_urls = [
-            "https://drive.google.com/file/d/1Yro_FiWM13COyTiubMR23sjR5v5EdKZB/view?usp=drive_link",
-            "https://drive.google.com/file/d/16i6ZBe3fFC7PIMT-OxHi-nSfBgLHSTzf/view?usp=drive_link",
-            "https://drive.google.com/file/d/1TPHBkQDDpCpF-uHuOkZkE2j58QgWKesb/view?usp=drive_link",
-            "https://drive.google.com/file/d/1HNkx2-8WrgbVhufU7vIdeKPlkhi66NlR/view?usp=drive_link",
-            "https://drive.google.com/file/d/1mhlOxKmXscotUGYn4hwjj7fO6X6TuBPX/view?usp=drive_link",
-            "https://drive.google.com/file/d/1OUaA6I7TtdOwh1Y_aApoar95wnbYhHcc/view?usp=drive_link",
-        ]
+            "https://drive.google.com/uc?export=view&id=1Yro_FiWM13COyTiubMR23sjR5v5EdKZB",
+            "https://drive.google.com/uc?export=view&id=16i6ZBe3fFC7PIMT-OxHi-nSfBgLHSTzf",
+            "https://drive.google.com/uc?export=view&id=1TPHBkQDDpCpF-uHuOkZkE2j58QgWKesb",
+            "https://drive.google.com/uc?export=view&id=1HNkx2-8WrgbVhufU7vIdeKPlkhi66NlR",
+            "https://drive.google.com/uc?export=view&id=1mhlOxKmXscotUGYn4hwjj7fO6X6TuBPX",
+            "https://drive.google.com/uc?export=view&id=1OUaA6I7TtdOwh1Y_aApoar95wnbYhHcc",
+        ] 
+        
+
         data_list = [
             {
                 "Nama": "Ginda Fajar Riadi Marpaung",
@@ -175,6 +177,5 @@ if menu == "Kesekjenan":
             },
         ]
         display_images_with_data(gambar_urls, data_list)
-
-if menu == "Kesekjenan":
     kesekjenan()
+
