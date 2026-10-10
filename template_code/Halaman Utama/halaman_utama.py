@@ -139,7 +139,7 @@ elif menu == "About Us":
                 "motto_hidup": "Pergi keluar untuk mencari referensi, lalu kembali untuk relevansi",
             },
             {
-                "nama": "x",
+                "nama": "Dea Febryana",
                 "sebagai": "Bu Lurah",
                 "nim": "122450000",
                 "fun_fact": "nyemilin es bata",
