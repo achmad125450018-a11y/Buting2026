@@ -394,7 +394,7 @@ if menu == "Senator":
                 "nama": "Jona Timothy Ogatse Panjaitan",
                 "nim": "124450121",
                 "umur": "20",
-                "asal":"Depok",
+                "asal":"Depk",
                 "alamat": "Pemda Raya",
                 "hobbi": "Gym dan koleksi figur",
                 "sosmed": "@nagatse",
