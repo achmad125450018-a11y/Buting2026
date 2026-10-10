@@ -576,7 +576,7 @@ if menu == "Departemen Minbak":
         display_images_with_data(gambar_urls, data_list)
     departemen_minbak()
 
-if menu == "Departemen Mikfes":
+if menu == "Departemen MIKFES":
     def departemen_mikfes():
         gambar_urls = [
                 "https://drive.google.com/thumbnail?id=1KunJwKUAtXSeJWStiBY3E22g31ySE5db&sz=w1000",
