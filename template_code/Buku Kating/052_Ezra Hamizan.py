@@ -101,7 +101,7 @@ menu = streamlit_menu()
 if menu == "Kesekjenan":
     def kesekjenan():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1m1cQkaJpDncqJCJvfOf5dVOuzJMqdan0",
+            "https://drive.google.com/uc?export=view&id=129sLrNkwocy-TWad2v30ElQ2wLnUJVld",
             "https://drive.google.com/uc?export=view&id=16-8EutSEIHVLuoxbcqpoh4dmPpIc_N5L",
             "https://drive.google.com/uc?export=view&id=12mmvbhn_a3CNZBp2-C1CNtnOM5Za_pja",
             "https://drive.google.com/uc?export=view&id=1hHcAzb2_cugwDJkKU4mVTVX7RfpvGPxU",
@@ -182,7 +182,7 @@ if menu == "Kesekjenan":
 if menu == "Baleg":
     def baleg():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1m1cQkaJpDncqJCJvfOf5dVOuzJMqdan0",
+            "https://drive.google.com/uc?export=view&id=10z3HaZqfwXFWQWd1zlGqKZrDr3XJ-eE5",
             "https://drive.google.com/uc?export=view&id=16-8EutSEIHVLuoxbcqpoh4dmPpIc_N5L",
             "https://drive.google.com/uc?export=view&id=12mmvbhn_a3CNZBp2-C1CNtnOM5Za_pja",
             "https://drive.google.com/uc?export=view&id=1hHcAzb2_cugwDJkKU4mVTVX7RfpvGPxU",
@@ -260,10 +260,10 @@ if menu == "Baleg":
         display_images_with_data(gambar_urls, data_list)
     baleg()
 
-if menu == "Bason":
-    def bason():
+if menu == "Senator":
+    def senator():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1m1cQkaJpDncqJCJvfOf5dVOuzJMqdan0",
+            "https://drive.google.com/uc?export=view&id=1gv4XflB8QYJzK0zWRJEIY7uA9VPSPhkI",
             "https://drive.google.com/uc?export=view&id=16-8EutSEIHVLuoxbcqpoh4dmPpIc_N5L",
             "https://drive.google.com/uc?export=view&id=12mmvbhn_a3CNZBp2-C1CNtnOM5Za_pja",
             "https://drive.google.com/uc?export=view&id=1hHcAzb2_cugwDJkKU4mVTVX7RfpvGPxU",
@@ -339,5 +339,167 @@ if menu == "Bason":
             },
         ]
         display_images_with_data(gambar_urls, data_list)
-    bason()
+    senator()
+
+if menu == "Departemen PSDA":
+    def psda():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=14XJ42fUwzVqn0ej6lWHzqGC_jwesJV5C",
+            "https://drive.google.com/uc?export=view&id=16-8EutSEIHVLuoxbcqpoh4dmPpIc_N5L",
+            "https://drive.google.com/uc?export=view&id=12mmvbhn_a3CNZBp2-C1CNtnOM5Za_pja",
+            "https://drive.google.com/uc?export=view&id=1hHcAzb2_cugwDJkKU4mVTVX7RfpvGPxU",
+            "https://drive.google.com/uc?export=view&id=1mPC9ZSdw6bZhOXTJXaEfnf0Yw-u8ngK6",
+            "https://drive.google.com/uc?export=view&id=1Y_tCuB9n0PNpex6mCtz-ch-LZTThztwv",
+        ]
+        data_list = [
+            {
+                "nama": "Ginda Fajar Riadi Marpaung",
+                "nim": "123450103",
+                "umur": "22",
+                "asal":"Batam",
+                "alamat": "Kesektariatan HMSD",
+                "hobbi": "Push IMO",
+                "sosmed": "@jars_mrp",
+                "kesan": "Saya melihat bang Fajar sebagai sosok pemimpin yang berwibawa dan tegas.  ",  
+                "pesan":"Semoga bang Fajar selalu diberi kelancaran dalam menjalankan amanah dan tetap semangat dalam mengerjakan Tugas Akhirnya!! "# 1
+            },
+            {
+                "nama": "Muhammad Aqil Ramadhan",
+                "nim": "123450066",
+                "umur": "22",
+                "asal":"Riau",
+                "alamat": "Sekretariat HMSD",
+                "hobbi": "Dzikir",
+                "sosmed": "@muhammadaqil1111",
+                "kesan": "Bang Aqil orangnya baik, asik dan memberikan kesan yang positif selama saya berinteraksi dengan bang Aqil.",  
+                "pesan":"Semoga bang Aqil selalu diberikan kelancaran dalam menjalani perkuliahan dan tetap semangat dalam mengerjakan Tugas Akhirnya!"# 1
+            },
+            {
+                "nama": "Efi Defiyati",
+                "nim": "123450005",
+                "umur": "21",
+                "asal":"Lampung Timur",
+                "alamat": "Airan",
+                "hobbi": "Membaca",
+                "sosmed": "@eefffiidefi",
+                "kesan": "Kak Efi orangnya ramah dan murah senyum.",  
+                "pesan":"Semoga kak Efi selalu diberikan kelancaran dan semangat dalam mengerjakan Tugas Akhirnya!!"# 1
+            },
+           {
+                "nama": "Qois Olifio",
+                "nim": "123450067",
+                "umur": "22",
+                "asal":"Batam",
+                "alamat": "Kota Baru",
+                "hobbi": "Mainin surat",
+                "sosmed": "@qoisolifio_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Hafsa Fazila Arradhi",
+                "nim": "123450079",
+                "umur": "21",
+                "asal":"Bandar Lampung",
+                "alamat": "Bandar Lampung",
+                "hobbi": "Bertemu Luluk",
+                "sosmed": "@hafsafazilahh",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Luthfia Laila Ramadhani",
+                "nim": "123450004",
+                "umur": "20",
+                "asal":"Bengkulu",
+                "alamat": "Airan",
+                "hobbi": "Keliling Balam",
+                "sosmed": "@luthhifiarmdhni",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    psda()
+
+if menu == "Departemen MIKFES":
+    def mikfes():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=1k9qOgC8Jy5T1GmbUjAK9l40qnkTaiMEX",
+            "https://drive.google.com/uc?export=view&id=16-8EutSEIHVLuoxbcqpoh4dmPpIc_N5L",
+            "https://drive.google.com/uc?export=view&id=12mmvbhn_a3CNZBp2-C1CNtnOM5Za_pja",
+            "https://drive.google.com/uc?export=view&id=1hHcAzb2_cugwDJkKU4mVTVX7RfpvGPxU",
+            "https://drive.google.com/uc?export=view&id=1mPC9ZSdw6bZhOXTJXaEfnf0Yw-u8ngK6",
+            "https://drive.google.com/uc?export=view&id=1Y_tCuB9n0PNpex6mCtz-ch-LZTThztwv",
+        ]
+        data_list = [
+            {
+                "nama": "Ginda Fajar Riadi Marpaung",
+                "nim": "123450103",
+                "umur": "22",
+                "asal":"Batam",
+                "alamat": "Kesektariatan HMSD",
+                "hobbi": "Push IMO",
+                "sosmed": "@jars_mrp",
+                "kesan": "Saya melihat bang Fajar sebagai sosok pemimpin yang berwibawa dan tegas.  ",  
+                "pesan":"Semoga bang Fajar selalu diberi kelancaran dalam menjalankan amanah dan tetap semangat dalam mengerjakan Tugas Akhirnya!! "# 1
+            },
+            {
+                "nama": "Muhammad Aqil Ramadhan",
+                "nim": "123450066",
+                "umur": "22",
+                "asal":"Riau",
+                "alamat": "Sekretariat HMSD",
+                "hobbi": "Dzikir",
+                "sosmed": "@muhammadaqil1111",
+                "kesan": "Bang Aqil orangnya baik, asik dan memberikan kesan yang positif selama saya berinteraksi dengan bang Aqil.",  
+                "pesan":"Semoga bang Aqil selalu diberikan kelancaran dalam menjalani perkuliahan dan tetap semangat dalam mengerjakan Tugas Akhirnya!"# 1
+            },
+            {
+                "nama": "Efi Defiyati",
+                "nim": "123450005",
+                "umur": "21",
+                "asal":"Lampung Timur",
+                "alamat": "Airan",
+                "hobbi": "Membaca",
+                "sosmed": "@eefffiidefi",
+                "kesan": "Kak Efi orangnya ramah dan murah senyum.",  
+                "pesan":"Semoga kak Efi selalu diberikan kelancaran dan semangat dalam mengerjakan Tugas Akhirnya!!"# 1
+            },
+           {
+                "nama": "Qois Olifio",
+                "nim": "123450067",
+                "umur": "22",
+                "asal":"Batam",
+                "alamat": "Kota Baru",
+                "hobbi": "Mainin surat",
+                "sosmed": "@qoisolifio_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Hafsa Fazila Arradhi",
+                "nim": "123450079",
+                "umur": "21",
+                "asal":"Bandar Lampung",
+                "alamat": "Bandar Lampung",
+                "hobbi": "Bertemu Luluk",
+                "sosmed": "@hafsafazilahh",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Luthfia Laila Ramadhani",
+                "nim": "123450004",
+                "umur": "20",
+                "asal":"Bengkulu",
+                "alamat": "Airan",
+                "hobbi": "Keliling Balam",
+                "sosmed": "@luthhifiarmdhni",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    mikfes()
 # Tambahkan menu lainnya sesuai kebutuhan
