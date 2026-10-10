@@ -101,13 +101,15 @@ menu = streamlit_menu()
 if menu == "Kesekjenan":
     def kesekjenan():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=ID_FOTO_GINDA",
-            "https://drive.google.com/uc?export=view&id=ID_FOTO_AQIL",
-            "https://drive.google.com/uc?export=view&id=ID_FOTO_EFI",
-            "https://drive.google.com/uc?export=view&id=ID_FOTO_QOIS",
-            "https://drive.google.com/uc?export=view&id=ID_FOTO_HAFSA",
-            "https://drive.google.com/uc?export=view&id=ID_FOTO_LUTHFIA",
-        ]
+            "https://drive.google.com/uc?export=view&id=1Yro_FiWM13COyTiubMR23sjR5v5EdKZB",
+            "https://drive.google.com/uc?export=view&id=16i6ZBe3fFC7PIMT-OxHi-nSfBgLHSTzf",
+            "https://drive.google.com/uc?export=view&id=1TPHBkQDDpCpF-uHuOkZkE2j58QgWKesb",
+            "https://drive.google.com/uc?export=view&id=1HNkx2-8WrgbVhufU7vIdeKPlkhi66NlR",
+            "https://drive.google.com/uc?export=view&id=1mhlOxKmXscotUGYn4hwjj7fO6X6TuBPX",
+            "https://drive.google.com/uc?export=view&id=1OUaA6I7TtdOwh1Y_aApoar95wnbYhHcc",
+        ] 
+        
+
         data_list = [
             {
                 "Nama": "Ginda Fajar Riadi Marpaung",
@@ -162,7 +164,7 @@ if menu == "Kesekjenan":
                 "Hobbi": "Bertemu Kesekjenan",
                 "Sosmed": "@hafsafadhilaa",
                 "Kesan": "Kakaknya cantik, baik, kalem, asik juga",  
-                "Pesan":"Semangat terus kak, sehat selalu"
+                "Pesan":"Semangat terus kak, sehat selalu, jangan lupa istirahat"
             },
             {
                 "Nama": "Luthfia Laila Ramadhani",
@@ -173,6 +175,14 @@ if menu == "Kesekjenan":
                 "Hobbi": "Mintain Duit",
                 "Sosmed": "@luthfiaarmdhni ",
                 "Kesan": "Kakaknya lucu, baik, keren, asik juga",  
+ citra
+                "Pesan":"Semangat terus kak, semoga dimudahkan kuliahnya kak segala urusannya"
+            },
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    kesekjenan()
+
+
                 "Pesan":"Semoga dimudahkan selalu ya kak segala urusannya"
             },                                                  
         ]
@@ -321,3 +331,4 @@ elif menu == "Senator":
 if menu == "Kesekjenan":
     kesekjenan()
     
+ Pandas
