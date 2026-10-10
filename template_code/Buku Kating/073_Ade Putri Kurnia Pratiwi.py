@@ -97,15 +97,16 @@ def display_images_with_data(gambar_urls, data_list):
     st.write("Semua gambar telah dimuat!")
 menu = streamlit_menu()
 # KESEKJENAN
+ # KESEKJENAN
 if menu == "Kesekjenan":
     def kesekjenan():
         gambar_urls = [
-            "https://drive.google.com/file/d/14gLX2vsGmh_L9brrI7zq6y05Q2luJMWN/view?usp=drive_link",
-            "https://drive.google.com/file/d/1EfrZA3ODDNIq1AZpvJkj9H3E2IsdaUUL/view?usp=drive_link",
-            "https://drive.google.com/file/d/116eOprB8fk1p62Hk9tUOjeWctbqtrsMS/view?usp=drive_link",
-            "https://drive.google.com/file/d/1Jxrfrq7sAcbKkXLvjSJS4OO4FxxWQ0e0/view?usp=drive_link",
-            "https://drive.google.com/file/d/1DTV94ka3bDfTqjCAe_VHFTsmfyT4XIzX/view?usp=drive_link",
-            "https://drive.google.com/file/d/1v8Uub1z1ckefuwftbRUsEIjKQOdxaPCB/view?usp=drive_link"
+                "https://drive.google.com/uc?export=view&id=14gLX2vsGmh_L9brrI7zq6y05Q2luJMWN",
+                "https://drive.google.com/uc?export=view&id=1EfrZA3ODDNIq1AZpvJkj9H3E2IsdaUUL",
+                "https://drive.google.com/uc?export=view&id=116eOprB8fk1p62Hk9tUOjeWctbqtrsMS",
+                "https://drive.google.com/uc?export=view&id=1Jxrfrq7sAcbKkXLvjSJS4OO4FxxWQ0e0",
+                "https://drive.google.com/uc?export=view&id=1DTV94ka3bDfTqjCAe_VHFTsmfyT4XIzX",
+                "https://drive.google.com/uc?export=view&id=1v8Uub1z1ckefuwftbRUsEIjKQOdxaPCB"
         ]
         data_list = [
             {
@@ -179,25 +180,26 @@ if menu == "Kesekjenan":
     kesekjenan()
 
 #INTERNAL
+#INTERNAL
 if menu == "Departemen Internal":
     def departemen_internal():
         gambar_urls = [
-           "https://drive.google.com/file/d/1GsjMZTMiXUodGtHVN1PN-REdfUK2urjJ/view?usp=sharing",
-           "https://drive.google.com/file/d/1MJrO93aEfdPV_e4YFNCM3ySMCZTHC8Su/view?usp=sharing",
-           "https://drive.google.com/file/d/1ZOAcw1NLERIYS31CNVim6V9Q_38XPXvh/view?usp=sharing",
-           "https://drive.google.com/file/d/1PJVWnhMz53VQGceN-Qp7JxY6dIUBV-GV/view?usp=sharing",
-           "https://drive.google.com/file/d/15ifab3L65bznW_1J1fZdCg52jsKwf8zr/view?usp=sharing",
-           "https://drive.google.com/file/d/1yFgUzujETAR85TdmXKt4kKzJyat9I04I/view?usp=sharing",
-           "https://drive.google.com/file/d/11G56oZGnQgdN4hdEZk4lWIY6T_ar2oup/view?usp=sharing",
-           "https://drive.google.com/file/d/1uZxIIZawRwz5k6aEXk3dJ9EDAiYimTJD/view?usp=sharing",
-           "https://drive.google.com/file/d/1qFNKGRQ38kbJJgd7Kxu3zWr9iH6gvHXW/view?usp=sharing",
-           "https://drive.google.com/file/d/14C_IdcO4kKBQZIlO8oKFL3buXbt34Ick/view?usp=sharing",
-           "https://drive.google.com/file/d/1bNYcwEYSmAU-7PpC8wPIX111unvhypq0/view?usp=sharing",
-           "https://drive.google.com/file/d/18xoQXUD55Pw5TX1TVPSkxjLWgTFayS4I/view?usp=sharing"
-           "https://drive.google.com/file/d/1hMXT0moG7TksrPqzJz4ZCDm7PqraaIji/view?usp=sharing",
-           "https://drive.google.com/file/d/18d_7wmmf4MSnfWvGUhSI8gY2ttwENrFW/view?usp=sharing",
-           "https://drive.google.com/file/d/1PzUdNAYWjLa2bpC3kGfk6OV_cHCCQdqB/view?usp=sharing",
-           "https://drive.google.com/file/d/18d_7wmmf4MSnfWvGUhSI8gY2ttwENrFW/view?usp=sharing",
+                "https://drive.google.com/uc?export=view&id=1GsjMZTMiXUodGtHVN1PN-REdfUK2urjJ",
+                "https://drive.google.com/uc?export=view&id=1MJrO93aEfdPV_e4YFNCM3ySMCZTHC8Su",
+                "https://drive.google.com/uc?export=view&id=1ZOAcw1NLERIYS31CNVim6V9Q_38XPXvh",
+                "https://drive.google.com/uc?export=view&id=1PJVWnhMz53VQGceN-Qp7JxY6dIUBV-GV",
+                "https://drive.google.com/uc?export=view&id=15ifab3L65bznW_1J1fZdCg52jsKwf8zr",
+                "https://drive.google.com/uc?export=view&id=1yFgUzujETAR85TdmXKt4kKzJyat9I04I",
+                "https://drive.google.com/uc?export=view&id=11G56oZGnQgdN4hdEZk4lWIY6T_ar2oup",
+                "https://drive.google.com/uc?export=view&id=1uZxIIZawRwz5k6aEXk3dJ9EDAiYimTJD",
+                "https://drive.google.com/uc?export=view&id=1qFNKGRQ38kbJJgd7Kxu3zWr9iH6gvHXW",
+                "https://drive.google.com/uc?export=view&id=14C_IdcO4kKBQZIlO8oKFL3buXbt34Ick",
+                "https://drive.google.com/uc?export=view&id=1bNYcwEYSmAU-7PpC8wPIX111unvhypq0",
+                "https://drive.google.com/uc?export=view&id=18xoQXUD55Pw5TX1TVPSkxjLWgTFayS4I",
+                "https://drive.google.com/uc?export=view&id=1hMXT0moG7TksrPqzJz4ZCDm7PqraaIji",
+                "https://drive.google.com/uc?export=view&id=18d_7wmmf4MSnfWvGUhSI8gY2ttwENrFW",
+                "https://drive.google.com/uc?export=view&id=1PzUdNAYWjLa2bpC3kGfk6OV_cHCCQdqB",
+                "https://drive.google.com/uc?export=view&id=18d_7wmmf4MSnfWvGUhSI8gY2ttwENrFW"
         ]
 
         data_list = [
@@ -209,8 +211,8 @@ if menu == "Departemen Internal":
                 "Alamat": "",
                 "Hobi": "",
                 "Sosmed": "",
-                "Kesan": "Abangnya lucu dan nggak membosankan.",
-                "Pesan": "Jangan kehilangan humor, Bang!."
+                "Kesan": "Humornya sederhana tapi bikin akrab.",
+                "Pesan": "Jaga suasana cair tanpa berlebihan."
             },
             {
                 "Nama": "Kharisma Mustika Sari",
@@ -220,8 +222,8 @@ if menu == "Departemen Internal":
                 "Alamat": "",
                 "Hobi": "",
                 "Sosmed": "",
-                "Kesan": "Kakaknya inspiratif banget.",
-                "Pesan": "Semoga makin sukses ke depannya!."
+                "Kesan": "Cara bicaranya lembut tapi tegas.",
+                "Pesan": "Jangan ragu terus membimbing kami dengan sabar."
             },
             {
                 "Nama": "Hanna Gresia Sinaga",
@@ -231,8 +233,8 @@ if menu == "Departemen Internal":
                 "Alamat": "",
                 "Hobi": "",
                 "Sosmed": "",
-                "Kesan": "Kakaknya sabar menghadapi kami.",
-                "Pesan": "Makasih banyak ya, Kak!."
+                "Kesan": "Perhatiannya ke adik tingkat sangat besar.",
+                "Pesan": "Semoga kebaikan Kakak selalu kembali."
             },
             {
                 "Nama": "Ahmad Farhan Ghani",
@@ -242,8 +244,8 @@ if menu == "Departemen Internal":
                 "Alamat": "Kemiling",
                 "Hobi": "Supporteran",
                 "Sosmed": "@farhanghani",
-                "Kesan": "Abangnya baik dan mudah diajak ngobrol.",
-                "Pesan": "Semoga selalu bahagia!."
+                "Kesan": "Tegas saat mengambil keputusan.",
+                "Pesan": "Tetap adil dan pertimbangkan banyak hal."
             },
             {
                 "Nama": "Aisyah Khairun Nisa",
@@ -253,8 +255,8 @@ if menu == "Departemen Internal":
                 "Alamat": "Samping Makam Perwira 2",
                 "Hobi": "Nyicipin Makanan",
                 "Sosmed": "@aisyahkhair._",
-                "Kesan": "Kakaknya sabar menghadapi kami.",
-                "Pesan": "Makasih banyak ya, Kak!."
+                "Kesan": "Selalu rapi dan enak dilihat.",
+                "Pesan": "Tetap jadi panutan tanpa harus menggurui."
             },
             {
                 "Nama": "Cerine Sihotang",
@@ -275,8 +277,8 @@ if menu == "Departemen Internal":
                 "Alamat": "Pemda",
                 "Hobi": "Mencari Nafkah",
                 "Sosmed": "@jay.saputra.mb",
-                "Kesan": "Abangnya seru kalau diajak bercanda.",
-                "Pesan": "Semoga sukses terus, Bang!."
+                "Kesan": "Suka membantu tanpa pamrih.",
+                "Pesan": "Semoga kebaikan Kakak berbuah baik."
             },
             {
                 "Nama": "Najla Nursyifa",
@@ -286,7 +288,7 @@ if menu == "Departemen Internal":
                 "Alamat": "Belwis",
                 "Hobi": "Nonton ASMR",
                 "Sosmed": "@njlanursyifa",
-                "Kesan": "Kakaknya ramah sama semua orang.",
+                "Kesan": "Humornya segar dan tidak berlebihan.",
                 "Pesan": "Jaga energi positif itu sampai kapan pun."
             },
             {
@@ -298,7 +300,7 @@ if menu == "Departemen Internal":
                 "Hobi": "Berantemin Kucing",
                 "Sosmed": "@rozakrabbani__",
                 "Kesan": "Disiplin dan tepat waktu.",
-                "Pesan": "Pertahankan sifat baiknya, Kak!."
+                "Pesan": "Tularkan kebiasaan itu ke adik tingkat."
             },
             {
                 "Nama": "Teresa Christiani Purba",
@@ -308,8 +310,8 @@ if menu == "Departemen Internal":
                 "Alamat": "Belwis",
                 "Hobi": "Masak",
                 "Sosmed": "@kristiani8872",
-                "Kesan": "Kakaknya selalu memberi arahan dengan baik.",
-                "Pesan": "Semoga ilmunya bermanfaat!."
+                "Kesan": "Tegas saat organisasi butuh keputusan.",
+                "Pesan": "Tetap adil dan bijak dalam memimpin."
             },
             {
                 "Nama": "Muhammad Hanif Dzaky Arifin",
@@ -319,8 +321,8 @@ if menu == "Departemen Internal":
                 "Alamat": "Way Kandis",
                 "Hobi": "Nonton F1 & MotoGP",
                 "Sosmed": "@hnfdzky_",
-                "Kesan": "Abangnya berwibawa.",
-                "Pesan": "Semoga makin banyak pencapaiannya!."
+                "Kesan": "Berwibawa tanpa harus marah.",
+                "Pesan": "Terus jadi panutan yang bijak."
             },
             {
                 "Nama": "Audina Fitria",
@@ -330,8 +332,8 @@ if menu == "Departemen Internal":
                 "Alamat": "Sukarame",
                 "Hobi": "Masak",
                 "Sosmed": "@audinaf_03",
-                "Kesan": "Kakaknya selalu memberi arahan dengan baik.",
-                "Pesan": "Semoga ilmunya bermanfaat!."
+                "Kesan": "Suka menolong tanpa banyak bicara.",
+                "Pesan": "Jangan lupa istirahat, Kak."
             },
             {
                 "Nama": "Cika Adelia Br Marbun",
@@ -341,8 +343,8 @@ if menu == "Departemen Internal":
                 "Alamat": "Belwis",
                 "Hobi": "Dengerin Musik",
                 "Sosmed": "@cikamrbn",
-                "Kesan": "Kakaknya punya banyak pengalaman.",
-                "Pesan": "Semoga terus menginspirasi!."
+                "Kesan": "Disiplin soal waktu.",
+                "Pesan": "Ajari kami juga cara mengatur prioritas."
             },
             {
                 "Nama": "Gustin H Tampubolon",
@@ -352,8 +354,8 @@ if menu == "Departemen Internal":
                 "Alamat": "Airan",
                 "Hobi": "Nonton",
                 "Sosmed": "@gustinhaleluya",
-                "Kesan": "Kakaknya seru banget diajak diskusi.",
-                "Pesan": "Semoga makin berkembang!."
+                "Kesan": "Pandai memberi nasihat praktis.",
+                "Pesan": "Terus jadi kakak yang solutif."
             },
             {
                 "Nama": "Muhammad Harvinsyah",
@@ -363,8 +365,8 @@ if menu == "Departemen Internal":
                 "Alamat": "Belwis",
                 "Hobi": "Ngadu Ikan Cupang",
                 "Sosmed": "@muhvinz_",
-                "Kesan": "Abangnya ramah walaupun baru kenal.",
-                "Pesan": "Semoga kita bisa ketemu lagi."
+                "Kesan": "Ramah ke semua orang.",
+                "Pesan": "Pertahankan sikap terbuka itu."
             },
             {
                 "Nama": "Rafa Sabina Fahimah",
@@ -374,20 +376,21 @@ if menu == "Departemen Internal":
                 "Alamat": "Natar",
                 "Hobi": "Nonton Drakor",
                 "Sosmed": "@snasaa._",
-                "Kesan": "Kakaknya tegas tapi tetap baik.",
-                "Pesan": "Semoga selalu diberi kesabaran!."
+                "Kesan": "Ramah ke semua orang.",
+                "Pesan": "Pertahankan sikap rendah hati itu."
             },
         ]
         display_images_with_data(gambar_urls, data_list)
     departemen_internal()
 
 # MINBAK
+# MINBAK
 if menu == "Departemen Minbak":
     def departemen_minbak():
         gambar_urls = [
-                "https://drive.google.com/file/d/1V7SKNscbtwlpNVdqS-Oe3jrCFxNQJSW-/view?usp=sharing",
-                "https://drive.google.com/file/d/1aY59DT9njecfNDEMgROnvHlDyHNH9qaO/view?usp=sharing",
-
+                "https://drive.google.com/thumbnail?id=1V7SKNscbtwlpNVdqS-Oe3jrCFxNQJSW-&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1aY59DT9njecfNDEMgROnvHlDyHNH9qaO&sz=w1000",
+        ]
 
         data_list = [
             {
@@ -398,8 +401,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Balap",
                 "Umur" : "21",
                 "Sosmed" : "@kevinaj__",
-                "Kesan" : "Abangnya seru meskipun baru kenal.",
-                "Pesan" : "Semoga nanti bisa kenal lebih dekat lagi."
+                "Kesan" : "Sosoknya santai tapi tetap bisa diandalkan.",
+                "Pesan" : "Tetap jadi kakak yang asyik diajak ngobrol, Kak."
             },
             {
                 "Nama": "Gusti Putu Ferazka Dhiyamika",
@@ -409,7 +412,7 @@ if menu == "Departemen Minbak":
                 "Hobi": "Baca",
                 "Umur" : "21",
                 "Sosmed" : "@ferazkaa",
-                "Kesan" : "Semoga nanti bisa kenal lebih dekat lagi.",
+                "Kesan" : "Tutur katanya tenang dan enak didengar.",
                 "Pesan" : "Terus bagikan wawasan dari bacaanmu ke kami, Kak."
             },
             {
@@ -420,8 +423,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Nonton F1",
                 "Umur" : "21",
                 "Sosmed" : "@ali_parisi3",
-                "Kesan" : "Abangnya punya cara sendiri buat mencairkan suasana.",
-                "Pesan" : "Semoga semua rencana Abang berjalan lancar."
+                "Kesan" : "Orangnya kalem dan tidak banyak menuntut.",
+                "Pesan" : "Tetap jadi pribadi yang rendah hati, Kak."
             },
             {
                 "Nama": "Ayu Andriani Parlina Wati",
@@ -431,8 +434,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Belajar",
                 "Umur" : "20",
                 "Sosmed" : "@aayuandrianni_",
-                "Kesan" : "Kakaknya perhatian sama adik tingkatnya.",
-                "Pesan" : "Semoga Kakak selalu mendapat kebaikan yang sama."
+                "Kesan" : "Rajin dan selalu bersungguh-sungguh dalam bekerja.",
+                "Pesan" : "Semoga semangat belajarnya menular ke kami, Kak."
             },
             {
                 "Nama": "Dafa Elpriza",
@@ -442,8 +445,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Nemenin Bryan live TikTok",
                 "Umur" : "21",
                 "Sosmed" : "@dafaelpriza_",
-                "Kesan" : "Abangnya kelihatan dewasa dan bisa diandalkan.",
-                "Pesan" : "Semoga Abang selalu dimudahkan dalam segala hal."
+                "Kesan" : "Setia kawan dan gampang bikin suasana ramai.",
+                "Pesan" : "Jangan berubah, tetap jadi teman yang seru, Kak."
             },
             {
                 "Nama": "Juwita Sari",
@@ -453,8 +456,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Lihat bulan",
                 "Umur" : "19",
                 "Sosmed" : "@ju.juwitaaa_",
-                "Kesan" : "Kakaknya menyenangkan dan nggak bikin canggung.",
-                "Pesan" : "Semoga kita bisa bertemu lagi di lain kesempatan."
+                "Kesan" : "Sikapnya lembut dan menenangkan.",
+                "Pesan" : "Tetap jadi tempat bercerita yang nyaman, Kak."
             },
             {
                 "Nama": "Muhammad Afdal Lutfi",
@@ -464,8 +467,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Taptap layar kalo Bryan live",
                 "Umur" : "19",
                 "Sosmed" : "@afdall.03",
-                "Kesan" : "Abangnya punya kepribadian yang menarik.",
-                "Pesan" : "Semoga Abang selalu berkembang menjadi lebih baik."
+                "Kesan" : "Ceria dan selalu kompak dengan teman-temannya.",
+                "Pesan" : "Terus jaga kekompakan itu, Kak."
             },
             {
                 "Nama": "Salsabila Nazwa Putri",
@@ -475,8 +478,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Nongkrong di Kopken",
                 "Umur" : "20",
                 "Sosmed" : "@slbnzw_",
-                "Kesan" : "Kakaknya asik meskipun interaksinya nggak terlalu lama.",
-                "Pesan" : "Semoga ada kesempatan untuk ngobrol lebih banyak lagi."
+                "Kesan" : "Mudah akrab dan enak diajak berdiskusi.",
+                "Pesan" : "Tetap jadi kakak yang terbuka ke adik tingkat, ya, Kak."
             },
             {
                 "Nama": "Muhammad Ridwan",
@@ -486,8 +489,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Nganterin Datasena ke gedung F",
                 "Umur" : "21",
                 "Sosmed" : "@mridwaan_22",
-                "Kesan" : "Abangnya baik dan bisa membuat orang merasa diterima.",
-                "Pesan" : "Semoga Abang selalu menemukan lingkungan yang nyaman."
+                "Kesan" : "Bertanggung jawab dan siap membantu kapan saja.",
+                "Pesan" : "Jangan lelah jadi tumpuan kami, Kak."
             },
             {
                 "Nama": "Andra Ilham Bintang",
@@ -497,8 +500,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Ngitungin kelopak bunga di kebun",
                 "Umur" : "18",
                 "Sosmed" : "@andra.lhm",
-                "Kesan" : "Abangnya ternyata perhatian juga sama hal-hal kecil.",
-                "Pesan" : "Semoga Abang selalu diberikan kebahagiaan."
+                "Kesan" : "Teliti dan sabar dalam mengerjakan sesuatu.",
+                "Pesan" : "Tetap semangat dan jangan ragu bertanya ke kami, Kak."
             },
             {
                 "Nama": "Bryan Paskah Telaumbanua",
@@ -508,8 +511,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Live TikTok",
                 "Umur" : "22",
                 "Sosmed" : "@bryantel_",
-                "Kesan" : "Abangnya menyenangkan dan gampang diingat.",
-                "Pesan" : "Semoga kita bisa bertemu lagi di kegiatan berikutnya."
+                "Kesan" : "Percaya dirinya tinggi dan bikin suasana hidup.",
+                "Pesan" : "Tetap jadi pribadi yang menghibur, Kak."
             },
             {
                 "Nama": "Ghiyats Thabularasa Meardhy",
@@ -519,8 +522,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Ngegift live Bryan",
                 "Umur" : "17",
                 "Sosmed" : "@meardhy_ghiyats",
-                "Kesan" : "Kakaknya memberikan banyak pelajaran selama kegiatan.",
-                "Pesan" : "Semoga Kakak selalu punya pengalaman baru yang seru."
+                "Kesan" : "Royal ke teman dan murah hati.",
+                "Pesan" : "Semoga kebaikanmu selalu dibalas, Kak."
             },
             {
                 "Nama": "Indah Julia Mawar Pratiwi",
@@ -530,8 +533,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Bengong",
                 "Umur" : "Belum Tahu",
                 "Sosmed" : "@indahjuliaa",
-                "Kesan" : "Kakaknya memberikan banyak pelajaran selama kegiatan.",
-                "Pesan" : "Semoga Kakak selalu sukses dan bahagia."
+                "Kesan" : "Pembawaannya adem dan tidak neko-neko.",
+                "Pesan" : "Tetap jadi pribadi yang apa adanya, Kak."
             },
             {
                 "Nama": "Jacinda Kesya Alvara",
@@ -541,8 +544,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Nyapu depan gacoan",
                 "Umur" : "18",
                 "Sosmed" : "@cacalvra",
-                "Kesan" : "Kakaknya ternyata seru di luar dugaan.",
-                "Pesan" : "Semoga Kakak selalu dikelilingi hal-hal baik."
+                "Kesan" : "Ceria dan punya selera humor yang unik.",
+                "Pesan" : "Terus tebar keceriaan ke sekitar, Kak."
             },
             {
                 "Nama": "Muhammad Rafka Fatih Al Ghathfaan",
@@ -552,8 +555,8 @@ if menu == "Departemen Minbak":
                 "Hobi": "Bangun pagi",
                 "Umur" : "20",
                 "Sosmed" : "@muhammdrafka_",
-                "Kesan" : "Abangnya punya pembawaan yang santai dan asik.",
-                "Pesan" : "Semoga kuliahnya lancar terus, Bang."
+                "Kesan" : "Disiplin dan selalu memulai hari lebih awal.",
+                "Pesan" : "Ajari kami cara menjaga konsistensi, Kak."
             },
         ]
         display_images_with_data(gambar_urls, data_list)
@@ -562,11 +565,9 @@ if menu == "Departemen Minbak":
 if menu == "Departemen MIKFES":
     def departemen_mikfes():
         gambar_urls = [
-                "https://drive.google.com/file/d/1iSvUBeHHIBq2lXajNPWHGXlQ3MApuOgt/view?usp=sharing",
-                "https://drive.google.com/file/d/1REPKmZjLeQrNhFGrDwy46n3UlgwattNv/view?usp=sharing",
-
+                "https://drive.google.com/thumbnail?id=1iSvUBeHHIBq2lXajNPWHGXlQ3MApuOgt&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1REPKmZjLeQrNhFGrDwy46n3UlgwattNv&sz=w1000",
         ]
-
 
         data_list = [
             {
@@ -577,8 +578,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Tidur",
                 "Umur" : "21",
                 "Sosmed" : "@biyokcb",
-                "Kesan" : "Abangnya punya pembawaan yang santai dan asik.",
-                "Pesan" : "Semoga kuliahnya lancar terus, Bang"
+                "Kesan" : "Pembawaan abangnya santai dan pengertian.",
+                "Pesan" : "Jangan berubah dan tetap jadi abang yang baik"
             },
             {
                 "Nama": "Tanty Widiyastuti",
@@ -588,8 +589,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Membaca",
                 "Umur" : "21",
                 "Sosmed" : "@tvnty_",
-                "Kesan" : "Kakaknya baik dan nggak pernah bikin suasana canggung.",
-                "Pesan" : "Semoga Kakak makin sukses ke depannya."
+                "Kesan" : "Tenang dan suka memperhatikan hal-hal kecil.",
+                "Pesan" : "Terus bagikan ketelitianmu ke kami, Kak."
             },
             {
                 "Nama": "Fadil Prasetyo Alfaritzi",
@@ -599,8 +600,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Gitar",
                 "Umur" : "21",
                 "Sosmed" : "@fadilalfarizzii",
-                "Kesan" : "Abangnya kelihatan sederhana, tapi menyenangkan.",
-                "Pesan" : "Semoga semua keinginan Abang bisa tercapai."
+                "Kesan" : "Permainan gitarnya bikin suasana nyaman.",
+                "Pesan" : "Sering-sering hibur kami lewat musikmu, Kak."
             },
             {
                 "Nama": "Manuel Frederika",
@@ -610,8 +611,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Tenis meja",
                 "Umur" : "20",
                 "Sosmed" : "@manuelfdk_",
-                "Kesan" : "Abangnya gampang akrab sama orang baru.",
-                "Pesan" : "Semoga Abang selalu punya banyak teman baik."
+                "Kesan" : "Energik dan cepat akrab dengan siapa saja.",
+                "Pesan" : "Tetap semangat dan jangan berubah, Kak."
             },
             {
                 "Nama": "Ni Made Okta Viola Darma Putri",
@@ -621,8 +622,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Menghayal",
                 "Umur" : "12",
                 "Sosmed" : "Violaadrtr_",
-                "Kesan" : "Kakaknya punya sifat yang bikin orang gampang dekat.",
-                "Pesan" : "Semoga Kakak selalu dikelilingi orang yang tulus."
+                "Kesan" : "Pembawaannya kalem dan penuh imajinasi.",
+                "Pesan" : "Semoga ide-idemu terus berkembang, Kak."
             },
             {
                 "Nama": "Risa Romadona",
@@ -632,8 +633,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Rolling skate",
                 "Umur" : "20",
                 "Sosmed" : "risarmdna",
-                "Kesan" : "Kakaknya seru kalau sudah mulai bercanda.",
-                "Pesan" : "Semoga Kakak selalu punya waktu untuk bersenang-senang."
+                "Kesan" : "Aktif dan berani mencoba hal baru.",
+                "Pesan" : "Terus berani melangkah, Kak."
             },
             {
                 "Nama": "Vannisa Ramadhani",
@@ -643,8 +644,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Nonton KHW",
                 "Umur" : "19",
                 "Sosmed" : "@vunnycaa",
-                "Kesan" : "Kakaknya punya cara berpikir yang menarik.",
-                "Pesan" : "Semoga Kakak terus berkembang dan meraih impian."
+                "Kesan" : "Ramah dan selalu terlihat ceria.",
+                "Pesan" : "Tetap jadi pribadi yang menyenangkan, Kak."
             },
             {
                 "Nama": "Yulia Cristine Malau",
@@ -654,8 +655,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Belum Tahu",
                 "Umur" : "Belum Tahu",
                 "Sosmed" : "Belum Tahu",
-                "Kesan" : "Kakaknya enak diajak diskusi tanpa bikin tegang.",
-                "Pesan" : "Semoga Kakak makin banyak mendapat kesempatan bagus."
+                "Kesan" : "Sopan dan menghargai orang lain.",
+                "Pesan" : "Semoga selalu sukses dalam setiap kegiatan, Kak."
             },
             {
                 "Nama": "Akeyla Fairuz Shafi",
@@ -665,8 +666,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Dengerin Musik",
                 "Umur" : "21",
                 "Sosmed" : "@keyashafi",
-                "Kesan" : "Abangnya punya sisi humoris yang bikin suasana hidup.",
-                "Pesan" : "Semoga Abang tetap jadi orang yang menyenangkan."
+                "Kesan" : "Pendengar yang baik dan tidak suka menghakimi.",
+                "Pesan" : "Tetap jadi teman cerita yang nyaman, Kak."
             },
             {
                 "Nama": "Elsa Sitorus",
@@ -676,8 +677,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Rebahan",
                 "Umur" : "21",
                 "Sosmed" : "_els.a",
-                "Kesan" : "Kakaknya kelihatan sederhana tapi punya banyak kelebihan.",
-                "Pesan" : "Semoga semua potensi Kakak bisa berkembang."
+                "Kesan" : "Murah senyum dan enak diajak bicara.",
+                "Pesan" : "Tetap jadi kakak yang hangat, ya, Kak."
             },
             {
                 "Nama": "Fadya Izzatul ‘Aini",
@@ -687,8 +688,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Mancing",
                 "Umur" : "20",
                 "Sosmed" : "fadyaizzatul_",
-                "Kesan" : "Kakaknya nggak pelit berbagi pengalaman.",
-                "Pesan" : "Semoga ilmu Kakak terus bermanfaat bagi orang lain."
+                "Kesan" : "Sabar dan telaten kalau menjelaskan sesuatu.",
+                "Pesan" : "Jangan bosan membimbing kami, Kak."
             },
             {
                 "Nama": "Lovianora Saragih",
@@ -698,8 +699,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Dengerin Musik",
                 "Umur" : "19",
                 "Sosmed" : "_loviaa",
-                "Kesan" : "Kakaknya kelihatan dewasa dalam menyikapi sesuatu.",
-                "Pesan" : "Semoga Kakak selalu diberi kebijaksanaan dalam mengambil keputusan."
+                "Kesan" : "Kalem tapi tetap hangat saat berinteraksi.",
+                "Pesan" : "Semoga selalu dimudahkan dalam studinya, Kak."
             },
             {
                 "Nama": "M. Alsi Syahrulloh",
@@ -709,8 +710,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Main Game, Tidur",
                 "Umur" : "20",
                 "Sosmed" : "@aluccy_",
-                "Kesan" : "Abangnya punya gaya bercanda yang khas.",
-                "Pesan" : "Semoga Abang selalu punya cerita lucu untuk dibagikan."
+                "Kesan" : "Humoris dan gampang bikin tawa.",
+                "Pesan" : "Jangan lupa tetap fokus kuliah juga, Kak."
             },
             {
                 "Nama": "Sherena Florencia",
@@ -720,9 +721,9 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Make up",
                 "Umur" : "19",
                 "Sosmed" : "sher_renna",
-                "Kesan" : "Kakaknya menyenangkan meskipun baru beberapa kali bertemu.",
-                "Pesan" : "Semoga Kakak juga selalu mendapatkan perhatian yang sama."
-            },T
+                "Kesan" : "Rapi dan selalu tampil percaya diri.",
+                "Pesan" : "Tetap jadi inspirasi bagi adik tingkat, Kak."
+            },
             {
                 "Nama": "Razin Hafid Hamdi",
                 "NIM" : "123450096",
@@ -731,8 +732,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Futsal",
                 "Umur" : "21",
                 "Sosmed" : "@razyn.hfd",
-                "Kesan" : "Kakaknya perhatian dan peduli terhadap sekitar.",
-                "Pesan" : "Semoga Kakak juga selalu mendapatkan perhatian yang sama."
+                "Kesan" : "Sportif dan semangat kerja samanya tinggi.",
+                "Pesan" : "Terus ajak kami aktif bersama, Kak."
             },
             {
                 "Nama": "Faiza Try Anjani",
@@ -742,7 +743,7 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Membaca Novel",
                 "Umur" : "19",
                 "Sosmed" : "FAIZAANJANII",
-                "Kesan" : "Kakaknya perhatian dan peduli terhadap sekitar.",
+                "Kesan" : "Tutur katanya sopan dan penuh pertimbangan.",
                 "Pesan" : "Tetap jadi kakak yang bijak, Kak."
             },
             {
@@ -753,8 +754,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Main game",
                 "Umur" : "20",
                 "Sosmed" : "@gathfannadif",
-                "Kesan" : "Abangnya punya semangat yang patut diapresiasi.",
-                "Pesan" : "Semoga semua perjuangan Abang membuahkan hasil."
+                "Kesan" : "Santai tapi tetap bertanggung jawab.",
+                "Pesan" : "Terus jaga keseimbangan itu, Kak."
             },
             {
                 "Nama": "Hafidz Wahdiansyah",
@@ -764,8 +765,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "3N (Ngoding, Ngegame, Nyibukin diri)",
                 "Umur" : "20",
                 "Sosmed" : "@apiszzaja_",
-                "Kesan" : "Abangnya kelihatan santai, tetapi tetap bertanggung jawab.",
-                "Pesan" : "Semoga semua rencana Abang berjalan sesuai harapan."
+                "Kesan" : "Cekatan soal teknis dan mau berbagi ilmu.",
+                "Pesan" : "Ajari kami ngoding dengan sabar, Kak."
             },
             {
                 "Nama": "Kaleb Filbert Istel",
@@ -775,8 +776,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Ngegym, baca novel",
                 "Umur" : "20",
                 "Sosmed" : "@kelelep_comberan",
-                "Kesan" : "Abangnya menyenangkan kalau diajak kerja bareng.",
-                "Pesan" : "Semoga ke depannya Abang makin banyak mendapat pengalaman berharga.."
+                "Kesan" : "Konsisten menjaga kebiasaan hidup sehat.",
+                "Pesan" : "Tularkan semangat hidup sehatmu ke kami, Kak."
             },
             {
                 "Nama": "Melva Shaprina Febrianti",
@@ -786,8 +787,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Scroll",
                 "Umur" : "19",
                 "Sosmed" : "@melva_fbrt",
-                "Kesan" : "Kakaknya punya kepribadian yang hangat.",
-                "Pesan" : "Semoga Kakak selalu merasa dihargai oleh orang sekitar."
+                "Kesan" : "Ceria dan mudah menyesuaikan diri.",
+                "Pesan" : "Tetap jadi pribadi yang ramah, Kak."
             },
             {
                 "Nama": "Muhammad Syafiqul Falakh",
@@ -797,8 +798,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Belum Tahu",
                 "Umur" : "Belum Tahu",
                 "Sosmed" : "@syaafiqui",
-                "Kesan" : "Abangnya kelihatan cuek, tapi ternyata peduli.",
-                "Pesan" : "Semoga semua hal baik selalu menyertai Abang."
+                "Kesan" : "Pendiam tapi diam-diam bisa diandalkan.",
+                "Pesan" : "Jangan sungkan berbagi pendapat ke kami, Kak."
             },
             {
                 "Nama": "Rifky Henry Ferdianto",
@@ -808,34 +809,35 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Lari dari kenyataan",
                 "Umur" : "28",
                 "Sosmed" : "henryferdianto",
-                "Kesan" : "Abangnya punya cara komunikasi yang santai dan jelas.",
-                "Pesan" : "Semoga kemampuan Abang terus berkembang."
+                "Kesan" : "Humornya unik dan bikin suasana cair.",
+                "Pesan" : "Semoga kenyataan selalu ramah padamu, Kak."
             },
         ]
         display_images_with_data(gambar_urls, data_list)
     departemen_mikfes()
 
+
 if menu == "Departemen Medkraf":
     def departemen_medkraf():
         gambar_urls = [
-                "https://drive.google.com/file/d/1MWqGW20ZyW4EfLcgMqt-ex9vrleLJrQr/view?usp=sharing",
-                "https://drive.google.com/file/d/1MWqGW20ZyW4EfLcgMqt-ex9vrleLJrQr/view?usp=sharing",
-                "https://drive.google.com/file/d/1K01_dacpNrReJIeeDgJWJufZ-zVfGkai/view?usp=sharing",
-                "https://drive.google.com/file/d/1nkooGAkJ4CJ5gctXjVIEgWh9ps_zVphm/view?usp=sharing",
-                "https://drive.google.com/file/d/1WrJt4N06LmIuFZRdnQ6ML8DQf0koAUyz/view?usp=sharing",
-                "https://drive.google.com/file/d/1TIssnVc2Kg6ZPB6lfL6r-vROL4ZVBeDb/view?usp=sharing",
-                "https://drive.google.com/file/d/1IyyZJwi0aQFCWcWZBFdAph7Rj1jMNcUK/view?usp=sharing",
-                "https://drive.google.com/file/d/1XwFSsJxPMedkirDR4XMxraV4RXaaya7G/view?usp=sharing",
-                "https://drive.google.com/file/d/1deSBvAthulJjGOBXCNlc9opPU54hW4ZA/view?usp=sharing",
-                "https://drive.google.com/file/d/1u-sMuJ9kJi_7XYHWezaNdDEuzeQT4D8c/view?usp=sharing",
-                "https://drive.google.com/file/d/1e1RYCxnHf2qga9G42CNqYNpIb7d3y4id/view?usp=sharing",
-                "https://drive.google.com/file/d/1wDXrqF_YARQf0SLRzc2FeBUQCihOPHjo/view?usp=sharing",
-                "https://drive.google.com/file/d/1Vx8KBYDImBAeDZ43_sbbIcke8yBA7sDV/view?usp=sharing",
-                "https://drive.google.com/file/d/1T0HY3uNIcVWrsuYEvDm6_baemqQTo1aC/view?usp=sharing",
-                "https://drive.google.com/file/d/1zXUS0S-dgvr4pVSDOXKWBHwGhTaKjr2Q/view?usp=sharing",
-                "https://drive.google.com/file/d/1BW_mfgFvWNtdNu1QcjwlqMjgx-2Y7In2/view?usp=sharing",
-                "https://drive.google.com/file/d/17qBJO0JdYoCY71I6J2LdooQw00-ELRfQ/view?usp=sharing",
-                "https://drive.google.com/file/d/1K4cRdhiUSUcJ25F4-mcTAiMFBCVwUIks/view?usp=sharing"
+                "https://drive.google.com/thumbnail?id=1MWqGW20ZyW4EfLcgMqt-ex9vrleLJrQr&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1MWqGW20ZyW4EfLcgMqt-ex9vrleLJrQr&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1K01_dacpNrReJIeeDgJWJufZ-zVfGkai&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1nkooGAkJ4CJ5gctXjVIEgWh9ps_zVphm&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1WrJt4N06LmIuFZRdnQ6ML8DQf0koAUyz&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1TIssnVc2Kg6ZPB6lfL6r-vROL4ZVBeDb&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1IyyZJwi0aQFCWcWZBFdAph7Rj1jMNcUK&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1XwFSsJxPMedkirDR4XMxraV4RXaaya7G&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1deSBvAthulJjGOBXCNlc9opPU54hW4ZA&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1u-sMuJ9kJi_7XYHWezaNdDEuzeQT4D8c&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1e1RYCxnHf2qga9G42CNqYNpIb7d3y4id&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1wDXrqF_YARQf0SLRzc2FeBUQCihOPHjo&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1Vx8KBYDImBAeDZ43_sbbIcke8yBA7sDV&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1T0HY3uNIcVWrsuYEvDm6_baemqQTo1aC&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1zXUS0S-dgvr4pVSDOXKWBHwGhTaKjr2Q&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1BW_mfgFvWNtdNu1QcjwlqMjgx-2Y7In2&sz=w1000",
+                "https://drive.google.com/thumbnail?id=17qBJO0JdYoCY71I6J2LdooQw00-ELRfQ&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1K4cRdhiUSUcJ25F4-mcTAiMFBCVwUIks&sz=w1000"
         ]
 
         data_list = [
@@ -847,8 +849,9 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Rebahan",
                 "Umur" : "20",
                 "Sosmed" : "@naylasalsabilaa._",
-                "Kesan" : "Kakaknya menyenangkan dan nggak pelit ilmu.",
-                "Pesan" : "Semoga ilmunya jadi berkah!
+                "Kesan" : "Bicaranya halus dan enak diajak ngobrol.",
+                "Pesan" : "Tetap jadi kakak yang sabar, ya, Kak."
+            },
             {
                 "Nama": "Donna Maya Puspita",
                 "NIM" : "123450028",
@@ -857,8 +860,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Mendengarkan musik",
                 "Umur" : "21",
                 "Sosmed" : "@donnamaya.p",
-                "Kesan" : "Kakaknya enak diajak komunikasi.",
-                "Pesan" : "Semoga selalu dikelilingi orang baik!."
+                "Kesan" : "Pendengar yang baik dan selalu tulus.",
+                "Pesan" : "Terus jadi teman berbagi yang nyaman, Kak."
             },
             {
                 "Nama": "Labo John Nuel Napitupulu",
@@ -868,8 +871,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Berburu burung",
                 "Umur" : "20",
                 "Sosmed" : "@noerruuu",
-                "Kesan" : "Abangnya baik banget sama adik tingkat.",
-                "Pesan" : "Jangan bosan membimbing kami, Bang!."
+                "Kesan" : "Wawasannya luas dan cerita pengalamannya seru.",
+                "Pesan" : "Sering-sering bagi cerita perjalananmu, Kak."
             },
             {
                 "Nama": "Anash Tasya Ausyaqila",
@@ -879,8 +882,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Ngoding",
                 "Umur" : "20",
                 "Sosmed" : "@anshtsyaaql",
-                "Kesan" : "Kakaknya memberi kesan yang baik.",
-                "Pesan" : "Semoga semua cita-citanya tercapai."
+                "Kesan" : "Fokus dan tekun kalau sudah mengerjakan sesuatu.",
+                "Pesan" : "Semoga ilmu codingmu terus berkembang, Kak."
             },
             {
                 "Nama": "Felisya Nabila Putri Nugroho",
@@ -890,8 +893,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Ngejahilin mama",
                 "Umur" : "18",
                 "Sosmed" : "@felisyanbl__",
-                "Kesan" : "Kakaknya asik dan mudah akrab.",
-                "Pesan" : "Semoga terus menjadi inspirasi."
+                "Kesan" : "Usilnya menyenangkan dan bikin suasana hidup.",
+                "Pesan" : "Tetap jadi pribadi yang ceria, Kak."
             },
             {
                 "Nama": "Muhammad Razan Maulana Pratama",
@@ -901,8 +904,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Jahilin Felisya",
                 "Umur" : "18",
                 "Sosmed" : "@muh_razan_",
-                "Kesan" : "Abangnya sopan dan ramah.",
-                "Pesan" : "Semoga selalu dimudahkan urusannya!."
+                "Kesan" : "Jahilnya bikin akrab, tapi tetap tahu batas.",
+                "Pesan" : "Jaga kekompakan sama teman-teman, Kak."
             },
             {
                 "Nama": "Sania Dwi Ayu Lestari",
@@ -912,8 +915,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Bimbingan TA",
                 "Umur" : "21",
                 "Sosmed" : "@saniayyllstr",
-                "Kesan" : "Kakaknya baik dan nggak pelit senyum.",
-                "Pesan" : "Semoga bahagia selalu!."
+                "Kesan" : "Gigih dan tidak mudah menyerah.",
+                "Pesan" : "Semoga TA-nya lancar dan cepat selesai, Kak."
             },
             {
                 "Nama": "Allisha",
@@ -923,8 +926,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Makan warbir bareng Queenta, Dipa, Della, Vio, Risa, Indah",
                 "Umur" : "6",
                 "Sosmed" : "@aallishaa.a",
-                "Kesan" : "Kakaknya komunikatif dan terbuka.",
-                "Pesan" : "Semoga selalu lancar dalam setiap kegiatan!k."
+                "Kesan" : "Gampang akrab dan setia sama teman-temannya.",
+                "Pesan" : "Tetap jadi teman yang asyik buat semua, Kak."
             },
             {
                 "Nama": "Alya Ramadhanti",
@@ -934,8 +937,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Apa aja",
                 "Umur" : "19",
                 "Sosmed" : "@alya.rmdhnti",
-                "Kesan" : "Kakaknya selalu berusaha memberikan yang terbaik.",
-                "Pesan" : "Jangan lupa apresiasi diri sendiri."
+                "Kesan" : "Fleksibel dan mau mencoba apa saja.",
+                "Pesan" : "Jangan berhenti penasaran sama hal baru, Kak."
             },
             {
                 "Nama": "Bunga Clarisa Sefa",
@@ -945,7 +948,7 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Belajar",
                 "Umur" : "20",
                 "Sosmed" : "@bungaclrssf",
-                "Kesan" : "Kakaknya seru kalau sudah ngobrol.",
+                "Kesan" : "Rajin dan disiplin dalam belajar.",
                 "Pesan" : "Bagi tips belajarmu ke kami juga, ya, Kak."
             },
             {
@@ -957,7 +960,7 @@ if menu == "Departemen Medkraf":
                 "Umur" : "20",
                 "Sosmed" : "@difanyhsa",
                 "Kesan" : "Tutur katanya santun dan menyejukkan.",
-                "Pesan" : "etap jadi pribadi yang menyenangkan!."
+                "Pesan" : "Tetap istiqamah dan jadi teladan, Kak."
             },
             {
                 "Nama": "Nazlah Auliya",
@@ -967,8 +970,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Ballet",
                 "Umur" : "20",
                 "Sosmed" : "@nzlhauly_",
-                "Kesan" : "Kakaknya memberikan pengalaman yang berkesan.",
-                "Pesan" : "Semoga bisa bertemu lagi di kegiatan lain."
+                "Kesan" : "Anggun dan penuh percaya diri.",
+                "Pesan" : "Terus kejar hobimu dengan semangat, Kak."
             },
             {
                 "Nama": "Raihana Adelia Putri",
@@ -978,8 +981,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Menulis, membaca",
                 "Umur" : "20",
                 "Sosmed" : "@r.hanaap",
-                "Kesan" : "Kakaknya ramah dan mudah akrab dengan orang lain.",
-                "Pesan" : "Semoga selalu dikelilingi orang-orang baik.."
+                "Kesan" : "Tenang dan pandai merangkai kata.",
+                "Pesan" : "Tetap menulis dan bagikan idemu ke kami, Kak."
             },
             {
                 "Nama": "Daffa Kharisma Adzana",
@@ -989,8 +992,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Belum Tahu",
                 "Umur" : "Belum Tahu",
                 "Sosmed" : "Belum Tahu",
-                "Kesan" : "Abangnya asik dan seru diajak ngobrol.",
-                "Pesan" : "Semoga Abang selalu dilancarkan kuliahnya."
+                "Kesan" : "Kalem dan tidak banyak bicara, tapi tulus.",
+                "Pesan" : "Jangan sungkan bergabung ngobrol bareng, Kak."
             },
             {
                 "Nama": "Edsel Adya Pradipta",
@@ -1000,8 +1003,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Scroll Fesbuk",
                 "Umur" : "20",
                 "Sosmed" : "@edsel_0712",
-                "Kesan" : "Abangnya kelihatan cuek, tapi ternyata baik.",
-                "Pesan" : "Semoga Abang makin sukses dan bahagia."
+                "Kesan" : "Santai dan punya selera humor yang khas.",
+                "Pesan" : "Tetap jadi kakak yang gampang diajak bercanda, Kak."
             },
             {
                 "Nama": "Lucia Advencia Rachel Nainggolan",
@@ -1011,8 +1014,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Lari",
                 "Umur" : "20",
                 "Sosmed" : "@luciarachel_",
-                "Kesan" : "Kakaknya punya banyak pengalaman yang menarik.",
-                "Pesan" : "Semoga Kakak bisa terus berbagi ilmu dengan adik tingkat."
+                "Kesan" : "Energik dan selalu menyemangati sekitar.",
+                "Pesan" : "Terus tularkan semangat larimu ke kami, Kak."
             },
             {
                 "Nama": "Shafa Delaila Azzahra",
@@ -1022,8 +1025,8 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Makan tempe mentah",
                 "Umur" : "20",
                 "Sosmed" : "@_shaazzh",
-                "Kesan" : "Kakaknya selalu bikin suasana jadi menyenangkan.",
-                "Pesan" : "Semoga Kakak tetap jadi pribadi yang menyenangkan."
+                "Kesan" : "Apa adanya dan bikin suasana tidak kaku.",
+                "Pesan" : "Tetap jadi diri sendiri, ya, Kak."
             },
             {
                 "Nama": "Zannuba Arifah Ilman",
@@ -1033,10 +1036,9 @@ if menu == "Departemen Medkraf":
                 "Hobi": "Belum Tahu",
                 "Umur" : "Belum Tahu",
                 "Sosmed" : "Belum Tahu",
-                "Kesan" : "Kakaknya perhatian sama adik tingkatnya.",
-                "Pesan" : "Semoga Kakak selalu mendapat kebaikan yang sama."
+                "Kesan" : "Sopan dan selalu menghargai orang lain.",
+                "Pesan" : "Semoga selalu dimudahkan dalam setiap urusan, Kak."
             },
         ]
         display_images_with_data(gambar_urls, data_list)
     departemen_medkraf()
-
