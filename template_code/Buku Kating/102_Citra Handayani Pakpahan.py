@@ -83,7 +83,6 @@ def display_images_with_data(gambar_urls, data_list):
 
         if i < len(data_list):
             st.write(f"Nama: {data_list[i]['Nama']}")
-            st.write(f"Jabatan: {data_list[i]['Jabatan']}")
             st.write(f"NIM: {data_list[i]['Nim']}")
             st.write(f"Umur: {data_list[i]['Umur']}")
             st.write(f"Asal: {data_list[i]['Asal']}")
@@ -180,3 +179,133 @@ if menu == "Kesekjenan":
         ]
         display_images_with_data(gambar_urls, data_list)
     kesekjenan()
+elif menu == "Senator":
+    def senator():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        ]
+
+        data_list =[
+            {
+                "Nama": "Fathinah Nur Azizah",
+                "Nim": "123450072",
+                "Umur": "21",
+                "Asal": "Jakarta",
+                "Alamat": "Belakang PB",
+                "Hobbi": "Nulis di medium",
+                "Sosmed": "@fathinahnazzh",
+                "Kesan": "Kakaknya cantik, baik, kalem, keren",
+                "Pesan": "Sehat selalu kak, semoga lancar skripsinya"
+            },
+            {
+                "Nama": "Helmy Surya Pratama",
+                "Nim": "124450033",
+                "Umur": "20",
+                "Asal": "Jakarta",
+                "Alamat": "Tanya Bapas",
+                "Hobbi": "Ngesen kiri",
+                "Sosmed": "@helmy_inst",
+                "Kesan": "Abangnya seru, asik, lucu",
+                "Pesan": "Semangat terus bang"
+            },
+            {
+                "Nama": "Fernando Dimetrius Barus",
+                "Nim": "124450063",
+                "Umur": "21",
+                "Asal": "Tangerang Kota",
+                "Alamat": "Sebelah Kamar Biwa",
+                "Hobbi": "Badminton",
+                "Sosmed": "@barus.fernando",
+                "Kesan": "Abangnya baik, asik, kalem",
+                "Pesan": "Semoga selalu dimudahkan bang"
+            },
+            {
+                "Nama": "Suci Aulia",
+                "Nim": "124450034",
+                "Umur": "19",
+                "Asal": "Jakarta",
+                "Alamat": "Kota Baru",
+                "Hobbi": "Mancing",
+                "Sosmed": "@sciia_",
+                "Kesan": "Kakaknya kalem dan baik",
+                "Pesan": "Sehat selalu kak"
+            },
+            {
+                "Nama": "Wielman Itolo Halawa",
+                "Nim": "124450072",
+                "Umur": "20",
+                "Asal": "Nias Selatan",
+                "Alamat": "Asrama TB 3",
+                "Hobbi": "Dibonceng",
+                "Sosmed": "@wielhawn",
+                "Kesan": "Abangnya asik, keren, pinter juga",
+                "Pesan": "Sehat selalu bang, semangat terus juga"
+            },
+            {
+                "Nama": "Lia Hana Ichisasmita",
+                "Nim": "123450089",
+                "Umur": "21",
+                "Asal": "Jakarta",
+                "Alamat": "Belwis",
+                "Hobbi": "Nonton",
+                "Sosmed": "@lia,h_264",
+                "Kesan": "Kakaknya lucu, asik juga",
+                "Pesan": "Semoga kuliahnya lancar ya kak"
+            },
+            {
+                "Nama": "Aqila Zayyan Salsabil",
+                "Nim": "124450014",
+                "Umur": "19",
+                "Asal": "Lampung Utara",
+                "Alamat": "Sukarame",
+                "Hobbi": "Mendokumentasi Bayes",
+                "Sosmed": "@aqilazayyaan",
+                "Kesan": "Kakaknya lucu, keren juga",
+                "Pesan": "Semoga kelompoknya nambah gacor kak"
+            },
+            {
+                "Nama": "Hazel Mahesa Handhaka",
+                "Nim": "124450114",
+                "Umur": "20",
+                "Asal": "Lampung Timur",
+                "Alamat": "Lampung Timur",
+                "Hobbi": "Giring Ayam",
+                "Sosmed": "@hazelhandhaka",
+                "Kesan": "Abangnya keren, asik juga",
+                "Pesan": "Semoga sukses bang"
+            },
+            {
+                "Nama": "Nadya Ratu Anjani",
+                "Nim": "123450083",
+                "Umur": "21",
+                "Asal": "Bandar Lampung",
+                "Alamat": "Sukarame",
+                "Hobbi": "Membaca",
+                "Sosmed": "@nadyaanjaani",
+                "Kesan": "Kakaknya cantik, ramah, baik",
+                "Pesan": "Semangat terus kak, semoga kuliahnya lancar"
+            },
+            {
+                "Nama": "Dwi Rahma Fitriani",
+                "Nim": "124450084",
+                "Umur": "19",
+                "Asal": "Tulang Bawang",
+                "Alamat": "Jl. Lapas",
+                "Hobbi": "Baca Buku, nonton film, dengerin musik",
+                "Sosmed": "@dwi_rahmftrnii",
+                "Kesan": "Kakaknya baik dan ramah",
+                "Pesan": "Sehat selalu dan semangat terus kak"
+            },
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    senator()
+    
