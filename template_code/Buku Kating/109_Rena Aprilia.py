@@ -105,7 +105,7 @@ def get_cached_images(gambar_urls):
             images.append(img)
     return images
 
-def display_images_with_data(gambar_urls, data_list):
+def display_images_with_data(gambar_urls, data_list):    
     images = get_cached_images(gambar_urls)
 
     for i, img in enumerate(images):
@@ -140,10 +140,10 @@ if menu == "Kesekjenan":
     gambar_urls = [
         "https://drive.google.com/uc?export=view&id=1O8Hdk8gKy-_C0kCpfuSv9X019Mvrb4QE",
         "https://drive.google.com/uc?export=view&id=1StyofloEs_iOq9Zje0CJIyXzhylLPksd",
-         "https://drive.google.com/uc?export=view&id=1EwD0V_6O62f4DT85HapgYpXDw-HxwFwn",
-                "https://drive.google.com/uc?export=view&id=1bHaikGXHPSiM32Urd8nHtH4IT6uWr92x",
-                "https://drive.google.com/uc?export=view&id=1qqBsuTQPn0rlRaxQdF2VeCAwlvJ-xQAX",
-                "https://drive.google.com/uc?export=view&id=1fkYTfgRpyAGaUqAlm_IKhBI2h-uxHFAg"
+        "https://drive.google.com/uc?export=view&id=1EwD0V_6O62f4DT85HapgYpXDw-HxwFwn",
+        "https://drive.google.com/uc?export=view&id=1bHaikGXHPSiM32Urd8nHtH4IT6uWr92x",
+        "https://drive.google.com/uc?export=view&id=1qqBsuTQPn0rlRaxQdF2VeCAwlvJ-xQAX",
+        "https://drive.google.com/uc?export=view&id=1fkYTfgRpyAGaUqAlm_IKhBI2h-uxHFAg"
     ]
    data_list = [
         {"nama": "Ginda Fajar Riadi Marpaung", "nim": "123450103", "umur": "22", "asal": "Batam", "alamat": "Kesekretariat HMSD", "hobbi": "Push IMO", "sosmed": "@jars_mrp", "kesan": "Abangnya seruu, dlu pernah jadi kadiv op pas natal SD25 bisa diajak serius dan bercanda.", "pesan": "Semangat dan sukses selalu bangg!!"},
@@ -242,7 +242,7 @@ elif menu == "Departemen Eksternal":
         {"nama": "Adinda Deswita Maharani", "nim": "124450083", "umur": "10", "asal": "Lampung", "alamat": "Sukabumi", "hobbi": "Jadi idol", "sosmed": "@adindaadma", "kesan": "kakaknya asik", "pesan": "selalu asik ya kakk"},
         {"nama": "Ahmad Bimo Akbar Arkana", "nim": "124450113", "umur": "", "asal": "Tanggamus", "alamat": "Bandar lampung", "hobbi": "Lihat lihat perumahan", "sosmed": "@bimo_arkana", "kesan": "Ramah", "pesan": "Selalu jadi orang yang ramah tamah"},
         {"nama": "Alfaya Abiyyi", "nim": "124450006", "umur": "nelson piquet", "asal": "Balam", "alamat": "Balam", "hobbi": "Makan yang manis biar manis", "sosmed": "@alfabiyi", "kesan": "Keren", "pesan": "Semangat terus"},
-        {"nama": "Asri Meilani", "nim": "124450010", "umur": 20", "asal": "Lampung barat", "alamat": "Korpri raya", "hobbi": Nonton film", "sosmed": "@asrmeilani", "kesan": "Sangat ramah", "pesan": "Terus jadi orang ramah kak"},
+        {"nama": "Asri Meilani", "nim": "124450010", "umur": "20", "asal": "Lampung barat", "alamat": "Korpri raya", "hobbi": "Nonton film", "sosmed": "@asrmeilani", "kesan": "Sangat ramah", "pesan": "Terus jadi orang ramah kak"},
         {"nama": "Bima Ekayasa", "nim": "124450106", "umur": "", "asal": "Lampung", "alamat": "Bandar lampung", "hobbi": "Berlaku humoris dan manis", "sosmed": "@bimayasa_", "kesan": "Ramah", "pesan": "Selalu jadi orang yang ramah tamah"},
         {"nama": "Indah Khairunnisa", "nim": "124450077", "umur": "20", "asal": "Ampera", "alamat": "Disini aja", "hobbi": "Mancing emosi, mancing ikan, mancing kecebong, mancing cupang", "sosmed": "@khaindaa_", "kesan": "kakaknya asik", "pesan": "selalu asik ya kakk"},
         {"nama": "Riska Erlis Dayu Tiara", "nim": "124450022", "umur": "20", "asal": "Palembang", "alamat": "Bebas", "hobbi": "Ngefollow-up chat", "sosmed": "@erlsriska", "kesan": "Cantik banget", "pesan": "selalu ramah ya"},
