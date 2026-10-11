@@ -190,10 +190,10 @@ elif menu == "Baleg":
             "https://drive.google.com/uc?export=view&id=1mHdZPK_B2QsTuNkAd9KyhztiYe_ZZPtJ",#bang givaro
             "https://drive.google.com/uc?export=view&id=1J4LYA1wkvGzxChY91Ycb9gViQ7dwkHnv",#kak nisa
             "https://drive.google.com/uc?export=view&id=12CQfaIZvka8FgAkJSjjt5bae_EDJhFEY",#kak hani
-            "https://drive.google.com/uc?export=view&id=1J4LYA1wkvGzxChY91Ycb9gViQ7dwkHnv",
             "https://drive.google.com/uc?export=view&id=1kgGtDVpPBXi5zOC0Hxi01HeF7G3mgYvV",
             "https://drive.google.com/uc?export=view&id=1YfSz_QrQjcxUaSEn6_3_jjIc2swixEhg",
             "https://drive.google.com/uc?export=view&id=1BE4KMXJSuumEBg3HBV0IEpA5LuzYlmMO",
+            "https://drive.google.com/uc?export=view&id=10J3lvqECDicycNBgosiYgYwBgIn0dZUY",
             "https://drive.google.com/uc?export=view&id=1g9zaiv_IYHB-1F64f9v0cengjHXZ_p0I",
 
         ]
@@ -241,6 +241,7 @@ elif menu == "Baleg":
                 "sosmed": "@me._kael",
                 "kesan": "Bang Mikael orangnya humble dan asik, auranya presidiumnya kenceng banget.",
                 "pesan": "Semoga kuliahnya lancar terus, dan semoga diberi kesehatan dan kelancaran dalam segala hal ya Bang! "
+            },
             {
                 "nama": "Siti Sarifah Sumamahsa",
                 "nim": "124450015",
@@ -251,6 +252,7 @@ elif menu == "Baleg":
                 "sosmed": "@syt.sarifa",
                 "kesan": "Kakaknya baik dan seru, jujur syok pas tau kakaknya orang palembang jugaa.",
                 "pesan": "Semoga kuliahnya lancar terus, Kak! Semoga nanti saya bisa nyicip pempek buatan kakak :)"
+            },
             {
                 "nama": "Givaro Ananta",
                 "nim": "123450078",
@@ -351,9 +353,9 @@ elif menu == "Departemen Minbak":
             "https://drive.google.com/uc?export=view&id=1PcF4IYKT6uaflaYDQqiP2iUqzi5sfcQK",
             "https://drive.google.com/uc?export=view&id=1D_lia9zgl7mJ2WnrFajpgbxFc_bl7hwB",
             "https://drive.google.com/uc?export=view&id=1T0pBCaOoUGWePzplk23vzKIA_inZGs5S",
-            "https://drive.google.com/uc?export=view&id=ILhw5Jw6OGFqR9JZXXGl6_ZH8q7EUk",
+            "https://drive.google.com/uc?export=view&id=1G7ILhw5Jw6OGFqR9JZXXGl6_ZH8q7EUk",
             "https://drive.google.com/uc?export=view&id=1dEarZTBT7jEC24kqQ9Lm2zPTdGr3ZkJ9",
-            "https://drive.google.com/uc?export=view&id=1Q0bzo7yr0D8xh-RSlxK5cYCg8wEstMh",
+            "https://drive.google.com/uc?export=view&id=1Q0bzo7yr0D8xh-RSlxK5cYCg8wEstMh3",
             "https://drive.google.com/uc?export=view&id=1LFx7gMEf7keEm0HQUrqGsR_UfOJuqT8l",
             "https://drive.google.com/uc?export=view&id=1AnZyWjeehYZsmuiiUFgjlISXfiyn_DJI",
             "https://drive.google.com/uc?export=view&id=1cifStK5BxXbvoLmLc9fnqt_K5X2dOXHZ",
@@ -404,7 +406,7 @@ elif menu == "Departemen Minbak":
                 "alamat": "Jatiagung",
                 "hobbi": "Jalan-jalan nyari mangsa",
                 "sosmed": "@me._kael",
-                "kesan": "Kak Ayu orangnya baik dan humble parah".",  
+                "kesan": "Kak Ayu orangnya baik dan humble parah",  
                 "pesan":"semangat terus kuliahnnya kak!!"
             },
             {
@@ -516,7 +518,18 @@ elif menu == "Departemen Minbak":
                 "sosmed": "@muhammdrafka_",
                 "kesan": "Bang rafka orangnya baik dan humble banget",  
                 "pesan":"semangat terus kuliahnya Bang !!!"# 1
-            }
+            },
+            {
+                "nama": "Ghiyats Thabularasa Meardhy",
+                "nim": "124",
+                "umur": "...",
+                "asal":"...",
+                "alamat": "....",
+                "hobbi": "...",
+                "sosmed": "....",
+                "kesan": "....",  
+                "pesan":"Semangattt bang bangg jadi pj game nyaaa hihi"# 1
+            },
         ]
         display_images_with_data(gambar_urls, data_list)
     DepartemenMinbak()
@@ -618,7 +631,7 @@ elif menu == "Departemen Internal":
                 "hobbi": "Balap liar",
                 "sosmed": "@jay_saputra_tmb",
                 "kesan": "Bang Jaya orangnya keren, baikk, dan seru",  
-                "pesan":"Semoga bang jaya diberi kesehatan dan kelancaran dalam segala hal# 1
+                "pesan":"Semoga bang jaya diberi kesehatan dan kelancaran dalam segala hal!"
             },
             {
                 "nama": "Najla Nursyifa",
