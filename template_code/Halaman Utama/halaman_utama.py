@@ -89,7 +89,7 @@ st.markdown("""
         vertical-align: middle;
     }
 
-    /* ---------- CONTENT BOX (GLASS PREMIUM) ---------- */
+    /* ---------- CONTENT BOX ---------- */
     .content-box {
         background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
         padding: 38px 42px;
@@ -120,7 +120,7 @@ st.markdown("""
         letter-spacing: 0.2px;
     }
 
-    /* ---------- PHOTO CARD (PREMIUM) ---------- */
+    /* ---------- PHOTO CARD ---------- */
     .photo-card {
         position: relative;
         overflow: hidden;
@@ -153,7 +153,6 @@ st.markdown("""
         transform: scale(1.1);
         filter: saturate(1.15) brightness(1.05);
     }
-    /* Shimmer effect */
     .photo-card::after {
         content: '';
         position: absolute;
@@ -207,32 +206,34 @@ st.markdown("""
         font-weight: 400;
     }
 
-    /* ---------- FLIP CARD (ABOUT US PREMIUM) ---------- */
+    /* ============================================================
+       FLIP CARD — ULTRA PREMIUM (COMPACT VERSION)
+       ============================================================ */
     .flip-card {
         background-color: transparent;
         width: 100%;
-        height: 400px;
-        perspective: 1400px;
-        margin-bottom: 28px;
+        height: 380px;
+        perspective: 1600px;
+        margin-bottom: 24px;
+        position: relative;
     }
     .flip-card-inner {
         position: relative;
         width: 100%;
         height: 100%;
         text-align: center;
-        transition: transform 0.9s cubic-bezier(0.4, 0.2, 0.2, 1);
+        transition: transform 1s cubic-bezier(0.4, 0.2, 0.2, 1);
         transform-style: preserve-3d;
         border-radius: 18px;
         box-shadow:
-            0 8px 24px rgba(112,28,35,0.12),
-            0 2px 6px rgba(112,28,35,0.06);
+            0 10px 28px rgba(112,28,35,0.10),
+            0 2px 8px rgba(112,28,35,0.06);
     }
     .flip-card:hover .flip-card-inner {
         transform: rotateY(180deg);
-        box-shadow:
-            0 20px 50px rgba(112,28,35,0.28),
-            0 6px 14px rgba(112,28,35,0.15);
     }
+
+    /* ---------- FRONT SIDE ---------- */
     .flip-card-front, .flip-card-back {
         position: absolute;
         width: 100%;
@@ -240,85 +241,257 @@ st.markdown("""
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         border-radius: 18px;
-        padding: 18px;
+        overflow: hidden;
+    }
+
+    .flip-card-front {
+        background:
+            radial-gradient(circle at 50% 0%, rgba(217,195,163,0.35) 0%, transparent 55%),
+            linear-gradient(165deg, #ffffff 0%, #fdf9f3 60%, #f6efe4 100%);
+        color: #701c23;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 20px 16px 16px 16px;
+        box-sizing: border-box;
+        border: 1px solid rgba(217,195,163,0.75);
+        box-shadow:
+            0 0 0 1px rgba(255,255,255,0.9) inset,
+            0 0 40px rgba(217,195,163,0.20) inset;
     }
-    .flip-card-front {
-        background: linear-gradient(160deg, #ffffff 0%, #fdfaf6 100%);
-        color: #701c23;
-        border: 1px solid rgba(217,195,163,0.8);
-        box-shadow: 0 0 0 1px rgba(255,255,255,0.6) inset;
-    }
-    .flip-card-front img {
-        width: 165px;
-        height: 205px;
-        object-fit: cover;
-        border-radius: 12px;
-        margin-bottom: 14px;
+
+    /* Corner brackets */
+    .flip-card-front::before,
+    .flip-card-front::after {
+        content: '';
+        position: absolute;
+        width: 28px;
+        height: 28px;
         border: 2px solid #701c23;
-        box-shadow: 0 6px 18px rgba(112,28,35,0.22);
+        opacity: 0.55;
+        transition: all 0.5s ease;
+    }
+    .flip-card-front::before {
+        top: 10px; left: 10px;
+        border-right: none;
+        border-bottom: none;
+        border-top-left-radius: 10px;
+    }
+    .flip-card-front::after {
+        bottom: 10px; right: 10px;
+        border-left: none;
+        border-top: none;
+        border-bottom-right-radius: 10px;
+    }
+    .flip-card:hover .flip-card-front::before,
+    .flip-card:hover .flip-card-front::after {
+        width: 38px;
+        height: 38px;
+        opacity: 0.85;
+        border-color: #a8323d;
+    }
+
+    /* Photo frame compact */
+    .flip-card-front .photo-frame {
+        position: relative;
+        width: 148px;
+        height: 180px;
+        margin-bottom: 14px;
+        border-radius: 12px;
+        padding: 4px;
+        background: linear-gradient(135deg, #701c23 0%, #d9c3a3 50%, #701c23 100%);
+        box-shadow:
+            0 8px 22px rgba(112,28,35,0.26),
+            0 3px 8px rgba(112,28,35,0.15);
         transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
-    .flip-card:hover .flip-card-front img {
-        transform: scale(1.03);
-        box-shadow: 0 10px 26px rgba(112,28,35,0.32);
+    .flip-card:hover .flip-card-front .photo-frame {
+        transform: scale(1.04) translateY(-2px);
+        box-shadow:
+            0 14px 32px rgba(112,28,35,0.36),
+            0 4px 12px rgba(112,28,35,0.22);
     }
+    .flip-card-front .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 9px;
+        display: block;
+        filter: saturate(1.02) contrast(1.03);
+    }
+
+    /* Nama */
     .flip-card-front h4 {
-        margin: 6px 0 0 0;
+        margin: 2px 0 6px 0;
         font-family: 'Playfair Display', serif;
         font-weight: 700;
         color: #701c23;
-        font-size: 16.5px;
+        font-size: 15.5px;
         letter-spacing: 0.3px;
-        line-height: 1.3;
+        line-height: 1.25;
+        max-width: 92%;
     }
-    .flip-card-front .flip-hint {
-        font-size: 10.5px;
-        color: #a89790;
-        margin-top: 8px;
-        letter-spacing: 0.5px;
+
+    /* Badge role */
+    .flip-card-front .role-badge {
+        display: inline-block;
+        padding: 3px 12px;
+        font-size: 9.5px;
+        font-weight: 700;
+        letter-spacing: 1.3px;
         text-transform: uppercase;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #701c23 0%, #a8323d 100%);
+        color: #f4f0eb;
+        box-shadow: 0 3px 10px rgba(112,28,35,0.30);
+        margin-bottom: 4px;
     }
+    .flip-card-front .role-badge.anggota {
+        background: linear-gradient(135deg, #d9c3a3 0%, #c4a882 100%);
+        color: #4e1318;
+        box-shadow: 0 3px 10px rgba(217,195,163,0.45);
+    }
+
+    /* Hint */
+    .flip-card-front .flip-hint {
+        font-size: 9px;
+        color: #a89790;
+        letter-spacing: 1.3px;
+        text-transform: uppercase;
+        margin-top: 3px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.85;
+    }
+    .flip-card-front .flip-hint::before,
+    .flip-card-front .flip-hint::after {
+        content: '';
+        width: 12px;
+        height: 1px;
+        background: #a89790;
+        opacity: 0.5;
+    }
+
+    /* ---------- BACK SIDE ---------- */
     .flip-card-back {
-        background: linear-gradient(150deg, #701c23 0%, #4e1318 100%);
+        background:
+            radial-gradient(circle at 30% 20%, rgba(217,195,163,0.18) 0%, transparent 50%),
+            radial-gradient(circle at 80% 90%, rgba(168,50,61,0.35) 0%, transparent 55%),
+            linear-gradient(150deg, #701c23 0%, #4e1318 55%, #2d0a0d 100%);
         color: #ffffff;
         transform: rotateY(180deg);
         text-align: left;
-        align-items: flex-start;
-        padding: 26px 24px;
+        padding: 20px 18px 18px 18px;
         box-sizing: border-box;
-        border: 1px solid rgba(217,195,163,0.35);
-        box-shadow: 0 0 30px rgba(112,28,35,0.4) inset;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid rgba(217,195,163,0.4);
+        box-shadow:
+            0 0 0 1px rgba(217,195,163,0.15) inset,
+            0 0 60px rgba(0,0,0,0.35) inset;
     }
+
+    /* Dotted pattern */
+    .flip-card-back::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(217,195,163,0.15) 1px, transparent 1px);
+        background-size: 12px 12px;
+        opacity: 0.5;
+        pointer-events: none;
+        border-radius: 18px;
+    }
+
+    /* Quote mark */
+    .flip-card-back::after {
+        content: '"';
+        position: absolute;
+        top: -6px;
+        right: 16px;
+        font-family: 'Playfair Display', serif;
+        font-size: 70px;
+        color: rgba(217,195,163,0.18);
+        line-height: 1;
+        pointer-events: none;
+    }
+
     .flip-card-back h4 {
+        position: relative;
         font-family: 'Playfair Display', serif;
         color: #d9c3a3;
         font-weight: 700;
-        margin-bottom: 14px;
-        border-bottom: 1px solid rgba(217,195,163,0.35);
-        padding-bottom: 8px;
-        width: 100%;
-        font-size: 17px;
+        margin: 0 0 4px 0;
+        font-size: 16px;
         letter-spacing: 0.3px;
+        line-height: 1.2;
+        z-index: 1;
     }
-    .flip-card-back p {
-        font-size: 12.8px;
-        margin: 6px 0;
-        line-height: 1.55;
-        color: rgba(255,255,255,0.93);
-    }
-    .flip-card-back .label {
+    .flip-card-back .back-role {
+        position: relative;
+        font-size: 9px;
         font-weight: 700;
-        color: #d9c3a3;
-        letter-spacing: 0.3px;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        color: #f4f0eb;
+        opacity: 0.85;
+        margin-bottom: 12px;
+        z-index: 1;
     }
 
-    /* ---------- NAVBAR GLASSMORPHISM ---------- */
-    div[data-testid="stHorizontalBlock"] > div:has(> div > div > nav) {
-        backdrop-filter: blur(12px);
+    /* Divider emas */
+    .flip-card-back .divider {
+        position: relative;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #d9c3a3, transparent);
+        margin-bottom: 12px;
+        z-index: 1;
+    }
+    .flip-card-back .divider::after {
+        content: '◆';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #d9c3a3;
+        font-size: 7px;
+        background: #4e1318;
+        padding: 0 8px;
+    }
+
+    /* Info mini-cards */
+    .flip-card-back p {
+        position: relative;
+        font-size: 11.5px;
+        margin: 0 0 6px 0;
+        line-height: 1.4;
+        color: rgba(255,255,255,0.95);
+        padding: 6px 10px;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.05);
+        border-left: 2px solid #d9c3a3;
+        z-index: 1;
+        transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    .flip-card-back p:hover {
+        background: rgba(217,195,163,0.12);
+        border-left-color: #f4f0eb;
+    }
+    .flip-card-back p:last-child {
+        margin-bottom: 0;
+    }
+    .flip-card-back .label {
+        display: block;
+        font-weight: 700;
+        color: #d9c3a3;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        font-size: 8.5px;
+        margin-bottom: 1px;
     }
 
     /* ---------- SCROLLBAR PREMIUM ---------- */
@@ -331,10 +504,11 @@ st.markdown("""
     }
     ::-webkit-scrollbar-thumb:hover { background: #701c23; }
 
-    /* ---------- FOOTER SPACING ---------- */
+    /* ---------- LAYOUT ---------- */
     .block-container { padding-top: 2rem !important; }
 </style>
 """, unsafe_allow_html=True)
+
 
 # ============================================================
 # UTIL FUNCTIONS
@@ -577,20 +751,28 @@ elif menu == "About Us":
                             nim = html.escape(member["nim"])
                             fun_fact = html.escape(member["fun_fact"])
                             motto = html.escape(member["motto_hidup"])
+
+                            # Role badge class: kosong untuk lurah (maroon), "anggota" untuk anggota (emas)
+                            role_class = "anggota" if member["sebagai"].lower() == "anggota" else ""
+
                             st.markdown(f"""
                                 <div class="flip-card">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img src="{img_src}" alt="{html.escape(member['nama'], quote=True)}">
+                                            <div class="photo-frame">
+                                                <img src="{img_src}" alt="{html.escape(member['nama'], quote=True)}">
+                                            </div>
                                             <h4>{nama}</h4>
-                                            <div class="flip-hint">Hover untuk detail</div>
+                                            <span class="role-badge {role_class}">{sebagai}</span>
+                                            <div class="flip-hint">hover</div>
                                         </div>
                                         <div class="flip-card-back">
                                             <h4>{nama}</h4>
-                                            <p><span class="label">Sebagai:</span> {sebagai}</p>
-                                            <p><span class="label">NIM:</span> {nim}</p>
-                                            <p><span class="label">Fun Fact:</span> {fun_fact}</p>
-                                            <p><span class="label">Motto:</span> {motto}</p>
+                                            <div class="back-role">{sebagai}</div>
+                                            <div class="divider"></div>
+                                            <p><span class="label">NIM</span>{nim}</p>
+                                            <p><span class="label">Fun Fact</span>{fun_fact}</p>
+                                            <p><span class="label">Motto Hidup</span>{motto}</p>
                                         </div>
                                     </div>
                                 </div>
