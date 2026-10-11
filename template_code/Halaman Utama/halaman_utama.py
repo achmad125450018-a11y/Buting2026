@@ -494,6 +494,73 @@ st.markdown("""
         margin-bottom: 1px;
     }
 
+    /* ---------- HERO IMAGE ---------- */
+    .hero-image-wrapper {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto 28px auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow:
+            0 20px 45px rgba(112,28,35,0.18),
+            0 6px 14px rgba(112,28,35,0.10);
+        border: 1px solid rgba(217,195,163,0.65);
+    }
+    .hero-image-wrapper img {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+        display: block;
+        filter: saturate(1.05) contrast(1.02);
+    }
+    .hero-image-wrapper .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to top,
+            rgba(112,28,35,0.85) 0%,
+            rgba(112,28,35,0.35) 40%,
+            transparent 75%
+        );
+        pointer-events: none;
+    }
+    .hero-image-wrapper .hero-caption {
+        position: absolute;
+        bottom: 26px;
+        left: 30px;
+        right: 30px;
+        color: #f4f0eb;
+    }
+    .hero-image-wrapper .hero-badge {
+        display: inline-block;
+        padding: 4px 14px;
+        background: rgba(244,240,235,0.15);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(217,195,163,0.6);
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2.2px;
+        text-transform: uppercase;
+        color: #f4f0eb;
+        margin-bottom: 10px;
+    }
+    .hero-image-wrapper .hero-caption h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 26px;
+        font-weight: 700;
+        margin: 0;
+        letter-spacing: 0.4px;
+        color: #ffffff;
+        text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    }
+    .hero-image-wrapper .hero-caption p {
+        font-size: 12.5px;
+        margin: 6px 0 0 0;
+        color: rgba(244,240,235,0.9);
+        letter-spacing: 0.3px;
+    }
+
     /* ---------- SCROLLBAR PREMIUM ---------- */
     ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: #f4f0eb; }
@@ -570,6 +637,26 @@ def image_data_uri(url):
     img.save(buffer, format="JPEG", quality=88, optimize=True)
     encoded = base64.b64encode(buffer.getvalue()).decode("utf-8")
     return f"data:image/jpeg;base64,{encoded}"
+
+
+def hero_image(url, badge="✦ Keluarga Poisson ✦", title="Satu Tim, Satu Cerita",
+               subtitle="Momen kebersamaan yang menjadi awal dari segalanya."):
+    """Render hero image premium dengan overlay caption."""
+    img_src = image_data_uri(url)
+    if not img_src:
+        st.warning("Foto hero gagal dimuat. Periksa izin Google Drive.")
+        return
+    st.markdown(f"""
+        <div class="hero-image-wrapper">
+            <img src="{img_src}" alt="{html.escape(title, quote=True)}">
+            <div class="hero-overlay"></div>
+            <div class="hero-caption">
+                <div class="hero-badge">{html.escape(badge)}</div>
+                <h3>{html.escape(title)}</h3>
+                <p>{html.escape(subtitle)}</p>
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
 
 
 # ============================================================
@@ -651,6 +738,16 @@ menu = streamlit_menu()
 if menu == "Home":
     def home_page():
         st.markdown("<h2 class='section-title'>Deskripsi Kelompok</h2>", unsafe_allow_html=True)
+
+        # ============ FOTO HERO DI ATAS DESKRIPSI ============
+        hero_image(
+            url="https://drive.google.com/uc?export=view&id=1dDPrlobxQlHnAwMZKdoSuGcJviyfueTn",
+            badge="✦ Keluarga Poisson ✦",
+            title="Satu Tim, Satu Cerita",
+            subtitle="Momen kebersamaan yang menjadi awal dari segalanya."
+        )
+
+        # ============ CONTENT BOX DESKRIPSI ============
         st.markdown("""
             <div class='content-box'>
                 <b>Selamat datang di portal resmi kelompok Poisson!</b><br><br>
@@ -752,7 +849,6 @@ elif menu == "About Us":
                             fun_fact = html.escape(member["fun_fact"])
                             motto = html.escape(member["motto_hidup"])
 
-                            # Role badge class: kosong untuk lurah (maroon), "anggota" untuk anggota (emas)
                             role_class = "anggota" if member["sebagai"].lower() == "anggota" else ""
 
                             st.markdown(f"""
