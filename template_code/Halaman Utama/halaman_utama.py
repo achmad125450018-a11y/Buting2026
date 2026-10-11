@@ -29,11 +29,11 @@ def display_images_with_data(gambar_urls, data_list):
             st.image(img, use_container_width=True)
 
         if i < len(data_list):
-            st.write(f"Nama: {data_list[i]['nama']}")
-            st.write(f"Sebagai: {data_list[i]['sebagai']}")
-            st.write(f"NIM: {data_list[i]['nim']}")
-            st.write(f"Fun Fact: {data_list[i]['fun_fact']}")
-            st.write(f"Motto Hidup: {data_list[i]['motto_hidup']}")
+            st.write(f"Nama: {data_list[i]['Nama']}")
+            st.write(f"Sebagai: {data_list[i]['Sebagai']}")
+            st.write(f"NIM: {data_list[i]['NIM']}")
+            st.write(f"Fun Fact: {data_list[i]['Fun Fact']}")
+            st.write(f"Motto Hidup: {data_list[i]['Motto Hidup']}")
 
 
 # JANGAN DIUBAH
@@ -102,24 +102,26 @@ if menu == "Home":
             "<h1 class='centered-title'>Deskripsi Kelompok</h1>", unsafe_allow_html=True
         )
         st.markdown(
-            """<div style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
-                    laborum.</div>""",
+            """<div style="text-align: justify;">Halo, kami Markov! Kami berasal dari Sains Data angkatan 2025, 
+                    dan di balik kelompok ini ada banyak kepala dengan gaya yang beda-beda. 
+                    Dalam rangkaian CEO HMSD Adyatama ITERA, 
+                    kami dapat tugas untuk mengenal lebih dekat para Kakak Tingkat (Kating), 
+                    mulai dari cerita perkuliahan mereka, tips bertahan di kampus, 
+                    sampai pandangan mereka soal dunia data. 
+                    Hasil ngobrol itu kami kumpulkan di sini supaya tidak berhenti jadi catatan di galeri HP saja.</div>""",
             unsafe_allow_html=True,
         )
         st.write(""" """)
-        foto_kelompok = "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
+        foto_kelompok = "https://drive.google.com/thumbnail?id=1z6A9ZPeZMH74isErBzSLxXSQbLMHTkRS&sz=w1000"
         layout(foto_kelompok)
         st.markdown(
-            """<div style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
-                    laborum.</div>""",
+            """<div style="text-align: justify;">Buku Kating ini kami bangun dengan Python dan Streamlit, 
+                    sekaligus menjadi ajang praktik dari materi yang kami pelajari selama kaderisasi. 
+                    Prosesnya tentu tidak mulus karena ada bug yang bikin pusing
+                    dan revisi yang datang bertubi-tubi. 
+                    Tapi dari situ kami belajar bahwa kerja kelompok itu soal saling percaya dan saling mengisi. 
+                    Semoga halaman-halaman ini bisa jadi pengingat untuk kami, 
+                    dan jadi bacaan yang berguna untuk adik-adik angkatan berikutnya.</div>""",
             unsafe_allow_html=True,
         )
         st.write(""" """)
@@ -135,68 +137,103 @@ elif menu == "About Us":
         )
         st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/thumbnail?id=1JGQ4NK_upmvgOqJ6IpantoN2SnzZ3ZQ_&sz=w1000",
+            "https://drive.google.com/thumbnail?id=1HZhtm4RD96J_O21uJLXBUk7TTemcG6v9&sz=w1000",
+            "https://drive.google.com/thumbnail?id=1YVBdp8vzuXgOMlt1b5SlXwa67Tf4TXRn&sz=w1000",
+            "https://drive.google.com/thumbnail?id=1pKi94p09JWRiayOgokLtjifajYilw_o8&sz=w1000",
+            "https://drive.google.com/thumbnail?id=1QFBWVdXebtKoJrjItPqAp7QNUyeoTYh3&sz=w1000",
+            "https://drive.google.com/thumbnail?id=1FLzTI71N8nbmtGGQ_rRJivFZlJw-ebQI&sz=w1000",
+            "https://drive.google.com/thumbnail?id=1-d68goJ0TtR-P4ll1ufSSWn0i4d3yGqn&sz=w1000",
+            "https://drive.google.com/thumbnail?id=1IDNTMgmb5hFh9pXRF5QNNhWRB3RB93QV&sz=w1000",
+            "https://drive.google.com/thumbnail?id=1toZ-1n0v0nDd_TdJnRjLFJu1B0ALqpb8&sz=w1000",
+            "https://drive.google.com/thumbnail?id=189a_DCmlDs-edf1OoDQajifrRWjlbvCA&sz=w1000",
+            "https://drive.google.com/thumbnail?id=1yApVmRlFoPOocKIZdpilS9z3Wb_T7GtW&sz=w1000",
+            "https://drive.google.com/thumbnail?id=1UhwT9Vvvv6w_hYcPVYbEnCdqrELLiKJt&sz=w1000",
         ]
         data_list = [
             {
-                "nama": "x",
-                "sebagai": "Pak Lurah",
-                "nim": "122450016",
-                "fun_fact": "suka makan pedes, tapi ga suka efeknya",
-                "motto_hidup": "new semester new me",
+                "Nama": "Sapta Daffa Mulya",
+                "Sebagai": "Pak Lurah",
+                "NIM": "125450056",
+                "Fun Fact": "Nama saya sesuai tanggal lahir",
+                "Motto Hidup": "Enjoy the flow",
             },
             {
-                "nama": "x",
-                "sebagai": "Bu Lurah",
-                "nim": "122450000",
-                "fun_fact": "nyemilin es bata",
-                "motto_hidup": "Ya apa ya",
+                "Nama": "Ade Putri Kurnia Pratiwi",
+                "Sebagai": "Bu Lurah",
+                "NIM": "125450073",
+                "Fun Fact": "Suka nyapa satpam ITERA sambil teriak",
+                "Motto Hidup": "Boleh ngeluh asal jangan nyerah",
             },
             {
-                "nama": "x",
-                "sebagai": "Anggota",
-                "nim": "122450083",
-                "fun_fact": "nyemilin es bata",
-                "motto_hidup": "mantap",
+                "Nama": "Indah Lestari",
+                "Sebagai": "Anggota",
+                "NIM": "125450007",
+                "Fun Fact": "Gabisa bonceng orang tapi bisa bawa motor",
+                "Motto Hidup": "Hari ini berjuang, hari esok kita ber-uang",
             },
             {
-                "nama": "x",
-                "sebagai": "Anggotaa",
-                "nim": "122450000",
-                "fun_fact": "nyemilin",
-                "motto_hidup": "jalanin dulu aja",
+                "Nama": "Sakinah Farhana Alqitsi",
+                "Sebagai": "Anggota",
+                "NIM": "125450016",
+                "Fun Fact": "Suka makan pecel",
+                "Motto Hidup": "Tetap semangat",
             },
             {
-                "nama": "x",
-                "sebagai": "Anggotaa",
-                "nim": "122450100",
-                "fun_fact": "nyemilin es bata, kiko",
-                "motto_hidup": "jalanin dulu keles",
+                "Nama": "Muhammad Helmi Fahma",
+                "Sebagai": "Anggota",
+                "NIM": "125450023",
+                "Fun Fact": "Selain manis aku juga humoris",
+                "Motto Hidup": "Jalani saja",
             },
             {
-                "nama": "x",
-                "sebagai": "Anggotaa",
-                "nim": "122450100",
-                "fun_fact": "nyemilin es bata, kiko",
-                "motto_hidup": "jalanin dulu keles",
+                "Nama": "Armeyza Varian",
+                "Sebagai": "Anggota",
+                "NIM": "125450024",
+                "Fun Fact": "Suka ngerjain tugas pas deket deadline",
+                "Motto Hidup": "Tetap tersenyum",
             },
             {
-                "nama": "x",
-                "sebagai": "Anggotaa",
-                "nim": "122450100",
-                "fun_fact": "nyemilin es bata, kiko",
-                "motto_hidup": "jalanin dulu keles",
+                "Nama": "Lian Ilham Nurthoriq",
+                "Sebagai": "Pelengkap Markov",
+                "NIM": "125450025",
+                "Fun Fact": "Suka yang manis, padahal aku udah manis",
+                "Motto Hidup": "Belajar untuk hari ini, hidup untuk besok",
             },
             {
-                "nama": "x",
-                "sebagai": "Anggotaa",
-                "nim": "122450110",
-                "fun_fact": "nyemilin es bata, kiko",
-                "motto_hidup": "jalanin dulu keles",
+                "Nama": "Nisa Aura",
+                "Sebagai": "Anggota",
+                "NIM": "125450032",
+                "Fun Fact": "Gasuka makan kecap",
+                "Motto Hidup": "Tetap jalanin walaupun sambil ngeluh",
+            },
+            {
+                "Nama": "Diah Ayu Puspita Sastra",
+                "Sebagai": "Anggota",
+                "NIM": "125450039",
+                "Fun Fact": "Excited sama hal-hal baru",
+                "Motto Hidup": "Sebaik-baiknya manusia adalah mereka yang bermanfaat bagi sesamanya",
+            },
+            {
+                "Nama": "Maryam Zahra Rahmadani",
+                "Sebagai": "Anggota",
+                "NIM": "125450090",
+                "Fun Fact": "Makan sei Indonesia tiap hari",
+                "Motto Hidup": "Orang lain boleh gila, asal bukan saya",
+            },
+            {
+                "Nama": "Lidya Tirza Hanum",
+                "Sebagai": "Anggota",
+                "NIM": "125450096",
+                "Fun Fact": "Suka menghayal",
+                "Motto Hidup": "Tetap percaya pada diri sendiri, bukan dengan orang lain",
+            },
+            {
+                "Nama": "Fadel Hilal Askari",
+                "Sebagai": "Anggota",
+                "NIM": "125450099",
+                "Fun Fact": "Gasuka minyak kayu putih",
+                "Motto Hidup": "Sukses berawal dari mimpi. Karena itu, kita perbanyak tidur",
             },
         ]
         display_images_with_data(gambar_urls, data_list)
