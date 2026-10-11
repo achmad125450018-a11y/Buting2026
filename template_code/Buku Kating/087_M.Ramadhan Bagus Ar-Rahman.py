@@ -342,3 +342,132 @@ if menu == "Baleg":
         display_images_with_data(gambar_urls, data_list)
     baleg()
 
+if menu == "Senator":
+    def Senator():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=1SvUi2X7S5FzPLDIa6D-C8taWKWxnLaT7",
+            "https://drive.google.com/uc?export=1pVXXQowJfMgINjAz8xzJ3c-lqtnRZ-ND",
+            "https://drive.google.com/uc?export=1k_dim-RF2oR2_bYUvek_VkaS1gy-7gt2",
+            "https://drive.google.com/uc?export=1p1dYrOozNrHl395tY_Yi4V-MA2pawlIQ",
+            "https://drive.google.com/uc?export=1AOn9Xw74XKmhPkp9dRQlf3u8FDZdJCcl",
+            "https://drive.google.com/uc?export=1-kCR7qbrTDoMI5fmJMc1_1M817boX-6z",
+            "https://drive.google.com/uc?export=1wOIX0pm-lwcBN0yy7qnxTXk-XEB6ptsi",
+            "https://drive.google.com/uc?export=1q76Q4DJj7A_B7NJ9Z0iqEPcQwQg7EAwI",
+            "https://drive.google.com/uc?export=1hZtnE3Ufye4VSN2AL08TmVeBiW82Qyzq",
+            "https://drive.google.com/uc?export=1ijdv9nYdilslXMpnT5x5gyvrz_KOBd_z",
+        ]
+        data_list = [
+            {
+                "nama": "Fathinah Nur Azizah",
+                "nim": "123450072",
+                "umur": "21",
+                "asal":"Jakarta",
+                "alamat": "Airan",
+                "hobbi": "Nulis di medium",
+                "sosmed": "@fathinahnazzh",
+                "kesan": "tegas dan berwibawa",  
+                "pesan":"semangat menjalankan amanahnya bang"# 1
+            },
+            {
+                "nama": "Helmy Surya Pratama",
+                "nim": "124450033",
+                "umur": "20",
+                "asal":"Jakarta",
+                "alamat": "Kedamaian",
+                "hobbi": "Ngesen kiri",
+                "sosmed": "@helmy_inst",
+                "kesan": "lucuuuuu bgtttt",  
+                "pesan":"semangat menjalankan amanahnya kak"# 1
+            },
+            {
+                "nama": "Fernando Dimetrius Barus",
+                "nim": "124450063",
+                "umur": "21",
+                "asal":"Tangerang",
+                "alamat": "Sebelah kamar biwa",
+                "hobbi": "Main badminton",
+                "sosmed": "@barus.fernando",
+                "kesan": "Bang nando orgnya lucuuuu",  
+                "pesan":"semangat menjalankan amanahnya bang"# 1
+            },
+            {
+                "nama": "Suci Aulia",
+                "nim": "124450034",
+                "umur": "19",
+                "asal":"Pesisir Barat",
+                "alamat": "Kota Baru",
+                "hobbi": "Sekarang jadi kameramen",
+                "sosmed": "@sciia___",
+                "kesan": "tegas dan berwibawa",  
+                "pesan":"semangat menjalankan amanahnya bang"# 1  
+            },
+            {
+                "nama": "Wielman Itolo Halawa",
+                "nim": "124450072",
+                "umur": "20",
+                "asal":"Nias Selatan",
+                "alamat": "Kedaton",
+                "hobbi": "Asrama TB 3",
+                "sosmed": "@wielhawny",
+                "kesan": "tegas dan berwibawa",  
+                "pesan":"semangat menjalankan amanahnya kak"# 1  
+            },
+            {
+                "nama": "Lia Hana Ichisasmita",
+                "nim": "123450089",
+                "umur": "21",
+                "asal":"Jakarta",
+                "alamat": "Belwis",
+                "hobbi": "Ngerjain dl",
+                "sosmed": "@lia.h_264",
+                "kesan": "tegas dan berwibawa",  
+                "pesan":"semangat menjalankan amanahnya bang"# 1  
+            },
+            {
+                "nama": "Aqila Zayyan Salsabil",
+                "nim": "124450014",
+                "umur": "19",
+                "asal":"Lampung Utara",
+                "alamat": "Sukarame",
+                "hobbi": "mendokumentasikan bayyes",
+                "sosmed": "@aqilazayyaan",
+                "kesan": "tegas dan berwibawa",  
+                "pesan":"semangat menjalankan amanahnya kak"# 1  
+            },
+            {
+                "nama": "Hazel Mahesa Handhaka",
+                "nim": "1244500114",
+                "umur": "20",
+                "asal":"Lampung timur",
+                "alamat": "Gunung terang",
+                "hobbi": "Dokumentasi lanyard datavora",
+                "sosmed": "@hazelhandhaka",
+                "kesan": "tegas dan berwibawa",  
+                "pesan":"semangat menjalankan amanahnya kak"# 1  
+            },
+            {
+                "nama": "Nadya Ratu Anjani",
+                "nim": "123450083",
+                "umur": "21",
+                "asal":"Bandar Lampung",
+                "alamat": "Sukarame",
+                "hobbi": "Denger lagu",
+                "sosmed": "@nadyaanjaani",
+                "kesan": "tegas dan berwibawa",  
+                "pesan":"semangat menjalankan amanahnya bang"# 1  
+            },
+            {
+                "nama": "Dwi Rahma Fitriani",
+                "nim": "124450084",
+                "umur": "19",
+                "asal":"Tulang bawang",
+                "alamat": "Belwis",
+                "hobbi": "Tidur",
+                "sosmed": "@dwi_rahmftrnii",
+                "kesan": "tegas dan berwibawa",  
+                "pesan":"semangat menjalankan amanahnya kakkkk"# 1  
+            },
+            ]
+        display_images_with_data(gambar_urls, data_list)
+    Senator()
+
