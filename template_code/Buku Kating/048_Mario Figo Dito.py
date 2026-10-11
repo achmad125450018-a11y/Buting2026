@@ -106,7 +106,7 @@ if menu == "Kesekjenan":
             "https://drive.google.com/uc?export=view&id=1Y9gqqft8Q-1O2XTpIn1SLSwKE0Ww6Cza",
             "https://drive.google.com/uc?export=view&id=1_DhgtFl73HGdnTt_cFRGie75GBwmfEGk",
             "https://drive.google.com/uc?export=view&id=1CAfB_4CI6SRxThyXOIgRXsY7J7GU9-8m",
-            "https://drive.google.com/uc?export=view&id=1CAfB_4CI6SRxThyXOIgRXsY7J7GU9-8m"
+            "https://drive.google.com/uc?export=view&id=1xSa9_YEbEIISrjwqyd1SijZNJW7N81ph"
         ]
         data_list = [
             {
@@ -624,7 +624,7 @@ elif menu == "Departemen Internal":
                 "pesan":" "# 1
             },
             {
-                "nama": "Jaya Saputra Tambak",
+                "nama": "Jaya Saputra Tamba",
                 "nim": "124450094",
                 "umur": "22",
                 "asal":"kisaran city",
@@ -748,9 +748,9 @@ elif menu == "Departemen PSDA":
             "https://drive.google.com/uc?export=view&id=1KbECDCCiFmBhiILtgy00dnEaLnBGL2bL",
             "https://drive.google.com/uc?export=view&id=1a6KlieOPJLYTLMvOXQzZaay0cML9SSaB",
             "https://drive.google.com/uc?export=view&id=14AMEQ2ReqiSrlJTkxjfPJEFYGyUPktox",
-            "https://drive.google.com/uc?export=view&id=1f1rX29ld7E66FD7-CBDswAT7-6erwCNd",
+            "https://drive.google.com/uc?export=view&id=19ZnM3deOhNrPZp9Tf67gteVBLFa-BaZq",
             "https://drive.google.com/uc?export=view&id=1rJ2X70qAKI3Dkibf477sjzKLvqCUXsac",
-            "https://drive.google.com/uc?export=view&id=1f1rX29ld7E66FD7-CBDswAT7-6erwCNd",
+            "https://drive.google.com/uc?export=view&id=1kMtq37xTjmunbnIUFOxe6vXofxL9Kci7",
             "https://drive.google.com/uc?export=view&id=1zj7FqC3-50fQzl5H-8_UVliIp5SJe9eY",
             "https://drive.google.com/uc?export=view&id=1yfF5VhdWtKiN_7y7Id7_LI65ZHIbV7GS",
             "https://drive.google.com/uc?export=view&id=1lbVIMOa-9da5ivrs0dnosRNPJYwNLYHb",
