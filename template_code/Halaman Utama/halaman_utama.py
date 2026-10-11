@@ -7,107 +7,231 @@ from urllib.parse import urlparse, parse_qs
 import base64
 import html
 
-# UI/UX PUNYA POISSON YEAHH
+# ============================================================
+# 🎨 SUPER PREMIUM UI/UX — POISSON EDITION
+# ============================================================
 st.markdown("""
 <style>
-    .main-title {
-        text-align: center;
-        color: #701c23;
-        font-weight: 800;
-        margin-bottom: 5px;
-    }
-    .main-subtitle {
-        text-align: center;
-        color: #555555;
-        font-weight: 600;
-        margin-bottom: 25px;
-    }
-    .section-title {
-        text-align: center;
-        color: #701c23;
-        font-weight: 700;
-        margin-top: 35px;
-        margin-bottom: 25px;
-    }
-    .content-box {
-        background-color: #ffffff;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        border: 1px solid #d9c3a3;
-        margin-bottom: 35px;
-        text-align: justify;
-        line-height: 1.8;
-        font-size: 15px;
-        color: #333333;
+    /* ---------- FONT IMPORT ---------- */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    /* ---------- GLOBAL ---------- */
+    html, body, [class*="css"] {
+        font-family: 'Inter', sans-serif;
+        color: #222222;
     }
 
-    /* --- STYLING PHOTO CARD GRID (HOVER EFFECT) --- */
+    .stApp {
+        background:
+            radial-gradient(circle at 15% 10%, rgba(112,28,35,0.06) 0%, transparent 45%),
+            radial-gradient(circle at 85% 90%, rgba(217,195,163,0.18) 0%, transparent 50%),
+            linear-gradient(180deg, #f4f0eb 0%, #efe8df 100%);
+        background-attachment: fixed;
+    }
+
+    /* ---------- MAIN HEADER ---------- */
+    .main-title {
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        font-size: 3.6em !important;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+        background: linear-gradient(135deg, #701c23 0%, #a8323d 45%, #701c23 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 2px 20px rgba(112,28,35,0.15);
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+    .main-title::after {
+        content: '';
+        display: block;
+        width: 90px;
+        height: 3px;
+        margin: 14px auto 0;
+        background: linear-gradient(90deg, transparent, #701c23, transparent);
+        border-radius: 3px;
+    }
+
+    .main-subtitle {
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        color: #6b5a52;
+        font-weight: 500;
+        font-size: 1.15em !important;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        margin-top: 6px;
+    }
+
+    /* ---------- SECTION TITLE ---------- */
+    .section-title {
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        color: #701c23;
+        font-weight: 700;
+        font-size: 1.9em;
+        margin-top: 45px;
+        margin-bottom: 30px;
+        position: relative;
+        display: block;
+    }
+    .section-title::before,
+    .section-title::after {
+        content: '✦';
+        color: #d9c3a3;
+        margin: 0 18px;
+        font-size: 0.7em;
+        vertical-align: middle;
+    }
+
+    /* ---------- CONTENT BOX (GLASS PREMIUM) ---------- */
+    .content-box {
+        background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
+        padding: 38px 42px;
+        border-radius: 20px;
+        box-shadow:
+            0 1px 0 rgba(255,255,255,0.9) inset,
+            0 10px 30px rgba(112,28,35,0.07),
+            0 2px 8px rgba(112,28,35,0.04);
+        border: 1px solid rgba(217,195,163,0.55);
+        margin-bottom: 38px;
+        text-align: justify;
+        line-height: 1.95;
+        font-size: 15.5px;
+        color: #3a2f2b;
+        position: relative;
+        overflow: hidden;
+    }
+    .content-box::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 5px; height: 100%;
+        background: linear-gradient(180deg, #701c23, #d9c3a3, #701c23);
+    }
+    .content-box b {
+        color: #701c23;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+    }
+
+    /* ---------- PHOTO CARD (PREMIUM) ---------- */
     .photo-card {
         position: relative;
         overflow: hidden;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(112, 28, 35, 0.12);
-        border: 2px solid #701c23;
-        margin-bottom: 20px;
-        height: 200px;
+        border-radius: 16px;
+        box-shadow:
+            0 4px 14px rgba(112,28,35,0.10),
+            0 1px 3px rgba(0,0,0,0.05);
+        border: 1px solid rgba(217,195,163,0.7);
+        margin-bottom: 22px;
+        height: 210px;
         background-color: #ffffff;
+        transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                    box-shadow 0.4s ease;
+    }
+    .photo-card:hover {
+        transform: translateY(-6px);
+        box-shadow:
+            0 18px 40px rgba(112,28,35,0.22),
+            0 4px 12px rgba(112,28,35,0.12);
     }
     .photo-card img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.4s ease;
+        transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+                    filter 0.5s ease;
+        filter: saturate(1) brightness(1);
     }
     .photo-card:hover img {
-        transform: scale(1.08);
+        transform: scale(1.1);
+        filter: saturate(1.15) brightness(1.05);
+    }
+    /* Shimmer effect */
+    .photo-card::after {
+        content: '';
+        position: absolute;
+        top: 0; left: -75%;
+        width: 50%; height: 100%;
+        background: linear-gradient(
+            120deg,
+            transparent 0%,
+            rgba(255,255,255,0.35) 50%,
+            transparent 100%
+        );
+        transform: skewX(-20deg);
+        transition: left 0.7s ease;
+        pointer-events: none;
+    }
+    .photo-card:hover::after {
+        left: 125%;
     }
     .photo-card .overlay {
         position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(transparent, rgba(112, 28, 35, 0.95));
+        bottom: 0; left: 0; right: 0;
+        background: linear-gradient(
+            to top,
+            rgba(112,28,35,0.97) 0%,
+            rgba(112,28,35,0.85) 55%,
+            transparent 100%
+        );
         color: #ffffff;
-        padding: 15px 12px 10px 12px;
+        padding: 26px 14px 14px 14px;
         opacity: 0;
-        transition: opacity 0.3s ease;
+        transform: translateY(10px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
         text-align: center;
     }
     .photo-card:hover .overlay {
         opacity: 1;
+        transform: translateY(0);
     }
     .photo-card .overlay-title {
+        font-family: 'Playfair Display', serif;
         font-weight: 700;
-        font-size: 14px;
+        font-size: 15px;
         color: #f4f0eb;
-        margin-bottom: 3px;
+        margin-bottom: 4px;
+        letter-spacing: 0.4px;
     }
     .photo-card .overlay-desc {
-        font-size: 12px;
-        line-height: 1.3;
+        font-size: 11.5px;
+        line-height: 1.4;
+        color: rgba(244,240,235,0.92);
+        font-weight: 400;
     }
 
-    /* --- FLASHCARD FLIP ABOUT US --- */
+    /* ---------- FLIP CARD (ABOUT US PREMIUM) ---------- */
     .flip-card {
         background-color: transparent;
         width: 100%;
-        height: 380px;
-        perspective: 1000px;
-        margin-bottom: 25px;
+        height: 400px;
+        perspective: 1400px;
+        margin-bottom: 28px;
     }
     .flip-card-inner {
         position: relative;
         width: 100%;
         height: 100%;
         text-align: center;
-        transition: transform 0.8s;
+        transition: transform 0.9s cubic-bezier(0.4, 0.2, 0.2, 1);
         transform-style: preserve-3d;
-        border-radius: 15px;
-        box-shadow: 0 4px 12px rgba(112, 28, 35, 0.15);
+        border-radius: 18px;
+        box-shadow:
+            0 8px 24px rgba(112,28,35,0.12),
+            0 2px 6px rgba(112,28,35,0.06);
     }
     .flip-card:hover .flip-card-inner {
         transform: rotateY(180deg);
+        box-shadow:
+            0 20px 50px rgba(112,28,35,0.28),
+            0 6px 14px rgba(112,28,35,0.15);
     }
     .flip-card-front, .flip-card-back {
         position: absolute;
@@ -115,73 +239,113 @@ st.markdown("""
         height: 100%;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        border-radius: 15px;
-        padding: 15px;
+        border-radius: 18px;
+        padding: 18px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
     .flip-card-front {
-        background-color: #ffffff;
+        background: linear-gradient(160deg, #ffffff 0%, #fdfaf6 100%);
         color: #701c23;
-        border: 2px solid #d9c3a3;
+        border: 1px solid rgba(217,195,163,0.8);
+        box-shadow: 0 0 0 1px rgba(255,255,255,0.6) inset;
     }
     .flip-card-front img {
-        width: 160px;
-        height: 200px;
+        width: 165px;
+        height: 205px;
         object-fit: cover;
-        border-radius: 10px;
-        margin-bottom: 10px;
+        border-radius: 12px;
+        margin-bottom: 14px;
         border: 2px solid #701c23;
+        box-shadow: 0 6px 18px rgba(112,28,35,0.22);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .flip-card:hover .flip-card-front img {
+        transform: scale(1.03);
+        box-shadow: 0 10px 26px rgba(112,28,35,0.32);
     }
     .flip-card-front h4 {
-        margin: 5px 0 0 0;
+        margin: 6px 0 0 0;
+        font-family: 'Playfair Display', serif;
         font-weight: 700;
         color: #701c23;
-        font-size: 16px;
+        font-size: 16.5px;
+        letter-spacing: 0.3px;
+        line-height: 1.3;
+    }
+    .flip-card-front .flip-hint {
+        font-size: 10.5px;
+        color: #a89790;
+        margin-top: 8px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
     }
     .flip-card-back {
-        background-color: #701c23;
+        background: linear-gradient(150deg, #701c23 0%, #4e1318 100%);
         color: #ffffff;
         transform: rotateY(180deg);
         text-align: left;
         align-items: flex-start;
-        padding: 20px;
+        padding: 26px 24px;
         box-sizing: border-box;
+        border: 1px solid rgba(217,195,163,0.35);
+        box-shadow: 0 0 30px rgba(112,28,35,0.4) inset;
     }
     .flip-card-back h4 {
+        font-family: 'Playfair Display', serif;
         color: #d9c3a3;
         font-weight: 700;
-        margin-bottom: 12px;
-        border-bottom: 1px solid rgba(217, 195, 163, 0.4);
-        padding-bottom: 6px;
+        margin-bottom: 14px;
+        border-bottom: 1px solid rgba(217,195,163,0.35);
+        padding-bottom: 8px;
         width: 100%;
         font-size: 17px;
+        letter-spacing: 0.3px;
     }
     .flip-card-back p {
-        font-size: 13px;
-        margin: 4px 0;
-        line-height: 1.4;
+        font-size: 12.8px;
+        margin: 6px 0;
+        line-height: 1.55;
+        color: rgba(255,255,255,0.93);
     }
     .flip-card-back .label {
-        font-weight: bold;
+        font-weight: 700;
         color: #d9c3a3;
+        letter-spacing: 0.3px;
     }
+
+    /* ---------- NAVBAR GLASSMORPHISM ---------- */
+    div[data-testid="stHorizontalBlock"] > div:has(> div > div > nav) {
+        backdrop-filter: blur(12px);
+    }
+
+    /* ---------- SCROLLBAR PREMIUM ---------- */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f4f0eb; }
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #701c23, #a8323d);
+        border-radius: 10px;
+        border: 2px solid #f4f0eb;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: #701c23; }
+
+    /* ---------- FOOTER SPACING ---------- */
+    .block-container { padding-top: 2rem !important; }
 </style>
 """, unsafe_allow_html=True)
 
+# ============================================================
+# UTIL FUNCTIONS
+# ============================================================
 def get_drive_file_id(url):
     """Mengambil ID file dari beberapa format link Google Drive."""
     try:
         parsed = urlparse(url)
         query = parse_qs(parsed.query)
-
-        # Format: drive.google.com/uc?id=FILE_ID atau ...?id=FILE_ID
         if query.get("id"):
             return query["id"][0]
-
-        # Format: drive.google.com/file/d/FILE_ID/view
         parts = parsed.path.split("/")
         if "d" in parts:
             idx = parts.index("d")
@@ -199,7 +363,6 @@ def load_image(url):
     candidate_urls = []
 
     if file_id:
-        # Thumbnail biasanya lebih konsisten untuk penyematan gambar.
         candidate_urls.extend([
             f"https://drive.google.com/thumbnail?id={file_id}&sz=w1600",
             f"https://drive.google.com/uc?export=download&id={file_id}",
@@ -211,10 +374,7 @@ def load_image(url):
     for candidate in dict.fromkeys(candidate_urls):
         try:
             response = requests.get(
-                candidate,
-                headers=headers,
-                timeout=25,
-                allow_redirects=True,
+                candidate, headers=headers, timeout=25, allow_redirects=True,
             )
             response.raise_for_status()
             img = Image.open(BytesIO(response.content))
@@ -223,7 +383,6 @@ def load_image(url):
             return img
         except Exception:
             continue
-
     return None
 
 
@@ -233,17 +392,19 @@ def image_data_uri(url):
     img = load_image(url)
     if img is None:
         return None
-
     buffer = BytesIO()
     img.save(buffer, format="JPEG", quality=88, optimize=True)
     encoded = base64.b64encode(buffer.getvalue()).decode("utf-8")
     return f"data:image/jpeg;base64,{encoded}"
 
-# Header Utama
+
+# ============================================================
+# HEADER
+# ============================================================
 st.markdown("""
     <div>
-        <h1 class='main-title' style='font-size: 3em;'>WEBSITE KATING</h1>
-        <p class='main-subtitle' style='font-size: 1.3em;'>CEO HMSD Adyatama ITERA 2026</p>
+        <h1 class='main-title'>WEBSITE KATING</h1>
+        <p class='main-subtitle'>CEO HMSD Adyatama ITERA 2026</p>
     </div>
 """, unsafe_allow_html=True)
 
@@ -265,6 +426,10 @@ layout_logo(url1)
 
 st.markdown("<div style='margin-top: 50px;'></div>", unsafe_allow_html=True)
 
+
+# ============================================================
+# NAVBAR
+# ============================================================
 def streamlit_menu():
     selected = option_menu(
         menu_title=None,
@@ -274,29 +439,41 @@ def streamlit_menu():
         orientation="horizontal",
         styles={
             "container": {
-                "padding": "10px!important", 
-                "background-color": "#ffffff", 
-                "border-radius": "12px", 
-                "box-shadow": "0 3px 10px rgba(0,0,0,0.08)",
-                "margin-bottom": "35px"
+                "padding": "10px!important",
+                "background-color": "rgba(255,255,255,0.85)",
+                "backdrop-filter": "blur(12px)",
+                "border-radius": "14px",
+                "box-shadow": "0 8px 24px rgba(112,28,35,0.10), 0 1px 0 rgba(255,255,255,0.9) inset",
+                "border": "1px solid rgba(217,195,163,0.6)",
+                "margin-bottom": "38px",
             },
             "icon": {"color": "#701c23", "font-size": "18px"},
             "nav-link": {
                 "font-size": "15px",
                 "font-weight": "600",
                 "text-align": "center",
-                "margin": "0 5px",
-                "padding": "10px 20px",
-                "border-radius": "8px",
-                "--hover-color": "#f4f0eb",
+                "margin": "0 6px",
+                "padding": "10px 22px",
+                "border-radius": "10px",
+                "color": "#701c23",
+                "--hover-color": "rgba(217,195,163,0.25)",
+                "transition": "all 0.3s ease",
             },
-            "nav-link-selected": {"background-color": "#701c23", "color": "#ffffff"},
+            "nav-link-selected": {
+                "background": "linear-gradient(135deg, #701c23 0%, #a8323d 100%)",
+                "color": "#ffffff",
+                "box-shadow": "0 6px 16px rgba(112,28,35,0.35)",
+            },
         },
     )
     return selected
 
 menu = streamlit_menu()
 
+
+# ============================================================
+# HOME PAGE
+# ============================================================
 if menu == "Home":
     def home_page():
         st.markdown("<h2 class='section-title'>Deskripsi Kelompok</h2>", unsafe_allow_html=True)
@@ -306,9 +483,9 @@ if menu == "Home":
                 Kelompok kami merupakan wadah kolaborasi, kebersamaan, dan dedikasi tinggi dalam menjalani rangkaian kegiatan pengenalan kampus dan penugasan Buku Kating. Di sini, kami tidak hanya belajar menyelesaikan setiap tantangan akademik secara bersama-sama, tetapi juga membangun ikatan kekeluargaan yang erat, saling mendukung dalam setiap proses adaptasi, serta menjunjung tinggi nilai solidaritas dan profesionalisme sebagai bagian dari keluarga besar HMSD Adyatama ITERA.
             </div>
         """, unsafe_allow_html=True)
-        
-        st.markdown("<h3 class='section-title' style='font-size:22px;'>Dokumentasi Kegiatan Poisson (2 x 3 Grid)</h3>", unsafe_allow_html=True)
-        
+
+        st.markdown("<h3 class='section-title' style='font-size:22px;'>Dokumentasi Kegiatan Poisson</h3>", unsafe_allow_html=True)
+
         kegiatan_poisson = [
             {"url": "https://drive.google.com/uc?export=view&id=1dDPrlobxQlHnAwMZKdoSuGcJviyfueTn", "judul": "First Moment", "desc": "Awal dari cerita yang panjang"},
             {"url": "https://drive.google.com/uc?export=view&id=1Oi4CMuo7gzPc9cobE01SUmZQbR0bcfA2", "judul": "Our Journey", "desc": "Langkah demi langkah bersama"},
@@ -338,7 +515,7 @@ if menu == "Home":
                             """, unsafe_allow_html=True)
                         else:
                             st.warning(f"Foto '{item['judul']}' gagal dimuat. Periksa izin Google Drive.")
-        
+
         st.markdown("""
             <div class='content-box'>
                 <b>Komitmen Kami:</b><br>
@@ -348,24 +525,28 @@ if menu == "Home":
 
     home_page()
 
+
+# ============================================================
+# ABOUT US PAGE
+# ============================================================
 elif menu == "About Us":
     def about_page():
         st.markdown("<h2 class='section-title'>About Us</h2>", unsafe_allow_html=True)
-        
+
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1OZWQEzUE1biYVl5igEDRCdqYE1Kdculc", 
-            "https://drive.google.com/uc?export=view&id=1VZfU_oBz3w68OXo4xKuAQ14wcS7wtC4E", 
-            "https://drive.google.com/uc?export=view&id=1DF_qQCOIFDvyjG5SEOL8DURaTbjy1OWc", 
-            "https://drive.google.com/uc?export=view&id=19FctJT5o6JBmGICiSu15NAIwLR4VFhW_", 
-            "https://drive.google.com/uc?export=view&id=1jDU86oPLsjea0l0FiwbVjF6Esuekw4MG", 
-            "https://drive.google.com/uc?export=view&id=1OOVOfx6v2WEL_lPFwtqt_2Pnp9dmZNAU", 
-            "https://drive.google.com/uc?export=view&id=1OcyHkxkcelFVtIa2oc0fF1aO85im1_Vp", 
-            "https://drive.google.com/uc?export=view&id=1K1XEcndMVCAyAFS2i6j8SlWriPLSNAau", 
-            "https://drive.google.com/uc?export=view&id=1VZfU_oBz3w68OXo4xKuAQ14wcS7wtC4E", 
-            "https://drive.google.com/uc?export=view&id=1VZfU_oBz3w68OXo4xKuAQ14wcS7wtC4E", 
-            "https://drive.google.com/uc?export=view&id=1VZfU_oBz3w68OXo4xKuAQ14wcS7wtC4E", 
+            "https://drive.google.com/uc?export=view&id=1OZWQEzUE1biYVl5igEDRCdqYE1Kdculc",
+            "https://drive.google.com/uc?export=view&id=1VZfU_oBz3w68OXo4xKuAQ14wcS7wtC4E",
+            "https://drive.google.com/uc?export=view&id=1DF_qQCOIFDvyjG5SEOL8DURaTbjy1OWc",
+            "https://drive.google.com/uc?export=view&id=19FctJT5o6JBmGICiSu15NAIwLR4VFhW_",
+            "https://drive.google.com/uc?export=view&id=1jDU86oPLsjea0l0FiwbVjF6Esuekw4MG",
+            "https://drive.google.com/uc?export=view&id=1OOVOfx6v2WEL_lPFwtqt_2Pnp9dmZNAU",
+            "https://drive.google.com/uc?export=view&id=1OcyHkxkcelFVtIa2oc0fF1aO85im1_Vp",
+            "https://drive.google.com/uc?export=view&id=1K1XEcndMVCAyAFS2i6j8SlWriPLSNAau",
+            "https://drive.google.com/uc?export=view&id=1VZfU_oBz3w68OXo4xKuAQ14wcS7wtC4E",
+            "https://drive.google.com/uc?export=view&id=1VZfU_oBz3w68OXo4xKuAQ14wcS7wtC4E",
+            "https://drive.google.com/uc?export=view&id=1VZfU_oBz3w68OXo4xKuAQ14wcS7wtC4E",
         ]
-        
+
         data_list = [
             {"nama": "Yobel Imanuel Pasaribu", "sebagai": "Pak Lurah", "nim": "125450116", "fun_fact": "Bawa bantal guling dari kecil sampe sekaran", "motto_hidup": "New semester new me"},
             {"nama": "Rena Aprilia", "sebagai": "Bu Lurah", "nim": "125450109", "fun_fact": "Suka nyemilin es batu saat santai", "motto_hidup": "Konsisten adalah kunci sukses"},
@@ -387,7 +568,7 @@ elif menu == "About Us":
                 if idx < len(data_list):
                     member = data_list[idx]
                     img_url = gambar_urls[idx]
-                    
+
                     with cols[j]:
                         img_src = image_data_uri(img_url)
                         if img_src:
@@ -402,7 +583,7 @@ elif menu == "About Us":
                                         <div class="flip-card-front">
                                             <img src="{img_src}" alt="{html.escape(member['nama'], quote=True)}">
                                             <h4>{nama}</h4>
-                                            <span style="font-size:11px; color:#888;">(Arahkan kursor untuk balik)</span>
+                                            <div class="flip-hint">Hover untuk detail</div>
                                         </div>
                                         <div class="flip-card-back">
                                             <h4>{nama}</h4>
