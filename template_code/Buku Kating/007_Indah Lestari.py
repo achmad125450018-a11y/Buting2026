@@ -793,7 +793,7 @@ if menu == "Departemen MIKFES":
             },
             {
                 "Nama": "Hafidz Wahdiansyah",
-                "NIM" : "tanya lintar",
+                "NIM" : "124450064",
                 "Asal" : "Metro",
                 "Alamat" : "Metro Kibang, Lampung Timur",
                 "Hobi": "3N (Ngoding, Ngegame, Nyibukin diri)",

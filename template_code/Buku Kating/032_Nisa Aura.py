@@ -39,7 +39,7 @@ def streamlit_menu():
         orientation="horizontal",
         styles={
             "container": {"padding": "0!important", "background-color": "#fafafa"},
-            "icon": {"color": "black", "font-size": "15px"},
+            "icon": {"color": "black", "font-size": "16px"},
             "nav-link": {
                 "font-size": "13px",
                 "text-align": "left",
@@ -792,7 +792,7 @@ if menu == "Departemen MIKFES":
             },
             {
                 "Nama": "Hafidz Wahdiansyah",
-                "NIM" : "tanya lintar",
+                "NIM" : "124450064",
                 "Asal" : "Metro",
                 "Alamat" : "Metro Kibang, Lampung Timur",
                 "Hobi": "3N (Ngoding, Ngegame, Nyibukin diri)",
