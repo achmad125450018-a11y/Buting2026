@@ -132,14 +132,14 @@ elif menu == "About Us":
         ]
         data_list = [
             {
-                "nama": "Dandy Romansyah",
-                "sebagai": "Palu",
-                "nim": "12545006",
-                "fun_fact": "Fans Bernadya nomor 1 sedunia dengan jumlah mendengarkan 45.868 menit",
-                "motto_hidup": "Pergi keluar untuk mencari referensi, lalu kembali untuk relevansi",
+                "nama": "x",
+                "sebagai": "Pak Lurah",
+                "nim": "122450016",
+                "fun_fact": "suka makan pedes, tapi ga suka efeknya",
+                "motto_hidup": "new semester new me",
             },
             {
-                "nama": "Dea Febryana",
+                "nama": "x",
                 "sebagai": "Bu Lurah",
                 "nim": "122450000",
                 "fun_fact": "nyemilin es bata",
