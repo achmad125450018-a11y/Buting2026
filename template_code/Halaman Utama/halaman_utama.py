@@ -4,7 +4,6 @@ import requests
 from PIL import Image, ImageOps
 from io import BytesIO
 
-
 # JANGAN DIUBAH
 @st.cache_data
 def load_image(url):
