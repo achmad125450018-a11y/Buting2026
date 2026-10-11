@@ -185,22 +185,22 @@ if menu == "Kesekjenan":
 if menu == "Departemen Internal":
     def departemen_internal():
         gambar_urls = [
-           "https://drive.google.com/thumbnail?id=1BQ3XIi_QhqQrIDLohrH4aeejyzz7Fs8n&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1gmec5FZFyEQCUESVROO2AAt3aNa-M1f1&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1pxFtvTk_bXfVuj3PeKop2YxpDI7EVhOx&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1ih2qhiior-rvT1Rk3u329EtfHcYkttD7&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1qGRbcloEbheEolHYHoDgrCFB_lAKMalB&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1lx8F4yeaCkxm2JP3Opnsc5mbbBN0KCMf&sz=w1000",
-           "https://drive.google.com/thumbnail?id=18IaqL6UjD9sh5WoyC8ptMN2_GN-iwcBM&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1uGPFIN2Go5-hVbh_KCfObzEH6MRS0STM&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1zhmS4F4K4BjLw5sdFJWo85TIHnZB37Hm&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1LzWsEijwv-qSfU5Cqj5AXD25M3vdA_N9&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1NPiwo6KIIqL7gAsWsU_emsIBrdPYb84L&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1QNyNI-bo_ABugNnAypV1wghv345eHc99&sz=w1000",
-           "https://drive.google.com/thumbnail?id=10jbhS5iKBOAc5MnSXvGAtTMbKr1liUOJ&sz=w1000",
-           "https://drive.google.com/thumbnail?id=11EuDo6T3Nhc1dNrR1Tl9Q5h10p9xKf9w&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1g9KbyKsIQUI1SzLyN61DpKVigRHwZjOx&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1Zd9hjH9A9G61kq0Kl02uJB0YA44E9DvW&sz=w1000"
+                "https://drive.google.com/thumbnail?id=1BQ3XIi_QhqQrIDLohrH4aeejyzz7Fs8n&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1gmec5FZFyEQCUESVROO2AAt3aNa-M1f1&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1pxFtvTk_bXfVuj3PeKop2YxpDI7EVhOx&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1ih2qhiior-rvT1Rk3u329EtfHcYkttD7&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1qGRbcloEbheEolHYHoDgrCFB_lAKMalB&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1lx8F4yeaCkxm2JP3Opnsc5mbbBN0KCMf&sz=w1000",
+                "https://drive.google.com/thumbnail?id=18IaqL6UjD9sh5WoyC8ptMN2_GN-iwcBM&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1uGPFIN2Go5-hVbh_KCfObzEH6MRS0STM&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1zhmS4F4K4BjLw5sdFJWo85TIHnZB37Hm&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1LzWsEijwv-qSfU5Cqj5AXD25M3vdA_N9&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1NPiwo6KIIqL7gAsWsU_emsIBrdPYb84L&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1QNyNI-bo_ABugNnAypV1wghv345eHc99&sz=w1000",
+                "https://drive.google.com/thumbnail?id=10jbhS5iKBOAc5MnSXvGAtTMbKr1liUOJ&sz=w1000",
+                "https://drive.google.com/thumbnail?id=11EuDo6T3Nhc1dNrR1Tl9Q5h10p9xKf9w&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1g9KbyKsIQUI1SzLyN61DpKVigRHwZjOx&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1Zd9hjH9A9G61kq0Kl02uJB0YA44E9DvW&sz=w1000"
         ]
         
         data_list = [
@@ -793,7 +793,7 @@ if menu == "Departemen MIKFES":
             },
             {
                 "Nama": "Hafidz Wahdiansyah", 
-                "NIM" : "tanya lintar",
+                "NIM" : "124450064",
                 "Asal" : "Metro",
                 "Alamat" : "Metro Kibang, Lampung Timur",
                 "Hobi": "3N (Ngoding, Ngegame, Nyibukin diri)",
