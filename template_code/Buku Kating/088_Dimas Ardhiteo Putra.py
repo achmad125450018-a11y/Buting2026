@@ -115,8 +115,8 @@ if menu == "Kesekjenan":
                 "alamat": "Sektariatan HMSD",
                 "hobbi": "push imo, mencuci",
                 "sosmed": "@jars_mrp",
-                "kesan": "Bang ginda ramahnya gak ketolongan, humble, adem liat bang ginda rasanya",  
-                "pesan":"gass cumlaude bang"# 1
+                "kesan": "",  
+                "pesan":""# 1
             },
             {
                 "nama": "Muhammad Aqil Ramadhan",
@@ -126,8 +126,8 @@ if menu == "Kesekjenan":
                 "alamat": "Sekretariat HMSD",
                 "hobbi": "Masak",
                 "sosmed": "@muhammadaqil1111",
-                "kesan": "Keren berkharisma",  
-                "pesan":"Lulus tepat waktu ya bang"# 1
+                "kesan": "",  
+                "pesan":""# 1
             },
             {
                 "nama": "Efi Defiyati",
@@ -137,8 +137,8 @@ if menu == "Kesekjenan":
                 "alamat": "Airan",
                 "hobbi": "Membaca",
                 "sosmed": "@eeffiidefi",
-                "kesan": "humble, ramah, baik",  
-                "pesan":"Kak, senyum selalu ya kak"# 1
+                "kesan": "",  
+                "pesan":""# 1
             },
             {
                 "nama": "Qois Olifio",
@@ -148,8 +148,8 @@ if menu == "Kesekjenan":
                 "alamat": "Kota Baru",
                 "hobbi": "Mainin Surat",
                 "sosmed": "@qoisolifio_",
-                "kesan": "Cool, dan keliatan orang yang Sistematis",  
-                "pesan":"Bang waktu presentasi jangan terlalu cepat ya bang hehe"# 1  
+                "kesan": "",  
+                "pesan":""# 1  
             },
             {
                 "nama": "Haffsa Fazila Arradhi",
@@ -159,8 +159,8 @@ if menu == "Kesekjenan":
                 "alamat": "Bandar Lampung",
                 "hobbi": "Menyanyi",
                 "sosmed": "@hafsafazilaa",
-                "kesan": "humble dan baik",  
-                "pesan":"Selalu happy ya kak :)"# 1  
+                "kesan": "",  
+                "pesan":""# 1  
             },
             {
                 "nama": "Luthfia Laila Ramadhani",
@@ -170,8 +170,8 @@ if menu == "Kesekjenan":
                 "alamat": "Airan",
                 "hobbi": "Bertemu haffsa",
                 "sosmed": "@luthfiaarmdhni",
-                "kesan": "humble dan baik",  
-                "pesan":"Jangan mudah patah semangat kak :)"# 1  
+                "kesan": "",  
+                "pesan":""# 1  
             },
         ]
         display_images_with_data(gambar_urls, data_list)
