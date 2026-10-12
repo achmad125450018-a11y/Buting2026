@@ -118,7 +118,7 @@ if menu == "Kesekjenan":
                 "hobbi": "Push Rank sampe IMO",
                 "sosmed": "@jars_mrp",
                 "kesan": "Abangnya keren banget, baik juga ramah, asyik klo dia ajak ngobrol.",  
-                "pesan": "‎Semangat terus ya bang dan pantang menyerah"
+                "pesan": "Semangat terus ya bang dan pantang menyerah"
             },
             {
                 "nama": "Muhammad Aqil Ramadhan",
@@ -151,7 +151,7 @@ if menu == "Kesekjenan":
                 "hobbi": "Mainin Surat",
                 "sosmed": "@qoisolifio_",
                 "kesan": "AAbangnya asyik kalo diajak ngobrol, baik juga dan ramah.",  
-                "pesan": "‎Pantang menyerah dan tetap semangat ya bang"
+                "pesan": "Pantang menyerah dan tetap semangat ya bang"
             },
             {
                 "nama": "Hafsa Fazila Arradhi",
@@ -162,7 +162,7 @@ if menu == "Kesekjenan":
                 "hobbi": "Berenang",
                 "sosmed": "@hafsafazilaa",
                 "kesan": "Kakakmya baikk dan ramah, cantikk juga terus imutt.e",  
-                "pesan": "‎Semangat ya kak menghadapi perkuliahan san tugas tugas, sukses selalu"
+                "pesan": "Semangat ya kak menghadapi perkuliahan san tugas tugas, sukses selalu"
             },
             {
                 "nama": "Luthfia Laila Ramadhani",
@@ -172,8 +172,8 @@ if menu == "Kesekjenan":
                 "alamat": "Airan",
                 "hobbi": "Bertemu Pak Tirta",
                 "sosmed": "@luthfiaarmdhni",
-                "kesan": "‎Kakaknya cantik dan baik, terus imut juga ramah lagi",  
-                "pesan": "‎Suskes selalu ya kak semoga nilai A terus."
+                "kesan": "Kakaknya cantik dan baik, terus imut juga ramah lagi",  
+                "pesan": "Suskes selalu ya kak semoga nilai A terus."
             }
         ]
         display_images_with_data(gambar_urls, data_list)
@@ -214,7 +214,7 @@ elif menu == "Badan Kesenatoran":
                 "hobbi": "Ngesen kiri",
                 "sosmed": "@helmy_ist",
                 "kesan": "Abangnya ramah banget,baikk lucuuu kalo diajak ngobrol nyambung.",  
-                "pesan": "S‎Tetap semangat ya bang menghadapi perkuliahan."
+                "pesan": "STetap semangat ya bang menghadapi perkuliahan."
             },
             {
                 "nama": "Fernando Dimetrius Barus",
@@ -225,7 +225,7 @@ elif menu == "Badan Kesenatoran":
                 "hobbi": "Badminton",
                 "sosmed": "@barus.fernando",
                 "kesan": "Abangnya seruuu, baikk lagi dan ramahh, jokesnya masuk lagi.",  
-                "pesan": "‎Semnagat terus ya bang dan semoga sukses selalu."
+                "pesan": "Semnagat terus ya bang dan semoga sukses selalu."
             },
             {
                 "nama": "Suci Aulia",
@@ -235,7 +235,7 @@ elif menu == "Badan Kesenatoran":
                 "alamat": "Kota Baru",
                 "hobbi": "Bikin video random dan upload di second",
                 "sosmed": "@sciia_staff",
-                "kesan": "‎Kakaknya cantik, manis lagi, baik juga dan ramah banget.",  
+                "kesan": "Kakaknya cantik, manis lagi, baik juga dan ramah banget.",  
                 "pesan": "Semangat terus ya kakk dan sukses selalu."
             },
             {
@@ -258,7 +258,7 @@ elif menu == "Badan Kesenatoran":
                 "hobbi": "Nyari jurnal",
                 "sosmed": "@lia.h_264",
                 "kesan": "Kakaknya baikk ramah jugaa, imut banget dehh sukaa.",  
-                "pesan": "‎Tetap semangat ya kakkk semoga suskes selalu dan pantang menyerah."
+                "pesan": "Tetap semangat ya kakkk semoga suskes selalu dan pantang menyerah."
             },
             {
                 "nama": "Aqila Zayyan Salsabil",
@@ -268,7 +268,7 @@ elif menu == "Badan Kesenatoran":
                 "alamat": "Sukarame",
                 "hobbi": "Mendokumentasikan bayyesian",
                 "sosmed": "@aqilazayyaan",
-                "kesan": "‎Kakaknya cantik banget, ramah dan baik jugaa, asyik juga orangnya.",  
+                "kesan": "Kakaknya cantik banget, ramah dan baik jugaa, asyik juga orangnya.",  
                 "pesan": "Terus semangat ya kak untuk menghadapi setiap rintangan."
             },
             {
@@ -279,7 +279,7 @@ elif menu == "Badan Kesenatoran":
                 "alamat": "Ujung Terang",
                 "hobbi": "Bulu Tangkis",
                 "sosmed": "@hazelhandhaka",
-                "kesan": "‎Abangnya baik dan ramah, manis jugaa. Asyik orangnya.",  
+                "kesan": "Abangnya baik dan ramah, manis jugaa. Asyik orangnya.",  
                 "pesan": "Terus semangat ya bang dan pantang menyerah."
             },
             {
@@ -291,7 +291,7 @@ elif menu == "Badan Kesenatoran":
                 "hobbi": "Denger Lagu",
                 "sosmed": "@nadyaanjaani",
                 "kesan": "Kakaknya imut banget dan baik jugaa, ramah dan cantik.",  
-                "pesan": "‎Tetap semangat ya kakk menghadapi perkuliahan dan semoga nilainya A terus"
+                "pesan": "Tetap semangat ya kakk menghadapi perkuliahan dan semoga nilainya A terus"
             },
             {
                 "nama": "Dwi Rahma Fitriani",
@@ -302,7 +302,7 @@ elif menu == "Badan Kesenatoran":
                 "hobbi": "Dengerin musik",
                 "sosmed": "@dwi_rahmftrnii",
                 "kesan": "Kakaknya kalem, baikkk dan ramah, suka mehliat kakakny imut.",  
-                "pesan": "‎Semangat terus ya kak menghadapi tugas yang banyak."
+                "pesan": "Semangat terus ya kak menghadapi tugas yang banyak."
             }
         ]
         display_images_with_data(gambar_urls, data_list)
@@ -492,7 +492,7 @@ elif menu == "Departemen Minbak":
             "https://drive.google.com/uc?export=view&id=1C8_2h67_WKBnPUpwkkTm9AfSi7W2H7_z",
             "https://drive.google.com/uc?export=view&id=1mjHinYhIBpyeWsNWf_jMBdvWHjECt162",
         ]
-       data_list = [
+        data_list = [
     {
         "nama": "Kevin Antonio Junior",
         "nim": "123450109",

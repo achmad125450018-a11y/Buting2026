@@ -6,7 +6,7 @@ if 'pindah' not in st.session_state:
 
 Homepage = st.Page(
     "Halaman Utama/halaman_utama.py",
-    title="Nama_Kelompok",
+    title="Greedy",
     default=True
 )
 
@@ -77,8 +77,8 @@ Mahasiswa11 = st.Page(
 )
 
 Mahasiswa12 = st.Page(
-    "Buku Kating/121_Warda Aliya Lubis.py",
-    title="121 - Warda Aliya Lubis",
+    "Buku Kating/121_Wardah Aliya Lubis.py",
+    title="121 - Wardah Aliya Lubis",
     icon=":material/person:"
 )
 
