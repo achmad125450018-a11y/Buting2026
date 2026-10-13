@@ -528,22 +528,22 @@ elif menu == "Departemen Minbak":
 elif menu == "Departemen Internal":
     def DepartemenInternal():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1tRs700cUp_ltIVDvFe8JK2h1DPQU9s-L",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1KBmKm1uS8nZKyGHn1PkTWcpteHyYr8FV",
-            "https://drive.google.com/uc?export=view&id=1qxxSzBalqydJCGw0VZVHuOLhNrNUKpXP",
-            "https://drive.google.com/uc?export=view&id=1Vve_ylKSy5ilrRP3gvUEa0pn1sgqNvDq",
-            "https://drive.google.com/uc?export=view&id=1L-PF2EgVIYCrgLAeEfVWWYJiHOsVZ2k4",
-            "https://drive.google.com/uc?export=view&id=1GcHgRYXdW5zVM5G29xbVDtYl2fQwteCu",
-            "https://drive.google.com/uc?export=view&id=1I0DTA9qqcYAnD6YxbDk7zRLxOrbm18FJ",
-            "https://drive.google.com/uc?export=view&id=1119djuVLsanaWw_IDWJBoEP0pTT6TUeO",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1Lpn4uABtN9Cxqy-1jieIX48CwC-clU0d",
-            "https://drive.google.com/uc?export=view&id=1ouP6BhvGNwUVxPyKyuFFBGLq9VkpQsqX",
-            "https://drive.google.com/uc?export=view&id=1WaPxkjJLi5CXvxIDFc9ivz1LRj8tMEWP",
-            "https://drive.google.com/uc?export=view&id=16SOCLG7UNAG55v3Z2nMD_KPAnDUCYLb1",
-            "https://drive.google.com/uc?export=view&id=1b0iLMiiR7vYuojjbJvLGxoHIeRkJOBPm",
-            "https://drive.google.com/uc?export=view&id1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tRs700cUp_ltIVDvFe8JK2h1DPQU9s-L",#bang haikal
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",#kak kharisma
+            "https://drive.google.com/uc?export=view&id=1KBmKm1uS8nZKyGHn1PkTWcpteHyYr8FV",#kak hanna
+            "https://drive.google.com/uc?export=view&id=1qxxSzBalqydJCGw0VZVHuOLhNrNUKpXP",#bang farhan
+            "https://drive.google.com/uc?export=view&id=1Vve_ylKSy5ilrRP3gvUEa0pn1sgqNvDq",#kak aisya
+            "https://drive.google.com/uc?export=view&id=1L-PF2EgVIYCrgLAeEfVWWYJiHOsVZ2k4",#kak cerine
+            "https://drive.google.com/uc?export=view&id=1GcHgRYXdW5zVM5G29xbVDtYl2fQwteCu",#bang jaya
+            "https://drive.google.com/uc?export=view&id=1I0DTA9qqcYAnD6YxbDk7zRLxOrbm18FJ",#kak najla
+            "https://drive.google.com/uc?export=view&id=1119djuVLsanaWw_IDWJBoEP0pTT6TUeO",#bang rozak
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",#kak teresa
+            "https://drive.google.com/uc?export=view&id=1Lpn4uABtN9Cxqy-1jieIX48CwC-clU0d",#bang hanif
+            "https://drive.google.com/uc?export=view&id=1ouP6BhvGNwUVxPyKyuFFBGLq9VkpQsqX",#kak audina
+            "https://drive.google.com/uc?export=view&id=1WaPxkjJLi5CXvxIDFc9ivz1LRj8tMEWP",#kak cika
+            "https://drive.google.com/uc?export=view&id=16SOCLG7UNAG55v3Z2nMD_KPAnDUCYLb1",#kak gustin
+            "https://drive.google.com/uc?export=view&id=1b0iLMiiR7vYuojjbJvLGxoHIeRkJOBPm",#bang harvin
+            "https://drive.google.com/uc?export=view&id1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",#kak sabina
 
         ]
         data_list = [
@@ -742,11 +742,11 @@ elif menu == "Departemen PSDA":
             "https://drive.google.com/uc?export=view&id=1yT6Pge6Amnc4QJgOqKPOM8AJGzzmum9Z",
             "https://drive.google.com/uc?export=view&id=1DxdQa1dF-qqxZxiQTEBfgQ8qycHk8BzO",
             "https://drive.google.com/uc?export=view&id=1ImbjAOzVb7oatJyiC_1H-JwMRHu8Y3Ij",
-             "https://drive.google.com/uc?export=view&id=1IOIoxVZzr8Wxy3wgtD3Cug-0VmD2dHTx",
+            "https://drive.google.com/uc?export=view&id=1IOIoxVZzr8Wxy3wgtD3Cug-0VmD2dHTx",
             "https://drive.google.com/uc?export=view&id=17-ar6qtPoFKNLWwIQqy9Xmzp9vrOpR6L",
             "https://drive.google.com/uc?export=view&id=1AEyDhbizmv0sRJ5fdqFv-Bbr_P05GFDk",
             "https://drive.google.com/uc?export=view&id=1Nbb8WGasyTbIpMWO0OQMu34OxUbSfXuF",
-             "https://drive.google.com/uc?export=view&id=1FQ6Q9msLLdfcUjUFFImAytsqTwQaHrXF",
+            "https://drive.google.com/uc?export=view&id=1FQ6Q9msLLdfcUjUFFImAytsqTwQaHrXF",
 
         ]
         data_list = [
