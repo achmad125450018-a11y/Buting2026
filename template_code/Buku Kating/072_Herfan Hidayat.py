@@ -115,8 +115,8 @@ if menu == "Kesekjenan":
                 "alamat": "Sekretariat HMSD ",
                 "hobbi": "Push Rank",
                 "sosmed": "@jars_mrp",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "kesan": "Bang Fajar orangnya ramah, baik, dan keren juga, the best lah pokoknya",  
+                "pesan":"Semoga ke depannya dapat terus berkembang menjadi lebih baik dan membawa HMSD ke arah yang lebih maju dan jadi orang yang sukses."# 1
             },
             {
                 "nama": "Muhammad Aqil Ramadhan ",
@@ -126,8 +126,8 @@ if menu == "Kesekjenan":
                 "alamat": "Sekretariat HMSD ",
                 "hobbi": "Zikir",
                 "sosmed": "@muhammadaqil1111",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "kesan": "Bang Aqil keren, baik, dan the best juga tentunya.",  
+                "pesan":"semangat terus bang, sukses dimanapun berada!"# 1
             },
             {
                 "nama": "Efi Defiyati",
