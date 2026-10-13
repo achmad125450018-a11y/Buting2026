@@ -133,11 +133,11 @@ elif menu == "About Us":
         ]
         data_list = [
             {
-                "nama": "x",
+                "nama": "Herfan Hidayat",
                 "sebagai": "Pak Lurah",
-                "nim": "122450016",
-                "fun_fact": "suka makan pedes, tapi ga suka efeknya",
-                "motto_hidup": "new semester new me",
+                "nim": "125450072",
+                "fun_fact": "Suka penasaran akan hal yang baru, yang penting cobain aja dulu",
+                "motto_hidup": "Dengan bekingan doa ibu, jangankan kalah imbangpun saya tidak sudi!",
             },
             {
                 "nama": "x",
