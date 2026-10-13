@@ -110,7 +110,7 @@ if menu == "Departemen SSD":
         ]
         data_list = [
             {
-                "nama": "Ginda Fajar Riadi Marpaung",
+                "nama": "Ginda Fajar Riadi Marpung",
                 "nim": "123450103",
                 "umur": "22",
                 "asal":"Batam",
