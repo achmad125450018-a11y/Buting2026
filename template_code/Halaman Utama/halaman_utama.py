@@ -18,19 +18,20 @@ st.set_page_config(
 )
 
 # ============================================================
-# CSS — MODERN BLUE UI/UX
+# CSS — MODERN OCEAN & CURTAIN EFFECT UI/UX
 # ============================================================
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 
 :root {
-    --navy: #102A56;
-    --blue: #246BCE;
-    --sky: #8EC5FC;
-    --light: #EAF3FF;
-    --border: #D8E7FA;
-    --text: #334963;
+    --navy: #0B192C;
+    --blue: #1E5164;
+    --sky: #008DDA;
+    --light: #F4F8FB;
+    --border: #D1E4F3;
+    --text: #2C3E50;
+    --card-bg: #FFFFFF;
 }
 
 html, body, [class*="css"] {
@@ -39,10 +40,10 @@ html, body, [class*="css"] {
 }
 
 .stApp {
-    background:
-        radial-gradient(circle at 5% 5%, rgba(91,164,255,.17), transparent 35%),
-        radial-gradient(circle at 95% 60%, rgba(36,107,206,.10), transparent 38%),
-        linear-gradient(180deg, #F7FAFF 0%, #EAF2FC 100%);
+    background: 
+        radial-gradient(circle at 10% 10%, rgba(0,141,218,0.12), transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(30,81,100,0.10), transparent 40%),
+        linear-gradient(180deg, #F8FAFC 0%, #EBF3FA 100%);
     background-attachment: fixed;
 }
 
@@ -56,11 +57,11 @@ html, body, [class*="css"] {
 .main-title {
     text-align: center;
     font-family: 'Playfair Display', serif;
-    font-size: 3.4rem !important;
+    font-size: 3.5rem !important;
     font-weight: 800;
     letter-spacing: 1px;
     margin-bottom: 8px;
-    background: linear-gradient(120deg, #102A56, #246BCE, #65B2FF);
+    background: linear-gradient(120deg, #0B192C, #008DDA, #41C9E2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -70,19 +71,19 @@ html, body, [class*="css"] {
 .main-title::after {
     content: '';
     display: block;
-    width: 75px;
+    width: 80px;
     height: 4px;
     margin: 15px auto 0;
     border-radius: 10px;
-    background: linear-gradient(90deg, #246BCE, #8EC5FC);
+    background: linear-gradient(90deg, #008DDA, #41C9E2);
 }
 
 .main-subtitle {
     text-align: center;
-    color: #52719B;
-    font-size: .92rem !important;
+    color: #4A627A;
+    font-size: .95rem !important;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
     margin-top: 14px;
     margin-bottom: 30px;
@@ -93,36 +94,36 @@ html, body, [class*="css"] {
     text-align: center;
     font-family: 'Playfair Display', serif;
     color: var(--navy);
-    font-size: 2rem;
+    font-size: 2.1rem;
     font-weight: 700;
-    margin-top: 40px;
+    margin-top: 45px;
     margin-bottom: 28px;
 }
 
 .section-title::after {
     content: '';
     display: block;
-    width: 55px;
+    width: 60px;
     height: 3px;
     border-radius: 10px;
-    background: linear-gradient(90deg, var(--blue), var(--sky));
+    background: linear-gradient(90deg, var(--sky), #41C9E2);
     margin: 12px auto 0;
 }
 
-/* CONTENT */
+/* CONTENT BOX */
 .content-box {
     position: relative;
-    background: rgba(255,255,255,.95);
+    background: rgba(255,255,255,0.92);
     padding: 30px 34px;
     border: 1px solid var(--border);
-    border-radius: 18px;
-    box-shadow: 0 8px 28px rgba(16,42,86,.07);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(11,25,44,0.06);
     margin-bottom: 32px;
     text-align: justify;
     line-height: 1.9;
     font-size: 15px;
-    color: #40536B;
-    overflow: hidden;
+    color: #34495E;
+    backdrop-filter: blur(8px);
 }
 
 .content-box::before {
@@ -130,13 +131,14 @@ html, body, [class*="css"] {
     position: absolute;
     left: 0;
     top: 0;
-    width: 5px;
+    width: 6px;
     height: 100%;
-    background: linear-gradient(180deg, #246BCE, #8EC5FC);
+    border-radius: 20px 0 0 20px;
+    background: linear-gradient(180deg, #008DDA, #41C9E2);
 }
 
 .content-box b {
-    color: var(--blue);
+    color: var(--sky);
     font-weight: 800;
 }
 
@@ -147,21 +149,21 @@ html, body, [class*="css"] {
     margin: 0 auto 30px;
     border-radius: 24px;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,.8);
-    box-shadow: 0 18px 45px rgba(16,42,86,.16);
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow: 0 20px 40px rgba(11,25,44,0.15);
     background: var(--navy);
 }
 
 .hero-image-wrapper img {
     display: block;
     width: 100%;
-    height: 410px;
+    height: 420px;
     object-fit: cover;
     transition: transform .6s ease;
 }
 
 .hero-image-wrapper:hover img {
-    transform: scale(1.025);
+    transform: scale(1.03);
 }
 
 .hero-image-wrapper .hero-overlay {
@@ -169,8 +171,8 @@ html, body, [class*="css"] {
     inset: 0;
     background: linear-gradient(
         0deg,
-        rgba(9,30,65,.96) 0%,
-        rgba(16,42,86,.45) 45%,
+        rgba(11,25,44,0.95) 0%,
+        rgba(11,25,44,0.4) 50%,
         transparent 100%
     );
     pointer-events: none;
@@ -178,7 +180,7 @@ html, body, [class*="css"] {
 
 .hero-image-wrapper .hero-caption {
     position: absolute;
-    bottom: 28px;
+    bottom: 30px;
     left: 32px;
     right: 32px;
     color: white;
@@ -186,49 +188,50 @@ html, body, [class*="css"] {
 
 .hero-image-wrapper .hero-badge {
     display: inline-block;
-    padding: 7px 14px;
-    border: 1px solid rgba(255,255,255,.4);
-    background: rgba(80,145,225,.28);
+    padding: 6px 16px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(0,141,218,0.3);
+    backdrop-filter: blur(4px);
     border-radius: 50px;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 800;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 12px;
-    color: white;
+    color: #E0F4FF;
 }
 
 .hero-image-wrapper .hero-caption h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 700;
     margin: 0;
     color: white;
 }
 
 .hero-image-wrapper .hero-caption p {
-    font-size: 13px;
+    font-size: 14px;
     margin-top: 8px;
-    color: #E3EEFF;
+    color: #D2E0FB;
     line-height: 1.6;
 }
 
 /* DOCUMENTATION CARDS */
 .photo-card {
     position: relative;
-    height: 230px;
-    margin-bottom: 22px;
-    border-radius: 18px;
+    height: 240px;
+    margin-bottom: 24px;
+    border-radius: 20px;
     overflow: hidden;
     background: white;
     border: 1px solid var(--border);
-    box-shadow: 0 7px 22px rgba(16,42,86,.10);
+    box-shadow: 0 8px 20px rgba(11,25,44,0.08);
     transition: transform .3s ease, box-shadow .3s ease;
 }
 
 .photo-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 16px 32px rgba(36,107,206,.20);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 35px rgba(0,141,218,0.22);
 }
 
 .photo-card img {
@@ -240,17 +243,17 @@ html, body, [class*="css"] {
 }
 
 .photo-card:hover img {
-    transform: scale(1.07);
+    transform: scale(1.08);
 }
 
 .photo-card::after {
     content: '';
     position: absolute;
-    inset: 30% 0 0;
+    inset: 20% 0 0;
     background: linear-gradient(
         0deg,
-        rgba(10,35,75,.98),
-        rgba(20,65,125,.4),
+        rgba(11,25,44,0.95),
+        rgba(11,25,44,0.3),
         transparent
     );
     pointer-events: none;
@@ -262,120 +265,165 @@ html, body, [class*="css"] {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 24px 16px 17px;
+    padding: 20px 18px;
     color: white;
     text-align: left;
 }
 
 .photo-card .overlay-title {
     font-family: 'Playfair Display', serif;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
-    margin-bottom: 5px;
-    color: white;
+    margin-bottom: 4px;
+    color: #FFFFFF;
 }
 
 .photo-card .overlay-desc {
-    font-size: 11px;
-    line-height: 1.5;
-    color: #E2EDFF;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: #E0F2FE;
 }
 
-/* FLIP CARDS */
-.flip-card {
-    width: 100%;
-    height: 390px;
-    perspective: 1400px;
-    margin-bottom: 24px;
+/* VIDEO CONTAINER */
+.video-container {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(11,25,44,0.08);
+    margin-bottom: 35px;
+}
+
+/* ============================================================
+   EFEK TIRAI TERBUKA (CURTAIN / GATE OPEN EFFECT) - ABOUT US
+   ============================================================ */
+.curtain-card {
     position: relative;
-}
-
-.flip-card-inner {
-    position: relative;
     width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform .8s ease;
-    transform-style: preserve-3d;
-    border-radius: 20px;
-    box-shadow: 0 10px 28px rgba(16,42,86,.10);
-}
-
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
+    height: 400px;
+    margin-bottom: 25px;
     border-radius: 20px;
     overflow: hidden;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    background: #0B192C;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 25px rgba(11,25,44,0.12);
 }
 
-.flip-card-front {
+/* Latar Belakang Detail (Muncul saat tirai terbuka) */
+.curtain-card .card-details {
+    position: absolute;
+    inset: 0;
+    padding: 25px 20px;
+    background: linear-gradient(145deg, #0B192C, #1E3E62);
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 20px 16px;
-    background: linear-gradient(160deg, #FFFFFF, #EDF5FF);
-    border: 1px solid #D4E5FB;
-    color: var(--navy);
-}
-
-.flip-card-front::before {
-    content: '';
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    top: -90px;
-    right: -65px;
-    border-radius: 50%;
-    background: rgba(91,164,255,.12);
-}
-
-.flip-card-front .photo-frame {
-    position: relative;
+    box-sizing: border-box;
     z-index: 1;
-    width: 150px;
-    height: 180px;
-    padding: 4px;
-    margin-bottom: 16px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #102A56, #4A9BF5);
-    box-shadow: 0 8px 24px rgba(36,107,206,.23);
 }
 
-.flip-card-front .photo-frame img {
+.curtain-card .card-details h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin: 0 0 4px 0;
+    color: #FFFFFF;
+}
+
+.curtain-card .card-details .det-role {
+    font-size: 10px;
+    font-weight: 800;
+    color: #41C9E2;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.curtain-card .card-details .info-box {
+    background: rgba(255, 255, 255, 0.07);
+    border-left: 3px solid #008DDA;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.curtain-card .card-details .info-label {
+    font-size: 8px;
+    font-weight: 800;
+    color: #93C5FD;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.curtain-card .card-details .info-val {
+    font-size: 11px;
+    color: #F0F7FF;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* TIRAI ATAS & BAWAH */
+.curtain-top, .curtain-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(160deg, #FFFFFF, #EBF4FC);
+    z-index: 2;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.curtain-top {
+    top: 0;
+    border-bottom: 1px solid rgba(0,141,218,0.2);
+    padding-top: 20px;
+}
+
+.curtain-bottom {
+    bottom: 0;
+    border-top: 1px solid rgba(0,141,218,0.2);
+    padding-bottom: 20px;
+}
+
+/* Elemen Foto Di Tirai Atas */
+.curtain-top .photo-frame {
+    width: 130px;
+    height: 155px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 3px solid #008DDA;
+    box-shadow: 0 8px 20px rgba(0,87,146,0.2);
+    margin-top: 25px;
+}
+
+.curtain-top .photo-frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    border-radius: 12px;
 }
 
-.flip-card-front h4 {
-    position: relative;
-    z-index: 1;
-    max-width: 95%;
-    font-size: 14px;
-    line-height: 1.5;
+/* Teks Pada Tirai Bawah */
+.curtain-bottom h4 {
+    font-size: 15px;
     font-weight: 800;
     color: var(--navy);
-    margin: 0 0 10px;
+    margin: 0 0 6px 0;
+    text-align: center;
+    padding: 0 10px;
 }
 
-.flip-card-front .role-badge {
-    position: relative;
-    z-index: 1;
-    display: inline-block;
-    padding: 6px 14px;
+.curtain-bottom .role-badge {
+    padding: 5px 12px;
     border-radius: 30px;
-    background: linear-gradient(135deg, #102A56, #246BCE);
+    background: #008DDA;
     color: white;
     font-size: 9px;
     font-weight: 800;
@@ -383,109 +431,29 @@ html, body, [class*="css"] {
     text-transform: uppercase;
 }
 
-.flip-card-front .role-badge.anggota {
+.curtain-bottom .role-badge.anggota {
     background: #DCEBFF;
-    color: #174A91;
+    color: #005792;
 }
 
-.flip-card-front .flip-hint {
-    position: relative;
-    z-index: 1;
-    font-size: 9px;
+.curtain-bottom .hint {
+    font-size: 8.5px;
+    color: #88A0C0;
     margin-top: 10px;
-    color: #7790B0;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
 }
 
-.flip-card-back {
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    padding: 20px 17px;
-    background: linear-gradient(145deg, #153B72, #0B2044);
-    border: 1px solid #3B6EAD;
-    color: white;
+/* ANIMASI HOVER TERBUKA */
+.curtain-card:hover .curtain-top {
+    transform: translateY(-100%);
 }
 
-.flip-card-back::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(
-        rgba(180,215,255,.15) 1px,
-        transparent 1px
-    );
-    background-size: 14px 14px;
-    pointer-events: none;
+.curtain-card:hover .curtain-bottom {
+    transform: translateY(100%);
 }
 
-.flip-card-back h4 {
-    position: relative;
-    z-index: 1;
-    font-size: 15px;
-    font-weight: 800;
-    line-height: 1.5;
-    color: white;
-    margin: 0 0 5px;
-}
-
-.flip-card-back .back-role {
-    position: relative;
-    z-index: 1;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #A8D2FF;
-    margin-bottom: 13px;
-}
-
-.flip-card-back .divider {
-    position: relative;
-    z-index: 1;
-    height: 2px;
-    width: 100%;
-    margin-bottom: 13px;
-    background: linear-gradient(90deg, #5CA9FF, transparent);
-}
-
-.flip-card-back p {
-    position: relative;
-    z-index: 1;
-    font-size: 11px;
-    line-height: 1.5;
-    padding: 8px 10px;
-    margin: 0 0 8px;
-    background: rgba(255,255,255,.08);
-    border-left: 3px solid #72B7FF;
-    border-radius: 7px;
-    color: #F1F6FF;
-    overflow-wrap: anywhere;
-}
-
-.flip-card-back .label {
-    display: block;
-    color: #9CCBFF;
-    font-size: 8px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    margin-bottom: 3px;
-}
-
-/* NAVBAR */
-div[data-testid="stImage"] img {
-    border-radius: 16px;
-}
-
-.stApp div[data-testid="stAlert"] {
-    border-radius: 12px;
-}
-
-/* SCROLLBAR */
+/* NAVBAR & SCROLLBAR */
 ::-webkit-scrollbar {
     width: 9px;
 }
@@ -495,57 +463,15 @@ div[data-testid="stImage"] img {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #246BCE, #8EC5FC);
+    background: linear-gradient(180deg, #008DDA, #41C9E2);
     border-radius: 10px;
-    border: 2px solid #EDF4FF;
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
-    .block-container {
-        padding: 1.2rem 1rem 2rem !important;
-    }
-
-    .main-title {
-        font-size: 2.3rem !important;
-    }
-
-    .main-subtitle {
-        font-size: .72rem !important;
-        letter-spacing: 1.2px;
-    }
-
-    .section-title {
-        font-size: 1.55rem;
-        margin-top: 30px;
-    }
-
-    .hero-image-wrapper img {
-        height: 280px;
-    }
-
-    .hero-image-wrapper .hero-caption {
-        left: 18px;
-        right: 18px;
-        bottom: 18px;
-    }
-
-    .hero-image-wrapper .hero-caption h3 {
-        font-size: 23px;
-    }
-
-    .content-box {
-        padding: 24px 22px;
-        font-size: 14px;
-    }
-
-    .photo-card {
-        height: 190px;
-    }
-
-    .flip-card {
-        height: 365px;
-    }
+    .main-title { font-size: 2.3rem !important; }
+    .hero-image-wrapper img { height: 280px; }
+    .curtain-card { height: 380px; }
+    .curtain-top .photo-frame { width: 110px; height: 135px; }
 }
 </style>
 """, unsafe_allow_html=True)
@@ -568,10 +494,8 @@ def get_drive_file_id(url):
             idx = parts.index("d")
             if idx + 1 < len(parts):
                 return parts[idx + 1]
-
     except Exception:
         pass
-
     return None
 
 
@@ -593,12 +517,7 @@ def load_image(url):
 
     for candidate in dict.fromkeys(candidate_urls):
         try:
-            response = requests.get(
-                candidate,
-                headers=headers,
-                timeout=25,
-                allow_redirects=True
-            )
+            response = requests.get(candidate, headers=headers, timeout=25, allow_redirects=True)
             response.raise_for_status()
 
             img = Image.open(BytesIO(response.content))
@@ -606,10 +525,8 @@ def load_image(url):
             img.load()
 
             return img
-
         except Exception:
             continue
-
     return None
 
 
@@ -617,14 +534,12 @@ def load_image(url):
 def image_data_uri(url):
     """Mengubah gambar menjadi data URI untuk HTML."""
     img = load_image(url)
-
     if img is None:
         return None
 
     buffer = BytesIO()
     img.save(buffer, format="JPEG", quality=88, optimize=True)
     encoded = base64.b64encode(buffer.getvalue()).decode("utf-8")
-
     return f"data:image/jpeg;base64,{encoded}"
 
 
@@ -674,27 +589,19 @@ url1 = "https://drive.google.com/uc?export=view&id=12RBvQdMiqqqph-Q1QqLb0zvvIPnB
 
 def layout_logo(url):
     col1, col2, col3 = st.columns([1.5, 1, 1.5])
-
     with col2:
         img = load_image(url)
-
         if img is not None:
             st.image(img, use_container_width=True)
         else:
-            st.warning(
-                "Gambar gagal dimuat. Pastikan file Google Drive "
-                "dapat diakses oleh siapa saja yang memiliki link."
-            )
+            st.warning("Gambar gagal dimuat. Pastikan file Google Drive dapat diakses publik.")
 
 
 layout_logo(url)
 st.write("")
 layout_logo(url1)
 
-st.markdown(
-    "<div style='margin-top: 35px;'></div>",
-    unsafe_allow_html=True
-)
+st.markdown("<div style='margin-top: 35px;'></div>", unsafe_allow_html=True)
 
 
 # ============================================================
@@ -712,12 +619,12 @@ def streamlit_menu():
                 "padding": "10px!important",
                 "background-color": "rgba(255,255,255,0.92)",
                 "border-radius": "16px",
-                "box-shadow": "0 8px 25px rgba(16,42,86,0.09)",
-                "border": "1px solid #D8E7FA",
+                "box-shadow": "0 8px 25px rgba(11,25,44,0.08)",
+                "border": "1px solid #D1E4F3",
                 "margin-bottom": "35px",
             },
             "icon": {
-                "color": "#246BCE",
+                "color": "#008DDA",
                 "font-size": "18px",
             },
             "nav-link": {
@@ -727,17 +634,16 @@ def streamlit_menu():
                 "margin": "0 6px",
                 "padding": "10px 22px",
                 "border-radius": "10px",
-                "color": "#102A56",
-                "--hover-color": "#EAF3FF",
+                "color": "#0B192C",
+                "--hover-color": "#EBF3FA",
             },
             "nav-link-selected": {
-                "background-color": "#246BCE",
+                "background-color": "#008DDA",
                 "color": "#FFFFFF",
-                "box-shadow": "0 5px 14px rgba(36,107,206,0.25)",
+                "box-shadow": "0 5px 14px rgba(0,141,218,0.3)",
             },
         },
     )
-
     return selected
 
 
@@ -750,12 +656,8 @@ menu = streamlit_menu()
 if menu == "Home":
 
     def home_page():
-
         # JUDUL DESKRIPSI
-        st.markdown(
-            "<h2 class='section-title'>Deskripsi Kelompok</h2>",
-            unsafe_allow_html=True
-        )
+        st.markdown("<h2 class='section-title'>Deskripsi Kelompok</h2>", unsafe_allow_html=True)
 
         # FOTO HERO
         hero_image(
@@ -773,6 +675,21 @@ if menu == "Home":
             </div>
         """, unsafe_allow_html=True)
 
+        # ==========================================
+        # VIDEO KELOMPOK (FITUR BARU)
+        # ==========================================
+        st.markdown("""
+            <h3 class="section-title" style="font-size:24px;">
+                Video Profil & Kenangan
+            </h3>
+        """, unsafe_allow_html=True)
+
+        st.markdown('<div class="video-container">', unsafe_allow_html=True)
+        # Anda bisa mengganti URL video ini dengan link YouTube/MP4 kelompok Anda
+        video_url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
+        st.video(video_url)
+        st.markdown('</div>', unsafe_allow_html=True)
+
         # JUDUL DOKUMENTASI
         st.markdown("""
             <h3 class="section-title" style="font-size:24px;">
@@ -782,74 +699,35 @@ if menu == "Home":
 
         # DATA DOKUMENTASI — ISI TETAP
         kegiatan_Bayesian = [
-            {
-                "url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq",
-                "judul": "First Moment",
-                "desc": "Awal dari cerita yang panjang"
-            },
-            {
-                "url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq",
-                "judul": "Our Journey",
-                "desc": "Langkah demi langkah bersama"
-            },
-            {
-                "url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq",
-                "judul": "Growing Together",
-                "desc": "Tumbuh bersama melalui setiap proses"
-            },
-            {
-                "url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq",
-                "judul": "The Story",
-                "desc": "Setiap foto menyimpan cerita."
-            },
-            {
-                "url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq",
-                "judul": "Good Times",
-                "desc": "Keluh kesah, tawa dan cerita yang tak bisa dilupakan"
-            },
-            {
-                "url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq",
-                "judul": "Until Forever",
-                "desc": "Bukan akhir, hanya bagian dari perjalanan"
-            }
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "First Moment", "desc": "Awal dari cerita yang panjang"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "Our Journey", "desc": "Langkah demi langkah bersama"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "Growing Together", "desc": "Tumbuh bersama melalui setiap proses"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "The Story", "desc": "Setiap foto menyimpan cerita."},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "Good Times", "desc": "Keluh kesah, tawa dan cerita yang tak bisa dilupakan"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "Until Forever", "desc": "Bukan akhir, hanya bagian dari perjalanan"}
         ]
 
         # MENAMPILKAN FOTO DALAM 3 KOLOM
         for i in range(0, len(kegiatan_Bayesian), 3):
             cols = st.columns(3)
-
             for j in range(3):
                 idx = i + j
-
                 if idx < len(kegiatan_Bayesian):
                     item = kegiatan_Bayesian[idx]
-
                     with cols[j]:
                         img_src = image_data_uri(item["url"])
-
                         if img_src:
                             st.markdown(f"""
                                 <div class="photo-card">
-                                    <img
-                                        src="{img_src}"
-                                        alt="{html.escape(item['judul'], quote=True)}"
-                                    >
+                                    <img src="{img_src}" alt="{html.escape(item['judul'], quote=True)}">
                                     <div class="overlay">
-                                        <div class="overlay-title">
-                                            {html.escape(item['judul'])}
-                                        </div>
-                                        <div class="overlay-desc">
-                                            {html.escape(item['desc'])}
-                                        </div>
+                                        <div class="overlay-title">{html.escape(item['judul'])}</div>
+                                        <div class="overlay-desc">{html.escape(item['desc'])}</div>
                                     </div>
                                 </div>
                             """, unsafe_allow_html=True)
-
                         else:
-                            st.warning(
-                                f"Foto '{item['judul']}' gagal dimuat. "
-                                "Periksa izin Google Drive."
-                            )
+                            st.warning(f"Foto '{item['judul']}' gagal dimuat.")
 
         # KOMITMEN KELOMPOK
         st.markdown("""
@@ -863,16 +741,12 @@ if menu == "Home":
 
 
 # ============================================================
-# HALAMAN ABOUT US
+# HALAMAN ABOUT US (TERBUKA SEPERTI TIRAI / GATE)
 # ============================================================
 elif menu == "About Us":
 
     def about_page():
-
-        st.markdown(
-            "<h2 class='section-title'>About Us</h2>",
-            unsafe_allow_html=True
-        )
+        st.markdown("<h2 class='section-title'>About Us</h2>", unsafe_allow_html=True)
 
         # FOTO ANGGOTA — URL TETAP
         gambar_urls = [
@@ -890,85 +764,23 @@ elif menu == "About Us":
 
         # DATA ANGGOTA — ISI TETAP
         data_list = [
-            {
-                "nama": "Thomas Yustio",
-                "sebagai": "Pak Lurah",
-                "nim": "125450--",
-                "fun_fact": "--",
-                "motto_hidup": "--"
-            },
-            {
-                "nama": "Syalom Nauli Jubilate ",
-                "sebagai": "Bu Lurah",
-                "nim": "125450--",
-                "fun_fact": "--",
-                "motto_hidup": "--"
-            },
-            {
-                "nama": "Rizqy Ramadhan",
-                "sebagai": "Anggota",
-                "nim": "125450066",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
-            },
-            {
-                "nama": "Rizqy Ramadhan",
-                "sebagai": "Anggota",
-                "nim": "125450066",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
-            },
-            {
-                "nama": "Rizqy Ramadhan",
-                "sebagai": "Anggota",
-                "nim": "125450066",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
-            },
-            {
-                "nama": "Rizqy Ramadhan",
-                "sebagai": "Anggota",
-                "nim": "125450066",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
-            },
-            {
-                "nama": "Rizqy Ramadhan",
-                "sebagai": "Anggota",
-                "nim": "125450066",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
-            },
-            {
-                "nama": "Rizqy Ramadhan",
-                "sebagai": "Anggota",
-                "nim": "125450066",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
-            },
-            {
-                "nama": "Rizqy Ramadhan",
-                "sebagai": "Anggota",
-                "nim": "125450066",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
-            },
-            {
-                "nama": "Rizqy Ramadhan",
-                "sebagai": "Anggota",
-                "nim": "125450066",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
-            }
+            {"nama": "Thomas Yustio", "sebagai": "Pak Lurah", "nim": "125450--", "fun_fact": "--", "motto_hidup": "--"},
+            {"nama": "Syalom Nauli Jubilate ", "sebagai": "Bu Lurah", "nim": "125450--", "fun_fact": "--", "motto_hidup": "--"},
+            {"nama": "Rizqy Ramadhan", "sebagai": "Anggota", "nim": "125450066", "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah", "motto_hidup": "Tetap lah bernafas"},
+            {"nama": "Rizqy Ramadhan", "sebagai": "Anggota", "nim": "125450066", "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah", "motto_hidup": "Tetap lah bernafas"},
+            {"nama": "Rizqy Ramadhan", "sebagai": "Anggota", "nim": "125450066", "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah", "motto_hidup": "Tetap lah bernafas"},
+            {"nama": "Rizqy Ramadhan", "sebagai": "Anggota", "nim": "125450066", "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah", "motto_hidup": "Tetap lah bernafas"},
+            {"nama": "Rizqy Ramadhan", "sebagai": "Anggota", "nim": "125450066", "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah", "motto_hidup": "Tetap lah bernafas"},
+            {"nama": "Rizqy Ramadhan", "sebagai": "Anggota", "nim": "125450066", "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah", "motto_hidup": "Tetap lah bernafas"},
+            {"nama": "Rizqy Ramadhan", "sebagai": "Anggota", "nim": "125450066", "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah", "motto_hidup": "Tetap lah bernafas"},
+            {"nama": "Rizqy Ramadhan", "sebagai": "Anggota", "nim": "125450066", "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah", "motto_hidup": "Tetap lah bernafas"}
         ]
 
-        # MENAMPILKAN KARTU ANGGOTA DALAM 3 KOLOM
+        # MENAMPILKAN KARTU ANGGOTA DENGAN EFEK TIRAI TERBUKA (3 KOLOM)
         for i in range(0, len(data_list), 3):
             cols = st.columns(3)
-
             for j in range(3):
                 idx = i + j
-
                 if idx < len(data_list):
                     member = data_list[idx]
                     img_url = gambar_urls[idx]
@@ -990,61 +802,45 @@ elif menu == "About Us":
                             )
 
                             st.markdown(f"""
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-
-                                        <div class="flip-card-front">
-                                            <div class="photo-frame">
-                                                <img
-                                                    src="{img_src}"
-                                                    alt="{html.escape(member['nama'], quote=True)}"
-                                                >
-                                            </div>
-
-                                            <h4>{nama}</h4>
-
-                                            <span class="role-badge {role_class}">
-                                                {sebagai}
-                                            </span>
-
-                                            <div class="flip-hint">
-                                                Arahkan kursor untuk detail
-                                            </div>
+                                <div class="curtain-card">
+                                    <!-- LAYAR DALAM / DETAIL (Terungkap saat tirai membuka) -->
+                                    <div class="card-details">
+                                        <h4>{nama}</h4>
+                                        <div class="det-role">{sebagai}</div>
+                                        
+                                        <div class="info-box">
+                                            <span class="info-label">NIM</span>
+                                            <span class="info-val">{nim}</span>
                                         </div>
-
-                                        <div class="flip-card-back">
-                                            <h4>{nama}</h4>
-
-                                            <div class="back-role">
-                                                {sebagai}
-                                            </div>
-
-                                            <div class="divider"></div>
-
-                                            <p>
-                                                <span class="label">NIM</span>
-                                                {nim}
-                                            </p>
-
-                                            <p>
-                                                <span class="label">Fun Fact</span>
-                                                {fun_fact}
-                                            </p>
-
-                                            <p>
-                                                <span class="label">Motto Hidup</span>
-                                                {motto}
-                                            </p>
+                                        
+                                        <div class="info-box">
+                                            <span class="info-label">Fun Fact</span>
+                                            <span class="info-val">{fun_fact}</span>
                                         </div>
+                                        
+                                        <div class="info-box">
+                                            <span class="info-label">Motto Hidup</span>
+                                            <span class="info-val">{motto}</span>
+                                        </div>
+                                    </div>
 
+                                    <!-- TIRAI ATAS (Foto Profil) -->
+                                    <div class="curtain-top">
+                                        <div class="photo-frame">
+                                            <img src="{img_src}" alt="{html.escape(member['nama'], quote=True)}">
+                                        </div>
+                                    </div>
+
+                                    <!-- TIRAI BAWAH (Nama & Jabatan) -->
+                                    <div class="curtain-bottom">
+                                        <h4>{nama}</h4>
+                                        <span class="role-badge {role_class}">{sebagai}</span>
+                                        <div class="hint">▼ Arahkan kursor untuk buka ▼</div>
                                     </div>
                                 </div>
                             """, unsafe_allow_html=True)
 
                         else:
-                            st.warning(
-                                f"Foto untuk {member['nama']} gagal dimuat. "
-                                "Periksa izin Google Drive."
-                            )
+                            st.warning(f"Foto untuk {member['nama']} gagal dimuat.")
 
     about_page()
