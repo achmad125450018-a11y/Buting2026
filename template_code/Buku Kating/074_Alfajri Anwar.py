@@ -358,8 +358,10 @@ def render_profile_card(m):
     kesan = html_lib.escape(str(m.get("kesan", "-")))
     pesan = html_lib.escape(str(m.get("pesan", "-")))
 
-    leader_keywords = ["ketua", "wakil", "sekretaris", "bendahara", "kadep", "kepala", "koordinator"]
-    is_leader = any(k in jabatan_raw.lower() for k in leader_keywords)
+    # 🟡 Keyword EMAS: ketua, sekretaris, senator, kepala, bendahara
+    # 🔴 Selain itu → MAROON (termasuk "staf", "wakil", "koordinator", dll)
+    gold_keywords = ["ketua", "sekretaris", "senator", "kepala", "bendahara"]
+    is_leader = any(k in jabatan_raw.lower() for k in gold_keywords)
     subheader_class = "profile-subheader leader" if is_leader else "profile-subheader"
 
     html_block = f"""<div class="profile-card">
@@ -469,7 +471,7 @@ if menu == "Kesekjenan":
 elif menu == "Baleg":
     gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"]
     data_list = [
-        {"nama": "Anggota Baleg", "jabatan": "Badan Legislatif", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"}
+        {"nama": "Anggota Baleg", "jabatan": "Ketua Badan Legislatif", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"}
     ]
     display_images_with_data(gambar_urls, data_list)
 
