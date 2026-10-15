@@ -1,16 +1,22 @@
 import streamlit as st
+import importlib.util
+import sys
+import os
 
 st.set_page_config(page_title="Buku Kating", layout="wide")
 
+# ============================================================
+# CSS SIDEBAR
+# ============================================================
 st.markdown("""
 <style>
     [data-testid="stSidebar"] {
         background-color: #701c23 !important;
     }
-    [data-testid="stSidebar"] *, 
-    [data-testid="stSidebar"] span, 
-    [data-testid="stSidebar"] p, 
-    [data-testid="stSidebar"] div, 
+    [data-testid="stSidebar"] *,
+    [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] div,
     [data-testid="stSidebar"] svg {
         color: #ffffff !important;
         fill: #ffffff !important;
@@ -19,84 +25,113 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# session state agar ketika pindah page tidak berubah data yang tersedia
+# ============================================================
+# DAFTAR HALAMAN (path + judul)
+# ============================================================
+HALAMAN = {
+    "07 - POISSON": "Halaman Utama/halaman_utama.py",
+    "116 - Yobel Imanuel Pasaribu": "Buku Kating/116_Yobel Imanuel Pasaribu.py",
+    "109 - Rena Aprilia": "Buku Kating/109_Rena Aprilia.py",
+    "020 - Fadhilah Adelyia Putri": "Buku Kating/020_Fadhilah Adelyia Putri.py",
+    "075 - Inness Eymard Gultom": "Buku Kating/075_Inness Eymard Gultom.py",
+    "084 - Samuel Kristian": "Buku Kating/084_Samuel Kristian.py",
+    "008 - Egia Ninta Pepayosa Ketaren": "Buku Kating/008_Egia Ninta Pepayosa Ketaren.py",
+    "028 - Dzahra Adila Fatma": "Buku Kating/028_Dzahra Adila Fatma.py",
+    "018 - Achmad Fardhan Al Basri Bandarudin": "Buku Kating/018_Achmad Fardhan Al Basri Bandarudin.py",
+    "033 - Kayyisah Mazaya": "Buku Kating/033_Kayyisah Mazaya.py",
+    "074 - Alfajri Anwar": "Buku Kating/074_Alfajri Anwar.py",
+    "037 - Nailatun Inayah": "Buku Kating/037_Nailatun Inayah.py",
+    "KREASI": "tools/KREASI.py",
+    "KREASII": "tools/KREASII.py",
+}
 
-st.session_state.pindah = True
 
-Homepage = st.Page("Halaman Utama/halaman_utama.py",
-    title="07 - POISSON",
-    default=True)
+# ============================================================
+# SIDEBAR NAVIGATION
+# ============================================================
+# Init halaman aktif
+if "halaman_aktif" not in st.session_state:
+    st.session_state.halaman_aktif = "07 - POISSON"
 
-Mahasiswa1 = st.Page(
-    "Buku Kating/116_Yobel Imanuel Pasaribu.py",
-    title="116 - Yobel Imanuel Pasaribu",
-    icon=":material/person:",
-)
-Mahasiswa2 = st.Page(
-    "Buku Kating/109_Rena Aprilia.py",
-    title="109 - Rena Aprilia",
-    icon=":material/person:",
-)
-Mahasiswa3 = st.Page(
-    "Buku Kating/020_Fadhilah Adelyia Putri.py",
-    title="020 - Fadhilah Adelyia Putri",
-    icon=":material/person:",
-)
-Mahasiswa4 = st.Page(
-    "Buku Kating/075_Inness Eymard Gultom.py",
-    title="075 - Inness Eymard Gultom",
-    icon=":material/person:",
-)
-Mahasiswa5 = st.Page(
-    "Buku Kating/084_Samuel Kristian.py",
-    title="084 - Samuel Kristian",
-    icon=":material/person:",
-)
-Mahasiswa6 = st.Page(
-    "Buku Kating/008_Egia Ninta Pepayosa Ketaren.py",
-    title="008 - Egia Ninta Pepayosa Ketaren",
-    icon=":material/person:",
-)
-Mahasiswa7 = st.Page(
-    "Buku Kating/028_Dzahra Adila Fatma.py",
-    title="028 - Dzahra Adila Fatma",
-    icon=":material/person:",
-)
-Mahasiswa8 = st.Page(
-    "Buku Kating/018_Achmad Fardhan Al Basri Bandarudin.py",
-    title="018 - Achmad Fardhan Al Basri Bandarudin",
-    icon=":material/person:",
-)
-Mahasiswa9 = st.Page(
-    "Buku Kating/033_Kayyisah Mazaya.py",
-    title="033 - Kayyisah Mazaya",
-    icon=":material/person:",
-)
-Mahasiswa10 = st.Page(
-    "Buku Kating/074_Alfajri Anwar.py",
-    title="074 - Alfajri Anwar",
-    icon=":material/person:",
-)
-Mahasiswa11 = st.Page(
-    "Buku Kating/037_Nailatun Inayah.py",
-    title="037 - Nailatun Inayah",
-    icon=":material/person:",
-)
+with st.sidebar:
+    st.markdown("### 📖 Buku Kating")
 
-#Perlu diperhatikan perubahannya
-KREASI = st.Page("tools/KREASI.py", title="KREASI", icon=":material/search:")
-KREASII = st.Page("tools/KREASII.py", title="KREASII", icon=":material/search:")
+    # Group: Halaman Utama
+    st.markdown("**Halaman Utama**")
+    if st.button("🏠 07 - POISSON", use_container_width=True,
+                 type="primary" if st.session_state.halaman_aktif == "07 - POISSON" else "secondary"):
+        st.session_state.halaman_aktif = "07 - POISSON"
+        st.rerun()
 
-#Perlu diperhatikan perubahannya
-if st.session_state.pindah:
-    pg = st.navigation(
-        {
-            "Halaman Utama": [Homepage],
-            "Buku Kating": [Mahasiswa1,Mahasiswa2,Mahasiswa3,Mahasiswa4,Mahasiswa5,Mahasiswa6,Mahasiswa7,Mahasiswa8,Mahasiswa9,Mahasiswa10,Mahasiswa11],
-            "Try Me !!": [KREASI, KREASII],
-        }
-    )
+    # Group: Buku Kating
+    st.markdown("**Buku Kating**")
+    anggota_list = [
+        "116 - Yobel Imanuel Pasaribu",
+        "109 - Rena Aprilia",
+        "020 - Fadhilah Adelyia Putri",
+        "075 - Inness Eymard Gultom",
+        "084 - Samuel Kristian",
+        "008 - Egia Ninta Pepayosa Ketaren",
+        "028 - Dzahra Adila Fatma",
+        "018 - Achmad Fardhan Al Basri Bandarudin",
+        "033 - Kayyisah Mazaya",
+        "074 - Alfajri Anwar",
+        "037 - Nailatun Inayah",
+    ]
+    for nama in anggota_list:
+        is_active = st.session_state.halaman_aktif == nama
+        if st.button(f"👤 {nama}", key=f"btn_{nama}", use_container_width=True,
+                     type="primary" if is_active else "secondary"):
+            st.session_state.halaman_aktif = nama
+            st.rerun()
+
+    # Group: Try Me
+    st.markdown("**Try Me !!**")
+    for nama in ["KREASI", "KREASII"]:
+        is_active = st.session_state.halaman_aktif == nama
+        if st.button(f"🔍 {nama}", key=f"btn_{nama}", use_container_width=True,
+                     type="primary" if is_active else "secondary"):
+            st.session_state.halaman_aktif = nama
+            st.rerun()
+
+
+# ============================================================
+# LAZY LOAD — cuma import file yang dipilih
+# ============================================================
+def load_page(path):
+    """Load file .py secara dinamis → hanya saat dibutuhkan."""
+    if not os.path.exists(path):
+        st.error(f"File tidak ditemukan: {path}")
+        return None
+
+    # Buat modul unik supaya tidak bentrok
+    mod_name = path.replace("/", "_").replace(".py", "").replace(" ", "_").replace("-", "_")
+    if mod_name in sys.modules:
+        # Sudah pernah di-load → pakai yang ada
+        return sys.modules[mod_name]
+
+    spec = importlib.util.spec_from_file_location(mod_name, path)
+    if spec is None or spec.loader is None:
+        st.error(f"Gagal load file: {path}")
+        return None
+
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[mod_name] = module
+    try:
+        spec.loader.exec_module(module)
+    except Exception as e:
+        st.error(f"Error saat load {path}: {e}")
+        return None
+    return module
+
+
+# ============================================================
+# RENDER HALAMAN YANG DIPILIH
+# ============================================================
+halaman_sekarang = st.session_state.halaman_aktif
+path_sekarang = HALAMAN.get(halaman_sekarang)
+
+if path_sekarang:
+    load_page(path_sekarang)
 else:
-    st.write("Maaf Anda kurang beruntung :(") 
-pg.run()
-
+    st.error(f"Halaman tidak dikenal: {halaman_sekarang}")
