@@ -8,7 +8,26 @@ import base64
 import html as html_lib
 
 # ============================================================
-# 🎨 SUPER PREMIUM UI/UX — BUKU KATING EDITION
+# ⚙️ KONFIGURASI HALAMAN
+# ============================================================
+st.set_page_config(
+    page_title="Buku Kating — Kelompok Poisson",
+    page_icon="✦",
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
+
+# Auto-clear cache sekali saat pertama load
+if "cache_initialized" not in st.session_state:
+    try:
+        st.cache_data.clear()
+    except Exception:
+        pass
+    st.session_state.cache_initialized = True
+
+
+# ============================================================
+# 🎨 PREMIUM CSS
 # ============================================================
 st.markdown("""
 <style>
@@ -260,7 +279,24 @@ st.markdown("<h1 class='centered-title'>BUKU KATING</h1>", unsafe_allow_html=Tru
 
 
 # ============================================================
-# UTIL FUNCTIONS
+# ⚙️ SIDEBAR — TOMBOL CACHE
+# ============================================================
+with st.sidebar:
+    st.markdown("### ⚙️ Kontrol")
+    if st.button("🧹 Bersihkan Cache", use_container_width=True):
+        try:
+            st.cache_data.clear()
+        except Exception:
+            pass
+        for k in list(st.session_state.keys()):
+            if k.startswith("load_more_"):
+                del st.session_state[k]
+        st.success("Cache dibersihkan!")
+        st.rerun()
+
+
+# ============================================================
+# UTIL FUNCTIONS — OPTIMIZED
 # ============================================================
 def get_drive_file_id(url):
     try:
@@ -278,21 +314,21 @@ def get_drive_file_id(url):
     return None
 
 
-@st.cache_data(show_spinner=False)
-def load_image(url):
+def _fetch_image(url):
+    """Fetch gambar dari Drive — TANPA cache (biar tidak double storage)."""
     file_id = get_drive_file_id(url)
     candidate_urls = []
     if file_id:
         candidate_urls.extend([
-            f"https://drive.google.com/thumbnail?id={file_id}&sz=w1600",
+            f"https://drive.google.com/thumbnail?id={file_id}&sz=w800",
+            f"https://lh3.googleusercontent.com/d/{file_id}=w800",
             f"https://drive.google.com/uc?export=download&id={file_id}",
-            f"https://drive.google.com/uc?export=view&id={file_id}",
         ])
     candidate_urls.append(url)
     headers = {"User-Agent": "Mozilla/5.0"}
     for candidate in dict.fromkeys(candidate_urls):
         try:
-            response = requests.get(candidate, headers=headers, timeout=25, allow_redirects=True)
+            response = requests.get(candidate, headers=headers, timeout=10, allow_redirects=True)
             response.raise_for_status()
             img = Image.open(BytesIO(response.content))
             img = ImageOps.exif_transpose(img).convert("RGB")
@@ -303,27 +339,20 @@ def load_image(url):
     return None
 
 
-@st.cache_data(show_spinner=False)
+@st.cache_data(show_spinner=False, ttl=1800, max_entries=200)
 def image_data_uri(url):
-    img = load_image(url)
+    """Cache base64 URI — TTL 30 menit, max 200 entries."""
+    img = _fetch_image(url)
     if img is None:
         return None
     img = img.copy()
-    max_dim = 1200
+    max_dim = 800
     if max(img.size) > max_dim:
         img.thumbnail((max_dim, max_dim), Image.LANCZOS)
     buffer = BytesIO()
-    img.save(buffer, format="JPEG", quality=88, optimize=True)
+    img.save(buffer, format="JPEG", quality=75, optimize=True)
     encoded = base64.b64encode(buffer.getvalue()).decode("utf-8")
     return f"data:image/jpeg;base64,{encoded}"
-
-
-def get_cached_images(gambar_urls):
-    out = []
-    for i, url in enumerate(gambar_urls):
-        with st.spinner(f"Memuat gambar {i + 1} dari {len(gambar_urls)}..."):
-            out.append(image_data_uri(url))
-    return out
 
 
 def render_photo(img_src, alt="Foto"):
@@ -358,7 +387,6 @@ def render_profile_card(m):
     kesan = html_lib.escape(str(m.get("kesan", "-")))
     pesan = html_lib.escape(str(m.get("pesan", "-")))
 
-    # 🟡 Emas: ketua, sekretaris, senator, kepala, bendahara
     gold_keywords = ["ketua", "sekretaris", "senator", "kepala", "bendahara"]
     is_leader = any(k in jabatan_raw.lower() for k in gold_keywords)
     subheader_class = "profile-subheader leader" if is_leader else "profile-subheader"
@@ -382,18 +410,52 @@ def render_profile_card(m):
     st.markdown(html_block, unsafe_allow_html=True)
 
 
-def display_images_with_data(gambar_urls, data_list):
-    images = get_cached_images(gambar_urls)
-    for i, img_src in enumerate(images):
-        if i < len(data_list):
-            member = data_list[i]
-            col1, col2 = st.columns([1, 2], gap="medium")
-            with col1:
-                render_photo(img_src, alt=member.get("nama", "Foto"))
-            with col2:
-                render_profile_card(member)
-            st.markdown("<div style='margin-bottom: 30px;'></div>", unsafe_allow_html=True)
-    st.success("Semua data berhasil dimuat!")
+def display_images_with_data(gambar_urls, data_list, batch_size=10):
+    """Render foto dengan LAZY LOADING — hanya tampil batch_size dulu."""
+    total = min(len(gambar_urls), len(data_list))
+
+    # Key unik per departemen (berdasarkan 2 URL pertama)
+    section_key = f"load_more_{hash(tuple(gambar_urls[:2])) % 100000}"
+    if section_key not in st.session_state:
+        st.session_state[section_key] = batch_size
+
+    count = min(st.session_state[section_key], total)
+
+    # Render batch
+    for i in range(count):
+        img_src = image_data_uri(gambar_urls[i])
+        member = data_list[i]
+        col1, col2 = st.columns([1, 2], gap="medium")
+        with col1:
+            render_photo(img_src, alt=member.get("nama", "Foto"))
+        with col2:
+            render_profile_card(member)
+        st.markdown("<div style='margin-bottom: 30px;'></div>", unsafe_allow_html=True)
+
+    # Tombol Load More
+    if count < total:
+        remaining = total - count
+        next_batch = min(batch_size, remaining)
+        st.markdown(f"""
+            <div style="text-align: center; margin-top: 20px; padding: 18px;
+                        background: linear-gradient(135deg, rgba(217,195,163,0.15), rgba(217,195,163,0.05));
+                        border-radius: 16px; border: 1px dashed rgba(217,195,163,0.6);">
+                <div style="font-family: 'Playfair Display', serif; font-size: 14px; color: #701c23;">
+                    ✨ Menampilkan {count} dari {total} kating
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+        col_a, col_b, col_c = st.columns([1, 2, 1])
+        with col_b:
+            if st.button(
+                f"⬇️ Tampilkan {next_batch} Lainnya",
+                use_container_width=True,
+                key=f"btn_{section_key}",
+            ):
+                st.session_state[section_key] += batch_size
+                st.rerun()
+    else:
+        st.success(f"✅ Semua {total} data berhasil dimuat!")
 
 
 # ============================================================
