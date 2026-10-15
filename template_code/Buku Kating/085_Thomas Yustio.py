@@ -428,3 +428,165 @@ if menu == "Senator":
         ]
         display_images_with_data(gambar_urls, data_list)
     Senator()
+
+if menu == "Departemen PSDA":
+    def PSDA():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=1VILA3Myg4MmQi9zRERh0EhDNddUebs-Z",
+            "https://drive.google.com/uc?export=view&id=11LbyqgvvmYcSqeALYIpD8XASQ99apdTe",
+            "https://drive.google.com/uc?export=view&id=12mmvbhn_a3CNZBp2-C1CNtnOM5Za_pja",
+            "https://drive.google.com/uc?export=view&id=1hHcAzb2_cugwDJkKU4mVTVX7RfpvGPxU",
+            "https://drive.google.com/uc?export=view&id=1mPC9ZSdw6bZhOXTJXaEfnf0Yw-u8ngK6",
+            "https://drive.google.com/uc?export=view&id=1Y_tCuB9n0PNpex6mCtz-ch-LZTThztwv",
+        ]
+        data_list = [
+            {
+                "nama": "Arienta Khusnul Ananda",
+                "nim": "123450060",
+                "umur": "20",
+                "asal":"Cambridge",
+                "alamat": "GH",
+                "hobbi": "Wawancara",
+                "sosmed": "@imridhomanik",
+                "kesan": "Saya melihat bang Fajar sebagai sosok pemimpin yang berwibawa dan tegas.  ",  
+                "pesan":"Semoga bang Fajar selalu diberi kelancaran dalam menjalankan amanah dan tetap semangat dalam mengerjakan Tugas Akhirnya!! "# 1
+            },
+            {
+                "nama": "Juesi Apridelia Saragih ",
+                "nim": "123450085",
+                "umur": "19",
+                "asal":"Singkawang",
+                "alamat": "Pelangi",
+                "hobbi": "Dengerin lagu duhai sayang",
+                "sosmed": "j__eesie",
+                "kesan": "Bang Aqil orangnya baik, asik dan memberikan kesan yang positif selama saya berinteraksi dengan bang Aqil.",  
+                "pesan":"Semoga bang Aqil selalu diberikan kelancaran dalam menjalani perkuliahan dan tetap semangat dalam mengerjakan Tugas Akhirnya!"# 1
+            },
+            {
+                "nama": "Dharu Cahyoaji Sasongko",
+                "nim": "123450023",
+                "umur": "19",
+                "asal":"Lampung",
+                "alamat": "Bandar Lampung",
+                "hobbi": "Nonton drama AI",
+                "sosmed": "@exvoltas",
+                "kesan": "Kak Efi orangnya ramah dan murah senyum.",  
+                "pesan":"Semoga kak Efi selalu diberikan kelancaran dan semangat dalam mengerjakan Tugas Akhirnya!!"# 1
+            },
+           {
+                "nama": "Gh Mikael Niko A S",
+                "nim": "124450025",
+                "umur": "20",
+                "asal":"Jabung",
+                "alamat": "Jati Agung",
+                "hobbi": "COD Musang",
+                "sosmed": "@me._kael",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Siti Sarifah Sumamah",
+                "nim": "124450015",
+                "umur": "18",
+                "asal":"Banten",
+                "alamat": "Kedaton",
+                "hobbi": "Koleksi kartu boboiboy",
+                "sosmed": "@syt.rifa",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Givaro Ananta",
+                "nim": "123450078",
+                "umur": "21",
+                "asal":"Lampung Barat",
+                "alamat": "Sukabumi",
+                "hobbi": "Ngopi",
+                "sosmed": "@gifaroo",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    PSDA()
+
+if menu == "Departemen MIKFES":
+    def MIKFES():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=1cPCW894G5bbpmmNtB3--wZJMJE94AHFs",
+            "https://drive.google.com/uc?export=view&id=11LbyqgvvmYcSqeALYIpD8XASQ99apdTe",
+            "https://drive.google.com/uc?export=view&id=12mmvbhn_a3CNZBp2-C1CNtnOM5Za_pja",
+            "https://drive.google.com/uc?export=view&id=1hHcAzb2_cugwDJkKU4mVTVX7RfpvGPxU",
+            "https://drive.google.com/uc?export=view&id=1mPC9ZSdw6bZhOXTJXaEfnf0Yw-u8ngK6",
+            "https://drive.google.com/uc?export=view&id=1Y_tCuB9n0PNpex6mCtz-ch-LZTThztwv",
+        ]
+        data_list = [
+            {
+                "nama": "Fabio Banyu Cyto",
+                "nim": "123450060",
+                "umur": "20",
+                "asal":"Cambridge",
+                "alamat": "GH",
+                "hobbi": "Wawancara",
+                "sosmed": "@imridhomanik",
+                "kesan": "Saya melihat bang Fajar sebagai sosok pemimpin yang berwibawa dan tegas.  ",  
+                "pesan":"Semoga bang Fajar selalu diberi kelancaran dalam menjalankan amanah dan tetap semangat dalam mengerjakan Tugas Akhirnya!! "# 1
+            },
+            {
+                "nama": "Juesi Apridelia Saragih ",
+                "nim": "123450085",
+                "umur": "19",
+                "asal":"Singkawang",
+                "alamat": "Pelangi",
+                "hobbi": "Dengerin lagu duhai sayang",
+                "sosmed": "j__eesie",
+                "kesan": "Bang Aqil orangnya baik, asik dan memberikan kesan yang positif selama saya berinteraksi dengan bang Aqil.",  
+                "pesan":"Semoga bang Aqil selalu diberikan kelancaran dalam menjalani perkuliahan dan tetap semangat dalam mengerjakan Tugas Akhirnya!"# 1
+            },
+            {
+                "nama": "Dharu Cahyoaji Sasongko",
+                "nim": "123450023",
+                "umur": "19",
+                "asal":"Lampung",
+                "alamat": "Bandar Lampung",
+                "hobbi": "Nonton drama AI",
+                "sosmed": "@exvoltas",
+                "kesan": "Kak Efi orangnya ramah dan murah senyum.",  
+                "pesan":"Semoga kak Efi selalu diberikan kelancaran dan semangat dalam mengerjakan Tugas Akhirnya!!"# 1
+            },
+           {
+                "nama": "Gh Mikael Niko A S",
+                "nim": "124450025",
+                "umur": "20",
+                "asal":"Jabung",
+                "alamat": "Jati Agung",
+                "hobbi": "COD Musang",
+                "sosmed": "@me._kael",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Siti Sarifah Sumamah",
+                "nim": "124450015",
+                "umur": "18",
+                "asal":"Banten",
+                "alamat": "Kedaton",
+                "hobbi": "Koleksi kartu boboiboy",
+                "sosmed": "@syt.rifa",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Givaro Ananta",
+                "nim": "123450078",
+                "umur": "21",
+                "asal":"Lampung Barat",
+                "alamat": "Sukabumi",
+                "hobbi": "Ngopi",
+                "sosmed": "@gifaroo",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    MIKFES()
