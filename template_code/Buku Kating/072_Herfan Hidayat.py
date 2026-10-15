@@ -71,33 +71,58 @@ def load_image(url):
 
 @st.cache_data
 def display_images_with_data(gambar_urls, data_list):
-    # CSS Custom memakai gambar asli kertas gulungan (Scroll)
+    # CSS Murni untuk Efek Gulungan Kertas (Scroll) Otentik
     st.markdown(
         """
         <style>
-        .scroll-container {
-            position: relative;
-            width: 100%;
+        /* Kontainer Utama Gulungan */
+        .scroll-wrapper {
             max-width: 420px;
-            margin: 10px auto;
-            /* Menggunakan URL gambar gulungan kertas asli */
-            background-image: url('https://png.pngtree.com/png-clipart/20220909/ourmid/pngtree-old-scroll-paper-frame-png-image_6141381.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            padding: 70px 45px 70px 45px; /* Spacing agar teks berada tepat di area tengah kertas */
-            box-sizing: border-box;
-            text-align: left;
+            margin: 20px auto;
+            position: relative;
+            filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.35));
         }
 
-        .scroll-container p {
-            color: #3d2314 !important; /* Warna cokelat tua seperti tinta kuno */
+        /* Roll Atas & Bawah (Batang Kayu/Kertas Gulung) */
+        .scroll-roller {
+            height: 26px;
+            background: linear-gradient(90deg, #5c3818 0%, #8d5b2d 20%, #e0aa68 50%, #8d5b2d 80%, #5c3818 100%);
+            border-radius: 13px;
+            border: 2px solid #3d230d;
+            box-shadow: inset 0 3px 5px rgba(255,255,255,0.3), inset 0 -3px 5px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Badan Kertas Kuno */
+        .scroll-body {
+            background: #f4e3b1;
+            background: radial-gradient(circle, #f9edd1 0%, #e8d08d 85%, #d1b164 100%);
+            border-left: 3px dashed #b89547;
+            border-right: 3px dashed #b89547;
+            padding: 25px 30px;
+            box-shadow: inset 0 0 25px rgba(115, 77, 20, 0.45);
+            margin: -6px 12px; /* Menyelip halus di antara roller */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Gaya Teks di Dalam Kertas */
+        .scroll-body p {
+            color: #3d220a !important;
             font-family: 'Georgia', serif;
-            font-size: 0.92em;
-            line-height: 1.5;
-            margin-bottom: 6px;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            border-bottom: 1px dashed rgba(140, 90, 30, 0.25);
+            padding-bottom: 4px;
         }
 
-        /* Merapikan ekspander */
+        .scroll-body p:last-child {
+            border-bottom: none;
+        }
+
+        /* Merapikan ekspander Streamlit */
         div[data-testid="stExpander"] {
             border: none !important;
             box-shadow: none !important;
@@ -124,22 +149,26 @@ def display_images_with_data(gambar_urls, data_list):
                 with st.expander(f"📜 Buka Biodata: {data_list[i]['nama']}"):
                     st.markdown(
                         f"""
-                        <div class="scroll-container">
-                            <p><b>Nama:</b> {data_list[i]['nama']}</p>
-                            <p><b>NIM:</b> {data_list[i]['nim']}</p>
-                            <p><b>Umur:</b> {data_list[i]['umur']}</p>
-                            <p><b>Asal:</b> {data_list[i]['asal']}</p>
-                            <p><b>Alamat:</b> {data_list[i]['alamat']}</p>
-                            <p><b>Hobbi:</b> {data_list[i]['hobbi']}</p>
-                            <p><b>Sosmed:</b> {data_list[i]['sosmed']}</p>
-                            <p><b>Kesan:</b> {data_list[i]['kesan']}</p>
-                            <p><b>Pesan:</b> {data_list[i]['pesan']}</p>
+                        <div class="scroll-wrapper">
+                            <div class="scroll-roller"></div>
+                            <div class="scroll-body">
+                                <p><b>Nama:</b> {data_list[i]['nama']}</p>
+                                <p><b>NIM:</b> {data_list[i]['nim']}</p>
+                                <p><b>Umur:</b> {data_list[i]['umur']}</p>
+                                <p><b>Asal:</b> {data_list[i]['asal']}</p>
+                                <p><b>Alamat:</b> {data_list[i]['alamat']}</p>
+                                <p><b>Hobbi:</b> {data_list[i]['hobbi']}</p>
+                                <p><b>Sosmed:</b> {data_list[i]['sosmed']}</p>
+                                <p><b>Kesan:</b> {data_list[i]['kesan']}</p>
+                                <p><b>Pesan:</b> {data_list[i]['pesan']}</p>
+                            </div>
+                            <div class="scroll-roller"></div>
                         </div>
                         """,
                         unsafe_allow_html=True,
                     )
     st.write("Semua gambar telah dimuat!")
-
+    
 menu = streamlit_menu()
 
 # BAGIAN SINI YANG HANYA BOLEH DIUBAH
