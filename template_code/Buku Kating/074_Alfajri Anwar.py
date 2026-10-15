@@ -105,7 +105,7 @@ html, body, [class*="css"] {
 }
 .profile-subheader {
     display: inline-block;
-    padding: 3px 12px;
+    padding: 4px 14px;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 1.6px;
@@ -117,6 +117,12 @@ html, body, [class*="css"] {
     margin-bottom: 16px;
     position: relative;
     z-index: 1;
+}
+.profile-subheader.leader {
+    background: linear-gradient(135deg, #b8912e 0%, #e8c874 50%, #b8912e 100%);
+    color: #4e1318;
+    box-shadow: 0 4px 14px rgba(184,145,46,0.45);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.25);
 }
 .profile-divider {
     width: 100%;
@@ -299,7 +305,6 @@ def load_image(url):
 
 @st.cache_data(show_spinner=False)
 def image_data_uri(url):
-    """Pertahankan rasio asli foto, hanya compress."""
     img = load_image(url)
     if img is None:
         return None
@@ -342,6 +347,8 @@ def render_photo(img_src, alt="Foto"):
 
 def render_profile_card(m):
     nama = html_lib.escape(str(m.get("nama", "-")))
+    jabatan_raw = str(m.get("jabatan", "")).strip()
+    jabatan = html_lib.escape(jabatan_raw) if jabatan_raw else "—"
     nim = html_lib.escape(str(m.get("nim", "-")))
     umur = html_lib.escape(str(m.get("umur", "-")))
     asal = html_lib.escape(str(m.get("asal", "-")))
@@ -351,9 +358,13 @@ def render_profile_card(m):
     kesan = html_lib.escape(str(m.get("kesan", "-")))
     pesan = html_lib.escape(str(m.get("pesan", "-")))
 
+    leader_keywords = ["ketua", "wakil", "sekretaris", "bendahara", "kadep", "kepala", "koordinator"]
+    is_leader = any(k in jabatan_raw.lower() for k in leader_keywords)
+    subheader_class = "profile-subheader leader" if is_leader else "profile-subheader"
+
     html_block = f"""<div class="profile-card">
 <div class="profile-header">{nama}</div>
-<div class="profile-subheader">Kating HMSD Adyatama</div>
+<div class="{subheader_class}">{jabatan}</div>
 <div class="profile-divider"></div>
 <div class="info-grid">
 <div class="info-item"><span class="info-label">NIM</span><span class="info-value">{nim}</span></div>
@@ -446,19 +457,19 @@ if menu == "Kesekjenan":
         "https://drive.google.com/uc?export=view&id=1JtuaMMWi0pW6-pX2X1wNGl2W9f-B6227"
     ]
     data_list = [
-        {"nama": "Ginda Fajar Riadi Marpaung", "nim": "123450103", "umur": "22", "asal": "Batam", "alamat": "Kesekretariat HMSD", "hobbi": "Push IMO", "sosmed": "@jars_mrp", "kesan": "Abangnya seruu, dlu pernah jadi kadiv op pas natal SD25 bisa diajak serius dan bercanda.", "pesan": "Semangat dan suksek selalu bangg!!"},
-        {"nama": "Muhammad Aqil Ramadhan", "nim": "123450066", "umur": "22", "asal": "Riau", "alamat": "Kesekretariat HMSD", "hobbi": "Dzkir", "sosmed": "@muhammadaqil1111", "kesan": "Abangnya seru bisa diajak bercanda dan bisa diajak bicara serius.", "pesan": "Sukses selalu serta semangat dalam melaksanakan tugas!"},
-        {"nama": "Efi Defiyati", "nim": "123450005", "umur": "21", "asal": "Lampung Timur", "alamat": "Airan", "hobbi": "Membaca", "sosmed": "@eeffiidefi", "kesan": "Kakaknya murah senyum.", "pesan": "Sukses selalu kak dan semangat!"},
-        {"nama": "Qois Olifio", "nim": "123450067", "umur": "22", "asal": "Batam", "alamat": "Kota Baru", "hobbi": "Mainin surat", "sosmed": "@qoisolifio_", "kesan": "Abangnya sof spoken, lucuu.", "pesan": "Sukses selalu dan semangat bang!!"},
-        {"nama": "Hafsa Fazila Arradhi", "nim": "123450079", "umur": "21", "asal": "Bandar Lampung", "alamat": "Bandar Lampung", "hobbi": "Bertemu Luluk", "sosmed": "@hafsafazilahh", "kesan": "Kakaknya baik, murah senyum, dan suka duit.", "pesan": "Sukses selalu dan semangat kakk!!"},
-        {"nama": "Luthfia Laila Ramadhani", "nim": "123450004", "umur": "20", "asal": "Bengkulu", "alamat": "Airan", "hobbi": "Keliling Balam", "sosmed": "@luthhifiarmdhni", "kesan": "Kakaknya seru, lucuu, baikk.", "pesan": "Sukses selalu dan semangat kakkk!!"}
+        {"nama": "Ginda Fajar Riadi Marpaung", "jabatan": "Ketua Himpunan", "nim": "123450103", "umur": "22", "asal": "Batam", "alamat": "Kesekretariat HMSD", "hobbi": "Push IMO", "sosmed": "@jars_mrp", "kesan": "Abangnya seruu, dlu pernah jadi kadiv op pas natal SD25 bisa diajak serius dan bercanda.", "pesan": "Semangat dan suksek selalu bangg!!"},
+        {"nama": "Muhammad Aqil Ramadhan", "jabatan": "Sekretaris Jendral", "nim": "123450066", "umur": "22", "asal": "Riau", "alamat": "Kesekretariat HMSD", "hobbi": "Dzkir", "sosmed": "@muhammadaqil1111", "kesan": "Abangnya seru bisa diajak bercanda dan bisa diajak bicara serius.", "pesan": "Sukses selalu serta semangat dalam melaksanakan tugas!"},
+        {"nama": "Efi Defiyati", "jabatan": "Sekretaris Umum", "nim": "123450005", "umur": "21", "asal": "Lampung Timur", "alamat": "Airan", "hobbi": "Membaca", "sosmed": "@eeffiidefi", "kesan": "Kakaknya murah senyum.", "pesan": "Sukses selalu kak dan semangat!"},
+        {"nama": "Qois Olifio", "jabatan": "Wakil Sekretaris", "nim": "123450067", "umur": "22", "asal": "Batam", "alamat": "Kota Baru", "hobbi": "Mainin surat", "sosmed": "@qoisolifio_", "kesan": "Abangnya sof spoken, lucuu.", "pesan": "Sukses selalu dan semangat bang!!"},
+        {"nama": "Hafsa Fazila Arradhi", "jabatan": "Bendahara Umum", "nim": "123450079", "umur": "21", "asal": "Bandar Lampung", "alamat": "Bandar Lampung", "hobbi": "Bertemu Luluk", "sosmed": "@hafsafazilahh", "kesan": "Kakaknya baik, murah senyum, dan suka duit.", "pesan": "Sukses selalu dan semangat kakk!!"},
+        {"nama": "Luthfia Laila Ramadhani", "jabatan": "Wakil Bendahara", "nim": "123450004", "umur": "20", "asal": "Bengkulu", "alamat": "Airan", "hobbi": "Keliling Balam", "sosmed": "@luthhifiarmdhni", "kesan": "Kakaknya seru, lucuu, baikk.", "pesan": "Sukses selalu dan semangat kakkk!!"}
     ]
     display_images_with_data(gambar_urls, data_list)
 
 elif menu == "Baleg":
     gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"]
     data_list = [
-        {"nama": "Anggota Baleg", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"}
+        {"nama": "Anggota Baleg", "jabatan": "Badan Legislatif", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"}
     ]
     display_images_with_data(gambar_urls, data_list)
 
@@ -476,38 +487,38 @@ elif menu == "Senator":
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
     ]
-    data_list = [{"nama": "Anggota Senator", "nim": "122450022", "umur": "21", "asal": "Jakarta", "alamat": "Sukarame", "hobbi": "Debat", "sosmed": "@senator", "kesan": "Informatif", "pesan": "Terus berkarya!"}] * 11
+    data_list = [{"nama": "Anggota Senator", "jabatan": "Senator Mahasiswa", "nim": "122450022", "umur": "21", "asal": "Jakarta", "alamat": "Sukarame", "hobbi": "Debat", "sosmed": "@senator", "kesan": "Informatif", "pesan": "Terus berkarya!"}] * 11
     display_images_with_data(gambar_urls, data_list)
 
 elif menu == "Departemen PSDA":
     gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"]
     data_list = [
-        {"nama": "Anggota PSDA", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"}
+        {"nama": "Anggota PSDA", "jabatan": "Staf PSDA", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"}
     ]
     display_images_with_data(gambar_urls, data_list)
 
 elif menu == "Departemen MIKFES":
     gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"]
     data_list = [
-        {"nama": "Anggota MIKFES", "nim": "122450044", "umur": "20", "asal": "Bandung", "alamat": "Airan", "hobbi": "Olahraga", "sosmed": "@mikfes", "kesan": "Solid", "pesan": "Solid terus!"}
+        {"nama": "Anggota MIKFES", "jabatan": "Staf MIKFES", "nim": "122450044", "umur": "20", "asal": "Bandung", "alamat": "Airan", "hobbi": "Olahraga", "sosmed": "@mikfes", "kesan": "Solid", "pesan": "Solid terus!"}
     ]
     display_images_with_data(gambar_urls, data_list)
 
 elif menu == "Departemen Eksternal":
     gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"] * 22
-    data_list = [{"nama": "Anggota Eksternal", "nim": "122450055", "umur": "20", "asal": "Palembang", "alamat": "Korpri", "hobbi": "Networking", "sosmed": "@eksternal", "kesan": "Ramah", "pesan": "Jalin relasi luas!"}] * 22
+    data_list = [{"nama": "Anggota Eksternal", "jabatan": "Staf Eksternal", "nim": "122450055", "umur": "20", "asal": "Palembang", "alamat": "Korpri", "hobbi": "Networking", "sosmed": "@eksternal", "kesan": "Ramah", "pesan": "Jalin relasi luas!"}] * 22
     display_images_with_data(gambar_urls, data_list)
 
 elif menu == "Departemen Internal":
     gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"]
     data_list = [
-        {"nama": "Anggota Internal", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"}
+        {"nama": "Anggota Internal", "jabatan": "Staf Internal", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"}
     ]
     display_images_with_data(gambar_urls, data_list)
 
 elif menu == "Departemen SSD":
     gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"] * 12
-    data_list = [{"nama": "Anggota SSD", "nim": "122450077", "umur": "20", "asal": "Depok", "alamat": "Korpri", "hobbi": "Coding", "sosmed": "@ssd", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"}] * 12
+    data_list = [{"nama": "Anggota SSD", "jabatan": "Staf SSD", "nim": "122450077", "umur": "20", "asal": "Depok", "alamat": "Korpri", "hobbi": "Coding", "sosmed": "@ssd", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"}] * 12
     display_images_with_data(gambar_urls, data_list)
 
 elif menu == "Departemen Medkraf":
@@ -531,5 +542,5 @@ elif menu == "Departemen Medkraf":
         "https://drive.google.com/uc?export=view&id=1PaSfCj8UMMs9Lzyp72SigsCnat0NXNmd",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
     ]
-    data_list = [{"nama": "Anggota Medkraf", "nim": "122450088", "umur": "20", "asal": "Yogyakarta", "alamat": "Airan", "hobbi": "Editing & Foto", "sosmed": "@medkraf", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"}] * 18
+    data_list = [{"nama": "Anggota Medkraf", "jabatan": "Staf Medkraf", "nim": "122450088", "umur": "20", "asal": "Yogyakarta", "alamat": "Airan", "hobbi": "Editing & Foto", "sosmed": "@medkraf", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"}] * 18
     display_images_with_data(gambar_urls, data_list)
