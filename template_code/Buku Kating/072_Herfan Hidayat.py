@@ -71,35 +71,37 @@ def load_image(url):
 
 @st.cache_data
 def display_images_with_data(gambar_urls, data_list):
-    # CSS Custom untuk efek Gulungan Kertas (Scroll)
+    # CSS Custom memakai gambar asli kertas gulungan (Scroll)
     st.markdown(
         """
         <style>
-        .scroll-card {
-            background-color: #f3e5ab;
-            background-image: radial-gradient(#e0c987 15%, transparent 16%), radial-gradient(#d4b870 15%, transparent 16%);
-            background-size: 60px 60px;
-            background-position: 0 0, 30px 30px;
-            border: 8px solid #8b5a2b;
-            border-radius: 12px;
-            padding: 20px 25px;
-            box-shadow: inset 0 0 30px rgba(100, 50, 0, 0.4), 0 10px 20px rgba(0,0,0,0.3);
-            color: #3e2723;
-            font-family: 'Georgia', serif;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .scroll-card p {
-            font-size: 1.05em;
-            line-height: 1.6;
-            margin-bottom: 8px;
-            color: #3e2723;
+        .scroll-container {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            margin: 10px auto;
+            /* Menggunakan URL gambar gulungan kertas asli */
+            background-image: url('https://png.pngtree.com/png-clipart/20220909/ourmid/pngtree-old-scroll-paper-frame-png-image_6141381.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            padding: 70px 45px 70px 45px; /* Spacing agar teks berada tepat di area tengah kertas */
+            box-sizing: border-box;
+            text-align: left;
         }
 
+        .scroll-container p {
+            color: #3d2314 !important; /* Warna cokelat tua seperti tinta kuno */
+            font-family: 'Georgia', serif;
+            font-size: 0.92em;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+
+        /* Merapikan ekspander */
         div[data-testid="stExpander"] {
             border: none !important;
             box-shadow: none !important;
+            background: transparent !important;
         }
         </style>
         """,
@@ -122,14 +124,14 @@ def display_images_with_data(gambar_urls, data_list):
                 with st.expander(f"📜 Buka Biodata: {data_list[i]['nama']}"):
                     st.markdown(
                         f"""
-                        <div class="scroll-card">
+                        <div class="scroll-container">
                             <p><b>Nama:</b> {data_list[i]['nama']}</p>
                             <p><b>NIM:</b> {data_list[i]['nim']}</p>
                             <p><b>Umur:</b> {data_list[i]['umur']}</p>
                             <p><b>Asal:</b> {data_list[i]['asal']}</p>
                             <p><b>Alamat:</b> {data_list[i]['alamat']}</p>
                             <p><b>Hobbi:</b> {data_list[i]['hobbi']}</p>
-                            <p><b>Sosial Media:</b> {data_list[i]['sosmed']}</p>
+                            <p><b>Sosmed:</b> {data_list[i]['sosmed']}</p>
                             <p><b>Kesan:</b> {data_list[i]['kesan']}</p>
                             <p><b>Pesan:</b> {data_list[i]['pesan']}</p>
                         </div>
