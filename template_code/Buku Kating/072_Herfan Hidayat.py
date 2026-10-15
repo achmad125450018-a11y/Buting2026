@@ -827,8 +827,8 @@ if menu == "Departemen Internal":
         display_images_with_data(gambar_urls, data_list)
     Departemen_Internal()
 
-if menu == "Medkraf":
-    def Medkraf():
+if menu == "Departemen Medkraf":
+    def Departemen_Medkraf():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=11HkHx-YMrznolP963U0MI6RhbN1b_KUM",
             "https://drive.google.com/uc?export=view&id=1v8-7T4SUcyHCY-ScN4uY9iugwgM7aKF8",
@@ -1050,7 +1050,7 @@ if menu == "Medkraf":
             },
         ]
         display_images_with_data(gambar_urls, data_list)
-    Medkraf()
+    Departemen_Medkraf()
 
 
 
