@@ -83,8 +83,7 @@ def streamlit_menu():
                 "margin": "0px",
                 "--hover-color": "#eee",
             },
-            "nav-link-selected": {""background-color": "#FCF0DA !important",
-            "color": "#000000 !important","},
+            "nav-link-selected": {""background-color": "#FCF0DA"},
         },
     )
     return selected
