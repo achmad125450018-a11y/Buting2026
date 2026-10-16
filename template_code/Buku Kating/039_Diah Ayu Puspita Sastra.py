@@ -1226,7 +1226,7 @@ if menu == "Departemen SSD":
     departemen_ssd()
 
 if menu == "Departemen Eksternal":
-    def departemen_eskternal():
+    def departemen_eksternal():
         gambar_urls = [
                 "https://drive.google.com/thumbnail?id=19Png8Gmss-W6X75ZB5taF68-G9Kq5-0U&sz=w1000",
                 "https://drive.google.com/thumbnail?id=1aOkCcrmqHnCftTzaUn90vk2wWKOFpLLj&sz=w1000",
