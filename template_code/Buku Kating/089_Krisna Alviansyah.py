@@ -180,12 +180,19 @@ if menu == "Kesekjenan":
 if menu == "Baleg":
     def baleg():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1zh4M-Em2lwM-CmePV3GbnEiicK8zL9af",
-            "https://drive.google.com/uc?export=view&id=1j_56jjUXFplAfwI6MsZT_2hRZMPUHM9C",
-            "https://drive.google.com/uc?export=view&id=1tyAFkhHMUanbHCvNarJsojELU9S_PpDL",
-            "https://drive.google.com/uc?export=view&id=1lm9RQDR0eqeYvkLDkze_AsKqhiEMD7ga",
-            "https://drive.google.com/uc?export=view&id=13_D_X0D_4dQVIV0FmQRKCtPtos3IDftB",
-            "https://drive.google.com/uc?export=view&id=17RXB64pOkzQlnQsbiR9OoJGRhgCkTk4P",
+            "https://drive.google.com/uc?export=view&id=1gZ9IggX8rjxaw7nwxKiSjKkP0o8y6ren",
+            "https://drive.google.com/uc?export=view&id=1d9JaEJeah1TzGC4HdXt8eNj87PFg4KkZ",
+            "https://drive.google.com/uc?export=view&id=1Z_UCc5jFbbzHqU3OqiTqtKW4k7Y0dcnN",
+            "https://drive.google.com/uc?export=view&id=1NzfunTqYdz5-O1ZobEl9JCkEWblIGhuo",
+            "https://drive.google.com/uc?export=view&id=1ZBSQuhGe4eM1eb0XFJCkxoXhDH6D56WR",
+            "https://drive.google.com/uc?export=view&id=1N8aKdak_CfVFQz2qH7qRE9NJLEbP35O-",
+            "https://drive.google.com/uc?export=view&id=1nFN_M_5_iIgw-X4sgSHgV4qMbmTnJk3i",
+            "https://drive.google.com/uc?export=view&id=1Ny_wiQ4fd0wJjzD1ArIEdMElfC4afcD5",
+            "https://drive.google.com/uc?export=view&id=1fp0Gwk12mCGzPIksEs_xN9wlxJlub57e",
+            "https://drive.google.com/uc?export=view&id=1LmJ0_dAkId8hUOrW-Mk6cHFT8lhFIiXh",
+            "https://drive.google.com/uc?export=view&id=1B1WA0AXP8HMhnpqi8E2gIrcgk5wTjns9",
+            "https://drive.google.com/uc?export=view&id=1HHEGZO_liqOpOewXUzzpXkvrN-2j1ibh",
+            "https://drive.google.com/uc?export=view&id=16pSZ1MbbV_LKplFMEl7JhU1sylWRcVxz",
         ]
         data_list = [
             {
@@ -201,58 +208,135 @@ if menu == "Baleg":
             },
             {
                 "nama": "Juesi Apridelia Saragih",
-                "nim": "123450085",
-                "umur": "19",
-                "asal":"Sekawang",
-                "alamat": "pelangi",
-                "hobbi": "ngereapet lagu  beegin again Taylor ",
-                "sosmed": "@muhammadaqil1111",
-                "kesan": "Keren berkharisma",  
-                "pesan":"Lulus tepat waktu ya bang"# 1
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": " ",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1
             },
             {
                 "nama": "Dharu Chayoaji Sangsoko",
-                "nim": "123450023",
-                "umur": "19",
-                "asal":"Lampung",
-                "alamat": "Bandar lampung",
-                "hobbi": "nonton agz, tapi udh tamat",
-                "sosmed": "@eeffiidefi",
-                "kesan": "humble, ramah, baik",  
-                "pesan":"Kak, senyum selalu ya kak"# 1
-            },
-            {
-                "nama": "Gh Mikael Niko A S",
-                "nim": "124450025",
-                "umur": "22",
-                "asal":"Batam",
-                "alamat": "Kota Baru",
-                "hobbi": "Mainin Surat",
-                "sosmed": "@qoisolifio_",
-                "kesan": "Cool, dan keliatan orang yang Sistematis",  
-                "pesan":"Bang waktu presentasi jangan terlalu cepat ya bang hehe"# 1  
-            },
-            {
-                "nama": "Siti Sarifah Sumamah",
-                "nim": "124450015",
-                "umur": "21",
-                "asal":"Bandar Lampung",
-                "alamat": "Bandar Lampung",
-                "hobbi": "Menyanyi",
-                "sosmed": "@hafsafazilaa",
-                "kesan": "humble dan baik",  
-                "pesan":"Selalu happy ya kak :)"# 1  
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1
             },
             {
                 "nama": "Givaro Ananta",
-                "nim": "123450078",
-                "umur": "20",
-                "asal":"Jawa Barat, Bekasi",
-                "alamat": "Airan",
-                "hobbi": "Bertemu haffsa",
-                "sosmed": "@luthfiaarmdhni",
-                "kesan": "humble dan baik",  
-                "pesan":"Jangan mudah patah semangat kak :)"# 1  
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1  
+            },
+            {
+                "nama": "Monica Patricia Tanjung",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1  
+            },
+            {
+                "nama": "Gh Mikael Niko A S",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":")"# 1  
+            },
+            {
+                "nama": "Siti Sarifah Sumamah",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1
+            },
+            {
+                "nama": "Afghanis Nursholehatunnisa",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1
+            },
+            {
+                "nama": "Hani Qurrota Aini",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1
+            },
+            {
+                "nama": "Jeremia Halim",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1  
+            },
+            {
+                "nama": "Jona Timothy Ogatse Panjaitan",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1  
+            },
+            {
+                "nama": "Sekar Dini Widya Putri",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1  
+            },
+            {
+                "nama": "Wan Nashwa Alhasni Yuska",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "  ",  
+                "pesan":""# 1  
             },
         ]
         display_images_with_data(gambar_urls, data_list)
