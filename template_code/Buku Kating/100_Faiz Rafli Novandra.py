@@ -180,7 +180,7 @@ if menu == "Baleg":
     def Baleg():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1k4nv_Glyznt90Kgtg66hOhDSi780ff3Z",
-            "https://drive.google.com/uc?export=view&id=dS0TBTfQJeP9Ui0evpFeAYSVRf8yRKsM",
+            "https://drive.google.com/uc?export=view&id=1dS0TBTfQJeP9Ui0evpFeAYSVRf8yRKsM",
             "https://drive.google.com/uc?export=view&id=1o-agR_izPjw7qg2w0HbS6uEIxPSrMy-3",
             "https://drive.google.com/uc?export=view&id=1vInIKWE1hbqfbfwRzp2biij1xPPpLX1d",
             "https://drive.google.com/uc?export=view&id=1Jn4vdUIe_KPVQNhNensvPxRz35lDTSm0",
