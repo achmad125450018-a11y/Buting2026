@@ -1225,7 +1225,7 @@ if menu == "Departemen SSD":
         display_images_with_data(gambar_urls, data_list)
     departemen_ssd()
 
-if menu == "Departemen Eksternal ":
+if menu == "Departemen Eksternal":
     def departemen_eskternal():
         gambar_urls = [
                 "https://drive.google.com/thumbnail?id=19Png8Gmss-W6X75ZB5taF68-G9Kq5-0U&sz=w1000",
@@ -1799,23 +1799,23 @@ if menu == "Senator":
 if menu == "Departemen PSDA":
     def departemen_psda():
         gambar_urls = [
-                "https://drive.google.com/thumbnail?id=11085PXJtVdwL0sO50M9o8yqGg4AqZexb&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1Ix0b6QEbGzS7stklgWMEXmVnWkaperM_&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1fV76oyhZHDvF0HHP2EpW2jYbhTzXKejV&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1OiejS4RFu0B5fPmkCspO2Z8PlQ6F6Un4&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1vykCXA4ezDY_Z34MtvcsAd3gpMnxL2Oz&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1u-1bU0gyirU08rCt_29t8XG0JhD32iWy&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1f7v9gFSHx7hW2eS4KgYFp1t51DapOR5m&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1bxVmDddcSiIeCNLJALpSHEWslf6Rawzf&sz=w1000",
-                "https://drive.google.com/thumbnail?id=15C-cyFMv3YzMO4GgLfZTN4dXB4pwqVjX&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1GdutbpW3FHH1JKVLtSdpWqH_yTYpZkgS&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1OiejS4RFu0B5fPmkCspO2Z8PlQ6F6Un4&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1vykCXA4ezDY_Z34MtvcsAd3gpMnxL2Oz&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1u-1bU0gyirU08rCt_29t8XG0JhD32iWy&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1f7v9gFSHx7hW2eS4KgYFp1t51DapOR5m&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1bxVmDddcSiIeCNLJALpSHEWslf6Rawzf&sz=w1000",
-                "https://drive.google.com/thumbnail?id=15C-cyFMv3YzMO4GgLfZTN4dXB4pwqVjX&sz=w1000",
-                "https://drive.google.com/thumbnail?id=1GdutbpW3FHH1JKVLtSdpWqH_yTYpZkgS&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1hxFz5iv83Gsm6h1ZZvQGcejdcWHyDiQC&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1zkqTMbQ-RrKY1504WA6HLkLe6fDLTJVV&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1SySdWPx2RPLp-4NoHAObEooJNnf38VEH&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1-BZtHLZrmr7tRCiDV2uyGviG1LZI0Ebs&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1y9cH-ybzk8omqQELJnd5Hr17Ky-CSwQP&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1PdyQHjqloGh3wJT5VQzcXbMOuF_PTO42&sz=w1000",
+                "https://drive.google.com/thumbnail?id=11Mi3QEt8VI7RTIxaWulRH8Zwav3TTJMb&sz=w1000",
+                "https://drive.google.com/thumbnail?id=12-1mIM5l4EUVLwuExIj3Kk5O3trJPNt-&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1__LMg65xzoMWysDxDTx5P0enqEIqH0bp&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1znO18sa83ryTAxfQD72bYjXsCqKwJKHv&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1jHje08g47gfOwHXkKPkRdYmptFPw4hJQ&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1IfHvPbKTusIKTUPptlFRboC_P1faIaj-&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1YiOUxcIRyHcZPW_ydB7ZAXGm39HURSU_&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1yUQ7xKTe0Kzw_6RUjLmqiJwIsvWHsiXZ&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1Jf6KSShO2tZajWkBoX-hK2h3PXRTFx0t&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1Pl3mRMdA5IN6xHL2jlkpvpBjx-wy4PhQ&sz=w1000",
+                "https://drive.google.com/thumbnail?id=1awD6lk-QBbsTkqIfDovA6yJ8-qk3Aijp&sz=w1000",
         ]
         
         data_list = [
