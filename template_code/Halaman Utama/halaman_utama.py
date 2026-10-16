@@ -102,17 +102,7 @@ if menu == "Home":
             "<h1 class='centered-title'>Deskripsi Kelompok</h1>", unsafe_allow_html=True
         )
         st.markdown(
-<<<<<<< HEAD
             """<div style="text-align: justify;"> kami markov .</div>""",
-=======
-            """<div style="text-align: justify;">Halo, kami Markov! Kami berasal dari Sains Data angkatan 2025, 
-                    dan di balik kelompok ini ada banyak kepala dengan gaya yang beda-beda. 
-                    Dalam rangkaian CEO HMSD Adyatama ITERA, 
-                    kami dapat tugas untuk mengenal lebih dekat para Kakak Tingkat (Kating), 
-                    mulai dari cerita perkuliahan mereka, tips bertahan di kampus, 
-                    sampai pandangan mereka soal dunia data. 
-                    Hasil ngobrol itu kami kumpulkan di sini supaya tidak berhenti jadi catatan di galeri HP saja.</div>""",
->>>>>>> 3ed2b066b86d87f04b1dd664c0afd7cef1310d29
             unsafe_allow_html=True,
         )
         st.write(""" """)
