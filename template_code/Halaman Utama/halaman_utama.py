@@ -396,12 +396,6 @@ def streamlit_menu():
         },
     )
 
-
-with st.sidebar:
-    st.markdown("### 🌿 Markov")
-    st.caption("HMSD Adyatama ITERA 2026")
-
-
 def home_page():
     layout(url)
     layout(url1)
