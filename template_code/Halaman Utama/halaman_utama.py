@@ -14,11 +14,11 @@ st.set_page_config(
     page_title="Website Kating | Bayesian",
     page_icon="💙",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
 
 # ============================================================
-# CSS — MODERN BLUE UI/UX
+# CSS — WARNA SIDEBAR SESUAI FOTO REFERENSI & STYLE HALAMAN
 # ============================================================
 st.markdown("""
 <style>
@@ -52,7 +52,56 @@ html, body, [class*="css"] {
     padding-bottom: 3rem !important;
 }
 
-/* HEADER */
+/* ============================================================
+   STYLING KELIR SIDEBAR SEPERTI PADA FOTO REFERENSI
+   ============================================================ */
+section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #0A2252 0%, #0D2B68 40%, #154CB0 80%, #1B5FD1 100%) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+section[data-testid="stSidebar"] .stMarkdown {
+    color: #FFFFFF !important;
+}
+
+/* Judul Kategori Sidebar */
+.sidebar-category-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #FFFFFF !important;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* Tombol Menu Sidebar yang Disesuaikan Warna Referensi */
+div[data-testid="stSidebar"] .stButton > button {
+    background-color: transparent !important;
+    color: #E2EDFF !important;
+    border: none !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+    font-weight: 500 !important;
+    border-radius: 10px !important;
+    padding: 8px 12px !important;
+    transition: all 0.2s ease !important;
+}
+
+div[data-testid="stSidebar"] .stButton > button:hover {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    color: #FFFFFF !important;
+}
+
+/* Efek Highlight Aktif */
+div[data-testid="stSidebar"] .stButton > button[aria-selected="true"], 
+div[data-testid="stSidebar"] .active-sidebar-btn > button {
+    background: rgba(76, 132, 224, 0.75) !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* HEADER HALAMAN UTAMA */
 .main-title {
     text-align: center;
     font-family: 'Playfair Display', serif;
@@ -109,37 +158,6 @@ html, body, [class*="css"] {
     margin: 12px auto 0;
 }
 
-/* CONTENT BOX */
-.content-box {
-    position: relative;
-    background: rgba(255,255,255,.95);
-    padding: 30px 34px;
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    box-shadow: 0 8px 28px rgba(16,42,86,.07);
-    margin-bottom: 32px;
-    text-align: justify;
-    line-height: 1.9;
-    font-size: 15px;
-    color: #40536B;
-    overflow: hidden;
-}
-
-.content-box::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 5px;
-    height: 100%;
-    background: linear-gradient(180deg, #246BCE, #8EC5FC);
-}
-
-.content-box b {
-    color: var(--blue);
-    font-weight: 800;
-}
-
 /* STATS HIGHLIGHT CARDS */
 .stat-card {
     background: rgba(255,255,255,0.9);
@@ -172,160 +190,225 @@ html, body, [class*="css"] {
     margin-top: 4px;
 }
 
-/* HERO IMAGE */
-.hero-image-wrapper {
-    position: relative;
-    width: 100%;
-    margin: 0 auto 30px;
+/* SPLIT-SCREEN HERO & DESKRIPSI */
+.hero-split-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
     border-radius: 24px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,.8);
-    box-shadow: 0 18px 45px rgba(16,42,86,.16);
-    background: var(--navy);
-}
-
-.hero-image-wrapper img {
-    display: block;
-    width: 100%;
-    height: 410px;
-    object-fit: cover;
-    transition: transform .6s ease;
-}
-
-.hero-image-wrapper:hover img {
-    transform: scale(1.025);
-}
-
-.hero-image-wrapper .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        0deg,
-        rgba(9,30,65,.96) 0%,
-        rgba(16,42,86,.45) 45%,
-        transparent 100%
-    );
-    pointer-events: none;
-}
-
-.hero-image-wrapper .hero-caption {
-    position: absolute;
-    bottom: 28px;
-    left: 32px;
-    right: 32px;
-    color: white;
-}
-
-.hero-image-wrapper .hero-badge {
-    display: inline-block;
-    padding: 7px 14px;
-    border: 1px solid rgba(255,255,255,.4);
-    background: rgba(80,145,225,.28);
-    border-radius: 50px;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    color: white;
-}
-
-.hero-image-wrapper .hero-caption h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 30px;
-    font-weight: 700;
-    margin: 0;
-    color: white;
-}
-
-.hero-image-wrapper .hero-caption p {
-    font-size: 13px;
-    margin-top: 8px;
-    color: #E3EEFF;
-    line-height: 1.6;
-}
-
-/* DOCUMENTATION CARDS */
-.photo-card {
+    padding: 24px;
+    box-shadow: 0 12px 35px rgba(16,42,86,0.08);
+    margin-bottom: 35px;
     position: relative;
-    height: 230px;
-    margin-bottom: 22px;
+    overflow: hidden;
+}
+
+.hero-split-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--navy), var(--blue), var(--sky));
+}
+
+.hero-img-container {
+    position: relative;
     border-radius: 18px;
     overflow: hidden;
-    background: white;
+    height: 360px;
+    box-shadow: 0 10px 25px rgba(16,42,86,0.15);
+}
+
+.hero-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.hero-img-container:hover img {
+    transform: scale(1.04);
+}
+
+.hero-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(16,42,86,0.85) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 24px;
+    color: white;
+}
+
+.hero-badge-tag {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 5px 14px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.hero-img-overlay h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.hero-img-overlay p {
+    font-size: 12px;
+    margin: 4px 0 0;
+    color: #EAF3FF;
+}
+
+.desc-box-modern {
+    background: #F8FCFF;
+    border-left: 4px solid var(--blue);
+    padding: 22px 26px;
+    border-radius: 14px;
+    font-size: 15px;
+    line-height: 1.85;
+    color: #334963;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.desc-box-modern b {
+    color: var(--blue);
+    font-size: 17px;
+}
+
+/* THEATER VIDEO BOX */
+.video-theater-card {
+    background: linear-gradient(135deg, #102A56, #1A4280);
+    border-radius: 24px;
+    padding: 28px;
+    color: white;
+    box-shadow: 0 15px 35px rgba(16,42,86,0.18);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.video-theater-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.video-theater-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+/* GALLERY PHOTO CARDS */
+.photo-card-grid {
+    position: relative;
+    height: 250px;
+    margin-bottom: 24px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #FFFFFF;
     border: 1px solid var(--border);
-    box-shadow: 0 7px 22px rgba(16,42,86,.10);
-    transition: transform .3s ease, box-shadow .3s ease;
+    box-shadow: 0 8px 25px rgba(16,42,86,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.photo-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 16px 32px rgba(36,107,206,.20);
+.photo-card-grid:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 38px rgba(36,107,206,0.22);
 }
 
-.photo-card img {
+.photo-card-grid img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform .5s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.photo-card:hover img {
-    transform: scale(1.07);
+.photo-card-grid:hover img {
+    transform: scale(1.08);
 }
 
-.photo-card::after {
-    content: '';
+.photo-card-grid .card-gradient-overlay {
     position: absolute;
-    inset: 30% 0 0;
-    background: linear-gradient(
-        0deg,
-        rgba(10,35,75,.98),
-        rgba(20,65,125,.4),
-        transparent
-    );
+    inset: 0;
+    background: linear-gradient(0deg, rgba(16,42,86,0.92) 0%, rgba(16,42,86,0.2) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 18px;
+    color: white;
+}
+
+.photo-card-grid .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+}
+
+.photo-card-grid .card-desc {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #D2E4FF;
+    opacity: 0.9;
+}
+
+/* BANNER KOMITMEN */
+.komitmen-banner-card {
+    background: linear-gradient(120deg, #FFFFFF 0%, #EAF3FF 100%);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 30px 35px;
+    box-shadow: 0 10px 30px rgba(16,42,86,0.07);
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.komitmen-banner-card::before {
+    content: '"';
+    position: absolute;
+    right: 25px;
+    bottom: -20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 140px;
+    color: rgba(36,107,206,0.08);
+    line-height: 1;
     pointer-events: none;
 }
 
-.photo-card .overlay {
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 24px 16px 17px;
-    color: white;
-    text-align: left;
-}
-
-.photo-card .overlay-title {
+.komitmen-title {
     font-family: 'Playfair Display', serif;
-    font-size: 17px;
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 5px;
-    color: white;
+    color: var(--navy);
+    margin-bottom: 12px;
 }
 
-.photo-card .overlay-desc {
-    font-size: 11px;
-    line-height: 1.5;
-    color: #E2EDFF;
+.komitmen-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #334963;
 }
 
-/* VIDEO CONTAINER */
-.video-box {
-    background: rgba(255,255,255,0.95);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 8px 25px rgba(16,42,86,0.08);
-    margin-bottom: 30px;
-}
-
-/* ============================================================
-   KARTU ANGGOTA RINGKAS (LIST ABOUT US)
-   ============================================================ */
+/* ABOUT US CARDS & DETAIL */
 .member-card-preview {
     background: #FFFFFF;
     border: 1px solid var(--border);
@@ -371,9 +454,6 @@ html, body, [class*="css"] {
     margin-bottom: 10px;
 }
 
-/* ============================================================
-   DETAIL ANGGOTA (ZOOM VIEW SESUAI FOTO REFERENSI KEDUA)
-   ============================================================ */
 .detail-header-badge {
     display: inline-block;
     padding: 8px 18px;
@@ -431,7 +511,7 @@ html, body, [class*="css"] {
 }
 
 .info-item {
-    margin-bottom: 10px;
+    margin-bottom: 14px;
     font-size: 14px;
     color: #334963;
     line-height: 1.6;
@@ -440,7 +520,7 @@ html, body, [class*="css"] {
 .info-item b {
     color: var(--navy);
     display: inline-block;
-    width: 110px;
+    width: 120px;
 }
 
 /* SCROLLBAR */
@@ -453,6 +533,7 @@ html, body, [class*="css"] {
 
 @media (max-width: 768px) {
     .main-title { font-size: 2.3rem !important; }
+    .hero-img-container { height: 260px; }
     .detail-container { flex-direction: column; }
     .detail-img-box { width: 100%; height: 320px; }
     .detail-info-box { border-left: none; border-top: 4px solid #246BCE; padding-left: 0; padding-top: 20px; }
@@ -465,103 +546,116 @@ html, body, [class*="css"] {
 # FUNGSI UTILITAS GAMBAR
 # ============================================================
 def get_drive_file_id(url):
-    """Mengambil ID file dari beberapa format link Google Drive."""
     try:
         parsed = urlparse(url)
         query = parse_qs(parsed.query)
-
         if query.get("id"):
             return query["id"][0]
-
         parts = parsed.path.split("/")
         if "d" in parts:
             idx = parts.index("d")
             if idx + 1 < len(parts):
                 return parts[idx + 1]
-
     except Exception:
         pass
-
     return None
 
 
 @st.cache_data(show_spinner=False)
 def load_image(url):
-    """Mengunduh gambar Google Drive atau URL gambar langsung."""
     file_id = get_drive_file_id(url)
     candidate_urls = []
-
     if file_id:
         candidate_urls.extend([
             f"https://drive.google.com/thumbnail?id={file_id}&sz=w1600",
             f"https://drive.google.com/uc?export=download&id={file_id}",
             f"https://drive.google.com/uc?export=view&id={file_id}",
         ])
-
     candidate_urls.append(url)
     headers = {"User-Agent": "Mozilla/5.0"}
 
     for candidate in dict.fromkeys(candidate_urls):
         try:
-            response = requests.get(
-                candidate,
-                headers=headers,
-                timeout=25,
-                allow_redirects=True
-            )
+            response = requests.get(candidate, headers=headers, timeout=25, allow_redirects=True)
             response.raise_for_status()
-
             img = Image.open(BytesIO(response.content))
             img = ImageOps.exif_transpose(img).convert("RGB")
             img.load()
-
             return img
-
         except Exception:
             continue
-
     return None
 
 
 @st.cache_data(show_spinner=False)
 def image_data_uri(url):
-    """Mengubah gambar menjadi data URI untuk HTML."""
     img = load_image(url)
-
     if img is None:
         return None
-
     buffer = BytesIO()
     img.save(buffer, format="JPEG", quality=88, optimize=True)
     encoded = base64.b64encode(buffer.getvalue()).decode("utf-8")
-
     return f"data:image/jpeg;base64,{encoded}"
 
 
-def hero_image(
-    url,
-    badge="✦ Keluarga Bayesian ✦",
-    title="Satu Tim, Satu Cerita",
-    subtitle="Momen kebersamaan yang menjadi awal dari segalanya."
-):
-    """Menampilkan foto utama dengan overlay dan caption."""
-    img_src = image_data_uri(url)
+# ============================================================
+# DATA ANGGOTA KATING (DATA LIST LENGKAP UTUH)
+# ============================================================
+buku_kating = [
+    {"nim": "085", "nama": "Thomas Yustio", "sebagai": "Pak Lurah", "fun_fact": "--", "motto_hidup": "--"},
+    {"nim": "050", "nama": "Syalom Nauli Jubilate", "sebagai": "Bu Lurah", "fun_fact": "--", "motto_hidup": "--"},
+    {"nim": "026", "nama": "Chavia Chairunissa", "sebagai": "Anggota 01", "fun_fact": "--", "motto_hidup": "--"},
+    {"nim": "038", "nama": "Aqila Chika Aurelia", "sebagai": "Anggota 02", "fun_fact": "--", "motto_hidup": "--"},
+    {"nim": "042", "nama": "Sefina Amanda Putri", "sebagai": "Anggota 03", "fun_fact": "--", "motto_hidup": "--"},
+    {"nim": "047", "nama": "Aura Putri Ghefira", "sebagai": "Anggota 04", "fun_fact": "--", "motto_hidup": "--"},
+    {"nim": "052", "nama": "Ezra Hamizan", "sebagai": "Anggota 05", "fun_fact": "--", "motto_hidup": "--"},
+    {"nim": "061", "nama": "Afdhi Hafiidz Habibie", "sebagai": "Anggota 06", "fun_fact": "--", "motto_hidup": "--"},
+    {"nim": "066", "nama": "Rizqy Ramadhan", "sebagai": "Anggota 07", "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah", "motto_hidup": "Tetap lah bernafas"},
+    {"nim": "091", "nama": "Alan Garcia Sinaga", "sebagai": "Anggota 08", "fun_fact": "--", "motto_hidup": "--"},
+]
 
-    if not img_src:
-        st.warning("Foto hero gagal dimuat. Periksa izin Google Drive.")
-        return
+gambar_urls = [
+    "https://drive.google.com/uc?export=view&id=1SKBh8OuBiB2OKT4M_sBlXcxT9fqwMaZz"
+] * len(buku_kating)
 
-    st.markdown(f"""
-        <div class="hero-image-wrapper">
-            <img src="{img_src}" alt="{html.escape(title, quote=True)}">
-            <div class="hero-overlay"></div>
-            <div class="hero-caption">
-                <div class="hero-badge">{html.escape(badge)}</div>
-                <h3>{html.escape(title)}</h3>
-                <p>{html.escape(subtitle)}</p>
-            </div>
+
+# ============================================================
+# SIDEBAR NAVIGATION
+# ============================================================
+with st.sidebar:
+    st.markdown("""
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; margin-top:5px;">
+            <span style="font-size:22px; font-weight:800; color:white;">«</span>
         </div>
     """, unsafe_allow_html=True)
+
+    if "menu_selected" not in st.session_state:
+        st.session_state["menu_selected"] = "Bayesian"
+    if "zoomed_member_idx" not in st.session_state:
+        st.session_state["zoomed_member_idx"] = None
+
+    # CATEGORY 1: HALAMAN UTAMA
+    st.markdown('<div class="sidebar-category-title">Halaman Utama</div>', unsafe_allow_html=True)
+    if st.button("🏠 Bayesian", key="btn_bayesian", use_container_width=True):
+        st.session_state["menu_selected"] = "Bayesian"
+        st.session_state["zoomed_member_idx"] = None
+
+    # CATEGORY 2: BUKU KATING
+    st.markdown('<div class="sidebar-category-title">Buku Kating</div>', unsafe_allow_html=True)
+
+    for idx, kating in enumerate(buku_kating):
+        display_label = f"👤 {kating['nim']} - {kating['nama']}"
+        
+        if st.button(display_label, key=f"side_kat_{kating['nim']}", use_container_width=True):
+            st.session_state["menu_selected"] = "About Us"
+            st.session_state["zoomed_member_idx"] = idx
+
+    # CATEGORY 3: TRY ME !!
+    st.markdown('<div class="sidebar-category-title">Try Me !!</div>', unsafe_allow_html=True)
+    if st.button("🔍 KREASI", key="btn_kreasi1", use_container_width=True):
+        st.session_state["menu_selected"] = "KREASI"
+    if st.button("🔍 KREASII", key="btn_kreasi2", use_container_width=True):
+        st.session_state["menu_selected"] = "KREASII"
 
 
 # ============================================================
@@ -581,86 +675,30 @@ st.markdown("""
 url = "https://drive.google.com/uc?export=view&id=12cQ4T8NkVvVPVNX6zBQC4sviFcc4cDWx"
 url1 = "https://drive.google.com/uc?export=view&id=12RBvQdMiqqqph-Q1QqLb0zvvIPnBjCYb"
 
-
 def layout_logo(url):
     col1, col2, col3 = st.columns([1.5, 1, 1.5])
-
     with col2:
         img = load_image(url)
-
         if img is not None:
             st.image(img, use_container_width=True)
         else:
-            st.warning(
-                "Gambar gagal dimuat. Pastikan file Google Drive "
-                "dapat diakses oleh siapa saja yang memiliki link."
-            )
-
+            st.warning("Gambar gagal dimuat. Pastikan file Google Drive dapat diakses publik.")
 
 layout_logo(url)
 st.write("")
 layout_logo(url1)
 
-st.markdown(
-    "<div style='margin-top: 35px;'></div>",
-    unsafe_allow_html=True
-)
+st.markdown("<div style='margin-top: 35px;'></div>", unsafe_allow_html=True)
 
 
 # ============================================================
-# NAVBAR
+# HALAMAN HOME / BAYESIAN
 # ============================================================
-def streamlit_menu():
-    selected = option_menu(
-        menu_title=None,
-        options=["Home", "About Us"],
-        icons=["house-door", "people"],
-        default_index=0,
-        orientation="horizontal",
-        styles={
-            "container": {
-                "padding": "10px!important",
-                "background-color": "rgba(255,255,255,0.92)",
-                "border-radius": "16px",
-                "box-shadow": "0 8px 25px rgba(16,42,86,0.09)",
-                "border": "1px solid #D8E7FA",
-                "margin-bottom": "35px",
-            },
-            "icon": {
-                "color": "#246BCE",
-                "font-size": "18px",
-            },
-            "nav-link": {
-                "font-size": "15px",
-                "font-weight": "600",
-                "text-align": "center",
-                "margin": "0 6px",
-                "padding": "10px 22px",
-                "border-radius": "10px",
-                "color": "#102A56",
-                "--hover-color": "#EAF3FF",
-            },
-            "nav-link-selected": {
-                "background-color": "#246BCE",
-                "color": "#FFFFFF",
-                "box-shadow": "0 5px 14px rgba(36,107,206,0.25)",
-            },
-        },
-    )
+menu = st.session_state["menu_selected"]
 
-    return selected
-
-
-menu = streamlit_menu()
-
-
-# ============================================================
-# HALAMAN HOME
-# ============================================================
-if menu == "Home":
+if menu == "Bayesian":
 
     def home_page():
-
         # STATISTIK RINGKAS KELOMPOK
         c1, c2, c3 = st.columns(3)
         with c1:
@@ -670,122 +708,107 @@ if menu == "Home":
         with c3:
             st.markdown('<div class="stat-card"><div class="stat-number">100%</div><div class="stat-label">Semangat & Kekeluargaan</div></div>', unsafe_allow_html=True)
 
-        # JUDUL DESKRIPSI
-        st.markdown(
-            "<h2 class='section-title'>Deskripsi Kelompok</h2>",
-            unsafe_allow_html=True
-        )
+        # JUDUL DESKRIPSI KELOMPOK
+        st.markdown("<h2 class='section-title'>Deskripsi Kelompok</h2>", unsafe_allow_html=True)
 
-        # FOTO HERO
-        hero_image(
-            url="https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq",
-            badge="✦ Keluarga Bayesian ✦",
-            title="Gapai Cita, Kejar mimpi, Di angkasa",
-            subtitle="Momen kebersamaan yang tidak akan terlupakan."
-        )
+        # SPLIT-SCREEN LAYOUT
+        hero_url = "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq"
+        hero_img_src = image_data_uri(hero_url)
 
-        # DESKRIPSI KELOMPOK
-        st.markdown("""
-            <div class="content-box">
-                <b>Selamat datang di portal resmi kelompok Bayesian!</b><br><br>
-                isi aja apa aja ini bingung.
-            </div>
-        """, unsafe_allow_html=True)
+        col_hero_left, col_hero_right = st.columns([1.1, 1])
 
-        # DOKUMENTASI VIDEO KELOMPOK
+        with col_hero_left:
+            if hero_img_src:
+                st.markdown(f"""
+                    <div class="hero-split-card">
+                        <div class="hero-img-container">
+                            <img src="{hero_img_src}" alt="Keluarga Bayesian">
+                            <div class="hero-img-overlay">
+                                <span class="hero-badge-tag">✦ Keluarga Bayesian ✦</span>
+                                <h3>Gapai Cita, Kejar mimpi, Di angkasa</h3>
+                                <p>Momen kebersamaan yang tidak akan terlupakan.</p>
+                            </div>
+                        </div>
+                    </div>
+                """, unsafe_allow_html=True)
+
+        with col_hero_right:
+            st.markdown("""
+                <div class="desc-box-modern">
+                    <b>Selamat datang di portal resmi kelompok Bayesian!</b><br><br>
+                    isi aja apa aja ini bingung.
+                </div>
+            """, unsafe_allow_html=True)
+
+        # THEATER VIDEO SHOWCASE
         st.markdown("""
             <h3 class="section-title" style="font-size:24px;">
                 Video Profil & Kenangan Bayesian
             </h3>
         """, unsafe_allow_html=True)
 
-        st.markdown('<div class="video-box">', unsafe_allow_html=True)
+        st.markdown("""
+            <div class="video-theater-card">
+                <div class="video-theater-header">
+                    <span>🎬</span>
+                    <h3>Cinema & Memories</h3>
+                </div>
+        """, unsafe_allow_html=True)
+        
         st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
         st.markdown('</div>', unsafe_allow_html=True)
 
-        # JUDUL DOKUMENTASI
+        # DOKUMENTASI KEGIATAN GALERI
         st.markdown("""
             <h3 class="section-title" style="font-size:24px;">
                 Dokumentasi Kegiatan Bayesian
             </h3>
         """, unsafe_allow_html=True)
 
-        # DATA DOKUMENTASI — ISI TETAP
+        tab_all, tab_highlights = st.tabs(["📷 Semua Momen", "⭐ Momen Pilihan"])
+
         kegiatan_Bayesian = [
-            {
-                "url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq",
-                "judul": "First Moment",
-                "desc": "Awal dari cerita yang panjang"
-            },
-            {
-                "url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq",
-                "judul": "Our Journey",
-                "desc": "Langkah demi langkah bersama"
-            },
-            {
-                "url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq",
-                "judul": "Growing Together",
-                "desc": "Tumbuh bersama melalui setiap proses"
-            },
-            {
-                "url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq",
-                "judul": "The Story",
-                "desc": "Setiap foto menyimpan cerita."
-            },
-            {
-                "url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq",
-                "judul": "Good Times",
-                "desc": "Keluh kesah, tawa dan cerita yang tak bisa dilupakan"
-            },
-            {
-                "url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq",
-                "judul": "Until Forever",
-                "desc": "Bukan akhir, hanya bagian dari perjalanan"
-            }
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "First Moment", "desc": "Awal dari cerita yang panjang"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "Our Journey", "desc": "Langkah demi langkah bersama"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "Growing Together", "desc": "Tumbuh bersama melalui setiap proses"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "The Story", "desc": "Setiap foto menyimpan cerita."},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "Good Times", "desc": "Keluh kesah, tawa dan cerita yang tak bisa dilupakan"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "Until Forever", "desc": "Bukan akhir, hanya bagian dari perjalanan"}
         ]
 
-        # MENAMPILKAN FOTO DALAM 3 KOLOM
-        for i in range(0, len(kegiatan_Bayesian), 3):
-            cols = st.columns(3)
-
-            for j in range(3):
-                idx = i + j
-
-                if idx < len(kegiatan_Bayesian):
-                    item = kegiatan_Bayesian[idx]
-
-                    with cols[j]:
-                        img_src = image_data_uri(item["url"])
-
-                        if img_src:
-                            st.markdown(f"""
-                                <div class="photo-card">
-                                    <img
-                                        src="{img_src}"
-                                        alt="{html.escape(item['judul'], quote=True)}"
-                                    >
-                                    <div class="overlay">
-                                        <div class="overlay-title">
-                                            {html.escape(item['judul'])}
-                                        </div>
-                                        <div class="overlay-desc">
-                                            {html.escape(item['desc'])}
+        def render_gallery(data_items):
+            for i in range(0, len(data_items), 3):
+                cols = st.columns(3)
+                for j in range(3):
+                    idx = i + j
+                    if idx < len(data_items):
+                        item = data_items[idx]
+                        with cols[j]:
+                            img_src = image_data_uri(item["url"])
+                            if img_src:
+                                st.markdown(f"""
+                                    <div class="photo-card-grid">
+                                        <img src="{img_src}" alt="{html.escape(item['judul'])}">
+                                        <div class="card-gradient-overlay">
+                                            <div class="card-title">{html.escape(item['judul'])}</div>
+                                            <div class="card-desc">{html.escape(item['desc'])}</div>
                                         </div>
                                     </div>
-                                </div>
-                            """, unsafe_allow_html=True)
+                                """, unsafe_allow_html=True)
 
-                        else:
-                            st.warning(
-                                f"Foto '{item['judul']}' gagal dimuat. "
-                                "Periksa izin Google Drive."
-                            )
+        with tab_all:
+            render_gallery(kegiatan_Bayesian)
 
-        # KOMITMEN KELOMPOK
+        with tab_highlights:
+            render_gallery(kegiatan_Bayesian[:3])
+
+        # BANNER KOMITMEN KELOMPOK
         st.markdown("""
-            <div class="content-box">
-                <b>Komitmen Kami:</b><br>
-                Kami berkomitmen penuh dalam segala hal .................
+            <div class="komitmen-banner-card">
+                <div class="komitmen-title">Komitmen Kami:</div>
+                <div class="komitmen-text">
+                    Kami berkomitmen penuh dalam segala hal .................
+                </div>
             </div>
         """, unsafe_allow_html=True)
 
@@ -793,171 +816,88 @@ if menu == "Home":
 
 
 # ============================================================
-# HALAMAN ABOUT US (INTERAKTIF: CLICK TO ZOOM VIEW)
+# HALAMAN ABOUT US / BUKU KATING (KHUSUS BIODATA DIBATASI)
 # ============================================================
 elif menu == "About Us":
 
     def about_page():
 
-        st.markdown(
-            "<h2 class='section-title'>About Us — Buku Kating</h2>",
-            unsafe_allow_html=True
-        )
+        st.markdown("<h2 class='section-title'>About Us — Buku Kating</h2>", unsafe_allow_html=True)
 
-        # FOTO ANGGOTA — URL TETAP
-        gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1SKBh8OuBiB2OKT4M_sBlXcxT9fqwMaZz"
-        ] * 10
-
-        # DATA ANGGOTA — ISI TETAP
+        # DATA ANGGOTA LENGKAP UTUH (ISI DATA LIST TIDAK DIUBAH)
         data_list = [
             {
                 "nama": "Thomas Yustio",
                 "sebagai": "Pak Lurah",
-                "nim": "125450--",
-                "umur": "21 Tahun",
-                "asal": "Lampung",
-                "alamat": "Kesekretariatan HMSD",
-                "hobbi": "--",
-                "sosmed": "@thomas_yustio",
-                "kesan": "--",
-                "pesan": "--",
+                "nim": "125450085",
                 "fun_fact": "--",
                 "motto_hidup": "--"
             },
             {
-                "nama": "Syalom Nauli Jubilate ",
+                "nama": "Syalom Nauli Jubilate",
                 "sebagai": "Bu Lurah",
-                "nim": "125450--",
-                "umur": "20 Tahun",
-                "asal": "Sumatera Utara",
-                "alamat": "Kesekretariatan HMSD",
-                "hobbi": "--",
-                "sosmed": "@syalom_nauli",
-                "kesan": "--",
-                "pesan": "--",
+                "nim": "125450050",
                 "fun_fact": "--",
                 "motto_hidup": "--"
             },
             {
-                "nama": "Rizqy Ramadhan",
+                "nama": "Chavia Chairunissa",
                 "sebagai": "Anggota 01",
-                "nim": "125450066",
-                "umur": "20 Tahun",
-                "asal": "Bandar Lampung",
-                "alamat": "Kesekretariatan HMSD",
-                "hobbi": "Bernafas",
-                "sosmed": "@rizqy_rmdhn",
-                "kesan": "Sangat seru dan penuh tantangan selama berkegiatan.",
-                "pesan": "Semangat dan sukses selalu!",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
+                "nim": "125450026",
+                "fun_fact": "--",
+                "motto_hidup": "--"
             },
             {
-                "nama": "Rizqy Ramadhan",
+                "nama": "Aqila Chika Aurelia",
                 "sebagai": "Anggota 02",
-                "nim": "125450066",
-                "umur": "20 Tahun",
-                "asal": "Bandar Lampung",
-                "alamat": "Kesekretariatan HMSD",
-                "hobbi": "Bernafas",
-                "sosmed": "@rizqy_rmdhn",
-                "kesan": "Sangat seru dan penuh tantangan selama berkegiatan.",
-                "pesan": "Semangat dan sukses selalu!",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
+                "nim": "125450038",
+                "fun_fact": "--",
+                "motto_hidup": "--"
             },
             {
-                "nama": "Rizqy Ramadhan",
+                "nama": "Sefina Amanda Putri",
                 "sebagai": "Anggota 03",
-                "nim": "125450066",
-                "umur": "20 Tahun",
-                "asal": "Bandar Lampung",
-                "alamat": "Kesekretariatan HMSD",
-                "hobbi": "Bernafas",
-                "sosmed": "@rizqy_rmdhn",
-                "kesan": "Sangat seru dan penuh tantangan selama berkegiatan.",
-                "pesan": "Semangat dan sukses selalu!",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
+                "nim": "125450042",
+                "fun_fact": "--",
+                "motto_hidup": "--"
             },
             {
-                "nama": "Rizqy Ramadhan",
+                "nama": "Aura Putri Ghefira",
                 "sebagai": "Anggota 04",
-                "nim": "125450066",
-                "umur": "20 Tahun",
-                "asal": "Bandar Lampung",
-                "alamat": "Kesekretariatan HMSD",
-                "hobbi": "Bernafas",
-                "sosmed": "@rizqy_rmdhn",
-                "kesan": "Sangat seru dan penuh tantangan selama berkegiatan.",
-                "pesan": "Semangat dan sukses selalu!",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
+                "nim": "125450047",
+                "fun_fact": "--",
+                "motto_hidup": "--"
             },
             {
-                "nama": "Rizqy Ramadhan",
+                "nama": "Ezra Hamizan",
                 "sebagai": "Anggota 05",
-                "nim": "125450066",
-                "umur": "20 Tahun",
-                "asal": "Bandar Lampung",
-                "alamat": "Kesekretariatan HMSD",
-                "hobbi": "Bernafas",
-                "sosmed": "@rizqy_rmdhn",
-                "kesan": "Sangat seru dan penuh tantangan selama berkegiatan.",
-                "pesan": "Semangat dan sukses selalu!",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
+                "nim": "125450052",
+                "fun_fact": "--",
+                "motto_hidup": "--"
             },
             {
-                "nama": "Rizqy Ramadhan",
+                "nama": "Afdhi Hafiidz Habibie",
                 "sebagai": "Anggota 06",
-                "nim": "125450066",
-                "umur": "20 Tahun",
-                "asal": "Bandar Lampung",
-                "alamat": "Kesekretariatan HMSD",
-                "hobbi": "Bernafas",
-                "sosmed": "@rizqy_rmdhn",
-                "kesan": "Sangat seru dan penuh tantangan selama berkegiatan.",
-                "pesan": "Semangat dan sukses selalu!",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
+                "nim": "125450061",
+                "fun_fact": "--",
+                "motto_hidup": "--"
             },
             {
                 "nama": "Rizqy Ramadhan",
                 "sebagai": "Anggota 07",
                 "nim": "125450066",
-                "umur": "20 Tahun",
-                "asal": "Bandar Lampung",
-                "alamat": "Kesekretariatan HMSD",
-                "hobbi": "Bernafas",
-                "sosmed": "@rizqy_rmdhn",
-                "kesan": "Sangat seru dan penuh tantangan selama berkegiatan.",
-                "pesan": "Semangat dan sukses selalu!",
                 "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
                 "motto_hidup": "Tetap lah bernafas"
             },
             {
-                "nama": "Rizqy Ramadhan",
+                "nama": "Alan Garcia Sinaga",
                 "sebagai": "Anggota 08",
-                "nim": "125450066",
-                "umur": "20 Tahun",
-                "asal": "Bandar Lampung",
-                "alamat": "Kesekretariatan HMSD",
-                "hobbi": "Bernafas",
-                "sosmed": "@rizqy_rmdhn",
-                "kesan": "Sangat seru dan penuh tantangan selama berkegiatan.",
-                "pesan": "Semangat dan sukses selalu!",
-                "fun_fact": "Selalu dikira orang Kristen Aslinya Islam Alhamdulillah",
-                "motto_hidup": "Tetap lah bernafas"
+                "nim": "125450091",
+                "fun_fact": "--",
+                "motto_hidup": "--"
             }
         ]
 
-        # SESSION STATE UNTUK MELAKUKAN ZOOM DETIL PROFILE
-        if "zoomed_member_idx" not in st.session_state:
-            st.session_state["zoomed_member_idx"] = None
-
-        # JIKA DITEKAN: TAMPILAN ZOOM SESUAI FOTO KEDUAMU
         if st.session_state["zoomed_member_idx"] is not None:
             idx = st.session_state["zoomed_member_idx"]
             m = data_list[idx]
@@ -973,6 +913,7 @@ elif menu == "About Us":
             st.markdown(f'<div class="detail-header-badge">{role_badge_text}</div>', unsafe_allow_html=True)
 
             if img_src:
+                # DITAMPILKAN HANYA NAMA, SEBAGAI, NIM, FUN FACT, MOTTO HIDUP
                 st.markdown(f"""
                 <div class="detail-container">
                     <div class="detail-img-box">
@@ -980,20 +921,14 @@ elif menu == "About Us":
                     </div>
                     <div class="detail-info-box">
                         <h2>{html.escape(m['nama'])}</h2>
+                        <div class="info-item"><b>Sebagai:</b> {html.escape(m['sebagai'])}</div>
                         <div class="info-item"><b>NIM:</b> {html.escape(m['nim'])}</div>
-                        <div class="info-item"><b>Umur:</b> {html.escape(m.get('umur', '20 Tahun'))}</div>
-                        <div class="info-item"><b>Asal:</b> {html.escape(m.get('asal', 'Indonesia'))}</div>
-                        <div class="info-item"><b>Alamat:</b> {html.escape(m.get('alamat', 'Kesekretariatan HMSD'))}</div>
-                        <div class="info-item"><b>Hobbi:</b> {html.escape(m.get('hobbi', '--'))}</div>
-                        <div class="info-item"><b>Sosial Media:</b> {html.escape(m.get('sosmed', '--'))}</div>
                         <div class="info-item"><b>Fun Fact:</b> {html.escape(m['fun_fact'])}</div>
-                        <div class="info-item"><b>Kesan:</b> {html.escape(m.get('kesan', '--'))}</div>
-                        <div class="info-item"><b>Pesan:</b> {html.escape(m.get('pesan', '--'))}</div>
+                        <div class="info-item"><b>Motto Hidup:</b> {html.escape(m['motto_hidup'])}</div>
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
 
-        # JIKA BELUM DITEKAN: DAFTAR KARTU ANGGOTA
         else:
             for i in range(0, len(data_list), 3):
                 cols = st.columns(3)
@@ -1020,7 +955,6 @@ elif menu == "About Us":
                                     </div>
                                 """, unsafe_allow_html=True)
 
-                                # BUTTON UNTUK PENCET / ZOOM CARD
                                 if st.button(f"🔍 Lihat Detail Profil", key=f"zoom_btn_{idx}", use_container_width=True):
                                     st.session_state["zoomed_member_idx"] = idx
                                     st.rerun()
@@ -1029,3 +963,13 @@ elif menu == "About Us":
                                 st.warning(f"Foto untuk {member['nama']} gagal dimuat.")
 
     about_page()
+
+# HALAMAN TRY ME !!
+elif menu in ["KREASI", "KREASII"]:
+    st.markdown(f"<h2 class='section-title'>Menu Modul: {menu}</h2>", unsafe_allow_html=True)
+    st.markdown(f"""
+        <div class="desc-box-modern">
+            <b>Selamat Datang di Halaman {menu}!</b><br><br>
+            Ruang eksperimen interaktif untuk fitur tambahan dan ekspansi kelompok.
+        </div>
+    """, unsafe_allow_html=True)
