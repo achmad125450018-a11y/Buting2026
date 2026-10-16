@@ -260,16 +260,6 @@ if menu == "Home":
                     item2 = kegiatan_Bayesian[i + 1]
                     st.image(load_image(item2["url"]), use_container_width=True)
 
-        # Komitmen Kelompok di bagian bawah Home
-        st.markdown(
-            """<div class="blue-card-box" style="margin-top: 20px;">
-            <b>Komitmen Kami:</b><br>
-            Kami berkomitmen penuh dalam menjaga solidaritas, kekeluargaan, dan semangat kolaborasi di setiap rangkaian kegiatan CEO HMSD Adyatama ITERA 2026. Bersama keluarga Bayesian, kita saling merangkul, belajar dari setiap proses, dan tumbuh meraih mimpi bersama!
-            </div>""",
-            unsafe_allow_html=True,
-        )
-        st.write(""" """)
-
     home_page()
 
 # ============================================================
