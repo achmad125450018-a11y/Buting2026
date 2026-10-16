@@ -627,15 +627,19 @@ def load_image(url):
     return None
 
 
-@st.cache_data(show_spinner=False)
+@st.cache_data(show_spinner=False, max_entries=30)
 def image_data_uri(url):
-    """Mengubah gambar menjadi data URI agar bisa dipakai oleh HTML img."""
     img = load_image(url)
     if img is None:
         return None
+    img = img.copy()
+    max_dim = 600
+    if max(img.size) > max_dim:
+        img.thumbnail((max_dim, max_dim), Image.LANCZOS)
     buffer = BytesIO()
-    img.save(buffer, format="JPEG", quality=88, optimize=True)
+    img.save(buffer, format="JPEG", quality=78, optimize=True)
     encoded = base64.b64encode(buffer.getvalue()).decode("utf-8")
+    buffer.close()
     return f"data:image/jpeg;base64,{encoded}"
 
 
