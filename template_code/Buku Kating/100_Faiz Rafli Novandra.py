@@ -176,5 +176,169 @@ if menu == "Kesekjenan":
         ]
         display_images_with_data(gambar_urls, data_list)
     kesekjenan()
+if menu == "Baleg":
+    def Baleg():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=1k4nv_Glyznt90Kgtg66hOhDSi780ff3Z",
+            "https://drive.google.com/uc?export=view&id=dS0TBTfQJeP9Ui0evpFeAYSVRf8yRKsM",
+            "https://drive.google.com/uc?export=view&id=1o-agR_izPjw7qg2w0HbS6uEIxPSrMy-3",
+            "https://drive.google.com/uc?export=view&id=1vInIKWE1hbqfbfwRzp2biij1xPPpLX1d",
+            "https://drive.google.com/uc?export=view&id=1Jn4vdUIe_KPVQNhNensvPxRz35lDTSm0",
+            "https://drive.google.com/uc?export=view&id=1LiEgNuXXKgb_1LYynQY1UxVuRK0PybKf",
+            "https://drive.google.com/uc?export=view&id=1iIr1yEzSLZZqpfLArOExwAWbDAgFFwdI",
+            "https://drive.google.com/uc?export=view&id=1F5zBCX4nEWK_btl8Ko-UrOiMpVFk5FaW",
+            "https://drive.google.com/uc?export=view&id=1SsdIjEcS13UytHNtkX45u0Syw5D8ep8W",
+            "https://drive.google.com/uc?export=view&id=1ep-ijLicWk3YcILP6Zxa6UYJSSnD7z34",
+            "https://drive.google.com/uc?export=view&id=1jp_JOBSg9Y722BxmpMTP-2QMzvZH49Iq",
+            "https://drive.google.com/uc?export=view&id=1S7A6lPRkfJY-fajifj4C286pJhEEyzSU",
+            "https://drive.google.com/uc?export=view&id=1wGSixnQ84qwQBB3jugyba8u5SKfOwOW3",
+        ]
+        data_list = [
+            {
+                "nama": "Ridho Benedictus Togi Manik",
+                "nim": "123450066",
+                "umur": "20",
+                "asal":"Kuala Lumpur",
+                "alamat": "GH",
+                "hobbi": "Wawancara",
+                "sosmed": "@iamridhomanik",
+                "kesan": "Bang Ridho Asik, santay dan Humoriss sekali",  
+                "pesan":"Semoga dilancarkan rezekinya oleh tuhan ya bang!!!"# 1
+            },
+            {
+                "nama": "Juesi Apridelia Saragih",
+                "nim": "123450085",
+                "umur": "19",
+                "asal":"Pelangi",
+                "alamat": "Singkawang",
+                "hobbi": "Dengerin lagu zona merah dari Kunto Aji",
+                "sosmed": "@j__eesie",
+                "kesan": "Kak Juesi lucu, humble, dan baikkkkkkk bangetttt",  
+                "pesan":"Semoga Bahagia Terus yaaa KAKKKK!!!"# 1
+            },
+            {
+                "nama": "Dharu Cahyoaji Sasongko",
+                "nim": "123450023",
+                "umur": "19",
+                "asal":"Lampung",
+                "alamat": "Bandar Lampung",
+                "hobbi": "Makan mie gomak",
+                "sosmed": "@exvoltas & @ddharu_",
+                "kesan": "Bang Dharuuu pinterr dan menginspirasi bangetttt",  
+                "pesan":"Semogaa sukses dunia akhiratt ya bang!!!"# 1
+            },
+            {
+                "nama": "GH Mikael Niko A S",
+                "nim": "124450079",
+                "umur": "20",
+                "asal":"Pasir Sakti",
+                "alamat": "Jati Agung",
+                "hobbi": "Tidur",
+                "sosmed": "@me._kael",
+                "kesan": "Bang Niko sangat care dan suka sharing ilmu",  
+                "pesan":"Semoga selalu dimudahkan segala urusannya ya bang!!!"# 1
+            },
+            {
+                "nama": "Siti Sarifah Sumamah",
+                "nim": "124450015",
+                "umur": "19",
+                "asal":"Bekasi",
+                "alamat": "Kedaton",
+                "hobbi": "Mancing",
+                "sosmed": "@syt.rifa",
+                "kesan": "Kak Siti orangnya baik dan humble juga",  
+                "pesan":"Semoga selalu diberi kumudahan dan keselamatan ya kak!!!"# 1
+            },
+            {
+                "nama": "Givaro Ananta",
+                "nim": "123450078",
+                "umur": "21",
+                "asal":"Lampung Barat",
+                "alamat": "Sukabumi",
+                "hobbi": "Minum kopi",
+                "sosmed": "@givarooo",
+                "kesan": "Bang Givaro asik, humble, dan gentleman",  
+                "pesan":"Semoga selalu diberikan kelancaran ya bang!!!"# 1
+            },
+            {
+                "nama": "Afghanis Nursolehatunisa",
+                "nim": "124450042",
+                "umur": "20",
+                "asal":"Kepulauan Mentawai",
+                "alamat": "Kadang di kost putri kadang di kost sekar",
+                "hobbi": "Memanjat",
+                "sosmed": "@afghanisnt_",
+                "kesan": "Kak Nisa baikk, cantik, dan humble bangett",  
+                "pesan":"Semoga selalu bahagia dimanapun kakak berada ya kak!!!"# 1
+            },            
+            {
+                "nama": "Hani Qurrota Aini",
+                "nim": "124450020",
+                "umur": "20",
+                "asal":"City Earth",
+                "alamat": "Sukarame",
+                "hobbi": "Baca AU",
+                "sosmed": "@haniquratuain_",
+                "kesan": "Kak Hani baik dan kalem orangnya",  
+                "pesan":"Semoga selalu sehat dan dipermudah urusannya ya kak!!!"# 1
+            },            
+            {
+                "nama": "Jeremia Halim",
+                "nim": "124450101",
+                "umur": "20",
+                "asal":"Tangerang",
+                "alamat": "Teluk Betung",
+                "hobbi": "Nyanyi, olahraga",
+                "sosmed": "@jeremia_hm",
+                "kesan": "Bang Jeremia asik, humble, tamvan, kekar dan gentleman",  
+                "pesan":"Semoga selalu Sehat ya bang!!!"# 1
+            },            
+            {
+                "nama": "Monica Patricia Tanjung",
+                "nim": "123450073",
+                "umur": "21",
+                "asal":"Jakarta Pusat",
+                "alamat": "Kotabaru",
+                "hobbi": "Lari",
+                "sosmed": "@monica_tjg",
+                "kesan": "Kak Monica asik, lucu, dan humble bangetttt",  
+                "pesan":"Semoga selalu dijauhkan dari marabahaya ya kak!!!"# 1
+            },            
+            {
+                "nama": "Jona Timothy Ogatse Panjaitan",
+                "nim": "124450121",
+                "umur": "20",
+                "asal":"Depok",
+                "alamat": "Pemda Raya",
+                "hobbi": "Nge-gym, koleksi figur",
+                "sosmed": "@nagatseee",
+                "kesan": "Bang Jona asik, keren, dan baikkk banget",  
+                "pesan":"Semoga selalu semangat dan sukses ya bang!!!"# 1
+            },            
+            {
+                "nama": "Sekar Dini Widya Putri",
+                "nim": "124450082",
+                "umur": "20",
+                "asal":"Metro",
+                "alamat": "Pemda",
+                "hobbi": "Melukis",
+                "sosmed": "@sekardnwp",
+                "kesan": "Kak Sekar baik, disiplin dan humble",  
+                "pesan":"Semoga diperlancar rezekinya ya kak!!!"# 1
+            },            
+            {
+                "nama": "Wan Nashwa Alhasni Yuska",
+                "nim": "123450077",
+                "umur": "20",
+                "asal":"Pasay",
+                "alamat": "Belwis",
+                "hobbi": "Nyapa angin",
+                "sosmed": "@nshaysk",
+                "kesan": "Kak Nashwa baik, lucu, dan kece banget",  
+                "pesan":"Semoga selalu sehat dan bahagia ya kak!!!"# 1
+            },                      
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    Baleg()
 
 # Tambahkan menu lainnya sesuai kebutuhan
