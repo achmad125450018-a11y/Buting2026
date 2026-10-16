@@ -111,7 +111,7 @@ if menu == "Kesekjenan":
         data_list = [
             {
                 "Nama": "Ginda Fajar Riadi Marpaung", 
-                "NIM" : "123450066",
+                "NIM" : "123450103",
                 "Asal" : "Bakinang",
                 "Alamat" : "Sekretariat HMSD", 
                 "Hobi": "Push Rank",
