@@ -216,8 +216,8 @@ if menu == "Baleg":
                 "alamat": "Pelangi",
                 "hobbi": "Repeat lagu if only by skyline setiap hari di jam 8",
                 "sosmed": "@j__eesie",
-                "kesan": "Kakaknya cantik dan lucu, aku suka banget",  
-                "pesan":"Semangat terus belajarnya kak"# 1
+                "kesan": "Kakaknya cantik dan lucu, enerjik pokoknya",  
+                "pesan":"Semangat selalu kuliahnya kak"# 1
             },
             {
                 "nama": "Dharu Cahyoaji Sasongko",
