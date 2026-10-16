@@ -401,7 +401,7 @@ def home_page():
     layout(url1)
     st.markdown("<h1 class='centered-title'>Deskripsi Kelompok</h1>", unsafe_allow_html=True)
     st.markdown(
-        """<div class="panel">Kami Markov, dua belas mahasiswa HMSD Adyatama ITERA 2026.
+        """<div class="panel">Kami Markov, dua belas mahasiswa Sains Data ITERA 2026.
         Seperti rantai Markov, setiap langkah kami dipengaruhi langkah sebelumnya:
         saling bergantung, saling menguatkan, dan terus bergerak maju bersama.</div>""",
         unsafe_allow_html=True,
