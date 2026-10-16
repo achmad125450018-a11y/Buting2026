@@ -1,8 +1,8 @@
 import base64
 import html
 import random
-import pandas as pd
 import streamlit as st
+from streamlit_option_menu import option_menu
 import requests
 from PIL import Image, ImageOps
 from io import BytesIO
@@ -68,7 +68,7 @@ st.markdown(
     }
     #MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] {visibility: hidden;}
     header {background: transparent !important;}
-    [data-testid="stSidebarNav"], [data-testid="stSidebarNavItems"] {display: none;}
+    section[data-testid="stSidebar"] {background: #D3E3C8; border-right: 1px solid rgba(107, 143, 94, 0.25);}
     .block-container {padding-top: 2rem; padding-bottom: 4rem; max-width: 960px;}
     h1, h2, h3 {font-family: 'Fredoka', sans-serif; color: var(--moss);}
     @keyframes rise {from {opacity: 0; transform: translateY(24px);} to {opacity: 1; transform: translateY(0);}}
@@ -120,7 +120,7 @@ st.markdown(
         transition: transform 0.35s ease;
     }
     div[data-testid="stImage"] img:hover {transform: scale(1.03);}
-    .fact {background: #EFE6D2; border-left: 6px solid var(--clay); border-radius: 14px; padding: 1rem 1.2rem; margin-top: 1rem; animation: rise 0.6s ease both;}
+    .fact {background: #EFE6D2; border-left: 6px solid var(--clay); border-radius: 14px; padding: 1rem 1.2rem; animation: rise 0.6s ease both;}
     div.stButton > button {
         background: var(--olive); color: white; border: none; border-radius: 999px;
         padding: 0.6rem 1.6rem; font-family: 'Fredoka', sans-serif; font-size: 1rem;
@@ -128,28 +128,6 @@ st.markdown(
     }
     div.stButton > button:hover {background: var(--clay); color: white; transform: scale(1.06) rotate(-1deg);}
     div[data-testid="stTextInput"] input {border-radius: 999px;}
-
-    section[data-testid="stSidebar"] {background: #D3E3C8; border-right: 1px solid rgba(107, 143, 94, 0.25);}
-    section[data-testid="stSidebar"] div[data-testid="stExpander"] {
-        background: transparent; border: none; box-shadow: none; margin-bottom: 0.4rem;
-    }
-    section[data-testid="stSidebar"] div[data-testid="stExpander"] summary {
-        font-family: 'Fredoka', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--moss);
-        border-radius: 12px; padding: 0.5rem 0.6rem;
-    }
-    section[data-testid="stSidebar"] div[data-testid="stExpander"] summary:hover {background: rgba(255, 255, 255, 0.45);}
-    section[data-testid="stSidebar"] div.stButton > button {
-        background: transparent; color: var(--bark); border-radius: 12px; width: 100%;
-        justify-content: flex-start; text-align: left; padding: 0.4rem 0.8rem;
-        font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 600;
-    }
-    section[data-testid="stSidebar"] div.stButton > button:hover {
-        background: rgba(255, 255, 255, 0.6); color: var(--moss); transform: translateX(4px);
-    }
-    section[data-testid="stSidebar"] div.stButton > button[kind="primary"],
-    section[data-testid="stSidebar"] div.stButton > button[data-testid="stBaseButton-primary"] {
-        background: #BFD5B1; color: #2F4228; font-weight: 700;
-    }
 
     .grid {display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1.6rem; margin-top: 1rem;}
     .flip {perspective: 1100px; aspect-ratio: 3 / 4; outline: none; cursor: pointer; animation: rise 0.7s ease both;}
@@ -190,14 +168,6 @@ st.markdown(
         font-size: 0.78rem; font-weight: 700;
     }
     .badge.lead {background: var(--clay); color: white;}
-    .detail {text-align: left;}
-    .detail h2 {margin: 0 0 0.3rem; font-size: 1.8rem;}
-    .detail .badge {margin: 0 0 1.2rem;}
-    .detail .row {margin-bottom: 1rem; font-size: 1.02rem;}
-    .detail .row b {display: block; color: var(--clay); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;}
-    .chain {display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 1rem;}
-    .chain span {background: var(--cream); border: 2px solid var(--olive); border-radius: 999px; padding: 4px 14px; font-weight: 700; color: var(--moss);}
-    .chain i {color: var(--clay); font-style: normal;}
 
     .intro {
         position: fixed; inset: 0; z-index: 99999; pointer-events: none;
@@ -366,29 +336,6 @@ data_list = [
     },
 ]
 
-members = sorted(zip(gambar_urls, data_list), key=lambda x: x[1]["NIM"])
-
-STATES = ["Cerah", "Berawan", "Hujan"]
-MATRIX = [[0.6, 0.3, 0.1], [0.3, 0.4, 0.3], [0.2, 0.4, 0.4]]
-
-if "page" not in st.session_state:
-    st.session_state.page = "home"
-
-
-def go(page):
-    st.session_state.page = page
-
-
-def nav(label, page):
-    st.button(
-        label,
-        key=f"nav_{page}",
-        on_click=go,
-        args=(page,),
-        type="primary" if st.session_state.page == page else "secondary",
-        use_container_width=True,
-    )
-
 
 def layout(url):
     _, col, _ = st.columns([1, 2, 1])
@@ -422,18 +369,32 @@ def flip_card(url, d):
     )
 
 
-def sidebar_menu():
-    with st.sidebar:
-        with st.expander("🏠 Halaman Utama", expanded=True):
-            nav("Markov", "home")
-            nav("About Us", "about")
-        with st.expander("📖 Buku Kating", expanded=True):
-            for i, (_, d) in enumerate(members):
-                nav(f"{d['NIM'][-3:]} - {d['Nama']}", f"m{i}")
-        with st.expander("🎲 Try Me !!", expanded=True):
-            nav("KREASI", "kreasi")
-            nav("KREASII", "kreasii")
-
+def streamlit_menu():
+    return option_menu(
+        menu_title=None,
+        options=["Home", "About Us"],
+        icons=["house-heart", "people"],
+        default_index=0,
+        orientation="horizontal",
+        styles={
+            "container": {
+                "padding": "5px!important",
+                "background-color": "#FBF8F0",
+                "border-radius": "999px",
+                "box-shadow": "0 6px 16px rgba(79,107,69,0.15)",
+            },
+            "icon": {"color": "#C08552", "font-size": "18px"},
+            "nav-link": {
+                "font-size": "15px",
+                "text-align": "center",
+                "margin": "0px",
+                "color": "#4A3F35",
+                "border-radius": "999px",
+                "--hover-color": "#E3EDD9",
+            },
+            "nav-link-selected": {"background-color": "#6B8F5E", "color": "white"},
+        },
+    )
 
 def home_page():
     layout(url)
@@ -462,6 +423,18 @@ def home_page():
         dan jadi bacaan yang berguna untuk adik-adik angkatan berikutnya.</div>""",
         unsafe_allow_html=True,
     )
+    st.write("")
+    _, mid, _ = st.columns([1, 2, 1])
+    with mid:
+        if st.button("🎲 Ambil Fun Fact Acak", use_container_width=True):
+            st.session_state.pick = random.randrange(len(data_list))
+            st.balloons()
+    if "pick" in st.session_state:
+        d = data_list[st.session_state.pick]
+        st.markdown(
+            f"<div class='fact'><b>{d['Nama']}</b> ({d['Sebagai']})<br>{d['Fun Fact']}<br><i>“{d['Motto Hidup']}”</i></div>",
+            unsafe_allow_html=True,
+        )
 
 
 def about_page():
@@ -488,69 +461,9 @@ def about_page():
     )
 
 
-def member_page(i):
-    u, d = members[i]
-    e = {k: html.escape(v) for k, v in d.items()}
-    css = "badge lead" if d["Sebagai"] in ("Pak Lurah", "Bu Lurah") else "badge"
-    left, right = st.columns([1, 1.3], gap="large")
-    with left:
-        st.markdown(flip_card(u, d), unsafe_allow_html=True)
-    with right:
-        st.markdown(
-            f"<div class='panel detail'><h2>{e['Nama']}</h2><span class='{css}'>{e['Sebagai']}</span>"
-            f"<div class='row'><b>NIM</b>{e['NIM']}</div>"
-            f"<div class='row'><b>Fun Fact</b>{e['Fun Fact']}</div>"
-            f"<div class='row'><b>Motto Hidup</b>“{e['Motto Hidup']}”</div></div>",
-            unsafe_allow_html=True,
-        )
+menu = streamlit_menu()
 
-
-def kreasi_page():
-    st.markdown("<h1 class='centered-title'>KREASI</h1>", unsafe_allow_html=True)
-    _, mid, _ = st.columns([1, 2, 1])
-    with mid:
-        if st.button("🎲 Ambil Fun Fact Acak", use_container_width=True):
-            st.session_state.pick = random.randrange(len(data_list))
-            st.balloons()
-    if "pick" in st.session_state:
-        d = data_list[st.session_state.pick]
-        st.markdown(
-            f"<div class='fact'><b>{d['Nama']}</b> ({d['Sebagai']})<br>{d['Fun Fact']}<br><i>“{d['Motto Hidup']}”</i></div>",
-            unsafe_allow_html=True,
-        )
-
-
-def kreasii_page():
-    st.markdown("<h1 class='centered-title'>KREASII</h1>", unsafe_allow_html=True)
-    if "chain" not in st.session_state:
-        st.session_state.chain = [0]
-    st.markdown(
-        "<div class='panel'>Simulasi rantai Markov: cuaca besok hanya bergantung pada cuaca hari ini.</div>",
-        unsafe_allow_html=True,
-    )
-    st.write("")
-    st.dataframe(pd.DataFrame(MATRIX, index=STATES, columns=STATES), use_container_width=True)
-    a, b = st.columns(2)
-    if a.button("➡️ Langkah berikutnya", use_container_width=True):
-        now = st.session_state.chain[-1]
-        st.session_state.chain.append(random.choices(range(3), weights=MATRIX[now])[0])
-    if b.button("🔄 Ulangi", use_container_width=True):
-        st.session_state.chain = [0]
-        st.rerun()
-    chain = "<i>→</i>".join(f"<span>{STATES[s]}</span>" for s in st.session_state.chain)
-    st.markdown(f"<div class='chain'>{chain}</div>", unsafe_allow_html=True)
-
-
-sidebar_menu()
-
-page = st.session_state.page
-if page == "home":
+if menu == "Home":
     home_page()
-elif page == "about":
-    about_page()
-elif page == "kreasi":
-    kreasi_page()
-elif page == "kreasii":
-    kreasii_page()
 else:
-    member_page(int(page[1:]))
+    about_page()
