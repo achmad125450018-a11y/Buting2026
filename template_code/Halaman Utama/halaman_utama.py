@@ -224,7 +224,7 @@ if menu == "Home":
         )
         st.write(""" """)
 
-        # Foto Utama Kelompok dari code awal
+        # Foto Utama Kelompok
         foto_kelompok = "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq"
         layout(foto_kelompok)
         st.markdown(
@@ -235,19 +235,19 @@ if menu == "Home":
             unsafe_allow_html=True,
         )
 
-        # Dokumentasi Kegiatan & Caption dari code awal
+        # Dokumentasi Kegiatan
         st.markdown(
             "<h2 class='centered-title' style='font-size: 2em;'>Dokumentasi Kegiatan Bayesian</h2>",
             unsafe_allow_html=True,
         )
 
         kegiatan_Bayesian = [
-            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "First Moment", "desc": "Awal dari cerita yang panjang"},
-            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "Our Journey", "desc": "Langkah demi langkah bersama"},
-            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "Growing Together", "desc": "Tumbuh bersama melalui setiap proses"},
-            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "The Story", "desc": "Setiap foto menyimpan cerita."},
-            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "Good Times", "desc": "Keluh kesah, tawa dan cerita yang tak bisa dilupakan"},
-            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq", "judul": "Until Forever", "desc": "Bukan akhir, hanya bagian dari perjalanan"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq"},
+            {"url": "https://drive.google.com/uc?export=view&id=1iC5C15zecDnw5K7ZQDw3Nr41lubTjYSq"},
         ]
 
         for i in range(0, len(kegiatan_Bayesian), 2):
@@ -255,22 +255,14 @@ if menu == "Home":
             with col_a:
                 item1 = kegiatan_Bayesian[i]
                 st.image(load_image(item1["url"]), use_container_width=True)
-                st.markdown(
-                    f"""<div class="moment-caption-box"><b>{item1['judul']}</b><span>{item1['desc']}</span></div>""",
-                    unsafe_allow_html=True,
-                )
             with col_b:
                 if i + 1 < len(kegiatan_Bayesian):
                     item2 = kegiatan_Bayesian[i + 1]
                     st.image(load_image(item2["url"]), use_container_width=True)
-                    st.markdown(
-                        f"""<div class="moment-caption-box"><b>{item2['judul']}</b><span>{item2['desc']}</span></div>""",
-                        unsafe_allow_html=True,
-                    )
 
         # Komitmen Kelompok di bagian bawah Home
         st.markdown(
-            """<div class="blue-card-box">
+            """<div class="blue-card-box" style="margin-top: 20px;">
             <b>Komitmen Kami:</b><br>
             Kami berkomitmen penuh dalam menjaga solidaritas, kekeluargaan, dan semangat kolaborasi di setiap rangkaian kegiatan CEO HMSD Adyatama ITERA 2026. Bersama keluarga Bayesian, kita saling merangkul, belajar dari setiap proses, dan tumbuh meraih mimpi bersama!
             </div>""",
@@ -309,7 +301,7 @@ elif menu == "About Us":
             "https://drive.google.com/uc?export=view&id=1SKBh8OuBiB2OKT4M_sBlXcxT9fqwMaZz",  # 10. Alan Garcia Sinaga
         ]
 
-        # Data Lengkap 10 Anggota Bayesian dari code awal
+        # Data Lengkap 10 Anggota Bayesian
         data_list = [
             {
                 "nama": "Thomas Yustio",
