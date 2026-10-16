@@ -81,4 +81,104 @@ elif menu == "Departemen Eksternal":
         "https://drive.google.com/uc?export=view&id=1JNDTXm67tpoFV3AvIc8GpJ9yUcQD7kdL",
         "https://drive.google.com/uc?export=view&id=1VWBxi6veMmh81aHkkIOZwUqOEZvvIKqT",
         "https://drive.google.com/uc?export=view&id=1yi6QkI0WJ2ATXCOKehc4rK69JTHqmCFZ",
-        "https://drive.google.com/uc?export=view&id=1FffMm3Kz9
+        "https://drive.google.com/uc?export=view&id=1FffMm3Kz9BmEf0tT331GfprA48PrpzFR",
+        "https://drive.google.com/uc?export=view&id=18PaYPqNuolvh_edOMRJLFcrwZ-OQjrWa",
+        "https://drive.google.com/uc?export=view&id=1OXlnGUKEbYXb-kPCxoK7bYqOcM1HYkAT",
+        "https://drive.google.com/uc?export=view&id=1Xy2okVZv1rclkiCLERxEQo0fqGo8BlC0",
+        "https://drive.google.com/uc?export=view&id=1B1uJFPEXgUkwTH3nfjI9y2hxNGAQccv7",
+        "https://drive.google.com/uc?export=view&id=1z_iJogIwD_bmypmmBGJNI5SUCu0LktNI",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1v7PggWxaiOduwFLIk_Mh-_bDuqoItwbL",
+        "https://drive.google.com/uc?export=view&id=1VOCDgD-QTYi4TC1XvR3yCW2iwMunThb8",
+        "https://drive.google.com/uc?export=view&id=1xMWieEG3oBw01zhBsx1EqWGeMLpsM8__",
+        "https://drive.google.com/uc?export=view&id=1Y-lrzJ_Q0Anc9xStNdbaUkobMwgXNj7j",
+        "https://drive.google.com/uc?export=view&id=1mdLAaWzAW8BeqNNE9xMXCR_5tIKwHGc-",
+        "https://drive.google.com/uc?export=view&id=1uPgiWNrjon2oauwA9tD8Yr8fiRAFAWYx",
+        "https://drive.google.com/uc?export=view&id=17kZM4YEVVqjeBVgDY83XtLMGnvYIxxic",
+        "https://drive.google.com/uc?export=view&id=1ejVyBOb7tnoO8A9hCYQ6PY3V0mtRCH-f",
+        "https://drive.google.com/uc?export=view&id=1davruIwEPjjgf6A8fM0n6jnjpBeTZmGE",
+        "https://drive.google.com/uc?export=view&id=1NGN_5qS9Rlq3DjnLrgedc-xDST-21ESL",
+    ]
+    data_list = [{"nama": "Anggota Eksternal", "jabatan": "Staf Eksternal", "nim": "122450055", "umur": "20", "asal": "Palembang", "alamat": "Korpri", "hobbi": "Networking", "sosmed": "@eksternal", "kesan": "Ramah", "pesan": "Jalin relasi luas!"}] * 22
+    display_images_with_data(gambar_urls, data_list, key="eksternal")
+
+elif menu == "Departemen Internal":
+    gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"]
+    data_list = [
+        {"nama": "Anggota Internal", "jabatan": "Staf Internal", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+    ]
+    display_images_with_data(gambar_urls, data_list, key="internal")
+
+elif menu == "Departemen SSD":
+    gambar_urls = [
+        "https://drive.google.com/uc?export=view&id=1jDEG-im2Qsxw0D3QYT7r-wV8ysUte12r",
+        "https://drive.google.com/uc?export=view&id=1lWZ_8Z153AibwM01rkt9-o4gJiGTOZ4k",
+        "https://drive.google.com/uc?export=view&id=1UwozLsSossrwwhPwtgMh4MUlhlI8qAIH",
+        "https://drive.google.com/uc?export=view&id=11O0E8TNxJ3ai9MNPfZimVe-9_4nh2atM",
+        "https://drive.google.com/uc?export=view&id=1ha6ULRBaN5h_SWuaNR46_8FNAGd4vcIh",
+        "https://drive.google.com/uc?export=view&id=1TKjulrdydxRsXnQ4IlAXqzSDnW5-cqrf",
+        "https://drive.google.com/uc?export=view&id=1EeW5h2G4YVF02qFDhJ0KvqzmJUvVqI_6",
+        "https://drive.google.com/uc?export=view&id=15QVwAjAw9ikSzi6nY75zW-nT8BDb1Kn4",
+        "https://drive.google.com/uc?export=view&id=1WbxOo7eagnmTHU79WClOSTgBBKFiSSeo",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1J08meeDUoQxSv6Th2tbLHWUQnb8D9YOQ",
+        "https://drive.google.com/uc?export=view&id=1iWmFuGpmvSshTVO4RGuioSLbOXOWhvSW",
+    ]
+    data_list = [
+        {"nama": "Ihsan Maulana Yusuf", "jabatan": "Staf SSD", "nim": "123450110", "umur": "21", "asal": "Sumatera Barat", "alamat": "Belwis", "hobbi": "Cari dan baca jurnal, cari pak lucky, jualan", "sosmed": "@ihsan.myusuf", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
+        {"nama": "Hanifah Inaya Sani", "jabatan": "Staf SSD", "nim": "123450123", "umur": "20", "asal": "Bandar Lampung", "alamat": "Bandar Lampung", "hobbi": "Masak", "sosmed": "@_inayasani", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
+        {"nama": "Afifah Fauziah", "jabatan": "Staf SSD", "nim": "12345002", "umur": "20", "asal": "Bandung", "alamat": "Airan", "hobbi": "Nonton Marvel", "sosmed": "@fifah.zy", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
+        {"nama": "Hasan Nur Ramadhan", "jabatan": "Staf SSD", "nim": "1234500", "umur": "20", "asal": "Depok", "alamat": "Korpri", "hobbi": "Coding", "sosmed": "@hasan.ramadhan08", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
+        {"nama": "Layina Ropiqo", "jabatan": "Staf SSD", "nim": "124450016", "umur": "19", "asal": "Bandar Lampung", "alamat": "Bandar Lampung", "hobbi": "nonton dracin", "sosmed": "@lay.inr_", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
+        {"nama": "Moch. Iqbal Az-Zahir", "jabatan": "Staf SSD", "nim": "122450052", "umur": "20", "asal": "Depok", "alamat": "Korpri", "hobbi": "Coding", "sosmed": "@iqbalazzahir_", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
+        {"nama": "Talitha Justine", "jabatan": "Staf SSD", "nim": "122450076", "umur": "20", "asal": "Depok", "alamat": "Korpri", "hobbi": "Coding", "sosmed": "@ssd", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
+        {"nama": "Anadia Carana", "jabatan": "Staf SSD", "nim": "123450019", "umur": "20", "asal": "Palembang", "alamat": "Way Huwi", "hobbi": "Nyari duit", "sosmed": "@nadiacrn_", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
+        {"nama": "Abdillah Fikri Al pome", "jabatan": "Staf SSD", "nim": "123450062", "umur": "21", "asal": "Baturaja Sumsel", "alamat": "Airan", "hobbi": "Basket", "sosmed": "@ssd", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
+        {"nama": "Afdhal Rahmad Setiawan", "jabatan": "Staf SSD", "nim": "124450008", "umur": "20", "asal": "Depok", "alamat": "Korpri", "hobbi": "Coding", "sosmed": "@dhal_setiawan", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
+        {"nama": "Anggun Nita", "jabatan": "Staf SSD", "nim": "124450009", "umur": "20", "asal": "Lampung Utara", "alamat": "Belwis", "hobbi": "Nonton kartun", "sosmed": "@anggunitaaaa", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
+        {"nama": "Della Anisa Fitri", "jabatan": "Staf SSD", "nim": "124450095", "umur": "18", "asal": "Lampung Timur", "alamat": "Margo Lestari", "hobbi": "Lagi ga punya hobi", "sosmed": "@dellaansaftr", "kesan": "Inovatif", "pesan": "Ciptakan solusi!"},
+    ]
+    display_images_with_data(gambar_urls, data_list, key="ssd")
+
+elif menu == "Departemen Medkraf":
+    gambar_urls = [
+        "https://drive.google.com/uc?export=view&id=1-ZcGn0wV7AXDQIGv_aX34akJAd6w44hj",
+        "https://drive.google.com/uc?export=view&id=17RTVW5kWVLS5ycGaHckvo6XnhKAKJJlH",
+        "https://drive.google.com/uc?export=view&id=1xBjaDtComTuqY56rrAv1DOPOGFUsY2sv",
+        "https://drive.google.com/uc?export=view&id=1lyOZpqKd1b9nVZstAZA4vLRTz7SeZzna",
+        "https://drive.google.com/uc?export=view&id=1okhUMy1D1CzbJJTnpxswVYyNSbQz2TXc",
+        "https://drive.google.com/uc?export=view&id=1IbcbkT6CkMCCuhZxDyxzQug0rU_-hNWR",
+        "https://drive.google.com/uc?export=view&id=1-D_Tba9L9GLWtdXIVNVZFC2onpcuQzkp",
+        "https://drive.google.com/uc?export=view&id=1q6hg0TjVawxMmbitJ_zV5tsq8yetgFjs",
+        "https://drive.google.com/uc?export=view&id=11ECoEZWE-LOXHLR-5hE68rIAi-3kGoMv",
+        "https://drive.google.com/uc?export=view&id=1ocd1SyELHuUxoTrIwTgqDIdy-Y6jR4gk",
+        "https://drive.google.com/uc?export=view&id=1Yu988LBWpC9rq6MA-e4W_gZX7nToSDM4",
+        "https://drive.google.com/uc?export=view&id=1LeVLEdGy14_V4FrucsTJj0ge2dzNRI4C",
+        "https://drive.google.com/uc?export=view&id=1qh8w2pIV-z9ZMOzUfRTo_ffkBBX3-zIy",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1SbkF-ECFzzfVNMpIfgynXtgLkw_rWZ8w",
+        "https://drive.google.com/uc?export=view&id=1VZ6JdtFLH3gMmoy4A0XXoc5TD-X22kI-",
+        "https://drive.google.com/uc?export=view&id=18BXJqwqoBCnjDqoM2aojor4MLf8suhWf",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+    ]
+    data_list = [
+        {"nama": "Nayla Salsabila Fathianisa", "jabatan": "Staf Medkraf", "nim": "123450082", "umur": "20", "asal": "Payakumbuh, Sumatera Barat", "alamat": "Way Huwi", "hobbi": "Musingin TA", "sosmed": "@naylasalsabilaa._", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Donna Maya Puspita", "jabatan": "Staf Medkraf", "nim": "123450028", "umur": "20", "asal": "Bekasi", "alamat": "Way Huwi", "hobbi": "Berenang", "sosmed": "@donnamaya.p", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Labo John Noel Napitupulu", "jabatan": "Staf Medkraf", "nim": "123450037", "umur": "20", "asal": "Medan, Jakut, Palembang", "alamat": "Way Huwi", "hobbi": "Buka tutup laptop", "sosmed": "@noerruuu", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Anash Tasya Ausyaqila", "jabatan": "Staf Medkraf", "nim": "124450050", "umur": "20", "asal": "Bandar Lampung", "alamat": "Way Huwi", "hobbi": "Ballet", "sosmed": "@anshtsyaaql", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Felisya Nabila Putri Nugroho", "jabatan": "Staf Medkraf", "nim": "124450104", "umur": "18", "asal": "Bekasi", "alamat": "Belwis", "hobbi": "Mancing emosi", "sosmed": "@felisyanbl", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Muhammad Razan Maulana Pratama", "jabatan": "Staf Medkraf", "nim": "124450031", "umur": "18", "asal": "Tangerang Selatan", "alamat": "Ryacudu", "hobbi": "Badminton ama tensor 24", "sosmed": "@muh_razan_", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Sania Dwi Ayu Lestari", "jabatan": "Staf Medkraf", "nim": "123450087", "umur": "21", "asal": "Karawang", "alamat": "Airan", "hobbi": "Nongkrong depan ruang prodi", "sosmed": "@saniayyllstr", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Allisha", "jabatan": "Staf Medkraf", "nim": "125450019", "umur": "3", "asal": "Jepang", "alamat": "Cafe Kali", "hobbi": "Jalan bareng my love", "sosmed": "@aallishaa.aa", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Alya Ramadhanti", "jabatan": "Staf Medkraf", "nim": "124450091", "umur": "19", "asal": "Jambi", "alamat": "Airan", "hobbi": "Main futsal", "sosmed": "@alya.rmdhnti", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Bunga Clarisa Sefa", "jabatan": "Staf Medkraf", "nim": "124450097", "umur": "2", "asal": "Sidomulyo", "alamat": "Pemda", "hobbi": "Mengkoding", "sosmed": "@buncaclrssf", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Difanya Husakina", "jabatan": "Staf Medkraf", "nim": "124450043", "umur": "7.137 hari per hari ini", "asal": "Kalimantan Utara", "alamat": "Deket ITERA", "hobbi": "Mancing mania", "sosmed": "@difanyhsa", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Nazlah Auliya", "jabatan": "Staf Medkraf", "nim": "124450054", "umur": "20", "asal": "Bandar Lampung", "alamat": "Bandar Lampung", "hobbi": "Main badmin lawan razan", "sosmed": "@nzlhauly_", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Raihana Adelia Putri", "jabatan": "Staf Medkraf", "nim": "123450041", "umur": "20", "asal": "Lampung tengah", "alamat": "Airan Raya 1", "hobbi": "Membaca, menulis", "sosmed": "@n1tg._", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Anggota Medkraf", "jabatan": "Staf Medkraf", "nim": "122450088", "umur": "20", "asal": "Yogyakarta", "alamat": "Airan", "hobbi": "Editing & Foto", "sosmed": "@medkraf", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Edsel Adya Pradipta", "jabatan": "Staf Medkraf", "nim": "124450098", "umur": "20", "asal": "Lampung Selatan", "alamat": "Natar", "hobbi": "Scrolling Fesbuk", "sosmed": "@eddel_0712", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Lucia Advencia Rachel Nainggolan", "jabatan": "Staf Medkraf", "nim": "124450085", "umur": "20", "asal": "Bekasi", "alamat": "Belwis", "hobbi": "Nonton star wars", "sosmed": "@luciarachel_", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Shafa Delaila Azzahra", "jabatan": "Staf Medkraf", "nim": "124450124", "umur": "20", "asal": "Lampung tengah", "alamat": "Pemda", "hobbi": "Ngoding", "sosmed": "@_shaazzh", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+        {"nama": "Anggota Medkraf", "jabatan": "Staf Medkraf", "nim": "122450088", "umur": "20", "asal": "Yogyakarta", "alamat": "Airan", "hobbi": "Editing & Foto", "sosmed": "@medkraf", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
+    ]
+    display_images_with_data(gambar_urls, data_list, key="medkraf")
