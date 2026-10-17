@@ -184,3 +184,10 @@ elif menu == "Departemen Medkraf":
         {"nama": "Anggota Medkraf", "jabatan": "Staf Medkraf", "nim": "122450088", "umur": "20", "asal": "Yogyakarta", "alamat": "Airan", "hobbi": "Editing & Foto", "sosmed": "@medkraf", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
     ]
     display_images_with_data(gambar_urls, data_list, key="medkraf")
+
+elif menu == "Departemen MINBAK":
+     gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"]
+    data_list = [
+        {"nama": "Anggota Minbak", "jabatan": "Kepala Departemen Minbak", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
+    ]
+    display_images_with_data(gambar_urls, data_list, key="minbak")
