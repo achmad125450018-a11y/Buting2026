@@ -12,10 +12,8 @@ import html
 # ============================================================
 st.markdown("""
 <style>
-    /* ---------- FONT IMPORT ---------- */
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-    /* ---------- GLOBAL ---------- */
     html, body, [class*="css"] {
         font-family: 'Inter', sans-serif;
         color: #222222;
@@ -29,7 +27,6 @@ st.markdown("""
         background-attachment: fixed;
     }
 
-    /* ---------- MAIN HEADER ---------- */
     .main-title {
         text-align: center;
         font-family: 'Playfair Display', serif;
@@ -68,7 +65,6 @@ st.markdown("""
         margin-top: 6px;
     }
 
-    /* ---------- SECTION TITLE ---------- */
     .section-title {
         text-align: center;
         font-family: 'Playfair Display', serif;
@@ -89,7 +85,6 @@ st.markdown("""
         vertical-align: middle;
     }
 
-    /* ---------- CONTENT BOX ---------- */
     .content-box {
         background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
         padding: 38px 42px;
@@ -120,7 +115,6 @@ st.markdown("""
         letter-spacing: 0.2px;
     }
 
-    /* ---------- PHOTO CARD ---------- */
     .photo-card {
         position: relative;
         overflow: hidden;
@@ -206,9 +200,6 @@ st.markdown("""
         font-weight: 400;
     }
 
-    /* ============================================================
-       FLIP CARD — ULTRA PREMIUM (COMPACT VERSION)
-       ============================================================ */
     .flip-card {
         background-color: transparent;
         width: 100%;
@@ -233,7 +224,6 @@ st.markdown("""
         transform: rotateY(180deg);
     }
 
-    /* ---------- FRONT SIDE ---------- */
     .flip-card-front, .flip-card-back {
         position: absolute;
         width: 100%;
@@ -261,7 +251,6 @@ st.markdown("""
             0 0 40px rgba(217,195,163,0.20) inset;
     }
 
-    /* Corner brackets */
     .flip-card-front::before,
     .flip-card-front::after {
         content: '';
@@ -292,7 +281,6 @@ st.markdown("""
         border-color: #a8323d;
     }
 
-    /* Photo frame compact */
     .flip-card-front .photo-frame {
         position: relative;
         width: 148px;
@@ -321,7 +309,6 @@ st.markdown("""
         filter: saturate(1.02) contrast(1.03);
     }
 
-    /* Nama */
     .flip-card-front h4 {
         margin: 2px 0 6px 0;
         font-family: 'Playfair Display', serif;
@@ -333,7 +320,6 @@ st.markdown("""
         max-width: 92%;
     }
 
-    /* Badge role */
     .flip-card-front .role-badge {
         display: inline-block;
         padding: 3px 12px;
@@ -353,7 +339,6 @@ st.markdown("""
         box-shadow: 0 3px 10px rgba(217,195,163,0.45);
     }
 
-    /* Hint */
     .flip-card-front .flip-hint {
         font-size: 9px;
         color: #a89790;
@@ -374,7 +359,6 @@ st.markdown("""
         opacity: 0.5;
     }
 
-    /* ---------- BACK SIDE ---------- */
     .flip-card-back {
         background:
             radial-gradient(circle at 30% 20%, rgba(217,195,163,0.18) 0%, transparent 50%),
@@ -394,7 +378,6 @@ st.markdown("""
             0 0 60px rgba(0,0,0,0.35) inset;
     }
 
-    /* Dotted pattern */
     .flip-card-back::before {
         content: '';
         position: absolute;
@@ -406,7 +389,6 @@ st.markdown("""
         border-radius: 18px;
     }
 
-    /* Quote mark */
     .flip-card-back::after {
         content: '"';
         position: absolute;
@@ -442,7 +424,6 @@ st.markdown("""
         z-index: 1;
     }
 
-    /* Divider emas */
     .flip-card-back .divider {
         position: relative;
         width: 100%;
@@ -463,7 +444,6 @@ st.markdown("""
         padding: 0 8px;
     }
 
-    /* Info mini-cards */
     .flip-card-back p {
         position: relative;
         font-size: 11.5px;
@@ -494,7 +474,6 @@ st.markdown("""
         margin-bottom: 1px;
     }
 
-    /* ---------- HERO IMAGE ---------- */
     .hero-image-wrapper {
         position: relative;
         max-width: 1000px;
@@ -561,7 +540,6 @@ st.markdown("""
         letter-spacing: 0.3px;
     }
 
-    /* ---------- SCROLLBAR PREMIUM ---------- */
     ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: #f4f0eb; }
     ::-webkit-scrollbar-thumb {
@@ -571,7 +549,6 @@ st.markdown("""
     }
     ::-webkit-scrollbar-thumb:hover { background: #701c23; }
 
-    /* ---------- LAYOUT ---------- */
     .block-container { padding-top: 2rem !important; }
 </style>
 """, unsafe_allow_html=True)
@@ -597,15 +574,15 @@ def get_drive_file_id(url):
     return None
 
 
-@st.cache_data(show_spinner=False)
+@st.cache_data(show_spinner=False, max_entries=30)
 def load_image(url):
-    """Mengunduh gambar dari Google Drive atau URL gambar langsung."""
+    """Mengunduh gambar dari Google Drive atau URL gambar langsung (HD w1200)."""
     file_id = get_drive_file_id(url)
     candidate_urls = []
 
     if file_id:
         candidate_urls.extend([
-            f"https://drive.google.com/thumbnail?id={file_id}&sz=w1600",
+            f"https://drive.google.com/thumbnail?id={file_id}&sz=w1200",
             f"https://drive.google.com/uc?export=download&id={file_id}",
             f"https://drive.google.com/uc?export=view&id={file_id}",
         ])
@@ -615,12 +592,15 @@ def load_image(url):
     for candidate in dict.fromkeys(candidate_urls):
         try:
             response = requests.get(
-                candidate, headers=headers, timeout=25, allow_redirects=True,
+                candidate, headers=headers, timeout=20, allow_redirects=True, stream=True,
             )
             response.raise_for_status()
-            img = Image.open(BytesIO(response.content))
+            img_bytes = BytesIO(response.content)
+            img = Image.open(img_bytes)
             img = ImageOps.exif_transpose(img).convert("RGB")
             img.load()
+            response.close()
+            img_bytes.close()
             return img
         except Exception:
             continue
@@ -628,16 +608,16 @@ def load_image(url):
 
 
 @st.cache_data(show_spinner=False, max_entries=30)
-def image_data_uri(url):
+def image_data_uri(url, max_dim=1200, quality=85):
+    """HD version khusus halaman utama — 1200px / q85."""
     img = load_image(url)
     if img is None:
         return None
     img = img.copy()
-    max_dim = 600
     if max(img.size) > max_dim:
         img.thumbnail((max_dim, max_dim), Image.LANCZOS)
     buffer = BytesIO()
-    img.save(buffer, format="JPEG", quality=78, optimize=True)
+    img.save(buffer, format="JPEG", quality=quality, optimize=True)
     encoded = base64.b64encode(buffer.getvalue()).decode("utf-8")
     buffer.close()
     return f"data:image/jpeg;base64,{encoded}"
@@ -645,7 +625,7 @@ def image_data_uri(url):
 
 def hero_image(url, badge="✦ Keluarga Poisson ✦", title="Satu Tim, Satu Cerita",
                subtitle="Momen kebersamaan yang menjadi awal dari segalanya."):
-    """Render hero image premium dengan overlay caption."""
+    """Render hero image premium dengan overlay caption — HD."""
     img_src = image_data_uri(url)
     if not img_src:
         st.warning("Foto hero gagal dimuat. Periksa izin Google Drive.")
@@ -743,7 +723,6 @@ if menu == "Home":
     def home_page():
         st.markdown("<h2 class='section-title'>Deskripsi Kelompok</h2>", unsafe_allow_html=True)
 
-        # ============ FOTO HERO DI ATAS DESKRIPSI ============
         hero_image(
             url="https://drive.google.com/uc?export=view&id=1dDPrlobxQlHnAwMZKdoSuGcJviyfueTn",
             badge="✦ Keluarga Poisson ✦",
@@ -751,7 +730,6 @@ if menu == "Home":
             subtitle="Momen kebersamaan yang menjadi awal dari segalanya."
         )
 
-        # ============ CONTENT BOX DESKRIPSI ============
         st.markdown("""
             <div class='content-box'>
                 <b>Selamat datang di portal resmi kelompok Poisson!</b><br><br>
