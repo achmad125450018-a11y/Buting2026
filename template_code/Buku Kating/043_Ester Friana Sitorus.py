@@ -722,6 +722,7 @@ if menu == "Departemen Internal":
             "https://drive.google.com/uc?export=view&id=1-72V15pt7xq9USTdIFyT9MAS5kzYDp6F",
             "https://drive.google.com/uc?export=view&id=1QyCDr0TZG__zgjE6TQQfjeSEbbPUrzN9",
             "https://drive.google.com/uc?export=view&id=1bm3_7WsnyZG6nCbmgKBLrZNA5C5N07rk",
+            "https://drive.google.com/uc?export=view&id=1ILZerOz3dfXswKdrXY9Wbjdj1OqjKg8A",
         ]
         data_list = [
             {
@@ -1163,7 +1164,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "06 Maret 2005",
                 "asal": "LAMPUNG!!!",
                 "alamat": "Teluk Betung Selatan",
-                "hobi": "Nonton Kartun",
+                "hobbi": "Nonton Kartun",
                 "sosmed": "@elandraa_",
                 "kesan": "Kakak ini sangat seru dan ramah kepada siapa saja",
                 "pesan": "Semoga selalu dimudahkan dalam segala urusan kuliahnya!"
@@ -1175,7 +1176,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "5 November 2005",
                 "asal": "Bengkulu",
                 "alamat": "Jalan Lapas",
-                "hobi": "Jalan - Jalan",
+                "hobbi": "Jalan - Jalan",
                 "sosmed": "@bylaash",
                 "kesan": "Orangnya asik dan menyenangkan diajak ngobrol",
                 "pesan": "Sukses terus untuk kuliah dan kegiatannya ya!"
@@ -1187,7 +1188,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "27 Januari 2005",
                 "asal": "Lambar",
                 "alamat": "Airan",
-                "hobi": "main",
+                "hobbi": "main",
                 "sosmed": "@khoirul_muthoharoh",
                 "kesan": "Kakak ini baik dan selalu ceria",
                 "pesan": "Semangat terus mengejar impian dan cita-citanya!"
@@ -1199,7 +1200,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "16 Agustus 2005",
                 "asal": "Tangerang Selatan",
                 "alamat": "GH",
-                "hobi": "ga ngapa ngapain",
+                "hobbi": "ga ngapa ngapain",
                 "sosmed": "@ahmad.rizky____",
                 "kesan": "Sangat santai dan seru orangnya",
                 "pesan": "Semoga kuliahnya lancar sampai lulus!"
@@ -1211,7 +1212,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "21 Desember 2005",
                 "asal": "ikut kadep",
                 "alamat": "love earth",
-                "hobi": "jadi idol",
+                "hobbi": "jadi idol",
                 "sosmed": "@adindaadma",
                 "kesan": "Asik dan punya energi positif yang menular",
                 "pesan": "Tetap semangat dan sukses selalu!"
@@ -1223,7 +1224,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "23 Juli 2006",
                 "asal": "Tanggamus",
                 "alamat": "Balam",
-                "hobi": "lihat lihat perumahan",
+                "hobbi": "lihat lihat perumahan",
                 "sosmed": "@bimo_arkana",
                 "kesan": "Orangnya ramah dan mudah beradaptasi",
                 "pesan": "Semoga sukses di akademik maupun organisasi!"
@@ -1235,7 +1236,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "666",
                 "asal": "balam",
                 "alamat": "balam",
-                "hobi": "makan yang manis biar manis",
+                "hobbi": "makan yang manis biar manis",
                 "sosmed": "@alfabiyi",
                 "kesan": "Sangat unik dan seru diajak diskusi",
                 "pesan": "Semangat terus kuliahnya ya!"
@@ -1247,7 +1248,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "21 Mei 2006",
                 "asal": "Lampung Barat",
                 "alamat": "Korpri Raya",
-                "hobi": "menonton film",
+                "hobbi": "menonton film",
                 "sosmed": "@asrmeilani",
                 "kesan": "Baik hati dan ramah kepada siapa saja",
                 "pesan": "Semoga dimudahkan dalam segala urusan perkuliahan!"
@@ -1259,7 +1260,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "25 April 2006",
                 "asal": "Lampung",
                 "alamat": "Balam",
-                "hobi": "berlaku humoris dan manis",
+                "hobbi": "berlaku humoris dan manis",
                 "sosmed": "@bimayasa_",
                 "kesan": "Suka bikin ketawa dan asik orangnya",
                 "pesan": "Sukses terus dan pertahankan semangatnya!"
@@ -1271,7 +1272,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "14 Agustus 2006",
                 "asal": "Ampera",
                 "alamat": "Disini aja",
-                "hobi": "mancing emosi, mancing ikan, mancing kecebong, mancing cupang",
+                "hobbi": "mancing emosi, mancing ikan, mancing kecebong, mancing cupang",
                 "sosmed": "@khaindaa_",
                 "kesan": "Seru dan sangat asik diajak ngobrol",
                 "pesan": "Semoga selalu sukses dan lancar kuliahnya!"
@@ -1283,7 +1284,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "15 Juni 2006",
                 "asal": "palembang",
                 "alamat": "bebas",
-                "hobi": "ngefollow up chat",
+                "hobbi": "ngefollow up chat",
                 "sosmed": "@erlsriska",
                 "kesan": "Sangat ramah dan aktif",
                 "pesan": "Semangat terus kuliahnya dan jaga kesehatan!"
@@ -1295,7 +1296,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "-",
                 "asal": "Kerangka Bawang Sebelah Barat",
                 "alamat": "Kayu Mulya",
-                "hobi": "Tanya bang Henry",
+                "hobbi": "Tanya bang Henry",
                 "sosmed": "@yollanda_agustina16",
                 "kesan": "Asik dan menyenangkan sebagai teman diskusi",
                 "pesan": "Semoga sukses selalu ke depannya!"
@@ -1307,7 +1308,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "15 September 2004",
                 "asal": "tetangga kadep",
                 "alamat": "belwis",
-                "hobi": "memancing keributan",
+                "hobbi": "memancing keributan",
                 "sosmed": "@adityatfq",
                 "kesan": "Orangnya seru dan bikin suasana ramai",
                 "pesan": "Semoga kuliahnya lancar dan sukses!"
@@ -1319,7 +1320,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "-",
                 "asal": "Tangsel",
                 "alamat": "Sukarame",
-                "hobi": "baca wattpad",
+                "hobbi": "baca wattpad",
                 "sosmed": "@fathyya.__",
                 "kesan": "Baik hati dan sangat ramah",
                 "pesan": "Semangat terus ya kuliahnya!"
@@ -1331,7 +1332,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "$\\sum_{k=1}^{n} k + \\int_{0}^{x} 2x \\, dx + \\sqrt{81} + \\log_{10}(100)$",
                 "asal": "Luhak tanah data",
                 "alamat": "Gerbar",
-                "hobi": "Jadi orang baik",
+                "hobbi": "Jadi orang baik",
                 "sosmed": "-",
                 "kesan": "Sangat pintar dan baik kepada teman-teman",
                 "pesan": "Semoga sukses dan tercapai semua cita-citanya!"
@@ -1343,7 +1344,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "28 Mei 2006",
                 "asal": "sini",
                 "alamat": "jauh pokoknya",
-                "hobi": "tidur",
+                "hobbi": "tidur",
                 "sosmed": "@kshigf",
                 "kesan": "Ramah dan menyenangkan",
                 "pesan": "Semangat terus kuliahnya dan jangan kebanyakan tidur ya!"
@@ -1355,7 +1356,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "31 Desember 2006",
                 "asal": "Karawang",
                 "alamat": "Belakang Polda",
-                "hobi": "Ngasih makan ikan cupang",
+                "hobbi": "Ngasih makan ikan cupang",
                 "sosmed": "@d4niel_fdlh",
                 "kesan": "Orangnya asik dan santai",
                 "pesan": "Semoga sukses selalu dalam studi maupun hobinya!"
@@ -1367,7 +1368,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "05 Mei 2006",
                 "asal": "Swiss",
                 "alamat": "Tanya bapas",
-                "hobi": "ngesen kanan",
+                "hobbi": "ngesen kanan",
                 "sosmed": "@fvnnn05",
                 "kesan": "Seru dan punya sisi humor yang unik",
                 "pesan": "Sukses terus untuk kedepannya!"
@@ -1379,7 +1380,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "-",
                 "asal": "situlah",
                 "alamat": "pohon mulia",
-                "hobi": "nyari hobi",
+                "hobbi": "nyari hobi",
                 "sosmed": "@zydddddd_",
                 "kesan": "Asik diajak berteman dan seru",
                 "pesan": "Semoga cepat ketemu hobi tetapnya dan sukses kuliahnya!"
@@ -1391,7 +1392,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "Hari Jum'at",
                 "asal": "Rahim Ibu",
                 "alamat": "Pasar lantai 3.5",
-                "hobi": "Tanyain sama yuder (beneran ditanya ya)",
+                "hobbi": "Tanyain sama yuder (beneran ditanya ya)",
                 "sosmed": "@jaldii.__",
                 "kesan": "Sangat menghibur dan seru",
                 "pesan": "Semoga sukses dan lancar terus kuliahnya!"
@@ -1403,7 +1404,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "18 November 2026",
                 "asal": "Banyak Begal",
                 "alamat": "Pinggir Jalan",
-                "hobi": "nonton thinkerbell",
+                "hobbi": "nonton thinkerbell",
                 "sosmed": "@snova.19",
                 "kesan": "Baik dan ramah kepada semua orang",
                 "pesan": "Semangat terus perkuliahannya!"
@@ -1415,7 +1416,7 @@ if menu == "Departemen Eksternal":
                 "tanggal_lahir": "03 Juni 2006",
                 "asal": "lampung",
                 "alamat": "balam",
-                "hobi": "jalan-jalan",
+                "hobbi": "jalan-jalan",
                 "sosmed": "@selmasiti_aisyah",
                 "kesan": "Kakak ini asik dan ramah",
                 "pesan": "Semoga sukses selalu dan semangat kuliahnya!"
