@@ -458,7 +458,7 @@ def streamlit_menu(default_index=0):
             "Departemen MIKFES", "Departemen Eksternal", "Departemen Internal",
             "Departemen SSD", "Departemen Medkraf", "Departemen MINBAK",
         ],
-        icons=["people-fill"] * 9,
+        icons=["people-fill"] * 10,
         default_index=default_index,
         orientation="horizontal",
         styles={
