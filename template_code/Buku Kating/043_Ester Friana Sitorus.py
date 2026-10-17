@@ -724,7 +724,6 @@ if menu == "Departemen Internal":
             "https://drive.google.com/uc?export=view&id=1bm3_7WsnyZG6nCbmgKBLrZNA5C5N07rk",
         ]
         data_list = [
-            [
             {
                 "nama": "Haikal Fransisko Simbolon",
                 "nim": "123450106",
