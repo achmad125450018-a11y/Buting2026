@@ -456,7 +456,7 @@ def streamlit_menu(default_index=0):
         options=[
             "Kesekjenan", "Baleg", "Senator", "Departemen PSDA",
             "Departemen MIKFES", "Departemen Eksternal", "Departemen Internal",
-            "Departemen SSD", "Departemen Medkraf",
+            "Departemen SSD", "Departemen Medkraf", "Departemen MINBAK",
         ],
         icons=["people-fill"] * 9,
         default_index=default_index,
