@@ -294,7 +294,7 @@ elif menu == "Senator":
                 "Hobbi": "Giring Ayam",
                 "Sosmed": "@hazelhandhaka",
                 "Kesan": "Abangnya keren, asik juga",
-                "Pesan": "Semoga sukses bang, sehat bang"
+                "Pesan": "Semoga sukses bang, sehat bang, keren selalu"
             },
             {
                 "Nama": "Nadya Ratu Anjani",
