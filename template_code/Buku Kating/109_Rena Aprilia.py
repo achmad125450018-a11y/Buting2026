@@ -14,7 +14,7 @@ if menu == "Kesekjenan":
         "https://drive.google.com/uc?export=view&id=1EwD0V_6O62f4DT85HapgYpXDw-HxwFwn",
         "https://drive.google.com/uc?export=view&id=1bHaikGXHPSiM32Urd8nHtH4IT6uWr92x",
         "https://drive.google.com/uc?export=view&id=1qqBsuTQPn0rlRaxQdF2VeCAwlvJ-xQAX",
-        "https://drive.google.com/uc?export=view&id=1fkYTfgRpyAGaUqAlm_IKhBI2h-uxHFAg"
+        "https://drive.google.com/uc?export=view&id=1fkYTfgRpyAGaUqAlm_IKhBI2h-uxHFAg",
     ]
     data_list = [
         {"nama": "Ginda Fajar Riadi Marpaung", "jabatan": "Ketua Himpunan", "nim": "123450103", "umur": "22", "asal": "Batam", "alamat": "Kesekretariat HMSD", "hobbi": "Push IMO", "sosmed": "@jars_mrp", "kesan": "Abangnya seruu, dlu pernah jadi kadiv op pas natal SD25 bisa diajak serius dan bercanda.", "pesan": "Semangat dan sukses selalu bangg!!"},
@@ -22,41 +22,40 @@ if menu == "Kesekjenan":
         {"nama": "Efi Defiyati", "jabatan": "Sekretaris 1", "nim": "123450005", "umur": "21", "asal": "Lampung Timur", "alamat": "Airan", "hobbi": "Membaca", "sosmed": "@eeffiidefi", "kesan": "Kakaknya murah senyum.", "pesan": "Sukses selalu kak dan semangat!"},
         {"nama": "Qois Olifio", "jabatan": "Sekretaris 2", "nim": "123450067", "umur": "22", "asal": "Batam", "alamat": "Kota Baru", "hobbi": "Mainin surat", "sosmed": "@qoisolifio_", "kesan": "Abangnya soft spoken, lucuu.", "pesan": "Sukses selalu dan semangat bang!!"},
         {"nama": "Hafsa Fazila Arradhi", "jabatan": "Bendahara 1", "nim": "123450079", "umur": "21", "asal": "Bandar Lampung", "alamat": "Bandar Lampung", "hobbi": "Bertemu Luluk", "sosmed": "@hafsafazilahh", "kesan": "Kakaknya baik, murah senyum, dan suka duit.", "pesan": "Sukses selalu dan semangat kakk!!"},
-        {"nama": "Luthfia Laila Ramadhani", "jabatan": "Bendahara 2", "nim": "123450004", "umur": "20", "asal": "Bengkulu", "alamat": "Airan", "hobbi": "Keliling Balam", "sosmed": "@luthhifiarmdhni", "kesan": "Kakaknya seru, lucuu, baikk.", "pesan": "Sukses selalu dan semangat kakkk!!"}
+        {"nama": "Luthfia Laila Ramadhani", "jabatan": "Bendahara 2", "nim": "123450004", "umur": "20", "asal": "Bengkulu", "alamat": "Airan", "hobbi": "Keliling Balam", "sosmed": "@luthhifiarmdhni", "kesan": "Kakaknya seru, lucuu, baikk.", "pesan": "Sukses selalu dan semangat kakkk!!"},
     ]
     display_images_with_data(gambar_urls, data_list, key="kesekjenan")
 
 elif menu == "Baleg":
     gambar_urls = [
         "https://drive.google.com/uc?export=view&id=1Gq721WJrTyFsywgM3BSRAjnGGaaxzO9y",
-    "https://drive.google.com/uc?export=view&id=1oiBDEvD0PT8yvcS17k9gY-qqVvchF4zC",
-    "https://drive.google.com/uc?export=view&id=12QNxmLbfb7MmkyrH_HjDgT4Gmk-GwcfD",
-    "https://drive.google.com/uc?export=view&id=16xwz9_Ow1xNG61kDid-w7f9of4dw4f4O",
-    "https://drive.google.com/uc?export=view&id=",
-    "https://drive.google.com/uc?export=view&id=17dGzcViYFmqfUyVeis6UDYP3nU6dPwz8",
-    "https://drive.google.com/uc?export=view&id=1zs_XV54xixTDdvIfq2EDZBhaOdnA0OI8",
-    "https://drive.google.com/uc?export=view&id=191UTZmimVAelyNiHq9kJrsYZ4gr1tijQ",
-    "https://drive.google.com/uc?export=view&id=1iw5DhwUhI8hyo9N1DNE3gPIHjj1zqlZA",
-    "https://drive.google.com/uc?export=view&id=1eIFzF5EXywwKbiNg6_d56DJ1l-CKzP-x",
-    "https://drive.google.com/uc?export=view&id=1mRDZgRu_bxEv6uQNkmhf6Byfljzm-g1q",
-    "https://drive.google.com/uc?export=view&id=15gx_6z3bTDo2ukpG7xwX9Iq04NbMkxYm",
-    "https://drive.google.com/uc?export=view&id=13nR5eXGPrWe_VPyOxSLyNeJ8wZWW4239"
+        "https://drive.google.com/uc?export=view&id=1oiBDEvD0PT8yvcS17k9gY-qqVvchF4zC",
+        "https://drive.google.com/uc?export=view&id=12QNxmLbfb7MmkyrH_HjDgT4Gmk-GwcfD",
+        "https://drive.google.com/uc?export=view&id=16xwz9_Ow1xNG61kDid-w7f9of4dw4f4O",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # ← placeholder (ID kosong)
+        "https://drive.google.com/uc?export=view&id=17dGzcViYFmqfUyVeis6UDYP3nU6dPwz8",
+        "https://drive.google.com/uc?export=view&id=1zs_XV54xixTDdvIfq2EDZBhaOdnA0OI8",
+        "https://drive.google.com/uc?export=view&id=191UTZmimVAelyNiHq9kJrsYZ4gr1tijQ",
+        "https://drive.google.com/uc?export=view&id=1iw5DhwUhI8hyo9N1DNE3gPIHjj1zqlZA",
+        "https://drive.google.com/uc?export=view&id=1eIFzF5EXywwKbiNg6_d56DJ1l-CKzP-x",
+        "https://drive.google.com/uc?export=view&id=1mRDZgRu_bxEv6uQNkmhf6Byfljzm-g1q",
+        "https://drive.google.com/uc?export=view&id=15gx_6z3bTDo2ukpG7xwX9Iq04NbMkxYm",
+        "https://drive.google.com/uc?export=view&id=13nR5eXGPrWe_VPyOxSLyNeJ8wZWW4239",
     ]
-    
-        data_list = [
+    data_list = [
         {"nama": "Ridho Benedictus Togi Manik", "jabatan": "Ketua Badan Legislatif", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
         {"nama": "Juesi Apridelia Saragih", "jabatan": "Sekretaris Badan Legislatif", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
         {"nama": "Dharu Cahyoaji Sasongko", "jabatan": "Kepala Komisi I Legislasi", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
         {"nama": "Gh Mikael Niko A S", "jabatan": "Staf Komisi I Legislasi", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
         {"nama": "Siti Sarifah Sumamah", "jabatan": "Staf Komisi I Legislasi", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
-        {"nama": "Givaro Ananta", "jabatan": "Kepala Komisi II  Pengawasan", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
-        {"nama": "Afghanis Nursholehatunnisa", "jabatan": "Staf Komisi II  Pengawasan", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
-        {"nama": "Hani Qurrota Aini", "jabatan": "Staf Komisi II  Pengawasan", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
-        {"nama": "Jeremia Halim", "jabatan": "Staf Komisi II  Pengawasan", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
+        {"nama": "Givaro Ananta", "jabatan": "Kepala Komisi II Pengawasan", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
+        {"nama": "Afghanis Nursholehatunnisa", "jabatan": "Staf Komisi II Pengawasan", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
+        {"nama": "Hani Qurrota Aini", "jabatan": "Staf Komisi II Pengawasan", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
+        {"nama": "Jeremia Halim", "jabatan": "Staf Komisi II Pengawasan", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
         {"nama": "Monica Patricia Tanjung", "jabatan": "Kepala Komisi III Aspirasi dan Media Informasi", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
         {"nama": "Jona Timothy Ogatse Panjaitan", "jabatan": "Staf Komisi III Aspirasi dan Media Informasi", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
         {"nama": "Sekar Dini Widya Putri", "jabatan": "Staf Komisi III Aspirasi dan Media Informasi", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
-        {"nama": "Wan Nashwa Alhasni Yuska", "jabatan": "Staf Komisi III Aspirasi dan Media Informasi", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"}
+        {"nama": "Wan Nashwa Alhasni Yuska", "jabatan": "Staf Komisi III Aspirasi dan Media Informasi", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
     ]
     display_images_with_data(gambar_urls, data_list, key="baleg")
 
@@ -83,28 +82,29 @@ elif menu == "Senator":
         {"nama": "Aqila Zayyan Salsabil", "jabatan": "Senator Mahasiswa", "nim": "124450014", "umur": "19", "asal": "Lampung Utara", "alamat": "Sukarame", "hobbi": "Mendokumentasikan Bayes", "sosmed": "@aqilazayyaan", "kesan": "Informatif", "pesan": "Terus berkarya!"},
         {"nama": "Hazel Mahesa Handhaka", "jabatan": "Senator Mahasiswa", "nim": "124450114", "umur": "20", "asal": "Lampung Timur", "alamat": "Gunung Terang", "hobbi": "Giring Ayam", "sosmed": "@hazelhandhaka", "kesan": "Informatif", "pesan": "Terus berkarya!"},
         {"nama": "Nadya Ratu Anjani", "jabatan": "Senator Mahasiswa", "nim": "123450083", "umur": "21", "asal": "Bandar Lampung", "alamat": "Sukarame", "hobbi": "Dengar Lagu", "sosmed": "@nadyaanjaani", "kesan": "Informatif", "pesan": "Terus berkarya!"},
-        {"nama": "Dwi Rahma Fitriani", "jabatan": "Senator Mahasiswa", "nim": "124450084", "umur": "19", "asal": "Tulang Bawang", "alamat": "Jl. Lapas", "hobbi": "Baca buku, nonton film, dengerin musik", "sosmed": "@dwi_rahmftrnii", "kesan": "Informatif", "pesan": "Terus berkarya!"}
+        {"nama": "Dwi Rahma Fitriani", "jabatan": "Senator Mahasiswa", "nim": "124450084", "umur": "19", "asal": "Tulang Bawang", "alamat": "Jl. Lapas", "hobbi": "Baca buku, nonton film, dengerin musik", "sosmed": "@dwi_rahmftrnii", "kesan": "Informatif", "pesan": "Terus berkarya!"},
     ]
     display_images_with_data(gambar_urls, data_list, key="senator")
 
 elif menu == "Departemen PSDA":
-    gambar_urls = ["https://drive.google.com/uc?export=view&id=1ugRy9I-IThSGyshDV40ZZCj5Ij0zA_dM",
-                  "https://drive.google.com/uc?export=view&id=1XL5MVecX_5eBy_qYPQSHipW7_NM3YC6u",
-                  "https://drive.google.com/uc?export=view&id=1oDy2uDWrLDhJKXWoKncsTHvLcS6uoBYb",
-                  "https://drive.google.com/uc?export=view&id=1ubIf8n1wNXmS1mSg5XEecHUg5flXufBz",
-                  "https://drive.google.com/uc?export=view&id=1m--jD9dD3qj7en8icFLz4X0WD8A3WDbt",
-                  "https://drive.google.com/uc?export=view&id=1byXG-3ZAOu55VsJu6gMxcowDlhESJF8T",
-                  "https://drive.google.com/uc?export=view&id=17a0GCKlbImpkVqwRJyNJht1N9UwDRcuH",
-                  "https://drive.google.com/uc?export=view&id=1-DL-YEtkYoOdmMG74Jv_IiSJrXJCC8A_",
-                  "https://drive.google.com/uc?export=view&id=1HJbCosZONLYJ6F2H3T4Ep5LeXRUV73ir",
-                  "https://drive.google.com/uc?export=view&id=1tLwohSuK2xfdrCpX9I6yJbtGFzy9YMlR",
-                  "https://drive.google.com/uc?export=view&id=1ITrIaHsNGIYrLBeFjKaqmNqekWH0pV8C",
-                  "https://drive.google.com/uc?export=view&id=1AVbyN636abRPwg26jT3Q1Pqe9cp37OFg",
-                  "https://drive.google.com/uc?export=view&id=1VDgB7thn0EFUarebPi-mgOl5JGuNE4-C",
-                  "https://drive.google.com/uc?export=view&id=16PnYv63FMdmq-gQ5VlBrLVuuuZ0K22GJ",
-                  "https://drive.google.com/uc?export=view&id=1E4hWGT1PdW0kbULKbGmeEI-wdph84SMe",
-                  "https://drive.google.com/uc?export=view&id=13aI1RPyvr1xLgDwM8qc_QtZDWZM_67IH",
-                  "https://drive.google.com/uc?export=view&id=1u8mLN491Z3DCf95uaIjX82zeMTsazbu1",
+    gambar_urls = [
+        "https://drive.google.com/uc?export=view&id=1ugRy9I-IThSGyshDV40ZZCj5Ij0zA_dM",
+        "https://drive.google.com/uc?export=view&id=1XL5MVecX_5eBy_qYPQSHipW7_NM3YC6u",
+        "https://drive.google.com/uc?export=view&id=1oDy2uDWrLDhJKXWoKncsTHvLcS6uoBYb",
+        "https://drive.google.com/uc?export=view&id=1ubIf8n1wNXmS1mSg5XEecHUg5flXufBz",
+        "https://drive.google.com/uc?export=view&id=1m--jD9dD3qj7en8icFLz4X0WD8A3WDbt",
+        "https://drive.google.com/uc?export=view&id=1byXG-3ZAOu55VsJu6gMxcowDlhESJF8T",
+        "https://drive.google.com/uc?export=view&id=17a0GCKlbImpkVqwRJyNJht1N9UwDRcuH",
+        "https://drive.google.com/uc?export=view&id=1-DL-YEtkYoOdmMG74Jv_IiSJrXJCC8A_",
+        "https://drive.google.com/uc?export=view&id=1HJbCosZONLYJ6F2H3T4Ep5LeXRUV73ir",
+        "https://drive.google.com/uc?export=view&id=1tLwohSuK2xfdrCpX9I6yJbtGFzy9YMlR",
+        "https://drive.google.com/uc?export=view&id=1ITrIaHsNGIYrLBeFjKaqmNqekWH0pV8C",
+        "https://drive.google.com/uc?export=view&id=1AVbyN636abRPwg26jT3Q1Pqe9cp37OFg",
+        "https://drive.google.com/uc?export=view&id=1VDgB7thn0EFUarebPi-mgOl5JGuNE4-C",
+        "https://drive.google.com/uc?export=view&id=16PnYv63FMdmq-gQ5VlBrLVuuuZ0K22GJ",
+        "https://drive.google.com/uc?export=view&id=1E4hWGT1PdW0kbULKbGmeEI-wdph84SMe",
+        "https://drive.google.com/uc?export=view&id=13aI1RPyvr1xLgDwM8qc_QtZDWZM_67IH",
+        "https://drive.google.com/uc?export=view&id=1u8mLN491Z3DCf95uaIjX82zeMTsazbu1",
     ]
     data_list = [
         {"nama": "Arienta Khusnul Ananda", "jabatan": "Kepala Departemen PSDA", "nim": "123450097", "umur": "21", "asal": "Pinggir pantai", "alamat": "Samping kost kapo", "hobbi": "Ngerjain anak kader", "sosmed": "@arientakhsnl_", "kesan": "Cantikk banget kak, makeupnya flawless", "pesan": "Semangat jadi kadep psda, dan selalu keren kak"},
@@ -112,7 +112,7 @@ elif menu == "Departemen PSDA":
         {"nama": "Nobel Nizam F", "jabatan": "Kepala Divisi Kaderisasi", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren main sulap kartunya", "pesan": "semoga semakin banyak trik sulapnyaa bang"},
         {"nama": "Afriza Azmi", "jabatan": "Staf Kaderisasi", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "enerjik banget pas damaskusan", "pesan": "semangatt terus bangg"},
         {"nama": "Ayake Alfatih Ramadan", "jabatan": "Staf Kaderisasi", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"},
-        {"nama": "Caesar Ozora Alrando" , "jabatan": "Staf Kaderisasi", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"},
+        {"nama": "Caesar Ozora Alrando", "jabatan": "Staf Kaderisasi", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"},
         {"nama": "Euodia Meiliana Friedita", "jabatan": "Staf Kaderisasi", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"},
         {"nama": "Haikal Seventino Tamba", "jabatan": "Staf Kaderisasi", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"},
         {"nama": "Putri Manna Anantama Simbolon", "jabatan": "Staf Kaderisasi", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"},
@@ -123,7 +123,7 @@ elif menu == "Departemen PSDA":
         {"nama": "Jeremi Marolop P. Situmorang", "jabatan": "Staf Peningkatan Mutu Anggota", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"},
         {"nama": "Nabila Nur Azizah", "jabatan": "Staf Peningkatan Mutu Anggota", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"},
         {"nama": "Rafli Al Mansyah Tambunan", "jabatan": "Staf Peningkatan Mutu Anggota", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"},
-        {"nama": "Salavi Naharani", "jabatan": "Staf Peningkatan Mutu Anggota", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"}
+        {"nama": "Salavi Naharani", "jabatan": "Staf Peningkatan Mutu Anggota", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"},
     ]
     display_images_with_data(gambar_urls, data_list, key="psda")
 
@@ -181,7 +181,7 @@ elif menu == "Departemen Eksternal":
         {"nama": "Muhammad Fathiy Zumar Yazid", "jabatan": "Staf Eksternal", "nim": "124450081", "umur": "20", "asal": "Situlah", "alamat": "Pohon mulya", "hobbi": "Nyari hobi", "sosmed": "@zydddddd__", "kesan": "Hebat dan tegas", "pesan": "selalu jadi orang keren dan ramah tamah"},
         {"nama": "Muhammad Rizaldi", "jabatan": "Staf Eksternal", "nim": "124450093", "umur": "masih mudalah", "asal": "Rahim ibu", "alamat": "Pasar lantai 3.5", "hobbi": "Gambarr", "sosmed": "@jaldii._", "kesan": "keren jadi mc pplk 2025", "pesan": "selalu ramah ya bang"},
         {"nama": "Saskia Nova Magdalena", "jabatan": "Staf Eksternal", "nim": "124450074", "umur": "20", "asal": "Banyak begal", "alamat": "Pinggir jalan", "hobbi": "Nonton Tinkerbell", "sosmed": "@snova.19", "kesan": "kakaknya lucu", "pesan": "Terus jadi orang ramah kak"},
-        {"nama": "Selma Siti Aisyah", "jabatan": "Staf Eksternal", "nim": "123450044", "umur": "20", "asal": "Lampung", "alamat": "Balam", "hobbi": "Jalan jalan", "sosmed": "@selmasiti_aisyah", "kesan": "Kerenn banget", "pesan": "Selalu jadi orang baik"}
+        {"nama": "Selma Siti Aisyah", "jabatan": "Staf Eksternal", "nim": "123450044", "umur": "20", "asal": "Lampung", "alamat": "Balam", "hobbi": "Jalan jalan", "sosmed": "@selmasiti_aisyah", "kesan": "Kerenn banget", "pesan": "Selalu jadi orang baik"},
     ]
     display_images_with_data(gambar_urls, data_list, key="eksternal")
 
@@ -236,6 +236,6 @@ elif menu == "Departemen Medkraf":
         {"nama": "Edsel Adya Pradipta", "jabatan": "Staf Medkraf", "nim": "124450098", "umur": "20", "asal": "Lampung Selatan", "alamat": "Natar", "hobbi": "Scrolling Fesbuk", "sosmed": "@eddel_0712", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
         {"nama": "Lucia Advencia Rachel Nainggolan", "jabatan": "Staf Medkraf", "nim": "124450085", "umur": "20", "asal": "Bekasi", "alamat": "Belwis", "hobbi": "Nonton star wars", "sosmed": "@luciarachel_", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
         {"nama": "Shafa Delaila Azzahra", "jabatan": "Staf Medkraf", "nim": "124450124", "umur": "20", "asal": "Lampung tengah", "alamat": "Pemda", "hobbi": "Ngoding", "sosmed": "@_shaazzh", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
-        {"nama": "Anggota Medkraf", "jabatan": "Staf Medkraf", "nim": "122450088", "umur": "20", "asal": "Yogyakarta", "alamat": "Airan", "hobbi": "Editing & Foto", "sosmed": "@medkraf", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"}
+        {"nama": "Anggota Medkraf", "jabatan": "Staf Medkraf", "nim": "122450088", "umur": "20", "asal": "Yogyakarta", "alamat": "Airan", "hobbi": "Editing & Foto", "sosmed": "@medkraf", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
     ]
     display_images_with_data(gambar_urls, data_list, key="medkraf")
