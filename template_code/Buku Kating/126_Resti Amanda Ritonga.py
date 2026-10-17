@@ -222,7 +222,7 @@ elif menu == "Senator":
                 "Hobbi": "Ngesen kiri",
                 "Sosmed": "@helmy_inst",
                 "Kesan": "Abangnya seru, asik, lucu",
-                "Pesan": "Semangat terus bang"
+                "Pesan": "Semangat terus bang, semoga dilancarkan urusannnya"
             },
             {
                 "Nama": "Fernando Dimetrius Barus",
