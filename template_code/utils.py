@@ -288,12 +288,12 @@ def get_drive_file_id(url):
 
 @st.cache_data(show_spinner=False, max_entries=50)
 def load_image(url):
-    """Optimized image loader — stream=True, low resolution fetch."""
+    """Optimized image loader — stream=True, unduh resolusi w1200."""
     file_id = get_drive_file_id(url)
     candidate_urls = []
     if file_id:
         candidate_urls.extend([
-            f"https://drive.google.com/thumbnail?id={file_id}&sz=w800",
+            f"https://drive.google.com/thumbnail?id={file_id}&sz=w1200",
             f"https://drive.google.com/uc?export=download&id={file_id}",
             f"https://drive.google.com/uc?export=view&id={file_id}",
         ])
@@ -320,17 +320,20 @@ def load_image(url):
 
 
 @st.cache_data(show_spinner=False, max_entries=80)
-def image_data_uri(url):
-    """Convert to compressed base64 — max 800px, quality 80."""
+def image_data_uri(url, max_dim=800, quality=80):
+    """
+    Convert to compressed base64.
+    - Default (Buku Kating): 800px / q80 → hemat memori
+    - HD (Home page):        max_dim=1200, quality=85 → tajam
+    """
     img = load_image(url)
     if img is None:
         return None
     img = img.copy()
-    max_dim = 800
     if max(img.size) > max_dim:
         img.thumbnail((max_dim, max_dim), Image.LANCZOS)
     buffer = BytesIO()
-    img.save(buffer, format="JPEG", quality=80, optimize=True)
+    img.save(buffer, format="JPEG", quality=quality, optimize=True)
     encoded = base64.b64encode(buffer.getvalue()).decode("utf-8")
     buffer.close()
     return f"data:image/jpeg;base64,{encoded}"
