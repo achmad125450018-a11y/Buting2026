@@ -277,7 +277,7 @@ elif menu == "Departemen Medkraf":
     display_images_with_data(gambar_urls, data_list, key="medkraf")
 
 
-elif menu == "Departemen MinBak":
+elif menu == "Departemen MINBAK":
     gambar_urls = [
         "https://drive.google.com/uc?export=view&id=1gv3ZHruRvhlqjqB0J12SCNq9VCGXZtHc",
         "https://drive.google.com/uc?export=view&id=1FG-5QwmDV7R5bgK3lRgvC55ozV-T8xEc",
