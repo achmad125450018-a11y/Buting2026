@@ -186,7 +186,7 @@ elif menu == "Departemen Medkraf":
     display_images_with_data(gambar_urls, data_list, key="medkraf")
 
 elif menu == "Departemen MINBAK":
-     gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"]
+    gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"]
     data_list = [
         {"nama": "Anggota Minbak", "jabatan": "Kepala Departemen Minbak", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
     ]
