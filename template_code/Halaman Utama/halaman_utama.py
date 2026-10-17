@@ -724,7 +724,7 @@ if menu == "Home":
         st.markdown("<h2 class='section-title'>Deskripsi Kelompok</h2>", unsafe_allow_html=True)
 
         hero_image(
-            url="https://drive.google.com/uc?export=view&id=1dDPrlobxQlHnAwMZKdoSuGcJviyfueTn",
+            url="https://drive.google.com/uc?export=view&id=1b38uX_AFwdNc3-03NWQPcOX-TIOdxDee",
             badge="✦ Keluarga Poisson ✦",
             title="Satu Tim, Satu Cerita",
             subtitle="Momen kebersamaan yang menjadi awal dari segalanya."
@@ -744,7 +744,7 @@ if menu == "Home":
             {"url": "https://drive.google.com/uc?export=view&id=1Oi4CMuo7gzPc9cobE01SUmZQbR0bcfA2", "judul": "Our Journey", "desc": "Langkah demi langkah bersama"},
             {"url": "https://drive.google.com/uc?export=view&id=1j02Eq5ZqVHUFdGnEvLV5oDiHxZvoLCdc", "judul": "Growing Together", "desc": "Tumbuh bersama melalui setiap proses"},
             {"url": "https://drive.google.com/uc?export=view&id=1Y9aO6QYXVf3dkHCWwpAZPf6KNrLguEmx", "judul": "The Story", "desc": "Setiap foto menyimpan cerita."},
-            {"url": "https://drive.google.com/uc?export=view&id=1FXn8y19dNrGSnjTvgRe9QmQpRwx5slv9", "judul": "Good Times", "desc": "Keluh kesah, tawa dan cerita yang tak bisa dilupakan"},
+            {"url": "https://drive.google.com/uc?export=view&id=1dDPrlobxQlHnAwMZKdoSuGcJviyfueTn", "judul": "Good Times", "desc": "Keluh kesah, tawa dan cerita yang tak bisa dilupakan"},
             {"url": "https://drive.google.com/uc?export=view&id=1bxRGpALCGFINoBxPCsA9MpiW6cxpyPaa", "judul": "Until Forever", "desc": "Bukan akhir, hanya bagian dari perjalanan"}
         ]
 
