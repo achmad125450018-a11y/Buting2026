@@ -1,11 +1,10 @@
-# tools/KREASII.py
+# tools/KREASI.py
 import streamlit as st
 import math
-import random
 import html
 
 # ============================================================
-# 🎨 SUPER PREMIUM UI — KREASII POISSON EDITION
+# 🎨 SUPER PREMIUM UI — KREASI POISSON EDITION
 # ============================================================
 st.markdown("""
 <style>
@@ -24,7 +23,7 @@ html, body, [class*="css"] {
     background-attachment: fixed;
 }
 
-.kreasii-title {
+.kreasi-title {
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-weight: 900;
@@ -38,7 +37,7 @@ html, body, [class*="css"] {
     position: relative;
     display: block;
 }
-.kreasii-title::after {
+.kreasi-title::after {
     content: '';
     display: block;
     width: 90px;
@@ -47,7 +46,7 @@ html, body, [class*="css"] {
     background: linear-gradient(90deg, transparent, #701c23, transparent);
     border-radius: 3px;
 }
-.kreasii-subtitle {
+.kreasi-subtitle {
     text-align: center;
     font-family: 'Inter', sans-serif;
     color: #6b5a52;
@@ -93,6 +92,7 @@ html, body, [class*="css"] {
     font-weight: 700;
     color: #701c23;
     margin-bottom: 4px;
+    letter-spacing: 0.3px;
 }
 .kreasi-card .card-sub {
     display: inline-block;
@@ -126,86 +126,22 @@ html, body, [class*="css"] {
     color: #701c23;
 }
 
-/* Timeline visualization */
-.timeline-wrap {
-    margin: 20px 0;
-    padding: 24px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, rgba(112,28,35,0.04) 0%, rgba(217,195,163,0.10) 100%);
-    border: 1px solid rgba(217,195,163,0.45);
+.formula-box {
+    margin: 16px 0;
+    padding: 20px 24px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(112,28,35,0.05) 0%, rgba(217,195,163,0.10) 100%);
+    border: 1px dashed rgba(112,28,35,0.35);
+    text-align: center;
 }
-.timeline-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #701c23;
-    margin-bottom: 14px;
-}
-.timeline-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-.timeline-cell {
-    width: 26px;
-    height: 26px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: 700;
-    transition: transform 0.2s ease;
-}
-.timeline-cell:hover {
-    transform: scale(1.15);
-}
-.cell-empty {
-    background: rgba(217,195,163,0.20);
-    color: #a89790;
-}
-.cell-event {
-    background: linear-gradient(135deg, #701c23, #a8323d);
-    color: #ffffff;
-    box-shadow: 0 2px 6px rgba(112,28,35,0.35);
-}
-
-/* Stats grid */
-.stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-top: 8px;
-}
-.stat-item {
-    padding: 16px 20px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, rgba(217,195,163,0.15) 0%, rgba(217,195,163,0.08) 100%);
-    border-left: 3px solid #701c23;
-    transition: background 0.3s ease;
-}
-.stat-item:hover {
-    background: linear-gradient(135deg, rgba(217,195,163,0.28) 0%, rgba(217,195,163,0.15) 100%);
-}
-.stat-label {
-    display: block;
-    font-weight: 700;
-    color: #701c23;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    font-size: 9.5px;
-    margin-bottom: 4px;
-}
-.stat-value {
+.formula-box .formula {
     font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: #4e1318;
-    line-height: 1.1;
+    font-size: 22px;
+    font-style: italic;
+    color: #701c23;
+    letter-spacing: 0.5px;
 }
 
-/* Result panel */
 .result-panel {
     background: linear-gradient(135deg, #701c23 0%, #4e1318 60%, #2d0a0d 100%);
     padding: 30px 34px;
@@ -236,37 +172,87 @@ html, body, [class*="css"] {
 }
 .result-panel .rp-big {
     font-family: 'Playfair Display', serif;
-    font-size: 44px;
+    font-size: 48px;
     font-weight: 900;
     color: #ffffff;
     line-height: 1;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     position: relative;
 }
 .result-panel .rp-desc {
-    font-size: 13px;
-    line-height: 1.6;
-    color: rgba(244,240,235,0.9);
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: rgba(244,240,235,0.92);
     position: relative;
 }
 
-/* Formula box */
-.formula-box {
-    margin: 16px 0;
-    padding: 20px 24px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, rgba(112,28,35,0.05) 0%, rgba(217,195,163,0.10) 100%);
-    border: 1px dashed rgba(112,28,35,0.35);
-    text-align: center;
+.prob-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 14px;
 }
-.formula-box .formula {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-style: italic;
+.prob-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: rgba(217,195,163,0.10);
+    border-left: 3px solid #d9c3a3;
+    transition: background 0.25s ease;
+}
+.prob-row:hover {
+    background: rgba(217,195,163,0.20);
+}
+.prob-row.highlight {
+    background: rgba(112,28,35,0.12);
+    border-left-color: #701c23;
+}
+.prob-label {
+    min-width: 62px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #4e1318;
+    letter-spacing: 0.3px;
+}
+.prob-bar-wrap {
+    flex: 1;
+    height: 12px;
+    background: rgba(217,195,163,0.22);
+    border-radius: 99px;
+    overflow: hidden;
+}
+.prob-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #701c23, #a8323d);
+    border-radius: 99px;
+}
+.prob-value {
+    min-width: 58px;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 700;
     color: #701c23;
+    font-family: 'Playfair Display', serif;
 }
 
-/* Button */
+.input-panel {
+    padding: 4px 0;
+}
+.input-readout {
+    font-size: 12px;
+    color: #701c23;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: rgba(217,195,163,0.15);
+    border-radius: 10px;
+    border-left: 3px solid #701c23;
+}
+
 .stButton > button {
     background: linear-gradient(135deg, #701c23 0%, #a8323d 100%) !important;
     color: #ffffff !important;
@@ -286,6 +272,10 @@ html, body, [class*="css"] {
     background: linear-gradient(135deg, #a8323d 0%, #701c23 100%) !important;
 }
 
+.stSlider > div > div > div > div {
+    background: linear-gradient(90deg, #701c23 0%, #a8323d 100%) !important;
+}
+
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: #f4f0eb; }
 ::-webkit-scrollbar-thumb {
@@ -300,42 +290,28 @@ html, body, [class*="css"] {
 
 
 # ============================================================
-# 🧮 FUNGSI POISSON
+# 🧮 FUNGSI POISSON — PURE MATH, HEMAT MEMORI
 # ============================================================
 def poisson_pmf(k, lam):
+    """P(X = k) = (λ^k · e^(-λ)) / k!"""
     if k < 0:
         return 0.0
     return (lam ** k) * math.exp(-lam) / math.factorial(k)
 
 
 def poisson_cdf(k, lam):
-    return sum(poisson_pmf(i, lam) for i in range(k + 1))
-
-
-def simulate_poisson_events(lam, total_periods, seed=None):
-    """Simulasi event Poisson menggunakan metode inverse transform."""
-    if seed is not None:
-        random.seed(seed)
-    events = []
-    for _ in range(total_periods):
-        # Knuth algorithm untuk sampling dari distribusi Poisson
-        L = math.exp(-lam)
-        k = 0
-        p = 1.0
-        while True:
-            k += 1
-            p *= random.random()
-            if p <= L:
-                break
-        events.append(k - 1)
-    return events
+    """P(X ≤ k) = Σ P(X=i) untuk i=0..k"""
+    total = 0.0
+    for i in range(k + 1):
+        total += (lam ** i) * math.exp(-lam) / math.factorial(i)
+    return total
 
 
 # ============================================================
 # HEADER
 # ============================================================
-st.markdown("<h1 class='kreasii-title'>KREASII POISSON</h1>", unsafe_allow_html=True)
-st.markdown("<p class='kreasii-subtitle'>✦ Simulasi Kejadian Langka & Simulasi Monte Carlo ✦</p>", unsafe_allow_html=True)
+st.markdown("<h1 class='kreasi-title'>PREDIKSI CUACA</h1>", unsafe_allow_html=True)
+st.markdown("<p class='kreasi-subtitle'>✦ Distribusi Poisson · Keluarga Poisson ✦</p>", unsafe_allow_html=True)
 
 
 # ============================================================
@@ -343,172 +319,188 @@ st.markdown("<p class='kreasii-subtitle'>✦ Simulasi Kejadian Langka & Simulasi
 # ============================================================
 st.markdown("""
 <div class="kreasi-card">
-    <div class="card-title">Simulasi Monte Carlo dengan Poisson</div>
-    <div class="card-sub">Teori & Praktik</div>
+    <div class="card-title">Apa itu Distribusi Poisson?</div>
+    <div class="card-sub">Teori Singkat</div>
     <div class="card-divider"></div>
     <div class="card-body">
-        <b>Simulasi Monte Carlo</b> adalah teknik untuk memodelkan sistem yang melibatkan
-        unsur acak dengan cara menjalankan eksperimen berulang-ulang menggunakan bilangan random.
-        Dalam konteks Poisson, kita bisa mensimulasikan <b>berapa kali suatu kejadian langka terjadi</b>
-        (misal gempa kecil, kecelakaan, atau kedatangan pelanggan) dalam periode waktu tertentu.
+        <b>Distribusi Poisson</b> adalah distribusi probabilitas diskrit yang menyatakan peluang
+        terjadinya sejumlah <b>kejadian langka</b> dalam suatu interval waktu atau ruang tertentu,
+        jika kejadian-kejadian tersebut terjadi secara <b>independen</b> dengan laju rata-rata <b>λ (lambda)</b>.
         <br><br>
-        Di bawah ini kamu dapat mengatur <b>λ (laju rata-rata)</b> dan <b>jumlah periode simulasi</b>,
-        lalu melihat hasilnya dalam bentuk visualisasi timeline dan statistik.
+        Dalam konteks cuaca, Poisson sangat cocok untuk memodelkan <b>jumlah hari hujan</b>
+        atau <b>jumlah kejadian hujan ekstrem</b> pada rentang waktu tertentu, karena hujan
+        termasuk fenomena langka yang terjadi secara acak dan independen antar hari.
     </div>
     <div class="formula-box">
-        <div class="formula">X ~ Poisson(λ) → P(X = k) = (λ<sup>k</sup> · e<sup>−λ</sup>) / k!</div>
+        <div class="formula">P(X = k) = (λ<sup>k</sup> · e<sup>−λ</sup>) / k!</div>
+    </div>
+    <div class="card-body" style="font-size: 13px;">
+        <b>k</b> = jumlah hari hujan yang diprediksi ·
+        <b>λ</b> = rata-rata hari hujan per bulan ·
+        <b>e</b> ≈ 2.71828
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 
 # ============================================================
-# SECTION 2: KONTROL SIMULASI
+# SECTION 2: INPUT
 # ============================================================
 st.markdown("""
 <div class="kreasi-card">
-    <div class="card-title">Atur Parameter Simulasi</div>
-    <div class="card-sub gold">Setup</div>
+    <div class="card-title">Simulasi Prediksi Hujan</div>
+    <div class="card-sub gold">Interactive Calculator</div>
     <div class="card-divider"></div>
     <div class="card-body">
-        Tentukan laju rata-rata kejadian (λ) dan jumlah periode simulasi yang ingin dijalankan.
+        Atur rata-rata hari hujan per bulan di kotamu, lalu pilih berapa hari hujan
+        yang ingin kamu ketahui peluangnya.
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 col1, col2 = st.columns([1, 1])
+
 with col1:
-    lam_sim = st.slider("λ — rata-rata kejadian per periode", min_value=0.5, max_value=15.0, value=4.0, step=0.5)
+    lam = st.slider(
+        "Rata-rata hari hujan per bulan (λ)",
+        min_value=0.5, max_value=20.0, value=8.0, step=0.5,
+    )
+    st.markdown(
+        f'<div class="input-readout">λ saat ini: {lam} hari/bulan</div>',
+        unsafe_allow_html=True,
+    )
+
 with col2:
-    n_periods = st.slider("Jumlah periode simulasi", min_value=10, max_value=100, value=40, step=10)
-
-seed_choice = st.checkbox("Gunakan seed acak (reproducible)", value=True)
+    k = st.slider(
+        "Jumlah hari hujan yang diprediksi (k)",
+        min_value=0, max_value=30, value=8, step=1,
+    )
+    st.markdown(
+        f'<div class="input-readout">k saat ini: {k} hari</div>',
+        unsafe_allow_html=True,
+    )
 
 
 # ============================================================
-# SECTION 3: JALANKAN SIMULASI
+# SECTION 3: HASIL
 # ============================================================
-if st.button("🎲 Jalankan Simulasi", use_container_width=True):
-    seed = 42 if seed_choice else None
-    events = simulate_poisson_events(lam_sim, n_periods, seed=seed)
+if st.button("🌧️ Hitung Peluang", use_container_width=True):
+    # Hitung probabilitas
+    prob_exact = poisson_pmf(k, lam)
+    prob_cdf = poisson_cdf(k, lam)
+    prob_lebih = 1.0 - prob_cdf
 
-    total_events = sum(events)
-    rata_empiris = total_events / n_periods
-    max_event = max(events)
-    periode_kosong = events.count(0)
+    # Kategori
+    if prob_exact >= 0.15:
+        kategori, emoji = "Sangat Mungkin", "🌊"
+    elif prob_exact >= 0.08:
+        kategori, emoji = "Mungkin", "🌧️"
+    elif prob_exact >= 0.03:
+        kategori, emoji = "Kurang Mungkin", "☁️"
+    else:
+        kategori, emoji = "Sangat Langka", "🌤️"
 
-    # Panel utama
-    st.markdown(f"""
+    # Panel hasil
+    st.markdown(
+        f"""
     <div class="result-panel">
-        <div class="rp-label">Hasil Simulasi Monte Carlo</div>
-        <div class="rp-big">{rata_empiris:.2f}</div>
+        <div class="rp-label">Peluang Tepat {k} Hari Hujan</div>
+        <div class="rp-big">{prob_exact*100:.2f}%</div>
         <div class="rp-desc">
-            Rata-rata kejadian per periode dari simulasi (<b>{n_periods} periode</b>)
-            dengan <b>λ = {lam_sim}</b>
+            {emoji} Kategori: <b style="color:#d9c3a3;">{kategori}</b><br>
+            Dengan rata-rata <b>λ = {lam}</b> hari hujan per bulan, peluang tepat
+            <b>{k} hari hujan</b> adalah <b>{prob_exact*100:.2f}%</b>.
         </div>
     </div>
-    """, unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )
 
-    # Statistik
-    st.markdown(f"""
+    # Distribusi bar chart (k = 0..min(20, max(k, lam*3)))
+    max_k_display = min(20, max(k + 5, int(lam * 3) + 1))
+
+    # Cari nilai maksimum probabilitas untuk scaling bar
+    max_prob = max(poisson_pmf(i, lam) for i in range(max_k_display + 1))
+
+    rows_html = ""
+    for i in range(max_k_display + 1):
+        p = poisson_pmf(i, lam)
+        bar_width = (p / max_prob * 100) if max_prob > 0 else 0
+        highlight_class = " highlight" if i == k else ""
+        rows_html += (
+            f'<div class="prob-row{highlight_class}">'
+            f'<div class="prob-label">{i} hari</div>'
+            f'<div class="prob-bar-wrap">'
+            f'<div class="prob-bar" style="width: {bar_width:.1f}%;"></div>'
+            f'</div>'
+            f'<div class="prob-value">{p*100:.2f}%</div>'
+            f'</div>'
+        )
+
+    st.markdown(
+        f"""
     <div class="kreasi-card">
-        <div class="card-title">Statistik Hasil</div>
-        <div class="card-sub gold">Empiris vs Teori</div>
+        <div class="card-title">Distribusi Peluang</div>
+        <div class="card-sub">P(X = k) untuk k = 0 – {max_k_display}</div>
         <div class="card-divider"></div>
-        <div class="stats-grid">
-            <div class="stat-item">
-                <span class="stat-label">Total Kejadian</span>
-                <div class="stat-value">{total_events}</div>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Rata-rata Empiris</span>
-                <div class="stat-value">{rata_empiris:.2f}</div>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Kejadian Maksimum</span>
-                <div class="stat-value">{max_event}</div>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Periode Kosong</span>
-                <div class="stat-value">{periode_kosong} <span style="font-size:12px;">dari {n_periods}</span></div>
-            </div>
-        </div>
-        <div class="card-body" style="margin-top: 16px; font-size: 13px;">
-            📌 <b>λ teori</b> = {lam_sim} · 
-            <b>Rata-rata empiris</b> = {rata_empiris:.2f} ·
-            Selisih ≈ {abs(rata_empiris - lam_sim):.2f}
-            <br>
-            <i>Semakin banyak periode simulasi, hasil empiris akan semakin dekat ke λ teori
-            (Hukum Bilangan Besar).</i>
-        </div>
+        <div class="prob-grid">{rows_html}</div>
     </div>
-    """, unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )
 
-    # Timeline
-    st.markdown("""
+    # Interpretasi
+    st.markdown(
+        f"""
     <div class="kreasi-card">
-        <div class="card-title">Timeline Kejadian</div>
-        <div class="card-sub">Visualisasi per Periode</div>
-        <div class="card-divider"></div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    timeline_html = '<div class="timeline-wrap"><div class="timeline-label">Setiap kotak = 1 periode · isi = jumlah kejadian</div><div class="timeline-grid">'
-    for i, ev in enumerate(events):
-        if ev == 0:
-            cls = "cell-empty"
-        else:
-            cls = "cell-event"
-        timeline_html += f'<div class="timeline-cell {cls}" title="Periode {i+1}: {ev} kejadian">{ev}</div>'
-    timeline_html += '</div></div>'
-    st.markdown(timeline_html, unsafe_allow_html=True)
-
-    # Perbandingan distribusi
-    st.markdown("""
-    <div class="kreasi-card" style="margin-top: 24px;">
-        <div class="card-title">Perbandingan Empiris vs Teori</div>
-        <div class="card-sub gold">Validasi</div>
+        <div class="card-title">Interpretasi Hasil</div>
+        <div class="card-sub gold">Analisis</div>
         <div class="card-divider"></div>
         <div class="card-body">
-            Tabel perbandingan frekuensi kejadian hasil simulasi dengan peluang teori.
+            📊 <b>Peluang tepat {k} hari hujan:</b> {prob_exact*100:.2f}%<br>
+            📉 <b>Peluang ≤ {k} hari hujan:</b> {prob_cdf*100:.2f}%<br>
+            📈 <b>Peluang &gt; {k} hari hujan:</b> {prob_lebih*100:.2f}%<br>
+            🎯 <b>Kategori:</b> {emoji} {kategori}
+            <br><br>
+            <i>Catatan: Model Poisson mengasumsikan kejadian hujan bersifat independen.
+            Di dunia nyata, cuaca bisa dipengaruhi banyak faktor lain — jadi hasil ini
+            hanya gambaran probabilistik, bukan prediksi mutlak.</i>
         </div>
     </div>
-    """, unsafe_allow_html=True)
-
-    # Hitung frekuensi empiris
-    freq = {}
-    for ev in events:
-        freq[ev] = freq.get(ev, 0) + 1
-
-    max_k = max(max(events), 10)
-    table_rows = ""
-    for i in range(0, max_k + 1):
-        f_emp = freq.get(i, 0)
-        p_emp = f_emp / n_periods
-        p_theory = poisson_pmf(i, lam_sim)
-        table_rows += f"""
-        <div class="prob-row" style="display:flex; align-items:center; gap:14px; padding:10px 14px; border-radius:10px; background: rgba(217,195,163,0.10); border-left: 3px solid #d9c3a3; margin-bottom: 6px;">
-            <div style="min-width:50px; font-size:12px; font-weight:700; color:#4e1318;">k = {i}</div>
-            <div style="flex:1; font-size:12px; color:#3a2f2b;">
-                Empiris: <b>{f_emp}×</b> ({p_emp*100:.1f}%) &nbsp;|&nbsp;
-                Teori: <b>{p_theory*100:.2f}%</b>
-            </div>
-            <div style="min-width:70px; text-align:right; font-size:11px; font-weight:700; color:#701c23; font-family:'Playfair Display',serif;">
-                {f_emp/n_periods*100:.1f}% vs {p_theory*100:.2f}%
-            </div>
-        </div>
-        """
-
-    st.markdown(f'<div style="margin-top: 12px;">{table_rows}</div>', unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )
 
 else:
-    st.markdown("""
-    <div class="kreasi-card" style="margin-top: 16px; opacity: 0.7;">
+    st.markdown(
+        """
+    <div class="kreasi-card" style="opacity: 0.7;">
         <div class="card-body" style="text-align: center; color: #6b5a52;">
-            🎲 <i>Klik "Jalankan Simulasi" untuk memulai simulasi Monte Carlo</i>
+            🌧️ <i>Klik tombol "Hitung Peluang" untuk melihat hasil prediksi</i>
         </div>
     </div>
-    """, unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )
+
+
+# ============================================================
+# SECTION 4: REFERENSI CEPAT
+# ============================================================
+st.markdown("""
+<div class="kreasi-card" style="margin-top: 24px;">
+    <div class="card-title">Referensi Cepat</div>
+    <div class="card-sub">Contoh Nilai λ</div>
+    <div class="card-divider"></div>
+    <div class="card-body">
+        <b>λ = 2–4</b> → daerah kering (misal Nusa Tenggara)<br>
+        <b>λ = 8–12</b> → daerah tropis normal (misal Lampung)<br>
+        <b>λ = 15–20</b> → daerah sangat basah (misal Kalimantan, Papua)<br>
+        <br>
+        <i>Nilai λ tiap daerah bisa berbeda tiap bulan, tergantung musim.</i>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 
 # ============================================================
@@ -516,6 +508,6 @@ else:
 # ============================================================
 st.markdown("""
 <div style="text-align: center; margin-top: 60px; padding: 20px; color: #a89790; font-size: 12px; letter-spacing: 1px;">
-    ✦ KREASII · Keluarga Poisson · HMSD Adyatama ITERA 2026 ✦
+    ✦ KREASI · Prediksi Cuaca · Keluarga Poisson · HMSD Adyatama ITERA 2026 ✦
 </div>
 """, unsafe_allow_html=True)
