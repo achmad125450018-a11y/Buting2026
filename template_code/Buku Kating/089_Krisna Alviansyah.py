@@ -21,8 +21,10 @@ def streamlit_menu():
             "Departemen Internal",
             "Departemen SSD",
             "Departemen Medkraf",
+            "Departemen MINBAK",
         ],
         icons=[
+            "people-fill",
             "people-fill",
             "people-fill",
             "people-fill",
@@ -341,3 +343,192 @@ if menu == "Baleg":
         ]
         display_images_with_data(gambar_urls, data_list)
     baleg()
+
+if menu == "Departemen MINBAK":
+    def Departemen_MINBAK():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=11ZPFbEZT-_znYmtoFvllkzDmtjZZqdT6",
+            "https://drive.google.com/uc?export=view&id=1A3A7pyD9waaN66tz8MjOk7CNjkmQcm9j",
+            "https://drive.google.com/uc?export=view&id=16fTwSHRbmS0lSd780Pxoi20njVL3PgZT",
+            "https://drive.google.com/uc?export=view&id=1STB7xsmVyfXXaQQJ-rwWTG_haUOM8s8s",
+            "https://drive.google.com/uc?export=view&id=1a-45LetmQW4smfpvnV3eo74dvBdf08Qh",
+            "https://drive.google.com/uc?export=view&id=137Jr_3m5OTjNoUgvl2WH9NA_2xNeJ9me",
+            "https://drive.google.com/uc?export=view&id=13UecXpKco2LOfCN-qCZeYBzKKFZUDzZl",
+            "https://drive.google.com/uc?export=view&id=1pco55fiikJLgWRTr8YWgUwdTRue-tzVQ",
+            "https://drive.google.com/uc?export=view&id=1SMOG6rkJLwrFkUJoo6ee-0lEpoJSGJcd",
+            "https://drive.google.com/uc?export=view&id=1lSgP7u2XxjJhJYAfwqIWJjrHPCmuHEvv",
+            "https://drive.google.com/uc?export=view&id=1vEivQoIkyBiq14ZSAXk5HYxYU-jQXTNN",
+            "https://drive.google.com/uc?export=view&id=13Fq-XAk6vNKRcxjnX2HgGbfadJrAS1WE",
+            "https://drive.google.com/uc?export=view&id=18sci74xAan5oYpcTg_ROpw7rkVT280Cv",
+            "https://drive.google.com/uc?export=view&id=18c7IP5KuemJ_tQxGzxIyLaC9xQcygjzu",
+            "https://drive.google.com/uc?export=view&id=1OAx4bEImsVtgSCg69fjSBK8Oxy34BHor",
+        ]
+        data_list = [
+            {
+                "nama": "Kevin Antonio Junior",
+                "nim": "",
+                "umur": "20",
+                "asal":"Manado",
+                "alamat": "GH",
+                "hobbi": "bernyanyi",
+                "sosmed": "@iyamridhomanik",
+                "kesan": "Bang ridho ramahnya gak ketolongan, humble, adem liat bang ridho rasanya",  
+                "pesan":"gass cumlaude bang"# 1
+            },
+            {
+                "nama": "Juesi Apridelia Saragih",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": " ",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1
+            },
+            {
+                "nama": "Dharu Chayoaji Sangsoko",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1
+            },
+            {
+                "nama": "Givaro Ananta",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1  
+            },
+            {
+                "nama": "Monica Patricia Tanjung",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1  
+            },
+            {
+                "nama": "Gh Mikael Niko A S",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":")"# 1  
+            },
+            {
+                "nama": "Siti Sarifah Sumamah",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1
+            },
+            {
+                "nama": "Afghanis Nursholehatunnisa",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1
+            },
+            {
+                "nama": "Hani Qurrota Aini",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1
+            },
+            {
+                "nama": "Jeremia Halim",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1  
+            },
+            {
+                "nama": "Jona Timothy Ogatse Panjaitan",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1  
+            },
+            {
+                "nama": "Sekar Dini Widya Putri",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1  
+            },
+            {
+                "nama": "Wan Nashwa Alhasni Yuska",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "  ",  
+                "pesan":""# 1  
+            },
+            {
+                "nama": "Sekar Dini Widya Putri",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan":""# 1  
+            },
+            {
+                "nama": "Wan Nashwa Alhasni Yuska",
+                "nim": "",
+                "umur": "",
+                "asal":"",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "  ",  
+                "pesan":""# 1  
+            },
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    Departemen_MINBAK()
