@@ -302,7 +302,7 @@ if menu == "Badan Legislatif":
             },     
         ]
         display_images_with_data(gambar_urls, data_list)
-    Badan Legislatif()
+    Baleg()
 
 if menu == "Badan Kesenatoran":
     def Senator():
@@ -427,7 +427,7 @@ if menu == "Badan Kesenatoran":
             },     
         ]
         display_images_with_data(gambar_urls, data_list)
-    Badan Kesenatoran()
+    Senator()
 
 if menu == "Departemen PSDA":
     def PSDA():
