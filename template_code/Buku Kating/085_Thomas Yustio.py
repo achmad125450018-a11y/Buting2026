@@ -13,8 +13,8 @@ def streamlit_menu():
         menu_title=None,
         options=[
             "Kesekjenan",
-            "Baleg",
-            "Senator",
+            "Badan Legislatif",
+            "Badan Kesenatoran",
             "Departemen PSDA",
             "Departemen MIKFES",
             "Departemen Eksternal",
@@ -179,7 +179,7 @@ if menu == "Kesekjenan":
         display_images_with_data(gambar_urls, data_list)
     kesekjenan()
 
-if menu == "Baleg":
+if menu == "Badan Legislatif":
     def Baleg():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
@@ -302,9 +302,9 @@ if menu == "Baleg":
             },     
         ]
         display_images_with_data(gambar_urls, data_list)
-    Baleg()
+    Badan Legislatif()
 
-if menu == "Senator":
+if menu == "Badan Kesenatoran":
     def Senator():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
@@ -427,7 +427,7 @@ if menu == "Senator":
             },     
         ]
         display_images_with_data(gambar_urls, data_list)
-    Senator()
+    Badan Kesenatoran()
 
 if menu == "Departemen PSDA":
     def PSDA():
