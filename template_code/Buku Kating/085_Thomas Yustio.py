@@ -117,8 +117,8 @@ if menu == "Kesekjenan":
                 "alamat": "Kesektariatan HMSD",
                 "hobbi": "Push IMO",
                 "sosmed": "@jars_mrp",
-                "kesan": "Saya melihat bang Fajar sebagai sosok pemimpin yang berwibawa dan tegas.  ",  
-                "pesan":"Semoga bang Fajar selalu diberi kelancaran dalam menjalankan amanah dan tetap semangat dalam mengerjakan Tugas Akhirnya!! "# 1
+                "kesan": "Saya melihat bang Fajar sebagai sosok kahim yang tidak hanya pintar berorganisasi tapi juga dalam akademik",  
+                "pesan":"Semoga bang Fajar selalu diberi kelancaran dalam menjalankan tugas akhir dan sukses sebagai kahim"# 1
             },
             {
                 "nama": "Muhammad Aqil Ramadhan",
@@ -128,8 +128,8 @@ if menu == "Kesekjenan":
                 "alamat": "Sekretariat HMSD",
                 "hobbi": "Dzikir",
                 "sosmed": "@muhammadaqil1111",
-                "kesan": "Bang Aqil orangnya baik, asik dan memberikan kesan yang positif selama saya berinteraksi dengan bang Aqil.",  
-                "pesan":"Semoga bang Aqil selalu diberikan kelancaran dalam menjalani perkuliahan dan tetap semangat dalam mengerjakan Tugas Akhirnya!"# 1
+                "kesan": "Bang Aqil orangnya baik, asik dan memberikan kesan yang sangat positif selama saya berinteraksi dengan bang Aqil seperti saat wawancara.",  
+                "pesan":"Semoga bang Aqil selalu diberikan kelancaran dalam perkuliahan, pengerjaan tugas akhir, dan dapat menyelesaikan amanat sebagai sekjen"# 1
             },
             {
                 "nama": "Efi Defiyati",
@@ -139,8 +139,8 @@ if menu == "Kesekjenan":
                 "alamat": "Airan",
                 "hobbi": "Membaca",
                 "sosmed": "@eefffiidefi",
-                "kesan": "Kak Efi orangnya ramah dan murah senyum.",  
-                "pesan":"Semoga kak Efi selalu diberikan kelancaran dan semangat dalam mengerjakan Tugas Akhirnya!!"# 1
+                "kesan": "Kak Efi orangnya ramah, baik dan murah senyum.",  
+                "pesan":"Semoga kak Efi selalu diberikan kelancaran dalam perkuliahan, pengerjaan tugas akhir, dan kegiatan lainnya"# 1
             },
            {
                 "nama": "Qois Olifio",
@@ -150,8 +150,8 @@ if menu == "Kesekjenan":
                 "alamat": "Kota Baru",
                 "hobbi": "Mainin surat",
                 "sosmed": "@qoisolifio_",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "kesan": "Bang Qois orangnya ramah, baik, dan asik ",  
+                "pesan":"semangat terus kuliahnya bang, jangan lupa jaga kesehatan"# 1
             },
             {
                 "nama": "Hafsa Fazila Arradhi",
@@ -161,8 +161,8 @@ if menu == "Kesekjenan":
                 "alamat": "Bandar Lampung",
                 "hobbi": "Bertemu Luluk",
                 "sosmed": "@hafsafazilahh",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "kesan": "Kak Hafsa orangnya baik, asik, dan ramah sekali",  
+                "pesan":"semangat terus kuliahnya kakak jangan lupa tersenyum dan sehat selalu"# 1
             },
             {
                 "nama": "Luthfia Laila Ramadhani",
@@ -172,8 +172,8 @@ if menu == "Kesekjenan":
                 "alamat": "Airan",
                 "hobbi": "Keliling Balam",
                 "sosmed": "@luthhifiarmdhni",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "kesan": "Kak Luthfia orangnya bak, asik, dan ramah banget",  
+                "pesan":"semangat terus dalam kuliah dan organisasi, jangan lupa jaga kesehatan"# 1
             },
         ]
         display_images_with_data(gambar_urls, data_list)
