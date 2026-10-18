@@ -188,12 +188,13 @@ if menu == "Badan Legislatif":
             "https://drive.google.com/uc?export=view&id=1TkbDnsbJ2SFdYCoj7TN_UIIsSTCSnp9X",
             "https://drive.google.com/uc?export=view&id=1k7LbPvTu-hX8M5r8bk2Yrq9iiCsyi4TW",
             "https://drive.google.com/uc?export=view&id=168sFJITV6TtXBHGudTcLx4AiSrrytBiL",
-            "https://drive.google.com/uc?export=view&id=17yYpt5eK5yhfLZVR0tVnKpxx34F2uC3O",.
+            "https://drive.google.com/uc?export=view&id=17yYpt5eK5yhfLZVR0tVnKpxx34F2uC3O",
             "https://drive.google.com/uc?export=view&id=1VYPb6Qr74i_ZPho0MQZlI71jv7xZ8gSv",
             "https://drive.google.com/uc?export=view&id=1oRzCRfshVOoiSkwMitAara-AZ0KsAdsT",
             "https://drive.google.com/uc?export=view&id=1Zqwtf8ndzFeXlWNbxV_P6-0Gxe3VtUx3",
-            "https://drive.google.com/uc?export=view&id=1k7LbPvTu-hX8M5r8bk2Yrq9iiCsyi4TW",
-            "https://drive.google.com/uc?export=view&id=168sFJITV6TtXBHGudTcLx4AiSrrytBiL",
+            "https://drive.google.com/uc?export=view&id=1JeSTltDuSea0QiTPFPGqErr3m6kknU_9",
+            "https://drive.google.com/uc?export=view&id=1eHu8KVNnZ-teCZF4Q4Bw2UWi8-gLZ02g",
+            "https://drive.google.com/uc?export=view&id=1lS6NKcLB1Ho8J88qN-LBjaZsM55ZcYTX",
         ]
         data_list = [
             {
@@ -305,7 +306,40 @@ if menu == "Badan Legislatif":
                 "sosmed": "@syt.rifah",
                 "kesan": "Kak Siti kerenn, aku mau seperti kak sitii",  
                 "pesan":"Semangat terus kak, semoga sukses kuliahnya, sehat selalu, dan ya semangat terus kakk"# 1   
-            },     
+            },
+            {
+                "nama": "Monica Patricia Tanjung",
+                "nim": "124450121",
+                "umur": "20",
+                "asal":"Depok",
+                "alamat": "Pemda Raya",
+                "hobbi": "Gym dan koleksi figur",
+                "sosmed": "@nagatse",
+                "kesan": "Bang Jona orangnya keren, kece, absolute cinemaaa pokoknyaa",  
+                "pesan":"Semoga sehat terus bang, semangat kuliahnya, gym nya jugaa"# 1   
+            },    
+            {
+                "nama": "Sekar Dini Widya Putri",
+                "nim": "124450082",
+                "umur": "20",
+                "asal":"Metro",
+                "alamat": "Pemda",
+                "hobbi": "Nginep di kos Putri",
+                "sosmed": "@sekardnwt",
+                "kesan": "Bang Niko keren banget, kayak adeknya ezra",  
+                "pesan":"Semangat terus bang semoga sukses di baleg terus sampai tahun selanjutnya"# 1   
+            },    
+            {
+                "nama": "Afghanis Nursholehatunnisa",
+                "nim": "124450020",
+                "umur": "20",
+                "asal":"Kotabumi",
+                "alamat": "Sukarame",
+                "hobbi": "",
+                "sosmed": "@syt.rifah",
+                "kesan": "Kak Siti kerenn, aku mau seperti kak sitii",  
+                "pesan":"Semangat terus kak, semoga sukses kuliahnya, sehat selalu, dan ya semangat terus kakk"# 1   
+            },
         ]
         display_images_with_data(gambar_urls, data_list)
     Baleg()
