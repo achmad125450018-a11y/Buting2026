@@ -471,7 +471,7 @@ if menu == "Senator":
         display_images_with_data(gambar_urls, data_list)
     Senator()
 
-if menu == "PSDA":
+if menu == "Departemen PSDA":
     def PSDA():
         gambar_urls = [
             "https://drive.google.com/uc?export=15bGfYVoiqTkyGIoMFODDmq_7ee86AllF",
@@ -586,7 +586,7 @@ if menu == "PSDA":
                 "nim": "124450056",
                 "umur": "18",
                 "asal":"Depok",
-                "alamat": "Oiya Cafe,
+                "alamat": "Oiya Cafe",
                 "hobbi": "jalan kaki ga boleh naik gojek",
                 "sosmed": "@putrimannaa",
                 "kesan": "tegas dan berwibawa",  
