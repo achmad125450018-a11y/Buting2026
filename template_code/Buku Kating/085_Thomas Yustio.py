@@ -182,12 +182,18 @@ if menu == "Kesekjenan":
 if menu == "Badan Legislatif":
     def Baleg():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1YwXU3-HhvqYMd0RaQUnXp2hQcLFlkjDZ",
+            "https://drive.google.com/uc?export=view&id=1mQ_4_p-17pm-ILkbdcqj1zC4Xnfq5Ilu",
+            "https://drive.google.com/uc?export=view&id=13Njv7jm9vovmFlVDph7NCvJfUXMahjZk",
+            "https://drive.google.com/uc?export=view&id=1TkbDnsbJ2SFdYCoj7TN_UIIsSTCSnp9X",
+            "https://drive.google.com/uc?export=view&id=1k7LbPvTu-hX8M5r8bk2Yrq9iiCsyi4TW",
+            "https://drive.google.com/uc?export=view&id=168sFJITV6TtXBHGudTcLx4AiSrrytBiL",
+            "https://drive.google.com/uc?export=view&id=17yYpt5eK5yhfLZVR0tVnKpxx34F2uC3O",.
+            "https://drive.google.com/uc?export=view&id=1VYPb6Qr74i_ZPho0MQZlI71jv7xZ8gSv",
+            "https://drive.google.com/uc?export=view&id=1oRzCRfshVOoiSkwMitAara-AZ0KsAdsT",
+            "https://drive.google.com/uc?export=view&id=1Zqwtf8ndzFeXlWNbxV_P6-0Gxe3VtUx3",
+            "https://drive.google.com/uc?export=view&id=1k7LbPvTu-hX8M5r8bk2Yrq9iiCsyi4TW",
+            "https://drive.google.com/uc?export=view&id=168sFJITV6TtXBHGudTcLx4AiSrrytBiL",
         ]
         data_list = [
             {
@@ -203,7 +209,7 @@ if menu == "Badan Legislatif":
             },
             {
                 "nama": "Juesi Apridelia Saragih",
-                "nim": "1234450021",
+                "nim": "1234450085",
                 "umur": "19",
                 "asal":"Singkawang",
                 "alamat": "Pelangi",
