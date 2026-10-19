@@ -734,7 +734,7 @@ if menu == "Departemen Internal":
         display_images_with_data(gambar_urls, data_list)
     Internal()
 
-if menu == "BASON":
+if menu == "Senator":
     def Senator():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1w-rCPlAlpDzDwgr0DWnzYHhV188f4RSx",
