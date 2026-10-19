@@ -14,90 +14,150 @@ st.set_page_config(
 )
 
 # ==================================================
-# CSS TEMA BIRU
+# CSS TEMA SCRAPBOOK / PAPER GRID (SESUAI GAMBAR)
 # ==================================================
 st.markdown("""
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap');
+
 :root {
-    --navy: #102b60;
-    --blue: #1769e8;
-    --light-blue: #eaf3ff;
-    --text: #263957;
+    --navy-text: #1d2a44;
+    --gold-accent: #a67c46;
+    --paper-bg: #f9f8f3;
+    --grid-line: #e3e7ed;
 }
 
 .stApp {
-    background: linear-gradient(180deg, #f4f8ff, #ffffff 55%, #eef5ff);
-    color: var(--text);
+    background-color: #f3f5f8;
+    color: var(--navy-text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .block-container {
-    max-width: 1200px;
-    padding-top: 1.8rem;
+    max-width: 1100px;
+    padding-top: 2rem;
     padding-bottom: 3rem;
 }
 
 .centered-title {
     text-align: center;
-    color: var(--navy);
-    font-size: 2.5rem;
-    font-weight: 900;
+    color: var(--navy-text);
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
     letter-spacing: 2px;
     margin-bottom: 5px;
+    text-transform: uppercase;
 }
 
 .subtitle {
     text-align: center;
-    color: #6680a8;
+    color: #6a7b95;
     font-size: 15px;
-    margin-bottom: 28px;
+    margin-bottom: 30px;
 }
 
-.profile-card {
-    background: linear-gradient(145deg, #ffffff, #f6f9ff);
-    padding: 24px;
-    border-radius: 20px;
-    border: 1px solid #dfebff;
-    border-left: 5px solid var(--blue);
-    box-shadow: 0 8px 25px rgba(23, 72, 145, 0.08);
-    margin: 5px 0 18px 0;
-    overflow-wrap: anywhere;
+/* CONTAINER SCRAPBOOK CARD */
+.scrapbook-card {
+    background-color: var(--paper-bg);
+    background-image: 
+        linear-gradient(var(--grid-line) 1.2px, transparent 1.2px),
+        linear-gradient(90deg, var(--grid-line) 1.2px, transparent 1.2px);
+    background-size: 24px 24px;
+    border-radius: 16px;
+    padding: 28px 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2ded4;
+    margin-bottom: 30px;
+    position: relative;
 }
 
-.profile-header {
-    font-size: 21px;
-    font-weight: 800;
-    color: var(--navy);
-    margin-bottom: 14px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #e5efff;
+/* NAMA UTAMA HUKUM KAPITAL */
+.scrapbook-name {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--navy-text);
+    line-height: 1.15;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
 }
 
-.profile-card p {
-    color: #435674;
+/* GARIS PEMBATAS GOLD */
+.scrapbook-divider {
+    height: 3px;
+    background-color: var(--gold-accent);
+    width: 140px;
+    margin-bottom: 18px;
+    border-radius: 2px;
+}
+
+/* KOTAK INFORMASI / BIODATA */
+.info-box {
+    border: 2px solid var(--gold-accent);
+    border-radius: 8px;
+    padding: 16px 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+    margin-top: 15px;
+}
+
+.info-item {
     font-size: 14px;
-    line-height: 1.8;
-    margin: 7px 0;
+    font-weight: 700;
+    color: var(--navy-text);
+    margin: 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
 }
 
 .info-label {
-    font-weight: 750;
-    color: var(--navy);
+    display: inline-block;
+    min-width: 110px;
+    color: var(--gold-accent);
+}
+
+.info-value {
+    color: var(--navy-text);
+    font-weight: 800;
+}
+
+/* FOTO EFEK POLAROID / CLIP */
+.photo-container {
+    position: relative;
+    padding: 10px;
+}
+
+.photo-container::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 20px;
+    width: 35px;
+    height: 15px;
+    background: rgba(210, 190, 165, 0.6);
+    transform: rotate(-12deg);
+    z-index: 10;
+    border-radius: 2px;
 }
 
 div[data-testid="stImage"] img {
-    border-radius: 20px;
-    border: 3px solid white;
-    box-shadow: 0 8px 24px rgba(20, 61, 120, 0.14);
+    border-radius: 12px;
+    border: 6px solid #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     object-fit: cover;
+    transform: rotate(-1.5deg);
+    transition: transform 0.3s ease;
+}
+
+div[data-testid="stImage"] img:hover {
+    transform: rotate(0deg) scale(1.02);
 }
 
 hr {
-    border-color: #dce9fc !important;
-    margin: 25px 0 !important;
-}
-
-div[data-testid="stAlert"] {
-    border-radius: 14px;
+    border-color: #e0e6ed !important;
+    margin: 35px 0 !important;
 }
 
 [data-testid="stSidebar"] {
@@ -109,21 +169,14 @@ div[data-testid="stAlert"] {
 }
 
 @media (max-width: 768px) {
-    .block-container {
-        padding: 1rem 0.8rem 2rem;
+    .scrapbook-card {
+        padding: 18px;
     }
-
-    .centered-title {
-        font-size: 1.8rem;
+    .scrapbook-name {
+        font-size: 1.7rem;
     }
-
-    .profile-card {
-        padding: 17px;
-        border-radius: 16px;
-    }
-
-    .profile-header {
-        font-size: 18px;
+    .info-label {
+        min-width: 90px;
     }
 }
 </style>
@@ -160,7 +213,7 @@ def streamlit_menu():
                 "padding": "8px",
                 "background-color": "#ffffff",
                 "border-radius": "18px",
-                "box-shadow": "0 5px 20px rgba(16,43,96,0.09)",
+                "box-shadow": "0 5px 20px rgba(16,43,96,0.06)",
                 "border": "1px solid #e0ebff",
             },
             "icon": {
@@ -198,7 +251,7 @@ def load_image(url):
         img = Image.open(BytesIO(response.content))
         img = ImageOps.exif_transpose(img)
         img = img.convert("RGB")
-        img = img.resize((300, 400))
+        img = img.resize((320, 420))
         return img
     except Exception:
         return None
@@ -206,18 +259,14 @@ def load_image(url):
 
 def get_cached_images(gambar_urls):
     images = []
-
     for i, url in enumerate(gambar_urls):
-        with st.spinner(
-            f"Memuat gambar {i + 1} dari {len(gambar_urls)}"
-        ):
+        with st.spinner(f"Memuat gambar {i + 1} dari {len(gambar_urls)}"):
             images.append(load_image(url))
-
     return images
 
 
 # ==================================================
-# FUNGSI MENAMPILKAN PROFIL
+# FUNGSI MENAMPILKAN PROFIL (TAMPILAN SCRAPBOOK)
 # ==================================================
 def display_images_with_data(gambar_urls, data_list):
     images = get_cached_images(gambar_urls)
@@ -228,52 +277,40 @@ def display_images_with_data(gambar_urls, data_list):
 
         data = data_list[i]
 
-        st.markdown(
-            f"""
-            <div style="
-                background:linear-gradient(120deg,#eaf3ff,#ffffff);
-                padding:12px 18px;
-                border-radius:14px;
-                margin:12px 0 15px;
-                border:1px solid #dfebff;
-                color:#1769e8;
-                font-size:13px;
-                font-weight:700;
-                letter-spacing:1px;">
-                ANGGOTA {i + 1:02d}
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        # Container Utama untuk Kartu Profil
+        st.markdown("<div class='scrapbook-card'>", unsafe_allow_html=True)
 
-        col1, col2 = st.columns([1, 2], gap="large")
+        col1, col2 = st.columns([1, 1.6], gap="large")
 
         with col1:
+            st.markdown("<div class='photo-container'>", unsafe_allow_html=True)
             if img is not None:
                 st.image(img, use_container_width=True)
             else:
                 st.warning("Gagal memuat gambar.")
+            st.markdown("</div>", unsafe_allow_html=True)
 
         with col2:
             st.markdown(
                 f"""
-                <div class='profile-card'>
-                    <div class='profile-header'>
-                        {data['nama']}
-                    </div>
-                    <p><span class='info-label'>NIM:</span> {data['nim']}</p>
-                    <p><span class='info-label'>Umur:</span> {data['umur']} Tahun</p>
-                    <p><span class='info-label'>Asal:</span> {data['asal']}</p>
-                    <p><span class='info-label'>Alamat:</span> {data['alamat']}</p>
-                    <p><span class='info-label'>Hobbi:</span> {data['hobbi']}</p>
-                    <p><span class='info-label'>Sosial Media:</span> {data['sosmed']}</p>
-                    <p><span class='info-label'>Kesan:</span> {data['kesan']}</p>
-                    <p><span class='info-label'>Pesan:</span> {data['pesan']}</p>
+                <div class='scrapbook-name'>{data['nama']}</div>
+                <div class='scrapbook-divider'></div>
+                
+                <div class='info-box'>
+                    <div class='info-item'><span class='info-label'>NIM</span> : <span class='info-value'>{data['nim']}</span></div>
+                    <div class='info-item'><span class='info-label'>UMUR</span> : <span class='info-value'>{data['umur']} TAHUN</span></div>
+                    <div class='info-item'><span class='info-label'>ASAL</span> : <span class='info-value'>{data['asal']}</span></div>
+                    <div class='info-item'><span class='info-label'>ALAMAT</span> : <span class='info-value'>{data['alamat']}</span></div>
+                    <div class='info-item'><span class='info-label'>HOBBI</span> : <span class='info-value'>{data['hobbi']}</span></div>
+                    <div class='info-item'><span class='info-label'>SOSMED</span> : <span class='info-value'>{data['sosmed']}</span></div>
+                    <div class='info-item'><span class='info-label'>KESAN</span> : <span class='info-value'>{data['kesan']}</span></div>
+                    <div class='info-item'><span class='info-label'>PESAN</span> : <span class='info-value'>{data['pesan']}</span></div>
                 </div>
                 """,
                 unsafe_allow_html=True
             )
 
+        st.markdown("</div>", unsafe_allow_html=True)
         st.markdown("---")
 
     st.success("Semua data berhasil dimuat!")
@@ -299,7 +336,7 @@ if menu == "Kesekjenan":
     ]
 
     data_list = [
-        {"nama": "Ginda Fajar Riadi Marpaung", "nim": "123450103", "umur": "22", "asal": "Batam", "alamat": "Kesekretariat HMSD", "hobbi": "Push IMO", "sosmed": "@jars_mrp", "kesan": "Abangnya seruu, dlu pernah jadi kadiv op pas natal SD25 bisa diajak serius dan bercanda.", "pesan": "Semangat dan sukses selalu bangg!!"},
+        {"nama": "Ginda Fajar Riadi Marpaung", "nim": "123450103", "umur": "22", "asal": "Batam", "alamat": "Kesekretariat HMSD", "hobbi": "Push IMO", "sosmed": "@jars_mrp", "kesan": "Abangnya seruu, dlu pernah jadi kadiv op pas natal SD25 bisa diajak serious dan bercanda.", "pesan": "Semangat dan sukses selalu bangg!!"},
         {"nama": "Muhammad Aqil Ramadhan", "nim": "123450066", "umur": "22", "asal": "Riau", "alamat": "Kesekretariat HMSD", "hobbi": "Dzkir", "sosmed": "@muhammadaqil1111", "kesan": "Abangnya seru bisa diajak bercanda dan bisa diajak bicara serius.", "pesan": "Sukses selalu serta semangat dalam melaksanakan tugas!"},
         {"nama": "Efi Defiyati", "nim": "123450005", "umur": "21", "asal": "Lampung Timur", "alamat": "Airan", "hobbi": "Membaca", "sosmed": "@eeffiidefi", "kesan": "Kakaknya murah senyum.", "pesan": "Sukses selalu kak dan semangat!"},
         {"nama": "Qois Olifio", "nim": "123450067", "umur": "22", "asal": "Batam", "alamat": "Kota Baru", "hobbi": "Mainin surat", "sosmed": "@qoisolifio_", "kesan": "Abangnya soft spoken, lucuu.", "pesan": "Sukses selalu dan semangat bang!!"},
