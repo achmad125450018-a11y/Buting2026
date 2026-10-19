@@ -733,3 +733,132 @@ if menu == "Departemen Internal":
         ]
         display_images_with_data(gambar_urls, data_list)
     Internal()
+
+if menu == "BASON":
+    def Senator():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=1w-rCPlAlpDzDwgr0DWnzYHhV188f4RSx",
+            "https://drive.google.com/uc?export=view&id=1H0JDw9g3VuBq27LoV_ZDD2H7IoVhWRLG",
+            "https://drive.google.com/uc?export=view&id=1DToMyoJ8wKUM0fvPuz9bvFlcP3o9FKKH",
+            "https://drive.google.com/uc?export=view&id=1a7aHNPGQfzkJrI2ivkGGC96X-s0VeI2r",
+            "https://drive.google.com/uc?export=view&id=1zIZDLXVP9JJ0OGslxMoL1d_8QgaF8jCK",
+            "https://drive.google.com/uc?export=view&id=1r-6rPWoM0CkuatUcUEQKJ2ezuojsfytq",
+            "https://drive.google.com/uc?export=view&id=1F5lwFSVA9XvDRfO8qLpdMqfWwUgsmLUR",
+            "https://drive.google.com/uc?export=view&id=1g1Q8Uqa0Oc2jGn0yxDmckjzzwYVPkMQw",
+            "https://drive.google.com/uc?export=view&id=1oWYM1XQSUwTbSzM-NAqtd3rVgGzdWSIp",
+            "https://drive.google.com/uc?export=view&id=1EOlLdB7ht7Jm5yCXNVS0Wzdd01YGRpFr",
+        ]
+        data_list = [
+            {
+                "nama": "Fathinah Nur Azizah",
+                "nim": "123450072",
+                "umur": "21 Tahun",
+                "asal":"Jakarta",
+                "alamat": "Airan",
+                "hobbi": "Nulis di medium",
+                "sosmed": "@fathinahnazzh",
+                "kesan": "Kakaknya terlihat pembawaannya santai",  
+                "pesan":"Semangat ya kak kuliahnya semoga lulus tepat waktu dengan cumlaude :)"# 1
+            },
+            {
+                "nama": "Helmy Surya Pratama",
+                "nim": "124450033",
+                "umur": "20 Tahun",
+                "asal":"Jakarta",
+                "alamat": "Kedamaian",
+                "hobbi": "ngesen kiri",
+                "sosmed": "@helmy.inst",
+                "kesan": "Abangnya santai, asik dan humoris banget",  
+                "pesan":"Semangat terus ya bang helmy kuliahnya, selalu lucu ya bang"# 1
+            },
+            {
+                "nama": "Lia Hana Ichisasmita",
+                "nim": "123450089",
+                "umur": "21 tahun",
+                "asal":"Jakarta",
+                "alamat": "Belwis",
+                "hobbi": "Ngerjain dl",
+                "sosmed": "@lia.h_264",
+                "kesan": "Kakak humble banget",  
+                "pesan":"Semangat selalu ya kakak nim acu, lulus cumlaude ya :)"# 1
+            },
+            {
+                "nama": "Nadya Ratu Anjani",
+                "nim": "123450083",
+                "umur": "21 tahun",
+                "asal":"Bandar lampung",
+                "alamat": "Sukarame",
+                "hobbi": "Dengar lagu",
+                "sosmed": "@nadyaanjaani",
+                "kesan": "Kakaknya mudah banget di ajak bicara kerasa aku ngomong sama kakak aku",  
+                "pesan":"Energi positifnya jangan padam ya kak, semangat dan semoga lulus dengan cumlaude :)"# 1  
+            },
+            {
+                "nama": "Fernando Dimetrius Barus",
+                "nim": "124450063",
+                "umur": "21 Tahun",
+                "asal":"Tangerang kota",
+                "alamat": "Sebelah Kamar Biwa",
+                "hobbi": "Main Badminton",
+                "sosmed": "@barus.fernando",
+                "kesan": "Abangnya terlihat sangat pembaik",  
+                "pesan":"Semangat kuliahnya ya bang Fernando, jangan menyerah!"# 1  
+            },
+            {
+                "nama": "Suci Aulia",
+                "nim": "124450034",
+                "umur": "19 Tahun",
+                "asal":"Pesisir Barat",
+                "alamat": "Kota baru",
+                "hobbi": "Sekarang jadi kameramen",
+                "sosmed": "@sciia__",
+                "kesan": "Kak Suci terlihat berwibawa",  
+                "pesan":"Kuliah dengan lulus Cumlaude ya kak"# 1  
+            },
+            {
+                "nama": "Wielman Itolo Halawa",
+                "nim": "124450072",
+                "umur": "20 Tahun",
+                "asal":"Nias Selatan",
+                "alamat": "Asrama tb 3",
+                "hobbi": "Menggambar",
+                "sosmed": "@wielhawny",
+                "kesan": "Terlihat cool abangnya",  
+                "pesan":"Lulus cumlaude ya bang (maap template bang)"# 1
+            },
+            {
+                "nama": "Aqila Zayyan Salsabil",
+                "nim": "124450014",
+                "umur": "19 tahun",
+                "asal":"Lampung Utara",
+                "alamat": "Sukarame",
+                "hobbi": "Mendokumentasi Bayes",
+                "sosmed": "@aqilazayyaan",
+                "kesan": "Kak Aqila terlihat lucu, dan pembaik banget",  
+                "pesan":"Semangat terus ya kak aqila selalu tunjukkan energi positif kakak :)"# 1
+            },
+            {
+                "nama": "Hazel Mahesa Handhaka",
+                "nim": "124450114",
+                "umur": "19 Tahun",
+                "asal":"Lampung Timur",
+                "alamat": "Gunung terang",
+                "hobbi": "Dokumentasi lanyard DATAVORA",
+                "sosmed": "@hazelhandhaka",
+                "kesan": "cool, badass, pembaik",  
+                "pesan":"Semangat terus bang Hazel tebarkan pesona kamu seluas luasnya ya bang, pasti sukses abang"# 1
+            },
+            {
+                "nama": "Dwi Rahma Fitriani",
+                "nim": "124450095",
+                "umur": "19 Tahun",
+                "asal":"Tulang bawang",
+                "alamat": "Belwis",
+                "hobbi": "Tidur",
+                "sosmed": "@dellaansaftr",
+                "kesan": "Pembaik banget kakaknya",  
+                "pesan":"lulus tepat waktu ya kak :)"# 1  
+            },
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    Senator()
