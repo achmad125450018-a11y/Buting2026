@@ -490,3 +490,20 @@ def streamlit_menu(default_index=0):
             },
         },
     )
+
+
+# 1. Variabel CSS Sidebar
+SIDEBAR_CSS = """
+<style>
+[data-testid="stSidebar"] { background: linear-gradient(180deg, #701c23 0%, #4e1318 100%) !important; }
+/* ... (css sidebar lainnya) ... */
+</style>
+"""
+
+# 2. Fungsi yang dipanggil oleh halaman_utama.py
+def setup_common():
+    st.markdown(SIDEBAR_CSS, unsafe_allow_html=True)
+
+def setup_halaman_utama_css(custom_css: str):
+    setup_common()
+    st.markdown(custom_css, unsafe_allow_html=True)
