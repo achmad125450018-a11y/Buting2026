@@ -281,18 +281,18 @@ elif menu == "About Us":
     )
     st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
 
-    # CSS Khusus Bingkai Foto
+    # CSS Khusus untuk memberi bingkai langsung ke elemen gambar Streamlit
     st.markdown(
         """
         <style>
-        .photo-frame {
-            border: 10px solid #c5a059;
-            outline: 3px solid #8b5a2b;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-            background-color: #ffffff;
-            padding: 8px;
-            margin-bottom: 20px;
+        /* Mengaplikasikan Bingkai Emas Langsung ke Gambar Streamlit */
+        [data-testid="stImage"] img {
+            border: 8px solid #c5a059 !important;
+            outline: 3px solid #8b5a2b !important;
+            border-radius: 12px !important;
+            padding: 6px !important;
+            background-color: #ffffff !important;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.25) !important;
         }
         </style>
         """,
@@ -438,11 +438,8 @@ elif menu == "About Us":
         col_img, col_bio = st.columns([1, 1.4], vertical_alignment="center")
 
         with col_img:
-          # Bingkai Foto dimasukkan dalam kontainer st.container()
-          with st.container():
-            st.markdown('<div class="photo-frame">', unsafe_allow_html=True)
-            st.image(img, use_container_width=True)
-            st.markdown("</div>", unsafe_allow_html=True)
+          # Foto langsung dirender (styling bingkai sudah dipasang via CSS di atas)
+          st.image(img, use_container_width=True)
 
         with col_bio:
           # Desain Biodata Kertas Tua (Old Paper)
