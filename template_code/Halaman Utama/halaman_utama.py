@@ -143,7 +143,7 @@ if menu == "Home":
       st.markdown(
           """
             <div style="border: 3px dashed #FCF0DA; padding: 40px; text-align: center; border-radius: 15px; background-color: #fdfbf7;">
-                <h2>📘 COVER ALBUM COSVAL</h2>
+                <h2> ALBUM COSVAL</h2>
                 <p>Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
                 <p style="color: gray; font-size: 0.9em;">Klik tombol di bawah untuk membuka album.</p>
             </div>
@@ -262,7 +262,7 @@ elif menu == "About Us":
     st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
 
     gambar_urls = [
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1CkTOku6mtZq-sryae2A1H_dx5moG-R1q",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
@@ -284,7 +284,7 @@ elif menu == "About Us":
             ),
         },
         {
-            "nama": "Nama Anggota 2",
+            "nama": "Ester Friana Sitorus",
             "sebagai": "Bu Lurah",
             "nim": "122450000",
             "fun_fact": "nyemilin es bata",
