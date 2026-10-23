@@ -14,29 +14,6 @@ def load_image(url):
   return img
 
 
-def display_images_with_data(gambar_urls, data_list):
-  images = []
-  for i, url in enumerate(gambar_urls):
-    with st.spinner(f"Memuat gambar {i + 1} dari {len(gambar_urls)}"):
-      img = load_image(url)
-      if img is not None:
-        images.append(img)
-
-  for i, img in enumerate(images):
-    # menampilkan gambar di tengah
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-      st.image(img, use_container_width=True)
-
-    if i < len(data_list):
-      st.write(f"Nama: {data_list[i]['nama']}")
-      st.write(f"Sebagai: {data_list[i]['sebagai']}")
-      st.write(f"NIM: {data_list[i]['nim']}")
-      st.write(f"Fun Fact: {data_list[i]['fun_fact']}")
-      st.write(f"Motto Hidup: {data_list[i]['motto_hidup']}")
-      st.write("---")  # Pembatas antar anggota
-
-
 # JANGAN DIUBAH
 
 st.markdown(
@@ -117,18 +94,47 @@ if menu == "Home":
     )
     st.write("---")
 
-    # --- FITUR ALBUM COSVAL ---
+    # --- CSS KHUSUS TAMPILAN BUKU ALBUM ---
     st.markdown(
-        "<h2 style='text-align: center;'>📖 Album Dokumentasi Cosval</h2>",
+        """
+        <style>
+        .book-cover {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-left: 15px solid #111;
+            margin-bottom: 20px;
+        }
+        .book-spread {
+            background: #fdfbf7;
+            border: 2px solid #dcd6cd;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left: 8px solid #d4c5b9;
+            border-right: 8px solid #d4c5b9;
+            margin-bottom: 20px;
+        }
+        </style>
+        """,
         unsafe_allow_html=True,
     )
+
+    # Judul Album Tanpa Stiker Buku
+    st.markdown(
+        "<h2 style='text-align: center;'>Album Dokumentasi Cosval</h2>",
+        unsafe_allow_html=True,
+    )
+    st.write("")
 
     # Inisialisasi state halaman album (0 = Tertutup, 1 = Hal 1, 2 = Hal 2, 3 = Hal 3)
     if "album_page" not in st.session_state:
       st.session_state.album_page = 0
 
-    # Daftar 6 foto untuk 3 halaman album (masing-masing 2 foto per halaman)
-    # Anda bisa mengganti URL di bawah ini dengan foto dokumentasi kelompok Anda
+    # Daftar 6 foto untuk 3 halaman album (2 foto per halaman)
     album_photos = [
         "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",  # Foto 1 (Hal 1)
         "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",  # Foto 2 (Hal 1)
@@ -142,42 +148,46 @@ if menu == "Home":
     if st.session_state.album_page == 0:
       st.markdown(
           """
-            <div style="border: 3px dashed #FCF0DA; padding: 40px; text-align: center; border-radius: 15px; background-color: #fdfbf7;">
-                <h2> ALBUM COSVAL</h2>
+            <div class="book-cover">
+                <h1>ALBUM Kelompok COSVAL</h1>
                 <p>Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
-                <p style="color: gray; font-size: 0.9em;">Klik tombol di bawah untuk membuka album.</p>
+                <p style="color: #bbb; font-size: 0.9em; margin-top: 15px;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
             </div>
             """,
           unsafe_allow_html=True,
       )
-      st.write("")
       col_btn1, col_btn2, col_btn3 = st.columns([1, 2, 1])
       with col_btn2:
-        if st.button("📖 Buka Album", use_container_width=True):
+        if st.button("Buka Album", use_container_width=True):
           st.session_state.album_page = 1
           st.rerun()
 
     # 2. KONDISI HALAMAN 1
     elif st.session_state.album_page == 1:
       st.markdown(
-          "<h4 style='text-align: center; color: #555;'>Halaman 1 / 3</h4>",
+          """
+            <div class="book-spread">
+                <h4 style='text-align: center; color: #7f8c8d; margin-top: 0;'>— Halaman 1 dari 3 —</h4>
+            """,
           unsafe_allow_html=True,
       )
+
       col1, col2 = st.columns(2)
       with col1:
         st.image(
             load_image(album_photos[0]),
-            caption="Dokumentasi 1",
+            caption="Dokumentasi 1 (Halaman Kiri)",
             use_container_width=True,
         )
       with col2:
         st.image(
             load_image(album_photos[1]),
-            caption="Dokumentasi 2",
+            caption="Dokumentasi 2 (Halaman Kanan)",
             use_container_width=True,
         )
 
-      st.write("")
+      st.markdown("</div>", unsafe_allow_html=True)
+
       c1, c2, c3 = st.columns([1, 2, 1])
       with c1:
         if st.button("◀ Tutup Album"):
@@ -191,24 +201,29 @@ if menu == "Home":
     # 3. KONDISI HALAMAN 2
     elif st.session_state.album_page == 2:
       st.markdown(
-          "<h4 style='text-align: center; color: #555;'>Halaman 2 / 3</h4>",
+          """
+            <div class="book-spread">
+                <h4 style='text-align: center; color: #7f8c8d; margin-top: 0;'>— Halaman 2 dari 3 —</h4>
+            """,
           unsafe_allow_html=True,
       )
+
       col1, col2 = st.columns(2)
       with col1:
         st.image(
             load_image(album_photos[2]),
-            caption="Dokumentasi 3",
+            caption="Dokumentasi 3 (Halaman Kiri)",
             use_container_width=True,
         )
       with col2:
         st.image(
             load_image(album_photos[3]),
-            caption="Dokumentasi 4",
+            caption="Dokumentasi 4 (Halaman Kanan)",
             use_container_width=True,
         )
 
-      st.write("")
+      st.markdown("</div>", unsafe_allow_html=True)
+
       c1, c2, c3 = st.columns([1, 2, 1])
       with c1:
         if st.button("◀ Sebelumnya"):
@@ -222,24 +237,29 @@ if menu == "Home":
     # 4. KONDISI HALAMAN 3 (AKHIR)
     elif st.session_state.album_page == 3:
       st.markdown(
-          "<h4 style='text-align: center; color: #555;'>Halaman 3 / 3 (Akhir)</h4>",
+          """
+            <div class="book-spread">
+                <h4 style='text-align: center; color: #7f8c8d; margin-top: 0;'>— Halaman 3 dari 3 (Akhir) —</h4>
+            """,
           unsafe_allow_html=True,
       )
+
       col1, col2 = st.columns(2)
       with col1:
         st.image(
             load_image(album_photos[4]),
-            caption="Dokumentasi 5",
+            caption="Dokumentasi 5 (Halaman Kiri)",
             use_container_width=True,
         )
       with col2:
         st.image(
             load_image(album_photos[5]),
-            caption="Dokumentasi 6",
+            caption="Dokumentasi 6 (Halaman Kanan)",
             use_container_width=True,
         )
 
-      st.write("")
+      st.markdown("</div>", unsafe_allow_html=True)
+
       c1, c2, c3 = st.columns([1, 2, 1])
       with c1:
         if st.button("◀ Sebelumnya"):
@@ -261,12 +281,30 @@ elif menu == "About Us":
     )
     st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
 
+    # Pilihan Filter Tampilan
+    filter_pilihan = st.radio(
+        "Tampilkan Profil:",
+        ["Semua", "Pak Lurah", "Bu Lurah", "Anggota"],
+        horizontal=True,
+    )
+    st.write("")
+
     gambar_urls = [
-        "https://drive.google.com/uc?export=view&id=1CkTOku6mtZq-sryae2A1H_dx5moG-R1q",
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        (  # Pak Lurah (Indeks 0)
+            "https://drive.google.com/uc?export=view&id=1CkTOku6mtZq-sryae2A1H_dx5moG-R1q"
+        ),
+        (  # Bu Lurah (Indeks 1)
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
+        ),
+        (  # Anggota 3 (Indeks 2)
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
+        ),
+        (  # Anggota 4 (Indeks 3)
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
+        ),
+        (  # Anggota 5 (Indeks 4)
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
+        ),
     ]
 
     data_list = [
@@ -279,8 +317,8 @@ elif menu == "About Us":
                 " dulu"
             ),
             "motto_hidup": (
-                "Dengan bekingan doa ibu, jangankan kalah imbangpun saya tidak"
-                " sudi!"
+                "Dengan bekingan doa ibu, jangankan kalah imbangpun saya"
+                " tidak sudi!"
             ),
         },
         {
@@ -312,6 +350,68 @@ elif menu == "About Us":
             "motto_hidup": "jalanin dulu keles",
         },
     ]
-    display_images_with_data(gambar_urls, data_list)
+
+    # Menentukan indeks yang akan ditampilkan berdasarkan filter
+    if filter_pilihan == "Semua":
+      indices = [0, 1, 2, 3, 4]
+    elif filter_pilihan == "Pak Lurah":
+      indices = [0]
+    elif filter_pilihan == "Bu Lurah":
+      indices = [1]
+    else:  # Anggota
+      indices = [2, 3, 4]
+
+    images = [load_image(u) for u in gambar_urls]
+
+    for idx in indices:
+      if idx < len(data_list) and idx < len(images):
+        img = images[idx]
+        data = data_list[idx]
+
+        # Membuat tata letak: Foto di Kiri (Bingkai Emas), Biodata di Kanan (Old Paper)
+        col_img, col_bio = st.columns([1, 1.5], vertical_alignment="center")
+
+        with col_img:
+          # Bingkai Emas untuk Foto
+          st.markdown(
+              """
+                    <div style="
+                        border: 6px solid #d4af37; 
+                        padding: 6px; 
+                        background: white; 
+                        box-shadow: 0 6px 15px rgba(0,0,0,0.25); 
+                        border-radius: 6px;
+                        margin-bottom: 15px;">
+                    """,
+              unsafe_allow_html=True,
+          )
+          st.image(img, use_container_width=True)
+          st.markdown("</div>", unsafe_allow_html=True)
+
+        with col_bio:
+          # Gaya Kertas Tua (Old Paper Style)
+          st.markdown(
+              f"""
+                    <div style="
+                        background-color: #f4ecd8; 
+                        background-image: linear-gradient(to bottom, #f4ecd8, #e9dcbe);
+                        border: 2px solid #b39b77; 
+                        padding: 20px; 
+                        border-radius: 8px; 
+                        box-shadow: inset 0 0 15px rgba(139, 69, 19, 0.15), 0 4px 8px rgba(0,0,0,0.1); 
+                        color: #3e2723;
+                        font-family: serif;
+                        margin-bottom: 15px;">
+                        <h3 style="margin-top: 0; color: #5c3a21; border-bottom: 1px solid #b39b77; padding-bottom: 8px;">{data['nama']}</h3>
+                        <p style="margin: 6px 0;"><b>Sebagai:</b> {data['sebagai']}</p>
+                        <p style="margin: 6px 0;"><b>NIM:</b> {data['nim']}</p>
+                        <p style="margin: 6px 0;"><b>Fun Fact:</b> {data['fun_fact']}</p>
+                        <p style="margin: 6px 0;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
+                    </div>
+                    """,
+              unsafe_allow_html=True,
+          )
+
+        st.write("---")
 
   about_page()
