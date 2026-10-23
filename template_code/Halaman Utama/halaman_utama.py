@@ -281,32 +281,58 @@ elif menu == "About Us":
     )
     st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
 
+    # CSS Khusus Bingkai Foto
+    st.markdown(
+        """
+        <style>
+        .photo-frame {
+            border: 10px solid #c5a059;
+            outline: 3px solid #8b5a2b;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            background-color: #ffffff;
+            padding: 8px;
+            margin-bottom: 20px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
     # Pilihan Filter Tampilan
     filter_pilihan = st.radio(
         "Tampilkan Profil:",
         ["Semua", "Pak Lurah", "Bu Lurah", "Anggota"],
         horizontal=True,
     )
+
+    # Judul Khusus untuk Opsi "Semua"
+    if filter_pilihan == "Semua":
+      st.markdown(
+          "<h2 style='text-align: center; margin-top: 20px;"
+          " margin-bottom: 20px; color: #5c3a21;'>Kenalan Yuk Sama"
+          " Cosval!</h2>",
+          unsafe_allow_html=True,
+      )
+
     st.write("")
 
+    # 11 URL Gambar (1 Pak Lurah, 1 Bu Lurah, 9 Anggota)
     gambar_urls = [
-        (  # Pak Lurah (Indeks 0)
-            "https://drive.google.com/uc?export=view&id=1CkTOku6mtZq-sryae2A1H_dx5moG-R1q"
-        ),
-        (  # Bu Lurah (Indeks 1)
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
-        ),
-        (  # Anggota 3 (Indeks 2)
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
-        ),
-        (  # Anggota 4 (Indeks 3)
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
-        ),
-        (  # Anggota 5 (Indeks 4)
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
-        ),
+        "https://drive.google.com/uc?export=view&id=1CkTOku6mtZq-sryae2A1H_dx5moG-R1q",  # Pak Lurah (0)
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Bu Lurah (1)
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 1 (2)
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 2 (3)
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 3 (4)
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 4 (5)
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 5 (6)
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 6 (7)
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 7 (8)
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 8 (9)
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 9 (10)
     ]
 
+    # Data 11 Anggota
     data_list = [
         {
             "nama": "Herfan Hidayat",
@@ -329,84 +355,114 @@ elif menu == "About Us":
             "motto_hidup": "Ya apa ya",
         },
         {
-            "nama": "Nama Anggota 3",
+            "nama": "Nama Anggota 1",
             "sebagai": "Anggota",
             "nim": "122450083",
-            "fun_fact": "nyemilin es bata",
-            "motto_hidup": "mantap",
+            "fun_fact": "Isi fun fact",
+            "motto_hidup": "Isi motto hidup",
+        },
+        {
+            "nama": "Nama Anggota 2",
+            "sebagai": "Anggota",
+            "nim": "122450000",
+            "fun_fact": "Isi fun fact",
+            "motto_hidup": "Isi motto hidup",
+        },
+        {
+            "nama": "Nama Anggota 3",
+            "sebagai": "Anggota",
+            "nim": "122450100",
+            "fun_fact": "Isi fun fact",
+            "motto_hidup": "Isi motto hidup",
         },
         {
             "nama": "Nama Anggota 4",
             "sebagai": "Anggota",
             "nim": "122450000",
-            "fun_fact": "nyemilin",
-            "motto_hidup": "jalanin dulu aja",
+            "fun_fact": "Isi fun fact",
+            "motto_hidup": "Isi motto hidup",
         },
         {
             "nama": "Nama Anggota 5",
             "sebagai": "Anggota",
-            "nim": "122450100",
-            "fun_fact": "nyemilin es bata, kiko",
-            "motto_hidup": "jalanin dulu keles",
+            "nim": "122450000",
+            "fun_fact": "Isi fun fact",
+            "motto_hidup": "Isi motto hidup",
+        },
+        {
+            "nama": "Nama Anggota 6",
+            "sebagai": "Anggota",
+            "nim": "122450000",
+            "fun_fact": "Isi fun fact",
+            "motto_hidup": "Isi motto hidup",
+        },
+        {
+            "nama": "Nama Anggota 7",
+            "sebagai": "Anggota",
+            "nim": "122450000",
+            "fun_fact": "Isi fun fact",
+            "motto_hidup": "Isi motto hidup",
+        },
+        {
+            "nama": "Nama Anggota 8",
+            "sebagai": "Anggota",
+            "nim": "122450000",
+            "fun_fact": "Isi fun fact",
+            "motto_hidup": "Isi motto hidup",
+        },
+        {
+            "nama": "Nama Anggota 9",
+            "sebagai": "Anggota",
+            "nim": "122450000",
+            "fun_fact": "Isi fun fact",
+            "motto_hidup": "Isi motto hidup",
         },
     ]
 
-    # Menentukan indeks yang akan ditampilkan berdasarkan filter
+    # Menentukan indeks berdasarkan filter
     if filter_pilihan == "Semua":
-      indices = [0, 1, 2, 3, 4]
+      indices = list(range(11))
     elif filter_pilihan == "Pak Lurah":
       indices = [0]
     elif filter_pilihan == "Bu Lurah":
       indices = [1]
-    else:  # Anggota
-      indices = [2, 3, 4]
-
-    images = [load_image(u) for u in gambar_urls]
+    else:  # 9 Anggota
+      indices = list(range(2, 11))
 
     for idx in indices:
-      if idx < len(data_list) and idx < len(images):
-        img = images[idx]
+      if idx < len(data_list) and idx < len(gambar_urls):
+        img = load_image(gambar_urls[idx])
         data = data_list[idx]
 
-        # Membuat tata letak: Foto di Kiri (Bingkai Emas), Biodata di Kanan (Old Paper)
-        col_img, col_bio = st.columns([1, 1.5], vertical_alignment="center")
+        # Tata letak: Foto di Kiri, Biodata di Kanan
+        col_img, col_bio = st.columns([1, 1.4], vertical_alignment="center")
 
         with col_img:
-          # Bingkai Emas untuk Foto
-          st.markdown(
-              """
-                    <div style="
-                        border: 6px solid #d4af37; 
-                        padding: 6px; 
-                        background: white; 
-                        box-shadow: 0 6px 15px rgba(0,0,0,0.25); 
-                        border-radius: 6px;
-                        margin-bottom: 15px;">
-                    """,
-              unsafe_allow_html=True,
-          )
-          st.image(img, use_container_width=True)
-          st.markdown("</div>", unsafe_allow_html=True)
+          # Bingkai Foto dimasukkan dalam kontainer st.container()
+          with st.container():
+            st.markdown('<div class="photo-frame">', unsafe_allow_html=True)
+            st.image(img, use_container_width=True)
+            st.markdown("</div>", unsafe_allow_html=True)
 
         with col_bio:
-          # Gaya Kertas Tua (Old Paper Style)
+          # Desain Biodata Kertas Tua (Old Paper)
           st.markdown(
               f"""
                     <div style="
                         background-color: #f4ecd8; 
                         background-image: linear-gradient(to bottom, #f4ecd8, #e9dcbe);
                         border: 2px solid #b39b77; 
-                        padding: 20px; 
+                        padding: 22px; 
                         border-radius: 8px; 
                         box-shadow: inset 0 0 15px rgba(139, 69, 19, 0.15), 0 4px 8px rgba(0,0,0,0.1); 
                         color: #3e2723;
                         font-family: serif;
-                        margin-bottom: 15px;">
-                        <h3 style="margin-top: 0; color: #5c3a21; border-bottom: 1px solid #b39b77; padding-bottom: 8px;">{data['nama']}</h3>
-                        <p style="margin: 6px 0;"><b>Sebagai:</b> {data['sebagai']}</p>
-                        <p style="margin: 6px 0;"><b>NIM:</b> {data['nim']}</p>
-                        <p style="margin: 6px 0;"><b>Fun Fact:</b> {data['fun_fact']}</p>
-                        <p style="margin: 6px 0;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
+                        margin-bottom: 20px;">
+                        <h3 style="margin-top: 0; color: #5c3a21; border-bottom: 2px solid #b39b77; padding-bottom: 8px;">{data['nama']}</h3>
+                        <p style="margin: 8px 0; font-size: 1.05em;"><b>Sebagai:</b> {data['sebagai']}</p>
+                        <p style="margin: 8px 0; font-size: 1.05em;"><b>NIM:</b> {data['nim']}</p>
+                        <p style="margin: 8px 0; font-size: 1.05em;"><b>Fun Fact:</b> {data['fun_fact']}</p>
+                        <p style="margin: 8px 0; font-size: 1.05em;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
                     </div>
                     """,
               unsafe_allow_html=True,
