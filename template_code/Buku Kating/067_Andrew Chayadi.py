@@ -770,8 +770,20 @@ elif menu == "Departemen PSDA":
                 "https://drive.google.com/uc?export=view&id=1FKzZtv-iDhjZB_ZCI_bV5kmK1IqjbLUL",
                 "https://drive.google.com/uc?export=view&id=1hwMvpoPLc4SgNgdcSQOvwFhIM6yzQs9e",
                 "https://drive.google.com/uc?export=view&id=13ZKxCk_pOUaiNoq_XNuBCBiXuzs0w4iX",
+                "https://drive.google.com/uc?export=view&id=1CzK_qdmB15tqlk-HgJRzv1Xywt7AXMw5",
             ]
             data_list_Divisi_Kaderisasi = [
+            {
+            "nama": "",
+            "nim": "",
+            "umur": "",
+            "asal": "",
+            "alamat": "",
+            "hobbi": "",
+            "sosmed": "",
+            "kesan": "",  
+            "pesan": ""
+            },
             {
             "nama": "",
             "nim": "",
