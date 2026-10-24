@@ -3,7 +3,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 # ============================================================
-# 🎨 UI STREAMLIT (Paksa Iframe Full Width)
+# 🎨 UI STREAMLIT (Memaksa Lebar Penuh)
 # ============================================================
 st.markdown("""
 <style>
@@ -53,11 +53,11 @@ html, body, [class*="css"] {
     font-size: 0.95em !important;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     margin-top: 8px;
 }
 
-/* HANCURKAN BATAS LEBAR IFRAME STREAMLIT */
+/* 💡 KUNCI PEMBEBAS LEBAR: Memaksa iframe Streamlit jadi 100% */
 iframe[title="streamlit_component"] {
     width: 100% !important;
     max-width: 100% !important;
@@ -72,7 +72,7 @@ st.markdown("<h1 class='title'>DATA CATCHER</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>✦ Bersihkan Data, Kumpulkan Skor! ✦</p>", unsafe_allow_html=True)
 
 # ============================================================
-# 🎮 HTML/JS GAME (Layout Flexbox Anti-Tabrakan)
+# 🎮 HTML/JS GAME (Bebas Bug & Responsive)
 # ============================================================
 game_html = """
 <!DOCTYPE html>
@@ -90,10 +90,8 @@ game_html = """
         height: 100vh;
     }
     
-    /* Kanvas Game Full Lebar */
     #game-container {
         width: 100%;
-        max-width: 100%;
         height: 550px;
         background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
         border-radius: 20px;
@@ -106,7 +104,6 @@ game_html = """
         align-items: center;
     }
     
-    /* HUD (Waktu, Skor, Nyawa) */
     #hud {
         width: 100%;
         display: flex;
@@ -118,16 +115,15 @@ game_html = """
     .stat {
         background: rgba(217,195,163,0.15);
         border: 1px solid rgba(217,195,163,0.5);
-        padding: 8px 20px;
+        padding: 8px 25px;
         border-radius: 12px;
         font-weight: 700;
         color: #701c23;
         font-size: 16px;
         text-align: center;
-        min-width: 100px;
+        min-width: 110px;
     }
 
-    /* Area Jatuh Emoji */
     #play-area {
         position: absolute;
         top: 0; left: 0;
@@ -136,7 +132,6 @@ game_html = """
         overflow: hidden;
     }
 
-    /* Emoji */
     .item {
         position: absolute;
         font-size: 60px;
@@ -152,19 +147,19 @@ game_html = """
         100% { top: 100%; }
     }
 
-    /* Layar Start & Game Over (Tengah) */
+    /* Di tengah secara sempurna, tidak menutupi HUD */
     .screen {
         position: absolute;
-        top: 50%; left: 50%;
+        top: 55%; left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
         z-index: 20;
         width: 90%;
-        max-width: 400px;
-        padding: 40px 20px;
+        max-width: 450px;
+        padding: 40px 30px;
         background: rgba(255,255,255,0.98);
         border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.12);
         border: 1px solid rgba(217,195,163,0.8);
     }
     h2 {
@@ -177,14 +172,14 @@ game_html = """
         color: #4e1318;
         font-size: 15px;
         margin-bottom: 25px;
-        line-height: 1.5;
+        line-height: 1.6;
     }
     button {
         background: linear-gradient(135deg, #701c23 0%, #a8323d 100%);
         color: white;
         border: none;
         border-radius: 12px;
-        padding: 12px 30px;
+        padding: 14px 30px;
         font-weight: 700;
         font-size: 16px;
         cursor: pointer;
@@ -250,6 +245,10 @@ game_html = """
     const gameoverScreen = document.getElementById("gameover-screen");
 
     function startGame() {
+        // Bersihkan semua timer yang mungkin nyangkut
+        clearInterval(timerInterval);
+        clearInterval(spawnInterval);
+        
         score = 0;
         lives = 3;
         timeLeft = 30;
@@ -264,9 +263,7 @@ game_html = """
         playArea.style.display = "block";
         playArea.innerHTML = ""; 
 
-        clearInterval(timerInterval);
-        clearInterval(spawnInterval);
-
+        // Timer normal
         timerInterval = setInterval(() => {
             if (!isPlaying) return;
             timeLeft--;
@@ -274,7 +271,8 @@ game_html = """
             if (timeLeft <= 0) endGame();
         }, 1000);
 
-        spawnInterval = setInterval(spawnItem, 500); // Spawn tiap 0.5 detik
+        // Spawn emoji
+        spawnInterval = setInterval(spawnItem, 600);
     }
 
     function spawnItem() {
@@ -354,5 +352,7 @@ game_html = """
 </html>
 """
 
-# Panggil langsung tanpa st.columns
-components.html(game_html, height=580, scrolling=False)
+# Gunakan st.empty() sebagai trik agar iframe Streamlit mau melebar 100%
+placeholder = st.empty()
+with placeholder.container():
+    components.html(game_html, height=560, scrolling=False)
