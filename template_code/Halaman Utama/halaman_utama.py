@@ -16,19 +16,19 @@ def load_image(url):
 
 # JANGAN DIUBAH
 
-# Global Blackpink Theme Styling
+# Global Futuristic Green & Black Theme Styling
 st.markdown(
     """
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Courier+New:wght@400;700&family=Inter:wght@400;600;700&display=swap');
     
     html, body, [class*="st"] {
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Inter', sans-serif;
     }
     
     .stApp {
-        background-color: #0b0b0b;
-        color: #ffffff;
+        background-color: #030712;
+        color: #f8fafc;
     }
     </style>
     """,
@@ -37,9 +37,9 @@ st.markdown(
 
 st.markdown(
     """
-    <div style='text-align: center; padding: 15px 0;'>
-        <h1 style='font-size: 4.5em; font-weight: 800; color: #ff1493; text-shadow: 0 0 25px rgba(255, 20, 147, 0.4); letter-spacing: 2px; margin-bottom: 0;'>WEBSITE KATING</h1>
-        <p style='font-size: 1.6em; font-weight: 600; color: #ffffff; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px;'>CEO HMSD Adyatama ITERA 2026</p>
+    <div style='text-align: center; padding: 20px 0;'>
+        <h1 style='font-size: 4.2em; font-weight: 800; color: #4ade80; text-shadow: 0 0 25px rgba(74, 222, 128, 0.4); font-family: "Courier New", monospace; letter-spacing: 2px; margin-bottom: 0;'>WEBSITE KATING</h1>
+        <p style='font-size: 1.5em; font-weight: 600; color: #94a3b8; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px;'>CEO HMSD Adyatama ITERA 2026</p>
     </div>
     """,
     unsafe_allow_html=True,
@@ -73,21 +73,21 @@ def streamlit_menu():
       styles={
           "container": {
               "padding": "0!important",
-              "background-color": "#121212",
+              "background-color": "#0f172a",
               "border-radius": "12px",
-              "border": "1px solid #ff1493",
+              "border": "1px solid #22c55e",
           },
-          "icon": {"color": "#ff1493", "font-size": "19px"},
+          "icon": {"color": "#4ade80", "font-size": "19px"},
           "nav-link": {
               "font-size": "15px",
               "text-align": "center",
               "margin": "0px",
-              "color": "#ffffff",
-              "--hover-color": "#ff149333",
+              "color": "#f8fafc",
+              "--hover-color": "#22c55e22",
           },
           "nav-link-selected": {
-              "background-color": "#ff1493",
-              "color": "#ffffff",
+              "background-color": "#22c55e",
+              "color": "#030712",
               "font-weight": "bold",
           },
       },
@@ -100,23 +100,23 @@ menu = streamlit_menu()
 if menu == "Home":
 
   def home_page():
-    # Blackpink & Modern Dark CSS Styling
+    # Futuristic Green & Black CSS Styling
     st.markdown(
         """
         <style>
         .deskripsi-title {
             text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            color: #ff1493;
+            font-family: 'Courier New', monospace;
+            font-size: 2.3em;
+            color: #4ade80;
             margin-bottom: 20px;
-            font-weight: 800;
-            text-shadow: 0 0 15px rgba(255, 20, 147, 0.3);
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(74, 222, 128, 0.3);
         }
         
         /* Teks Overlay Foto Kelompok */
         .photo-caption-box {
-            background: linear-gradient(135deg, #18181b, #000000);
+            background: linear-gradient(135deg, #0f172a, #030712);
             color: white;
             text-align: center;
             padding: 20px 15px;
@@ -124,54 +124,54 @@ if menu == "Home":
             border-bottom-right-radius: 16px;
             margin-bottom: 25px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-            border: 1px solid #ff1493;
+            border: 1px solid #22c55e;
             border-top: none;
         }
         
         .badge-cosval {
             display: inline-block;
-            background: #ff1493;
+            background: #22c55e;
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.85em;
             margin-bottom: 10px;
             letter-spacing: 2px;
             font-weight: 700;
-            color: #ffffff;
-            box-shadow: 0 0 10px rgba(255,20,147,0.5);
+            color: #030712;
+            box-shadow: 0 0 10px rgba(34,197,94,0.4);
         }
         
         .photo-text-title {
             margin: 0;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1.3em;
             font-weight: 700;
             line-height: 1.4;
-            color: #ffffff;
+            color: #f8fafc;
         }
 
-        /* Kotak Deskripsi (Tema Hitam-Pink) */
+        /* Kotak Deskripsi (Tema Hijau-Hitam) */
         .desc-box {
-            border: 2px solid #ff1493;
-            background: #121212;
+            border: 2px solid #22c55e;
+            background: #0f172a;
             border-radius: 16px;
             padding: 30px;
-            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.15);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.15);
             margin-bottom: 30px;
         }
         
         .desc-heading {
-            color: #ff69b4;
-            font-family: 'Montserrat', sans-serif;
+            color: #4ade80;
+            font-family: 'Courier New', monospace;
             margin-top: 0;
             margin-bottom: 15px;
-            font-size: 1.6em;
+            font-size: 1.5em;
             font-weight: 700;
         }
         
         .desc-content {
-            color: #e0e0e0;
-            font-family: 'Montserrat', sans-serif;
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
             line-height: 1.8;
             font-size: 1.05em;
             margin: 0;
@@ -179,22 +179,22 @@ if menu == "Home":
         }
 
         .book-cover {
-            background: linear-gradient(135deg, #121212, #000000);
+            background: linear-gradient(135deg, #0f172a, #030712);
             color: white;
             padding: 50px 20px;
             text-align: center;
             border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-            border: 2px solid #ff1493;
+            border: 2px solid #22c55e;
             margin-bottom: 20px;
         }
         
         .book-spread {
-            background: #121212;
-            border: 2px solid #ff1493;
+            background: #0f172a;
+            border: 2px solid #22c55e;
             border-radius: 16px;
             padding: 30px;
-            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.2);
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.2);
             margin-bottom: 20px;
         }
         </style>
@@ -245,7 +245,7 @@ if menu == "Home":
 
     # --- FITUR ALBUM COSVAL ---
     st.markdown(
-        "<h2 style='text-align: center; color: #ff1493; font-weight: 800;'>Album Dokumentasi Cosval</h2>",
+        "<h2 style='text-align: center; color: #4ade80; font-family: \"Courier New\", monospace; font-weight: 700;'>Album Dokumentasi Cosval</h2>",
         unsafe_allow_html=True,
     )
     st.write("")
@@ -266,9 +266,9 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-cover">
-                <h1 style="color: #ff1493; font-weight: 800;">ALBUM Kelompok COSVAL</h1>
-                <p style="color: #cccccc;">Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
-                <p style="color: #ff69b4; font-size: 0.9em; margin-top: 15px; font-weight: 600;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
+                <h1 style="color: #4ade80; font-family: 'Courier New', monospace; font-weight: 700;">ALBUM Kelompok COSVAL</h1>
+                <p style="color: #94a3b8;">Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
+                <p style="color: #22c55e; font-size: 0.9em; margin-top: 15px; font-weight: 600;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
             </div>
             """,
           unsafe_allow_html=True,
@@ -283,7 +283,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #ff69b4; margin-top: 0;'>— Halaman 1 dari 3 —</h4>
+                <h4 style='text-align: center; color: #4ade80; margin-top: 0;'>— Halaman 1 dari 3 —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -316,7 +316,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #ff69b4; margin-top: 0;'>— Halaman 2 dari 3 —</h4>
+                <h4 style='text-align: center; color: #4ade80; margin-top: 0;'>— Halaman 2 dari 3 —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -349,7 +349,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #ff69b4; margin-top: 0;'>— Halaman 3 dari 3 (Akhir) —</h4>
+                <h4 style='text-align: center; color: #4ade80; margin-top: 0;'>— Halaman 3 dari 3 (Akhir) —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -384,22 +384,22 @@ elif menu == "About Us":
 
   def about_page():
     st.markdown(
-        """<style>.centered-title {text-align: center; color: #ff1493; font-weight: 800;}</style>""",
+        """<style>.centered-title {text-align: center; color: #4ade80; font-family: 'Courier New', monospace; font-weight: 700;}</style>""",
         unsafe_allow_html=True,
     )
     st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
 
-    # CSS Bingkai Foto About Us (Blackpink Edition)
+    # CSS Bingkai Foto About Us (Green Cyber Edition)
     st.markdown(
         """
         <style>
         .about-photo img {
-            border: 4px solid #ff1493 !important;
-            outline: 2px solid #000000 !important;
+            border: 4px solid #22c55e !important;
+            outline: 2px solid #030712 !important;
             border-radius: 12px !important;
             padding: 4px !important;
-            background-color: #121212 !important;
-            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.3) !important;
+            background-color: #0f172a !important;
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3) !important;
         }
         </style>
         """,
@@ -415,8 +415,8 @@ elif menu == "About Us":
     if filter_pilihan == "Semua":
       st.markdown(
           "<h2 style='text-align: center; margin-top: 20px;"
-          " margin-bottom: 20px; color: #ff69b4; font-weight: 700;'>Kenalan"
-          " Yuk Sama Cosval!</h2>",
+          " margin-bottom: 20px; color: #4ade80; font-family: \"Courier New\","
+          " monospace; font-weight: 700;'>Kenalan Yuk Sama Cosval!</h2>",
           unsafe_allow_html=True,
       )
 
@@ -545,24 +545,16 @@ elif menu == "About Us":
           st.markdown(
               f"""
                     <div style="
-                        background-color: #121212; 
-                        border: 2px solid #ff1493; 
+                        background-color: #0f172a; 
+                        border: 2px solid #22c55e; 
                         padding: 22px; 
                         border-radius: 12px; 
-                        box-shadow: 0 4px 15px rgba(255, 20, 147, 0.2); 
-                        color: #ffffff;
-                        font-family: 'Montserrat', sans-serif;
+                        box-shadow: 0 4px 15px rgba(34, 197, 94, 0.2); 
+                        color: #f8fafc;
+                        font-family: 'Inter', sans-serif;
                         margin-bottom: 20px;">
-                        <h3 style="margin-top: 0; color: #ff1493; border-bottom: 2px solid #ff1493; padding-bottom: 8px;">{data['nama']}</h3>
+                        <h3 style="margin-top: 0; color: #4ade80; border-bottom: 2px solid #22c55e; padding-bottom: 8px;">{data['nama']}</h3>
                         <p style="margin: 8px 0; font-size: 1.05em;"><b>Sebagai:</b> {data['sebagai']}</p>
                         <p style="margin: 8px 0; font-size: 1.05em;"><b>NIM:</b> {data['nim']}</p>
                         <p style="margin: 8px 0; font-size: 1.05em;"><b>Fun Fact:</b> {data['fun_fact']}</p>
-                        <p style="margin: 8px 0; font-size: 1.05em;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
-                    </div>
-                    """,
-              unsafe_allow_html=True,
-          )
-
-        st.write("---")
-
-  about_page()
+                        <p style="margin: 8px
