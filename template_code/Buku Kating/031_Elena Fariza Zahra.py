@@ -103,10 +103,10 @@ if menu == "Kesekjenan":
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1vt4Ul7yLIr4ccAOvOcQKDMx9CX6QvLIE",
             "https://drive.google.com/uc?export=view&id=1OnHEVce_KXdA7KZXrlUQRUx2ofhKfhpH",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
+            "https://drive.google.com/uc?export=view&id=1iKhdTk8fyd8gKGVsBLosb4CjDOCbiMhU",
+            "https://drive.google.com/uc?export=view&id=1Qh0SWrQcPn1zQyO32MqWQhgWGgjZH2zz",
+            "https://drive.google.com/uc?export=view&id=1hWjE3y4PfNWjv_KoSaiyRghzf-dekdvx",
+            "https://drive.google.com/uc?export=view&id=1q9GaH2jo8Ws0WkiP24_sMe9vEoQPs4N3"
         ]
         data_list = [
             {
@@ -183,17 +183,17 @@ if menu == "Baleg":
     def baleg():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1PVuPM-LqRj77Xv9lffQuFo5Mte6zourJ",
+            "https://drive.google.com/uc?export=view&id=1QJi9y6CBThXydH9IWxXDoB5VPDmeSu_5",
+            "https://drive.google.com/uc?export=view&id=1AfyX9dSYwbFMSsQDAmitnH216fWqzlw7",
+            "https://drive.google.com/uc?export=view&id=1bK0ems6xIipnLwkJiw4Q0z66kh8WiLgG",
+            "https://drive.google.com/uc?export=view&id=10yYNxf5l3mU7YH9usCxj3PFCYYoyJdPE",
+            "https://drive.google.com/uc?export=view&id=1tgQ6Ibmww-4_AIMm0bdJh1Op-r7oUzRr",
+            "https://drive.google.com/uc?export=view&id=1CSKqI78w_6_IqgD90XBB2w3KqCUGi_cP",
+            "https://drive.google.com/uc?export=view&id=1-UuhhSRKUEy4w9FYniNDS7cmAFNHUFs3",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"            
+            "https://drive.google.com/uc?export=view&id=1Q3_C68ljoviKFxRamDCb5DtospNhCvTn",
+            "https://drive.google.com/uc?export=view&id=1VKITfJlwUKg8cQiy9Arqv9cm8mKGALOY",
+            "https://drive.google.com/uc?export=view&id=13zgEAqCJN5HoP2yzf4jy4o3o3W26M4CK"            
         ]
         data_list = [
             {
@@ -347,27 +347,27 @@ if menu == "Departemen Eksternal":
     def Departemen_Eksternal():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1A0mHWHx23jYQ9xK9dFC59egL9Ypd3yit",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
+            "https://drive.google.com/uc?export=view&id=1jDxGELEi7-RjLI2rRngBisDpnhFnid2g",
+            "https://drive.google.com/uc?export=view&id=1VtwvTBLM1K33D3GNy86dcCqy55Gd_ndh",
+            "https://drive.google.com/uc?export=view&id=193EHz9-wNQxKMnSOLMlN71YDAhfjtTIM",
+            "https://drive.google.com/uc?export=view&id=1FM3WuSyZjkhrPE25AQkkiimB4CTBX8f8",
+            "https://drive.google.com/uc?export=view&id=1VkXbGdt7cXHNjrxU_YC9cjq0P_WH48wB",
+            "https://drive.google.com/uc?export=view&id=1_inLaSuz8NSLWYcSwYAJmKocBGLl0b-V",
+            "https://drive.google.com/uc?export=view&id=16OYXkbReCCOfQs5y3K_YAftZVtUzM2WJ",
+            "https://drive.google.com/uc?export=view&id=1nqtM3nUiSYMzPlsukxVSuZnC35j8hgY-",
+            "https://drive.google.com/uc?export=view&id=1zT3aEb9-YVh5utKTnZ-Qyb7EU5gf3ohp",
+            "https://drive.google.com/uc?export=view&id=1u6uFbX52xLO0T7RVZBGf-8cqkBodBweE",
+            "https://drive.google.com/uc?export=view&id=1fQl8tz8OJ741JEZO22M_cwO06F6ejeUT",
+            "https://drive.google.com/uc?export=view&id=1a0xbXJFOHHQjiglueSR45S7pBlVmdUKW",
+            "https://drive.google.com/uc?export=view&id=1FNql0Nm0wVlqzMtoPoyC_X5wY4y8mzR9",
+            "https://drive.google.com/uc?export=view&id=1XCqCmTm-ZQICw4toQ0pH0dYmlolbdEqV",
+            "https://drive.google.com/uc?export=view&id=1jzaBoPUPVthzTNsUtNqrBqmwKa62kspV",
+            "https://drive.google.com/uc?export=view&id=1wLiQn75RPExkvOjkti_3di3-wI2l3Roa",
+            "https://drive.google.com/uc?export=view&id=1WelXUzARspwFqWZG5bGmAEJ6XII3Fb6U",
+            "https://drive.google.com/uc?export=view&id=1-shKX1NlMWwjIFRCnEldvGIOZQ-aECch",
+            "https://drive.google.com/uc?export=view&id=1Vvf0FfqxQLrM5Lf9mjwNnrK0L-U6ruUN",
+            "https://drive.google.com/uc?export=view&id=1ny56Uc3UXFempTkgn-FI1FlVdFWU4_hN",
+            "https://drive.google.com/uc?export=view&id=1zkKcQMrmcT1km0NvISd9bOcI3tbBsERx"
         ]
         data_list = [
             {
@@ -620,10 +620,10 @@ if menu == "Departemen SSD":
     def Departemen_SSD():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1I62qdp3yGE1fDMk8Q8ECqa-0w8M_1Rvw",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1zegOsXUM9y27-Ge1SjExOQZkKmJ_z6Qm",
+            "https://drive.google.com/uc?export=view&id=14fK4wvybPOSvbQS6nkBQCfQ7rs5bg1L3",
+            "https://drive.google.com/uc?export=view&id=14hcScJtOpVe2fBzzzD67LynIX9njmgxv",
+            "https://drive.google.com/uc?export=view&id=1gcMha35fsMG2gptv6xrr9DG0qj4S-s06",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
@@ -774,9 +774,9 @@ if menu == "Departemen Medkraf":
     def Departemen_Medkraf():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1s1vQgFVFO2fqqs26qSaBBBddOd5sQGo0",
+            "https://drive.google.com/uc?export=view&id=1gJ5-SkbUpEDeDJ5Yrzd5yvh6qqaS72Kv",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=vuew&id=1ov9svOVT5rbq6jYMeMgSy8A-xFV7ocb2",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
@@ -998,16 +998,16 @@ if menu == "Departemen Medkraf":
 if menu == "Senator":
     def Senator():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
+            "https://drive.google.com/uc?export=view&id=1IbBz3h2OHclA9jqCUDnJQdjgFgIfcthT",
+            "https://drive.google.com/uc?export=view&id=1aZABb2kvBNmwVwcKWbJu86sSkwBXq87q",
+            "https://drive.google.com/uc?export=view&id=1oHOQmEC-ezE8f9BFICAyIhrIiTpCFtOp",
+            "https://drive.google.com/uc?export=view&id=1QZ79Ki88fRulkZkeu2pqhBZwjq-buRTN",
+            "https://drive.google.com/uc?export=view&id=1hrWwujDBao-McQg0V-N7IGdfadjVIMMY",
+            "https://drive.google.com/uc?export=view&id=18h9KoKNgJclF1-0RVbnF1elBWcLGF7aw",
+            "https://drive.google.com/uc?export=view&id=1MLSJgnqzukTyKIjg2VMTL2Bu0UB_zsQH",
+            "https://drive.google.com/uc?export=view&id=1vTTgs9bgR9qfDVB4_RV9FZGPdButJvVC",
+            "https://drive.google.com/uc?export=view&id=1GaVnzYvOC0aOBfupnSDjxlOAIS6j4LrV",
+            "https://drive.google.com/uc?export=view&id=16deUkZlZ1CcmViC3j61zuUkxn4a4u1Pf"
         ]
         data_list = [
             {
@@ -1123,4 +1123,217 @@ if menu == "Senator":
         ]
         display_images_with_data(gambar_urls, data_list)
     Senator()
+
+if menu == "Departemen PSDA":
+    def PSDA():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
+        ]
+        data_list = [
+            {
+                "nama": "Arienta Khusnul Ananda",
+                "nim": "123450097",
+                "umur": "21 Tahun",
+                "asal" :"Kalianda",
+                "alamat": "Samping kost bang haikal",
+                "hobbi": "Ngerjain TA",
+                "sosmed": "@arientakhsnl",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Vany Salsabila Putri",
+                "nim": "123450022",
+                "umur": "21,5 tahun",
+                "asal": "Kuala Lumpur",
+                "alamat": "Samping kost kak arienta",
+                "hobbi": "Pacaran",
+                "sosmed": "@lia.h_264",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Nobel Nizam Fathirizki",
+                "nim": "123450117",
+                "umur": "30 Tahun",
+                "asal": "Rumah Sakit",
+                "alamat": "Belakang Wardat",
+                "hobbi": "Kayak irfan",
+                "sosmed": "@nobelnizam",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Desman Velius Halawa",
+                "nim": "123450114",
+                "umur": "17 tahun",
+                "asal": "Nias",
+                "alamat": "Asrama TB 3",
+                "hobbi": "Ngejek Orang",
+                "sosmed": "@desmanhal",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Afriza Azmi",
+                "nim": "124450110",
+                "umur": "20 Tahun",
+                "asal":"Lampung Tengah",
+                "alamat": "Sebelah kost jemar",
+                "hobbi": "Berantem",
+                "sosmed": "@friezazmi",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Ayake Alfatih Ramadan",
+                "nim": "124450008",
+                "umur": "10 Tahun",
+                "asal":"Di Bandung",
+                "alamat": "Kamar haikal",
+                "hobbi": "Goreng ayam",
+                "sosmed": "@ykeall",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Caesar Ozora Alrando",
+                "nim": "124450017",
+                "umur": "21 Tahun",
+                "asal": "Rahim ibu",
+                "alamat": "Diatas kost jemar",
+                "hobbi": "Mandiin anak ayam",
+                "sosmed": "@caesar.oriza",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Euodia Meiliana Friedita",
+                "nim": "124450029",
+                "umur": "20 tahun",
+                "asal": "Debu Tanah",
+                "alamat": "Sebelah pasar",
+                "hobbi": "Ngegiring anak ayam",
+                "sosmed": "@yudiameilianaa_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Haikal Seventino Tamba",
+                "nim": "124450012",
+                "umur": "17 Tahun",
+                "asal": "Batam",
+                "alamat": "Sebelah kost jemar atau kak arienta",
+                "hobbi": "Ngurus pakan anak ayam",
+                "sosmed": "@_haikaaall",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Putri Manna Anantama Simbolon",
+                "nim": "124450056",
+                "umur": "18 Tahun",
+                "asal": "Kampung Orang",
+                "alamat": "Nomaden",
+                "hobbi": "Duduk sebelah henry",
+                "sosmed": "@dellaansaftr",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Queenta Thifaal Nabila",
+                "nim": "124450059",
+                "umur": "21 tahun",
+                "asal": "Lampung Tengah",
+                "alamat": "Depan Pemancingan",
+                "hobbi": "Ngoleksi ayam warna warni",
+                "sosmed": "@queentanaabila",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Azzelya Thianandry",
+                "nim": "124450041",
+                "umur": "19 Tahun",
+                "asal": "Lampung",
+                "alamat": "Teluk",
+                "hobbi": "Main game",
+                "sosmed": "@azzelytn",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Charrlindah",
+                "nim": "124450037",
+                "umur": "21 Tahun",
+                "asal": "Jakarta Pusat",
+                "alamat": "Cendrawasih 1",
+                "hobbi": "Ngurus peternakan",
+                "sosmed": "@charrlln",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Jeremi Marolop P. Situmorang",
+                "nim": "124450111",
+                "umur": "18 Tahun",
+                "asal": "Sumatera Barat",
+                "alamat": "Sebelah kost haikal",
+                "hobbi": "Gembala",
+                "sosmed": "@jemarrro",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Nabila Nur Azizah",
+                "nim": "124450048",
+                "umur": "19 tahun",
+                "asal": "Lampung tengah",
+                "alamat": "Barokah",
+                "hobbi": "Main roblox",
+                "sosmed": "@n.bila_a",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Rafli Al Mansyah Tambunan",
+                "nim": "124450007",
+                "umur": "20 Tahun",
+                "asal": "Sibolga",
+                "alamat": "Belwis",
+                "hobbi": "Mancing",
+                "sosmed": "@dearfkvmfl",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Salavi Naharani",
+                "nim": "124450090",
+                "umur": "20 Tahun",
+                "asal":"Lampung Timur",
+                "alamat": "Jatimulyo",
+                "hobbi": "Tidur",
+                "sosmed": "@avi.nhr",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",   
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            } 
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    PSDA()
 # Tambahkan menu lainnya sesuai kebutuhan
