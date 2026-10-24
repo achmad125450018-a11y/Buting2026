@@ -22,10 +22,11 @@ label, p, span, div {
 .data-card {
     background-color: #0f172a;
     border: 1px solid #00f0ff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
-    margin-bottom: 20px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+    margin-bottom: 25px;
+    text-align: center;
 }
 .stMetric {
     background-color: #0f172a;
@@ -40,94 +41,76 @@ label, p, span, div {
 """, unsafe_allow_html=True)
 
 st.title("CyberData: Interactive Transfer Matrix")
-st.markdown("Pindahkan setiap unit data masuk ke dalam slot terminal kategori tipe data yang sesuai.")
+st.markdown("Transfer unit data yang masuk ke terminal tipe data yang tepat.")
 
 if "score" not in st.session_state:
     st.session_state.score = 0
-if "round" not in st.session_state:
-    st.session_state.round = 1
+if "streak" not in st.session_state:
+    st.session_state.streak = 0
 
-def generate_items():
+def get_new_item():
     types = ["Integer", "Float", "String", "Boolean", "Date"]
-    new_items = []
-    for i in range(3):
-        t = random.choice(types)
-        if t == "Integer":
-            val = str(random.randint(-300, 300))
-        elif t == "Float":
-            val = str(round(random.uniform(-150, 150), 2))
-        elif t == "String":
-            val = random.choice(["CyberMatrix", "NeuralNet", "Protocol", "Quantum", "Vector"])
-        elif t == "Boolean":
-            val = str(random.choice([True, False]))
-        elif t == "Date":
-            val = str(date(random.randint(2025, 2028), random.randint(1, 12), random.randint(1, 28)))
-        new_items.append({"id": random.randint(10000, 99999), "value": val, "type": t})
-    return new_items
+    t = random.choice(types)
+    if t == "Integer":
+        val = str(random.randint(-500, 500))
+    elif t == "Float":
+        val = str(round(random.uniform(-250, 250), 2))
+    elif t == "String":
+        val = random.choice(["CyberNode", "NeuralCore", "MatrixProtocol", "QuantumBit", "VectorStream"])
+    elif t == "Boolean":
+        val = str(random.choice([True, False]))
+    elif t == "Date":
+        val = str(date(random.randint(2025, 2030), random.randint(1, 12), random.randint(1, 28)))
+    return {"value": val, "type": t}
 
-if "items" not in st.session_state or not isinstance(st.session_state.items, list):
-    st.session_state.items = generate_items()
+if "current_item" not in st.session_state or not isinstance(st.session_state.current_item, dict):
+    st.session_state.current_item = get_new_item()
 
-col_m1, col_m2 = st.columns(2)
-col_m1.metric("Skor Total", st.session_state.score)
-col_m2.metric("Ronde Sistem", st.session_state.round)
+col1, col2 = st.columns(2)
+col1.metric("Skor Total", st.session_state.score)
+col2.metric("Streak Beruntun", st.session_state.streak)
 
-st.subheader("Terminal Antrian Data Masuk")
+st.subheader("Unit Data Aktif")
+item = st.session_state.current_item
 
-if not isinstance(st.session_state.items, list):
-    st.session_state.items = generate_items()
+st.markdown(f"""
+<div class="data-card">
+    <h2 style="color: #00f0ff; font-size: 36px; margin: 0;">{item['value']}</h2>
+</div>
+""", unsafe_allow_html=True)
 
-remaining_items = list(st.session_state.items)
-action_triggered = False
+st.markdown("Pilih Terminal Kategori Tujuan untuk Mentransfer Unit Data Ini:")
 
-for item in st.session_state.items:
-    if not isinstance(item, dict):
-        continue
-    st.markdown(f"""
-    <div class="data-card">
-        <h3>Unit Data: <span style="color: #38bdf8;">{item.get('value', '')}</span></h3>
-    </div>
-    """, unsafe_allow_html=True)
+c1, c2, c3, c4, c5 = st.columns(5)
+
+chosen = None
+if c1.button("Integer", use_container_width=True):
+    chosen = "Integer"
+elif c2.button("Float", use_container_width=True):
+    chosen = "Float"
+elif c3.button("String", use_container_width=True):
+    chosen = "String"
+elif c4.button("Boolean", use_container_width=True):
+    chosen = "Boolean"
+elif c5.button("Date", use_container_width=True):
+    chosen = "Date"
+
+if chosen is not None:
+    if chosen == item["type"]:
+        st.session_state.score += 20
+        st.session_state.streak += 1
+        st.success(f"Transfer sukses ke terminal {chosen}.")
+    else:
+        st.session_state.streak = 0
+        st.session_state.score = max(0, st.session_state.score - 10)
+        st.error(f"Transfer gagal. Unit tersebut adalah tipe data {item['type']}.")
     
-    c1, c2, c3, c4, c5 = st.columns(5)
-    
-    chosen_target = None
-    if c1.button("Integer", key=f"int_{item.get('id', 0)}", use_container_width=True):
-        chosen_target = "Integer"
-    elif c2.button("Float", key=f"float_{item.get('id', 0)}", use_container_width=True):
-        chosen_target = "Float"
-    elif c3.button("String", key=f"str_{item.get('id', 0)}", use_container_width=True):
-        chosen_target = "String"
-    elif c4.button("Boolean", key=f"bool_{item.get('id', 0)}", use_container_width=True):
-        chosen_target = "Boolean"
-    elif c5.button("Date", key=f"date_{item.get('id', 0)}", use_container_width=True):
-        chosen_target = "Date"
-        
-    if chosen_target is not None:
-        if chosen_target == item.get('type'):
-            st.session_state.score += 25
-            st.success(f"Transfer berhasil ke terminal {chosen_target}.")
-        else:
-            st.session_state.score = max(0, st.session_state.score - 10)
-            st.error(f"Transfer gagal. Unit seharusnya menuju terminal {item.get('type')}.")
-        
-        remaining_items = [i for i in remaining_items if isinstance(i, dict) and i.get('id') != item.get('id')]
-        action_triggered = True
-        break
-
-if action_triggered:
-    st.session_state.items = remaining_items
-    st.rerun()
-
-if not st.session_state.items:
-    st.success("Semua unit data berhasil diproses. Memuat gelombang baru...")
-    st.session_state.round += 1
-    st.session_state.items = generate_items()
+    st.session_state.current_item = get_new_item()
     st.rerun()
 
 st.markdown("---")
-if st.button("Reset Sistem Matrix"):
+if st.button("Reset Sistem"):
     st.session_state.score = 0
-    st.session_state.round = 1
-    st.session_state.items = generate_items()
+    st.session_state.streak = 0
+    st.session_state.current_item = get_new_item()
     st.rerun()
