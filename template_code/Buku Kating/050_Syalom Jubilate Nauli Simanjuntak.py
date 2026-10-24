@@ -20,7 +20,7 @@ def streamlit_menu():
             "Departemen Eksternal",
             "Departemen Internal",
             "Departemen SSD",
-            "Departemen Medkraf"
+            "Departemen Medkraf",
             "Departemen Minbak,
         ],
         icons=[
@@ -33,6 +33,7 @@ def streamlit_menu():
             "people-fill",
             "people-fill",
             "people-fill",
+            "people-fill",            
         ],
         default_index=0,
         orientation="horizontal",
