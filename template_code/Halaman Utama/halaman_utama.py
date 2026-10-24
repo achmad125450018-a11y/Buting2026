@@ -10,20 +10,15 @@ st.set_page_config(layout="wide")
 st.markdown(
     """
     <style>
-    /* Sembunyikan header bawaan Streamlit untuk tampilan full-screen yang bersih */
-    [data-testid="stHeader"] {
-        visibility: hidden;
-    }
-
-    /* Mengubah background utama menjadi gradasi (terang di kiri atas, gelap di kanan bawah) */
+    /* Mengubah background utama menjadi gradasi */
     .stApp {
         background: linear-gradient(to bottom right, #ff9a22, #e14627);
         color: white; 
     }
 
-    /* Memberikan warna solid pada sidebar agar terpisah dari background gradasi */
+    /* Memberikan warna solid pada sidebar */
     [data-testid="stSidebar"] {
-        background-color: #bd411b !important; /* Warna oranye gelap */
+        background-color: #bd411b !important;
     }
     
     /* Memastikan teks di dalam sidebar berwarna putih */
@@ -31,18 +26,18 @@ st.markdown(
         color: white !important;
     }
 
-    /* Memaksa SEMUA elemen teks di dalam tab menjadi putih */
+    /* Memaksa elemen teks di dalam tab menjadi putih */
     [data-testid="stTabs"] button, 
     [data-testid="stTabs"] button * {
         color: white !important;
     }
     
-    /* Mengubah warna garis bawah pada tab yang sedang aktif agar senada */
+    /* Mengubah warna garis bawah pada tab yang sedang aktif */
     [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
         background-color: white !important;
     }
 
-    /* Animasi gambar bawaan Anda */
+    /* Animasi gambar */
     .gambar-timbul {
         width: 100%;
         border-radius: 8px;
