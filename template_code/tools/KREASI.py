@@ -1,14 +1,16 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+st.set_page_config(page_title="Orange Protocol: Matrix Decrypt", layout="wide")
+
 st.markdown("""
 <style>
 .stApp {
-    background-color: #030712;
+    background-color: #09090b;
     color: #ffffff;
 }
 h1 {
-    color: #38bdf8 !important;
+    color: #f97316 !important;
     font-family: 'Courier New', monospace;
     text-align: center;
     letter-spacing: 2px;
