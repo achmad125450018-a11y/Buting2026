@@ -86,7 +86,25 @@ elif menu == "Senator":
     display_images_with_data(gambar_urls, data_list, key="senator")
 
 elif menu == "Departemen PSDA":
-    gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"]
+    gambar_urls = [
+                  "https://drive.google.com/uc?export=view&id=1cGX3eDB71U4iLOCKYpXuwT-qC0G3zP4I",
+                  "https://drive.google.com/uc?export=view&id=1Vu1gtjmT8SrmM001PCLdjhfoGmZemViJ",
+                  "https://drive.google.com/uc?export=view&id=1ovBzIURl16CoroaVHmbHiuajcqKf0e8K",
+                  "https://drive.google.com/uc?export=view&id=1LFhdxO9rjdZwi7PbfRgIheKdVjqRpnqI",
+                  "https://drive.google.com/uc?export=view&id=1x7mD_o38wQ7vEGsWqyvXZAmFQ1QsqdiW",
+                  "https://drive.google.com/uc?export=view&id=1ApNi4UvHxzBGczXiW5DomoCyWtuYMgxT",
+                  "https://drive.google.com/uc?export=view&id=1jA4itM1L7M-rkr1NykK9XLiemvxNe0nP",
+                  "https://drive.google.com/uc?export=view&id=1ymBd-hl_T7t0wCIxZOUP6br-4fgxhP9D",
+                  "https://drive.google.com/uc?export=view&id=1VoyIGs1T9R1bOpP9ZlpaQB5E_29Zzu-9",
+                  "https://drive.google.com/uc?export=view&id=1nfWU3toEZhh_TXRqNabbQsaocn9jjDUv",
+                  "https://drive.google.com/uc?export=view&id=1ji4YqMmcLJoxJQqfO2tiIrmIbfvDScej",
+                  "https://drive.google.com/uc?export=view&id=1cPXJDmNEvfE81Y5XF0hrHTzajTE73CDf",
+                  "https://drive.google.com/uc?export=view&id=1Rpsy-28X8q2ztDRAiwkppvi3Spj7TlRm",
+                  "https://drive.google.com/uc?export=view&id=14MpPTC0OGshW7Bheqd4W59C5TbFjsgZY",
+                  "https://drive.google.com/uc?export=view&id=1cCkCWGNcqL5k-0sBIhBqX-06LTgSJ6CJ",
+                  "https://drive.google.com/uc?export=view&id=1LFzuOb3T-I0d_op9bUx_BbLP8s6PgKR2",
+                  "https://drive.google.com/uc?export=view&id=16adcHj9xr4lkZH0cIQrBHqnh6Vr5k14l",
+    ]
     data_list = [
         {"nama": "Arienta Khusnul Ananda", "jabatan": "Kepala Departemen PSDA", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"},
         {"nama": "Vany Salsabila Putri", "jabatan": "Sekretaris Departemen PSDA", "nim": "122450033", "umur": "20", "asal": "Bogor", "alamat": "Korpri", "hobbi": "Leadership", "sosmed": "@psda", "kesan": "Keren", "pesan": "Semangat PSDA!"},
