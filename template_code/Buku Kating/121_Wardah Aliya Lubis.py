@@ -199,7 +199,7 @@ elif menu == "Baleg":
             {"nama": "Sekar Dini Widya Putri", "nim": "124450082", "umur": "20", "asal": "Metro", "alamat": "Pemda", "hobbi": "Jajan sama nisa, putri, suci", "sosmed": "@sekardnwp", "kesan": "...", "pesan": "..."},
             {"nama": "Wan Nashwa Alhasni Yuska", "nim": "123450077", "umur": "20", "asal": "Pasay", "alamat": "Belwis", "hobbi": "Nyapa angin", "sosmed": "@nshaysk", "kesan": "...", "pesan": "..."},
         ]
-
+        st.subheader("Baleg")
         display_images_with_data(gambar_urls, data_list)
 
     Baleg()
@@ -393,7 +393,7 @@ elif menu == "Departemen Minbak":
         "pesan": "Sukses selalu buat perkuliahannya!"
     }
 ]
-
+        st.subheader("Departemen Minbak")
         display_images_with_data(gambar_urls, data_list)
 
     Departemen_Minbak()
@@ -540,9 +540,7 @@ elif menu == "Departemen SSD":
 elif menu == "Bason":
     def Bason():
         gambar_urls = [
-            gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1s_w0hubRnMu90OKKfRz_Tz4EpKcLmreU",
-        ]
         ]
         data_list = [
             {
@@ -656,7 +654,7 @@ elif menu == "Bason":
                 "pesan":"Semangat terus kaa kuliahnyaa!!"# 1
             },
         ]
-        st.subheader("Badan Senator")
+        st.subheader("Bason")
         display_images_with_data(gambar_urls, data_list)
 
     Bason()
@@ -846,6 +844,7 @@ elif menu == "Departemen Medkraf":
         display_images_with_data(gambar_urls, data_list)
 
     Departemen_Medkraf()
+
 elif menu == "Departemen Internal":
     def Departemen_Internal():
         gambar_urls = [
