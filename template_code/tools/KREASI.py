@@ -1,27 +1,11 @@
 # tools/KREASI.py
 import streamlit as st
 import streamlit.components.v1 as components
+import base64
 
-# ============================================================
-# 🎨 UI STREAMLIT 
-# ============================================================
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-html, body, [class*="css"] {
-    font-family: 'Inter', sans-serif;
-    color: #222222;
-}
-
-.stApp {
-    background:
-        radial-gradient(circle at 15% 10%, rgba(112,28,35,0.06) 0%, transparent 45%),
-        radial-gradient(circle at 85% 90%, rgba(217,195,163,0.18) 0%, transparent 50%),
-        linear-gradient(180deg, #f4f0eb 0%, #efe8df 100%);
-    background-attachment: fixed;
-}
-
 .title {
     text-align: center;
     font-family: 'Playfair Display', serif;
@@ -40,15 +24,20 @@ html, body, [class*="css"] {
     text-transform: uppercase;
     margin-bottom: 20px;
 }
+/* Memaksa iframe manual agar 100% lebar */
+.game-iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(112,28,35,0.15);
+}
 </style>
 """, unsafe_allow_html=True)
 
 st.markdown("<h1 class='title'>DATA CATCHER</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>✦ Bersihkan Data, Kumpulkan Skor! ✦</p>", unsafe_allow_html=True)
 
-# ============================================================
-# 🎮 HTML & JS 
-# ============================================================
 game_html = """
 <!DOCTYPE html>
 <html>
@@ -56,22 +45,14 @@ game_html = """
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
     * { box-sizing: border-box; }
-    body {
-        margin: 0; padding: 0;
-        font-family: 'Inter', sans-serif;
-        background-color: transparent;
-        display: flex;
-        justify-content: center;
-        height: 100vh;
-    }
+    body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background-color: transparent; display: flex; justify-content: center; }
     
     #game-container {
         width: 100%;
-        max-width: 900px; /* Lebar maksimal di laptop */
-        height: 500px;
+        max-width: 100%; /* Dibuat 100% agar memenuhi iframe */
+        height: 580px;
         background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
         border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(112,28,35,0.15);
         border: 1px solid rgba(217,195,163,0.55);
         position: relative;
         overflow: hidden;
@@ -148,13 +129,6 @@ game_html = """
         text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
     }
     @keyframes popUp { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-70px) scale(1.5); opacity: 0; } }
-
-    @media (max-width: 768px) {
-        #game-container { height: 550px; border-radius: 0; border: none; }
-        .stat { padding: 6px 12px; font-size: 14px; }
-        .screen { padding: 30px 20px; }
-        h2 { font-size: 26px; }
-    }
 </style>
 </head>
 <body>
@@ -264,5 +238,8 @@ game_html = """
 </html>
 """
 
-# Render komponen tanpa kolom agar lebar maksimal
-components.html(game_html, height=520, scrolling=False)
+# 💥 TRIK IFRAME MANUAL: Encode HTML ke Base64 agar bisa dirender via st.markdown
+b64_html = base64.b64encode(game_html.encode('utf-8')).decode('utf-8')
+
+# Render menggunakan markdown dengan tag iframe manual (Lebar 100%!)
+st.markdown(f'<iframe class="game-iframe" src="data:text/html;base64,{b64_html}"></iframe>', unsafe_allow_html=True)
