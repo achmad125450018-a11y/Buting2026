@@ -279,7 +279,7 @@ elif menu == "About Us":
 
         # 10 URL Gambar sesuai jumlah 10 anggota di data_list
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1SKBh8OuBiB2OKT4M_sBlXcxT9fqwMaZz",  # 1. Thomas Yustio
+            "https://drive.google.com/uc?export=view&id=19KrR82_PA5lsmyDn-8iBcBBVxWqctEp9",  # 1. Thomas Yustio
             "https://drive.google.com/uc?export=view&id=1SKBh8OuBiB2OKT4M_sBlXcxT9fqwMaZz",  # 2. Syalom Nauli Jubilate
             "https://drive.google.com/uc?export=view&id=1SKBh8OuBiB2OKT4M_sBlXcxT9fqwMaZz",  # 3. Chavia Chairunissa
             "https://drive.google.com/uc?export=view&id=1SKBh8OuBiB2OKT4M_sBlXcxT9fqwMaZz",  # 4. Aqila Chika Aurelia
