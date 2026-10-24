@@ -40,6 +40,16 @@ html, body, [class*="css"] {
     text-transform: uppercase;
     margin-bottom: 20px;
 }
+
+/* 💥 HANCURKAN BATAS 700PX IFRAME STREAMLIT 💥 */
+iframe[title="streamlit_component"] {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+div[data-testid="stHtml"] {
+    width: 100% !important;
+    max-width: 100% !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -47,7 +57,7 @@ st.markdown("<h1 class='title'>DATA CATCHER</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>✦ Bersihkan Data, Kumpulkan Skor! ✦</p>", unsafe_allow_html=True)
 
 # ============================================================
-# 🎮 HTML & JS (Lebar Full & Tombol Berfungsi)
+# 🎮 HTML & JS 
 # ============================================================
 game_html = """
 <!DOCTYPE html>
@@ -62,11 +72,9 @@ game_html = """
         background-color: transparent;
         display: flex;
         justify-content: center;
-        align-items: center;
         height: 100vh;
     }
     
-    /* Trik lebar maksimal di dalam iframe */
     #game-container {
         width: 100%;
         max-width: 900px; 
@@ -151,7 +159,6 @@ game_html = """
     }
     @keyframes popUp { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-70px) scale(1.5); opacity: 0; } }
 
-    /* 📱 Responsive HP */
     @media (max-width: 768px) {
         #game-container { height: 550px; border-radius: 0; border: none; }
         .stat { padding: 6px 12px; font-size: 14px; }
@@ -267,7 +274,6 @@ game_html = """
 </html>
 """
 
-# Render menggunakan components.html, dan CSS hack "width: 100% !important" di atasnya
-col1, col2, col3 = st.columns([0.05, 0.9, 0.05])
-with col2:
-    components.html(game_html, height=520, scrolling=False)
+# Tampilkan menggunakan st.components.v1.html agar JS jalan, 
+# tapi di dalam container yang lebarnya sudah dipaksa 100% oleh CSS di atas.
+components.html(game_html, height=520, scrolling=False)
