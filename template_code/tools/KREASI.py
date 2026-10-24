@@ -1,6 +1,21 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+st.markdown("""
+<style>
+.stApp {
+    background-color: #030712;
+    color: #ffffff;
+}
+h1 {
+    color: #38bdf8 !important;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    letter-spacing: 2px;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 
 st.title("MATH MATRIX: EQUATION CHAIN")
