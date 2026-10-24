@@ -16,28 +16,24 @@ def load_image(url):
 
 # JANGAN DIUBAH
 
-# Global Theme Styling: Inter & Courier New + Futuristic Green & Black + Sidebar Fix
+# Pengaturan Konfigurasi Halaman & Tema Global Futuristik + Fix Sidebar Overlap
 st.markdown(
     """
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Courier+New:wght@400;700&family=Inter:wght@400;600;700&display=swap');
-    
-    html, body, [class*="st"] {
-        font-family: 'Inter', sans-serif !important;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+    /* Global Styling */
     .stApp {
-        background-color: #030712;
-        color: #f8fafc;
+        background: radial-gradient(circle at 50% 10%, #090d16 0%, #030712 100%);
+        color: #e2e8f0;
+        font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* Perbaikan sidebar agar teks rapi, jelas, dan tidak menimpa */
+    /* Perbaikan total sidebar agar teks tidak menumpuk/overlapping */
     [data-testid="stSidebar"] {
-        min-width: 310px !important;
-        padding-top: 1rem;
+        min-width: 330px !important;
         background-color: #060918 !important;
+        border-right: 1px solid rgba(0, 243, 255, 0.2);
     }
     [data-testid="stSidebarNav"] {
         width: 100%;
@@ -45,30 +41,42 @@ st.markdown(
     [data-testid="stSidebarNav"] ul {
         display: flex;
         flex-direction: column;
-        gap: 12px !important;
-    }
-    [data-testid="stSidebarNav"] li {
-        margin: 4px 0 !important;
+        gap: 8px !important;
     }
     [data-testid="stSidebarNav"] a {
-        display: flex !important;
-        align-items: center !important;
-        height: auto !important;
-        min-height: 48px !important;
-        padding: 10px 14px !important;
-        line-height: 1.4 !important;
-        white-space: normal !important;
-        font-size: 0.95em !important;
-        border-radius: 8px;
-        transition: background 0.2s;
+        display: block !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        padding: 8px 12px !important;
+        font-size: 0.9em !important;
+        border-radius: 6px;
+        color: #94a3b8 !important;
     }
     [data-testid="stSidebarNav"] a:hover {
-        background-color: rgba(34, 197, 94, 0.15) !important;
+        background-color: rgba(0, 243, 255, 0.1) !important;
+        color: #00f3ff !important;
     }
-    [data-testid="stSidebarNav"] span {
-        display: inline-block !important;
-        white-space: normal !important;
-        line-height: 1.4 !important;
+
+    .main-title {
+        font-family: 'Orbitron', sans-serif;
+        text-align: center;
+        font-size: 3.5rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #00f3ff 0%, #7928ca 50%, #ff007f 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 30px rgba(0, 243, 255, 0.4);
+        margin-bottom: 0px;
+    }
+
+    .sub-title {
+        font-family: 'Orbitron', sans-serif;
+        text-align: center;
+        font-size: 1.5rem;
+        color: #94a3b8;
+        letter-spacing: 3px;
+        margin-bottom: 30px;
     }
     </style>
     """,
@@ -76,12 +84,10 @@ st.markdown(
 )
 
 st.markdown(
-    """
-    <div style='text-align: center; padding: 20px 0;'>
-        <h1 style='font-size: 4.2em; font-weight: 800; color: #4ade80; text-shadow: 0 0 25px rgba(74, 222, 128, 0.4); font-family: "Courier New", monospace; letter-spacing: 2px; margin-bottom: 0;'>WEBSITE KATING</h1>
-        <p style='font-size: 1.5em; font-weight: 600; color: #94a3b8; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px;'>CEO HMSD Adyatama ITERA 2026</p>
-    </div>
-    """,
+    "<h1 class='main-title'>WEBSITE KATING</h1>", unsafe_allow_html=True
+)
+st.markdown(
+    "<p class='sub-title'>CEO HMSD ADYATAMA ITERA 2026</p>",
     unsafe_allow_html=True,
 )
 
@@ -112,24 +118,28 @@ def streamlit_menu():
       orientation="horizontal",
       styles={
           "container": {
-              "padding": "0!important",
-              "background-color": "#0f172a",
+              "padding": "5px",
+              "background-color": "rgba(15, 23, 42, 0.9)",
+              "border": "1px solid rgba(0, 243, 255, 0.2)",
               "border-radius": "12px",
-              "border": "1px solid #22c55e",
           },
-          "icon": {"color": "#4ade80", "font-size": "19px"},
+          "icon": {"color": "#00f3ff", "font-size": "18px"},
           "nav-link": {
               "font-size": "15px",
+              "font-family": "Space Grotesk, sans-serif",
               "text-align": "center",
-              "margin": "0px",
-              "color": "#f8fafc",
-              "font-family": "Inter, sans-serif",
-              "--hover-color": "#22c55e22",
+              "margin": "0px 5px",
+              "color": "#cbd5e1",
+              "--hover-color": "rgba(0, 243, 255, 0.1)",
           },
           "nav-link-selected": {
-              "background-color": "#22c55e",
-              "color": "#030712",
-              "font-weight": "bold",
+              "background": (
+                  "linear-gradient(135deg, rgba(0,243,255,0.2),"
+                  " rgba(121,40,202,0.3))"
+              ),
+              "border": "1px solid #00f3ff",
+              "color": "#ffffff",
+              "font-weight": "700",
           },
       },
   )
@@ -146,71 +156,69 @@ if menu == "Home":
         <style>
         .deskripsi-title {
             text-align: center;
-            font-family: 'Courier New', monospace;
-            font-size: 2.3em;
-            color: #4ade80;
-            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2em;
+            color: #00f3ff;
+            margin-bottom: 25px;
             font-weight: 700;
-            text-shadow: 0 0 15px rgba(74, 222, 128, 0.3);
+            text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
         }
         
         .photo-caption-box {
-            background: linear-gradient(135deg, #0f172a, #030712);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+            border: 1px solid rgba(0, 243, 255, 0.3);
             color: white;
             text-align: center;
-            padding: 20px 15px;
-            border-bottom-left-radius: 16px;
-            border-bottom-right-radius: 16px;
+            padding: 20px;
+            border-radius: 15px;
             margin-bottom: 25px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-            border: 1px solid #22c55e;
-            border-top: none;
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.15);
         }
         
         .badge-cosval {
             display: inline-block;
-            background: #22c55e;
+            background: rgba(0, 243, 255, 0.15);
+            border: 1px solid #00f3ff;
             padding: 5px 15px;
             border-radius: 20px;
-            font-size: 0.85em;
+            font-size: 0.8em;
             margin-bottom: 10px;
             letter-spacing: 2px;
             font-weight: 700;
-            color: #030712;
-            box-shadow: 0 0 10px rgba(34,197,94,0.4);
+            color: #00f3ff;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
         }
         
         .photo-text-title {
             margin: 0;
-            font-family: 'Inter', sans-serif;
-            font-size: 1.3em;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2em;
             font-weight: 700;
-            line-height: 1.4;
             color: #f8fafc;
         }
 
         .desc-box {
-            border: 2px solid #22c55e;
-            background: #0f172a;
-            border-radius: 16px;
+            border: 2px solid rgba(0, 243, 255, 0.4);
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.15);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
             margin-bottom: 30px;
-            word-wrap: break-word;
         }
         
         .desc-heading {
-            color: #4ade80;
-            font-family: 'Courier New', monospace;
+            color: #00f3ff;
+            font-family: 'Orbitron', sans-serif;
             margin-top: 0;
             margin-bottom: 15px;
-            font-size: 1.5em;
+            font-size: 1.4em;
             font-weight: 700;
         }
         
         .desc-content {
-            color: #e2e8f0;
-            font-family: 'Inter', sans-serif;
+            color: #cbd5e1;
+            font-family: 'Space Grotesk', sans-serif;
             line-height: 1.8;
             font-size: 1.05em;
             margin: 0;
@@ -218,22 +226,22 @@ if menu == "Home":
         }
 
         .book-cover {
-            background: linear-gradient(135deg, #0f172a, #030712);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+            border: 2px solid #7928ca;
             color: white;
             padding: 50px 20px;
             text-align: center;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-            border: 2px solid #22c55e;
+            border-radius: 15px;
+            box-shadow: 0 0 35px rgba(121, 40, 202, 0.3);
             margin-bottom: 20px;
         }
         
         .book-spread {
-            background: #0f172a;
-            border: 2px solid #22c55e;
-            border-radius: 16px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 2px solid rgba(0, 243, 255, 0.3);
+            border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.2);
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.1);
             margin-bottom: 20px;
         }
         </style>
@@ -279,9 +287,9 @@ if menu == "Home":
     st.write("---")
 
     st.markdown(
-        "<h2 style='text-align: center; color: #4ade80; font-family:"
-        " \"Courier New\", monospace; font-weight: 700;'>Album Dokumentasi"
-        " Cosval</h2>",
+        "<h2"
+        " style='text-align: center; font-family: Orbitron; color:"
+        " #00f3ff;'>Album Dokumentasi Cosval</h2>",
         unsafe_allow_html=True,
     )
     st.write("")
@@ -302,9 +310,9 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-cover">
-                <h1 style="color: #4ade80; font-family: 'Courier New', monospace; font-weight: 700;">ALBUM Kelompok COSVAL</h1>
+                <h1 style="font-family: Orbitron; color: #00f3ff;">ALBUM Kelompok COSVAL</h1>
                 <p style="color: #94a3b8;">Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
-                <p style="color: #22c55e; font-size: 0.9em; margin-top: 15px; font-weight: 600;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
+                <p style="color: #64748b; font-size: 0.9em; margin-top: 15px;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
             </div>
             """,
           unsafe_allow_html=True,
@@ -319,7 +327,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #4ade80; margin-top: 0;'>— Halaman 1 dari 3 —</h4>
+                <h4 style='text-align: center; color: #00f3ff; margin-top: 0; font-family: Orbitron;'>— Halaman 1 dari 3 —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -352,7 +360,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #4ade80; margin-top: 0;'>— Halaman 2 dari 3 —</h4>
+                <h4 style='text-align: center; color: #00f3ff; margin-top: 0; font-family: Orbitron;'>— Halaman 2 dari 3 —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -385,7 +393,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #4ade80; margin-top: 0;'>— Halaman 3 dari 3 (Akhir) —</h4>
+                <h4 style='text-align: center; color: #00f3ff; margin-top: 0; font-family: Orbitron;'>— Halaman 3 dari 3 (Akhir) —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -420,7 +428,7 @@ elif menu == "About Us":
 
   def about_page():
     st.markdown(
-        """<style>.centered-title {text-align: center; color: #4ade80; font-family:"Courier New", monospace; font-weight: 700;}</style>""",
+        """<style>.centered-title {text-align: center; color: #00f3ff; font-family:'Orbitron', sans-serif; font-weight: 700;}</style>""",
         unsafe_allow_html=True,
     )
     st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
@@ -429,12 +437,12 @@ elif menu == "About Us":
         """
         <style>
         .about-photo img {
-            border: 4px solid #22c55e !important;
+            border: 4px solid #00f3ff !important;
             outline: 2px solid #030712 !important;
             border-radius: 12px !important;
             padding: 4px !important;
             background-color: #0f172a !important;
-            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3) !important;
+            box-shadow: 0 8px 20px rgba(0, 243, 255, 0.3) !important;
         }
         </style>
         """,
@@ -450,8 +458,8 @@ elif menu == "About Us":
     if filter_pilihan == "Semua":
       st.markdown(
           "<h2 style='text-align: center; margin-top: 20px;"
-          " margin-bottom: 20px; color: #4ade80; font-family: \"Courier New\","
-          " monospace; font-weight: 700;'>Kenalan Yuk Sama Cosval!</h2>",
+          " margin-bottom: 20px; color: #00f3ff; font-family: \"Orbitron\","
+          " sans-serif; font-weight: 700;'>Kenalan Yuk Sama Cosval!</h2>",
           unsafe_allow_html=True,
       )
 
@@ -580,19 +588,18 @@ elif menu == "About Us":
           st.markdown(
               f"""
                     <div style="
-                        background: linear-gradient(135deg, #0f172a 0%, #030712 100%), radial-gradient(circle at top right, rgba(34,197,94,0.12), transparent 50%); 
-                        border: 2px solid #22c55e; 
+                        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95)); 
+                        border: 2px solid rgba(0, 243, 255, 0.4); 
                         padding: 24px; 
-                        border-radius: 12px; 
-                        box-shadow: 0 6px 20px rgba(34, 197, 94, 0.2); 
-                        color: #f8fafc;
-                        font-family: 'Inter', sans-serif;
-                        word-wrap: break-word;
+                        border-radius: 15px; 
+                        box-shadow: 0 0 25px rgba(0, 243, 255, 0.15); 
+                        color: #e2e8f0;
+                        font-family: 'Space Grotesk', sans-serif;
                         position: relative;
                         overflow: hidden;
                         margin-bottom: 20px;">
-                        <div style="position: absolute; top: 0; right: 0; width: 70px; height: 70px; background: linear-gradient(135deg, transparent 50%, rgba(34,197,94,0.25) 50%); pointer-events: none;"></div>
-                        <h3 style="margin-top: 0; color: #4ade80; border-bottom: 2px solid #22c55e; padding-bottom: 8px; font-family: 'Courier New', monospace;">{data['nama']}</h3>
+                        <div style="position: absolute; top: 0; right: 0; width: 70px; height: 70px; background: linear-gradient(135deg, transparent 50%, rgba(0,243,255,0.2) 50%); pointer-events: none;"></div>
+                        <h3 style="margin-top: 0; color: #00f3ff; border-bottom: 2px solid rgba(0, 243, 255, 0.3); padding-bottom: 8px; font-family: 'Orbitron', sans-serif;">{data['nama']}</h3>
                         <p style="margin: 8px 0; font-size: 1.05em;"><b>Sebagai:</b> {data['sebagai']}</p>
                         <p style="margin: 8px 0; font-size: 1.05em;"><b>NIM:</b> {data['nim']}</p>
                         <p style="margin: 8px 0; font-size: 1.05em;"><b>Fun Fact:</b> {data['fun_fact']}</p>
