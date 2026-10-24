@@ -3,7 +3,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 # ============================================================
-# 🎨 UI STREAMLIT (Pembungkus Game)
+# 🎨 UI STREAMLIT (Paksa Iframe Full Width)
 # ============================================================
 st.markdown("""
 <style>
@@ -57,10 +57,13 @@ html, body, [class*="css"] {
     margin-top: 8px;
 }
 
-/* Memaksa iframe Streamlit jadi lebar 100% */
-iframe {
+/* HANCURKAN BATAS LEBAR IFRAME STREAMLIT */
+iframe[title="streamlit_component"] {
     width: 100% !important;
-    border: none !important;
+    max-width: 100% !important;
+}
+.stHtml {
+    width: 100% !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -69,17 +72,17 @@ st.markdown("<h1 class='title'>DATA CATCHER</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>✦ Bersihkan Data, Kumpulkan Skor! ✦</p>", unsafe_allow_html=True)
 
 # ============================================================
-# 🎮 HTML/JS GAME (Lebar Maksimal & Waktu Normal)
+# 🎮 HTML/JS GAME (Layout Flexbox Anti-Tabrakan)
 # ============================================================
 game_html = """
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
     * { box-sizing: border-box; }
     body {
-        margin: 0;
-        padding: 0;
+        margin: 0; padding: 0;
         font-family: 'Inter', sans-serif;
         background-color: transparent;
         display: flex;
@@ -87,9 +90,10 @@ game_html = """
         height: 100vh;
     }
     
+    /* Kanvas Game Full Lebar */
     #game-container {
         width: 100%;
-        max-width: 1000px; /* Diperlebar maksimal */
+        max-width: 100%;
         height: 550px;
         background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
         border-radius: 20px;
@@ -99,41 +103,40 @@ game_html = """
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
     }
     
+    /* HUD (Waktu, Skor, Nyawa) */
     #hud {
-        position: absolute;
-        top: 20px;
         width: 100%;
         display: flex;
         justify-content: center;
-        gap: 20px;
+        gap: 15px;
+        padding-top: 20px;
         z-index: 10;
     }
     .stat {
         background: rgba(217,195,163,0.15);
         border: 1px solid rgba(217,195,163,0.5);
-        padding: 10px 25px;
+        padding: 8px 20px;
         border-radius: 12px;
         font-weight: 700;
         color: #701c23;
-        font-size: 18px;
+        font-size: 16px;
         text-align: center;
-        min-width: 120px;
+        min-width: 100px;
     }
 
+    /* Area Jatuh Emoji */
     #play-area {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
         display: none;
         overflow: hidden;
     }
 
+    /* Emoji */
     .item {
         position: absolute;
         font-size: 60px;
@@ -149,39 +152,45 @@ game_html = """
         100% { top: 100%; }
     }
 
+    /* Layar Start & Game Over (Tengah) */
     .screen {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
         text-align: center;
         z-index: 20;
-        padding: 40px;
-        background: rgba(255,255,255,0.95);
+        width: 90%;
+        max-width: 400px;
+        padding: 40px 20px;
+        background: rgba(255,255,255,0.98);
         border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        margin: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        border: 1px solid rgba(217,195,163,0.8);
     }
     h2 {
         color: #701c23;
         font-family: 'Playfair Display', serif;
-        font-size: 36px;
-        margin-top: 0;
-        margin-bottom: 15px;
+        font-size: 32px;
+        margin-top: 0; margin-bottom: 15px;
     }
     p {
         color: #4e1318;
-        font-size: 16px;
-        margin-bottom: 30px;
-        line-height: 1.6;
+        font-size: 15px;
+        margin-bottom: 25px;
+        line-height: 1.5;
     }
     button {
         background: linear-gradient(135deg, #701c23 0%, #a8323d 100%);
         color: white;
         border: none;
         border-radius: 12px;
-        padding: 15px 40px;
+        padding: 12px 30px;
         font-weight: 700;
-        font-size: 18px;
+        font-size: 16px;
         cursor: pointer;
         box-shadow: 0 6px 18px rgba(112,28,35,0.35);
         transition: transform 0.15s;
+        width: 100%;
     }
     button:hover {
         transform: translateY(-2px);
@@ -241,7 +250,6 @@ game_html = """
     const gameoverScreen = document.getElementById("gameover-screen");
 
     function startGame() {
-        // Reset state
         score = 0;
         lives = 3;
         timeLeft = 30;
@@ -256,11 +264,9 @@ game_html = """
         playArea.style.display = "block";
         playArea.innerHTML = ""; 
 
-        // Hentikan timer lama jika ada (biar ga dobel)
         clearInterval(timerInterval);
         clearInterval(spawnInterval);
 
-        // Timer mundur normal 1 detik
         timerInterval = setInterval(() => {
             if (!isPlaying) return;
             timeLeft--;
@@ -268,8 +274,7 @@ game_html = """
             if (timeLeft <= 0) endGame();
         }, 1000);
 
-        // Spawn emoji
-        spawnInterval = setInterval(spawnItem, 600);
+        spawnInterval = setInterval(spawnItem, 500); // Spawn tiap 0.5 detik
     }
 
     function spawnItem() {
@@ -283,7 +288,7 @@ game_html = """
         
         item.style.left = Math.floor(Math.random() * 85 + 5) + "%";
         
-        const duration = Math.random() * 2 + 2; // Jatuh selama 2-4 detik
+        const duration = Math.random() * 2 + 2;
         item.style.animationDuration = duration + "s";
 
         item.onclick = (e) => {
@@ -349,5 +354,5 @@ game_html = """
 </html>
 """
 
-# Render di Streamlit (Lebar penuh & tinggi pas)
-components.html(game_html, height=570, scrolling=False)
+# Panggil langsung tanpa st.columns
+components.html(game_html, height=580, scrolling=False)
