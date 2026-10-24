@@ -127,7 +127,29 @@ elif menu == "Departemen PSDA":
     display_images_with_data(gambar_urls, data_list, key="psda")
 
 elif menu == "Departemen MIKFES":
-    gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"]
+    gambar_urls = ["https://drive.google.com/uc?export=view&id=1ps0ozgETucwKCgAgBTQNDtDFx5YUme44",
+                   "https://drive.google.com/uc?export=view&id=18081aFXmtKNqwz29uVA02GRIrx0qy-rZ",
+                   "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                   "https://drive.google.com/uc?export=view&id=1Xtdt9ehyg0K8zQr4X-viWodJ1ZI98XiV",
+                   "https://drive.google.com/uc?export=view&id=1pYtZvPXJJRomtM9atfmObngkOOlYGwye",
+                   "https://drive.google.com/uc?export=view&id=1CEdigOXGT-32HMDcQEpDlqqshj_Gbgly",
+                   "https://drive.google.com/uc?export=view&id=1nJV6LHzVK0dKbFnK98zlSPzya93KnN-M",
+                   "https://drive.google.com/uc?export=view&id=1G7w_Na_JO_fQTZRV1Iv8a4eN-KS3miDR",
+                   "https://drive.google.com/uc?export=view&id=1x0z4zGYaS8CK_KG6wPtlvfkFVLd-mbak",
+                   "https://drive.google.com/uc?export=view&id=16cK8In5kzaSbNImmkFrGNFvPRiiSkvl0",
+                   "https://drive.google.com/uc?export=view&id=16c1AmflL2qlSpYkRgH8pGiUK_dBlG3JI",
+                   "https://drive.google.com/uc?export=view&id=1qZsF9BKlxXmqu5lH1BZQ9LUQ2Mrgxx-O",
+                   "https://drive.google.com/uc?export=view&id=1ZFh9AawKevhggTuupjGM38r62ZzObEZV",
+                   "https://drive.google.com/uc?export=view&id=1rZTIP8OeqBF-f19bMxi1g4AOPxgSgVJg",
+                   "https://drive.google.com/uc?export=view&id=1fj7X-QzQa4oVHySYoj6-gzAmJQnUzV7O",
+                   "https://drive.google.com/uc?export=view&id=1RsjOwoeb-krYU4s67EgYkzKkkeEFNQX0",
+                   "https://drive.google.com/uc?export=view&id=1D_NPpOx77rAuTCHl9dg4IMWk15waLL4a",
+                   "https://drive.google.com/uc?export=view&id=1wVn5MINc8WyQGTwpjmBj97jOzSnfM7fY",
+                   "https://drive.google.com/uc?export=view&id=1QsQ5pvqN6Yg4m9x5o-lCPpLWiy-V95FO",
+                   "https://drive.google.com/uc?export=view&id=1G_eIVycTv4zi8llz1Waeb2QdEnsEks-h",
+                   "https://drive.google.com/uc?export=view&id=1jGPsyVkKYXCR_3afwUBb5nUME6deGSK1",
+                   "https://drive.google.com/uc?export=view&id=1FXxRmSe61aP8unDkCzZ_9b3GIZC9sZGw",
+    ]
     data_list = [
         {"nama": "Anggota MIKFES", "jabatan": "Staf MIKFES", "nim": "122450044", "umur": "20", "asal": "Bandung", "alamat": "Airan", "hobbi": "Olahraga", "sosmed": "@mikfes", "kesan": "Solid", "pesan": "Solid terus!"},
         {"nama": "Anggota MIKFES", "jabatan": "Staf MIKFES", "nim": "122450044", "umur": "20", "asal": "Bandung", "alamat": "Airan", "hobbi": "Olahraga", "sosmed": "@mikfes", "kesan": "Solid", "pesan": "Solid terus!"},
