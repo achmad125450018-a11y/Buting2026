@@ -32,32 +32,32 @@ game_html = """
         font-family: 'Courier New', monospace;
         text-align: center;
         margin: 0;
-        padding: 10px;
+        padding: 5px;
         overflow-x: hidden;
     }
     .stats-panel {
         display: flex;
         justify-content: center;
         gap: 15px;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
     }
     .stat-box {
         background: #18181b;
         border: 1px solid #f97316;
-        padding: 8px 16px;
+        padding: 6px 14px;
         border-radius: 8px;
         color: #f97316;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: bold;
         box-shadow: 0 0 10px rgba(249, 115, 22, 0.2);
     }
     .timer-container {
         width: 100%;
-        max-width: 500px;
+        max-width: 480px;
         background: #18181b;
-        height: 10px;
-        border-radius: 5px;
-        margin: 0 auto 12px auto;
+        height: 8px;
+        border-radius: 4px;
+        margin: 0 auto 8px auto;
         overflow: hidden;
         border: 1px solid #f97316;
     }
@@ -70,47 +70,47 @@ game_html = """
     .mission-box {
         background: #18181b;
         border: 2px dashed #f97316;
-        padding: 10px;
+        padding: 8px;
         border-radius: 8px;
-        margin: 0 auto 12px auto;
-        max-width: 500px;
-        font-size: 14px;
+        margin: 0 auto 8px auto;
+        max-width: 480px;
+        font-size: 13px;
         color: #fdba74;
     }
     .target-highlight {
         color: #ffffff;
         background: #c2410c;
-        padding: 3px 8px;
+        padding: 2px 6px;
         border-radius: 4px;
         font-weight: bold;
-        font-size: 16px;
+        font-size: 15px;
     }
     .expression-screen {
         background: #09090b;
         border: 2px solid #f97316;
-        padding: 10px;
+        padding: 8px;
         border-radius: 6px;
-        margin: 0 auto 12px auto;
-        max-width: 500px;
-        font-size: 18px;
+        margin: 0 auto 8px auto;
+        max-width: 480px;
+        font-size: 16px;
         font-weight: bold;
         color: #4ade80;
-        min-height: 25px;
+        min-height: 22px;
         letter-spacing: 2px;
     }
     .grid-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        margin: 10px auto;
+        gap: 8px;
+        margin: 8px auto;
         width: 100%;
-        max-width: 500px;
+        max-width: 480px;
     }
     .node-box {
         background: #18181b;
         border: 2px solid #f97316;
         border-radius: 8px;
-        height: 75px;
+        height: 65px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -129,30 +129,30 @@ game_html = """
         transform: scale(1.03);
     }
     .node-val {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bold;
         color: #ffffff;
     }
     .terminal-msg {
-        margin-top: 10px;
-        font-size: 13px;
+        margin-top: 8px;
+        font-size: 12px;
         font-weight: bold;
-        height: 22px;
+        height: 20px;
         color: #fdba74;
     }
     .action-btn {
         background-color: #f97316;
         color: #09090b;
         border: none;
-        padding: 10px 22px;
-        font-size: 14px;
+        padding: 8px 18px;
+        font-size: 13px;
         font-weight: bold;
         border-radius: 8px;
         cursor: pointer;
-        margin-top: 8px;
+        margin-top: 6px;
         font-family: 'Courier New', monospace;
         transition: background 0.2s, transform 0.1s;
-        box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+        box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
     }
     .action-btn:hover {
         background-color: #fb923c;
@@ -161,7 +161,7 @@ game_html = """
     .btn-group {
         display: flex;
         justify-content: center;
-        gap: 10px;
+        gap: 8px;
     }
 </style>
 </head>
@@ -191,7 +191,7 @@ game_html = """
 </div>
 
 <div class="terminal-msg" id="terminal-msg"></div>
-<button class="action-btn" id="main-btn" onclick="startMathGame()" style="display:block; margin: 15px auto;">MULAI TANTANGAN</button>
+<button class="action-btn" id="main-btn" onclick="startMathGame()" style="display:block; margin: 10px auto;">MULAI TANTANGAN</button>
 
 <script>
     let score = 0;
@@ -222,7 +222,6 @@ game_html = """
 
         let n1, n2, n3, op1, op2, valid = false;
 
-        // Pastikan rumus menghasilkan target yang bersih dan masuk akal
         while (!valid) {
             n1 = Math.floor(Math.random() * 8) + 2;
             n2 = Math.floor(Math.random() * 8) + 2;
@@ -242,10 +241,8 @@ game_html = """
 
         document.getElementById('target-display').innerText = targetNum;
 
-        // Masukkan komponen rumus yang dijamin ada di papan
         let tileValues = [n1.toString(), op1, n2.toString(), op2, n3.toString()];
 
-        // Lengkapi hingga 16 ubin dengan angka/operator acak
         while(tileValues.length < 16) {
             if (Math.random() < 0.35) {
                 tileValues.push(operators[Math.floor(Math.random() * operators.length)]);
@@ -254,7 +251,6 @@ game_html = """
             }
         }
 
-        // Acak posisi ubin
         tileValues.sort(() => Math.random() - 0.5);
 
         gridTiles = tileValues.map((val, idx) => ({
@@ -404,4 +400,4 @@ game_html = """
 </html>
 """
 
-components.html(game_html, height=620)
+components.html(game_html, height=540)
