@@ -742,8 +742,8 @@ if menu == "Departemen PSDA":
             "https://drive.google.com/uc?export=view&id=1lN5v6I2K5I6bhRd6aAIJPLl1bdo2F9HZ",
             "https://drive.google.com/uc?export=view&id=17xseR4KYV7SuMCzfgwjk5p-B-I0niFCf",
             "https://drive.google.com/uc?export=view&id=1xPxUGMeCkt6Rayh8eV3_Vsr9ny8p72eh",
-            "https://drive.google.com/uc?export=view&id=1AkIZVmaFAbT8mI_NKknMb0aYa3wRC9Q_",
             "https://drive.google.com/uc?export=view&id=14b8qmnde8c_RCxwRR6zL5KXbnFzcEbi1",
+            "https://drive.google.com/uc?export=view&id=1AkIZVmaFAbT8mI_NKknMb0aYa3wRC9Q_",
             "https://drive.google.com/uc?export=view&id=1N1-27XeDk4m3ff2BQ7xC8jholR5ehmSW",
             "https://drive.google.com/uc?export=view&id=1nOXS7amS3k3UD2HDvYO6EUF6NinWq9e7",
         ]
@@ -942,9 +942,26 @@ if menu == "Departemen PSDA":
 if menu == "Departemen Eksternal":
     def eksternal():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1LdrnIp0OvtSvDT-IDldV3A22HaVR6Sdx",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1VH42xi_IUv-_Emp1_kHv4gUsBWxGU-Lm",
+            "https://drive.google.com/uc?export=view&id=134PCNlfoJm8QOottXy8-MyZGJss4RBp1",
+            "https://drive.google.com/uc?export=view&id=1b1BTkqErNIjciLfQS7BA-StzXK4Mzfsq",
+            "https://drive.google.com/uc?export=view&id=1jgib2SdAXhv975xhTV4oGD31ZvhbuXCc",
+            "https://drive.google.com/uc?export=view&id=19khIgsPY8T5uVzMW4UJFiu2DaHwcEGHX",
+            "https://drive.google.com/uc?export=view&id=1s4vQJnmvbWui_xyqwrm5oXmOMTeQQsIr",
+            "https://drive.google.com/uc?export=view&id=1ZMJ627XOaDBYPru269k8VsLHDFr2YvbH",
+            "https://drive.google.com/uc?export=view&id=1egXh4XKBqig2vXfbulkm9SnOASs-Q-Xu",
+            "https://drive.google.com/uc?export=view&id=122NEVojaihUDF2rmr8khc37IG70DzPbP",
+            "https://drive.google.com/uc?export=view&id=1-V_Fbkd2Pgp4PjEIGesuvUsu7578h7VQ",
+            "https://drive.google.com/uc?export=view&id=1HezxZ4848ol4dOKgfRUYeO_BLvY8Xpin",
+            "https://drive.google.com/uc?export=view&id=1KX9xNwPyphQJn0B0iAWMTlcaOf4PvuNY",
+            "https://drive.google.com/uc?export=view&id=1U0wV1rrxvzRzwEpERbawHV4XTI6UBok9",
+            "https://drive.google.com/uc?export=view&id=1aPeFr15FGQMlBCIg9W13rTDRYLoVMjhu",
+             "https://drive.google.com/uc?export=view&id=1CMRqwHoepKtuxkI9tGlqPxxn39z6zPZt",
+             "https://drive.google.com/uc?export=view&id=1s6J5lnRExHAE2lNukYUB3Oyi87_aHLwD",
+             "https://drive.google.com/uc?export=view&id=1LzJAmbYCF03WOBgsfMyn1aS2PuB6VEnn",
+             "https://drive.google.com/uc?export=view&id=1zPipD8QFEZfLVzbVut-TsRKiZoCgUePD",
+             "https://drive.google.com/uc?export=view&id=1K3I2YIqL4LcleSL0QDJ76zsN07Z0CM7C",
+             "https://drive.google.com/uc?export=view&id=1TrKOnx9yQ_I-F9X0QQ46XBPGNFopMmBC",
         ]
         data_list = [
             {
@@ -1051,7 +1068,7 @@ if menu == "Departemen Eksternal":
                 "nim": "124450083",
                 "umur": "20",
                 "asal":"Ikut Kadep",
-                "alamat": "Love earth",
+                "alamat": "Love earth",AK
                 "hobbi": "Jadi Idol",
                 "sosmed": "@adindaadma",
                 "kesan": "Kakaknya baik banget!!",  
