@@ -31,42 +31,43 @@ game_html = """
         font-family: 'Courier New', monospace;
         text-align: center;
         margin: 0;
-        padding: 10px;
+        padding: 5px;
+        overflow-x: hidden;
     }
     .stats {
         display: flex;
         justify-content: space-around;
-        margin-bottom: 15px;
-        font-size: 15px;
+        margin-bottom: 10px;
+        font-size: 14px;
         font-weight: bold;
     }
     .stat-box {
         background: #312e81;
         border: 2px solid #facc15;
-        padding: 8px 15px;
+        padding: 6px 12px;
         border-radius: 8px;
         color: #facc15;
     }
     .instruction {
-        font-size: 16px;
-        margin-bottom: 20px;
+        font-size: 15px;
+        margin-bottom: 15px;
         color: #38bdf8;
         font-weight: bold;
         min-height: 24px;
     }
     .container {
         position: relative;
-        margin: 20px auto;
-        width: 540px;
-        height: 120px;
+        margin: 10px auto;
+        width: 460px;
+        height: 105px;
         max-width: 100%;
     }
     .box {
-        width: 120px;
-        height: 110px;
+        width: 100px;
+        height: 100px;
         background: #312e81;
         border: 3px solid #facc15;
-        border-radius: 12px;
+        border-radius: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -81,31 +82,31 @@ game_html = """
         border-color: #38bdf8;
     }
     .box-val {
-        font-size: 16px;
+        font-size: 15px;
         font-weight: bold;
         color: #facc15;
     }
     .box-type {
-        font-size: 11px;
+        font-size: 10px;
         color: #38bdf8;
-        margin-top: 5px;
+        margin-top: 4px;
     }
     .message {
-        margin-top: 20px;
-        font-size: 16px;
+        margin-top: 15px;
+        font-size: 15px;
         font-weight: bold;
-        height: 30px;
+        height: 25px;
     }
     .btn {
         background-color: #facc15;
         color: #1e1b4b;
         border: none;
-        padding: 12px 24px;
-        font-size: 15px;
+        padding: 10px 20px;
+        font-size: 14px;
         font-weight: bold;
         border-radius: 8px;
         cursor: pointer;
-        margin-top: 15px;
+        margin-top: 10px;
         font-family: 'Courier New', monospace;
     }
     .btn:hover {
@@ -191,7 +192,7 @@ game_html = """
         boxes.forEach((box, index) => {
             const el = document.createElement('div');
             el.className = 'box';
-            el.style.left = (box.currentPos * 138) + 'px';
+            el.style.left = (box.currentPos * 120) + 'px';
             el.onclick = () => handleBoxClick(index);
 
             if (showContent) {
@@ -201,7 +202,7 @@ game_html = """
                 `;
             } else {
                 el.innerHTML = `
-                    <div class="box-val" style="font-size: 24px;">[ ? ]</div>
+                    <div class="box-val" style="font-size: 22px;">[ ? ]</div>
                     <div class="box-type">Kotak ${box.currentPos + 1}</div>
                 `;
             }
@@ -216,7 +217,7 @@ game_html = """
         document.getElementById('instruction').innerText = "Kotak sedang bergeser dan bertukar posisi...";
 
         renderBoxes(false);
-        await sleep(600);
+        await sleep(500);
 
         let swaps = 5 + round;
         for(let s = 0; s < swaps; s++) {
@@ -234,7 +235,7 @@ game_html = """
             box2.currentPos = temp;
 
             renderBoxes(false);
-            await sleep(450);
+            await sleep(400);
         }
 
         gameState = 'guessing';
@@ -297,4 +298,4 @@ game_html = """
 </html>
 """
 
-components.html(game_html, height=480)
+components.html(game_html, height=440)
