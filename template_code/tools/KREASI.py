@@ -21,14 +21,18 @@ h1 {
 st.markdown(
     """
     <style>
-    /* Menyamakan warna dan gaya sidebar persis seperti halaman utama */
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+    /* Menyamakan font, warna, dan gaya sidebar persis seperti halaman utama */
     [data-testid="stSidebar"] {
         background-color: #f0e8d5 !important;
         border-right: 2px solid rgba(181, 142, 75, 0.4);
+        font-family: 'Inter', sans-serif !important;
     }
-    [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div, [data-testid="stSidebar"] label {
+    [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div, [data-testid="stSidebar"] label, [data-testid="stSidebar"] a {
         color: #1e1b18 !important;
         font-weight: 500;
+        font-family: 'Inter', sans-serif !important;
     }
     </style>
     """,
