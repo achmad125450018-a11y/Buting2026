@@ -18,6 +18,23 @@ h1 {
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown(
+    """
+    <style>
+    /* Menyamakan warna dan gaya sidebar persis seperti halaman utama */
+    [data-testid="stSidebar"] {
+        background-color: #f0e8d5 !important;
+        border-right: 2px solid rgba(181, 142, 75, 0.4);
+    }
+    [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div, [data-testid="stSidebar"] label {
+        color: #1e1b18 !important;
+        font-weight: 500;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 
 
 st.title("MATH MATRIX: EQUATION CHAIN")
