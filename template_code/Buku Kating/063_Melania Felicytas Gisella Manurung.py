@@ -1794,23 +1794,23 @@ if menu == "Departemen MIKFES":
 if menu == "Departemen PSDA":
     def Departemen_PSDA():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1FTGLZfO0hrNhcvgCHv3QDKZf_iigTmA2",
+            "https://drive.google.com/uc?export=view&id=13G_io5sBBOgMM5U6dzfGgLkLryl2_R0G",
+            "https://drive.google.com/uc?export=view&id=1llGNyyE54WEmszI0980sgBxbAsVX03zN",
+            "https://drive.google.com/uc?export=view&id=11xgXM7e7tUc22cp9UtAoR8ZS0cxMuQp8",
+            "https://drive.google.com/uc?export=view&id=11n26M7dmW1NkaUXrnRpI8WFD_JZ4XYaG",
+            "https://drive.google.com/uc?export=view&id=1B0HoytMzYxXlr0QePOkstLohDiqtMIBg",
+            "https://drive.google.com/uc?export=view&id=1M_2MGAQSfYGpUlV7vvBc7l92zRC42p3R",
+            "https://drive.google.com/uc?export=view&id=1Jd1bSEqLZZ4JvI5_ZPTggUcpd0jhdo-I",
+            "https://drive.google.com/uc?export=view&id=1Nx92NHAStVO3OicVg_iO8OMxxmyybWpK",
+            "https://drive.google.com/uc?export=view&id=1kVWRO4On0eHUZQBAtBkCfzLwKoS4HiBK",
+            "https://drive.google.com/uc?export=view&id=1wl-xnmXflJOn9Aolp3FOYs5oKiufmrbQ",
+            "https://drive.google.com/uc?export=view&id=1mnyF6KtLpM-GhFfrwncDagwZI03XKw6G",
+            "https://drive.google.com/uc?export=view&id=1dfYfkSnBIh_hVseqxlRbtYf6kZaFwcQV",
+            "https://drive.google.com/uc?export=view&id=1lBM2jmnqlBajQoP7WSPfyRnfcTTOoj39",
+            "https://drive.google.com/uc?export=view&id=1JP18yYFb9n-ydxdYmoOLc2DEIxPzTnRo",
+            "https://drive.google.com/uc?export=view&id=1BEh6Tde6mgVWq4n2CXxaZuhPmqRDqeL6",
+            "https://drive.google.com/uc?export=view&id=1Z7_QoloQoEsPsuIgh_S7PU7Wuu4jLiVt",
         ]
         data_list = [
             {
@@ -1990,7 +1990,7 @@ if menu == "Departemen PSDA":
                 "pesan":"Semoga selalu sehat dan doa nya diwujudkan ya bang!!!"# 1
             },
             {
-                "nama": "Salafi Maharani",
+                "nama": "Salavi Naharani",
                 "nim": "124450090",
                 "umur": "20",
                 "asal":"Lampung Timur",
