@@ -335,7 +335,7 @@ elif menu == "About Us":
                 "sebagai": "Palu",
                 "nim": "125450106",
                 "fun_fact": "Isi fun fact di sini",
-                "motto_hidup": "Isi motto di sini",
+                "motto_hidup": "Lorem Dolor Sit Amet",
                 "foto": "",  # ← isi link Google Drive foto sendiri (kosong = pakai foto default)
             },
             {
