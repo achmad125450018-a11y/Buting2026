@@ -1,5 +1,6 @@
 # tools/KREASI.py
 import streamlit as st
+import streamlit.components.v1 as components
 
 # ============================================================
 # 🎨 UI STREAMLIT & CSS 
@@ -39,100 +40,6 @@ html, body, [class*="css"] {
     text-transform: uppercase;
     margin-bottom: 20px;
 }
-
-/* Desain Game */
-.game-wrapper {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    height: 520px;
-    background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(112,28,35,0.15);
-    border: 1px solid rgba(217,195,163,0.55);
-    position: relative;
-    overflow: hidden;
-}
-
-#hud {
-    position: absolute;
-    top: 20px; left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    z-index: 10;
-}
-.stat {
-    background: rgba(255,255,255,0.9);
-    border: 1px solid rgba(217,195,163,0.8);
-    padding: 8px 25px;
-    border-radius: 12px;
-    font-weight: 700;
-    color: #701c23;
-    font-size: 18px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-#play-area {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    display: none;
-    overflow: hidden;
-}
-
-.item {
-    position: absolute;
-    font-size: 60px;
-    cursor: pointer;
-    user-select: none;
-    transition: transform 0.1s;
-    animation: fall linear forwards;
-}
-.item:active { transform: scale(1.3); }
-@keyframes fall { 0% { top: -80px; } 100% { top: 100%; } }
-
-.screen {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 20;
-    width: 90%;
-    max-width: 450px;
-    padding: 40px;
-    background: rgba(255,255,255,0.98);
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    border: 1px solid rgba(217,195,163,0.8);
-}
-h2 { color: #701c23; font-family: 'Playfair Display', serif; font-size: 32px; margin: 0 0 15px 0; }
-p { color: #4e1318; font-size: 16px; margin-bottom: 25px; line-height: 1.6; }
-
-.btn-start {
-    background: linear-gradient(135deg, #701c23 0%, #a8323d 100%);
-    color: white; border: none; border-radius: 12px;
-    padding: 15px 30px; font-weight: 700; font-size: 16px;
-    cursor: pointer; box-shadow: 0 6px 18px rgba(112,28,35,0.35);
-    transition: transform 0.15s; width: 100%;
-}
-.btn-start:hover { transform: translateY(-2px); }
-
-.score-pop {
-    position: absolute; font-weight: 800; font-size: 24px;
-    pointer-events: none; animation: popUp 0.6s ease-out forwards;
-    text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
-}
-@keyframes popUp { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-70px) scale(1.5); opacity: 0; } }
-
-/* 📱 Responsive HP */
-@media (max-width: 768px) {
-    .game-wrapper { height: 550px; border-radius: 0; border: none; }
-    .stat { padding: 6px 12px; font-size: 14px; }
-    .screen { padding: 30px 20px; }
-    h2 { font-size: 26px; }
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -140,30 +47,140 @@ st.markdown("<h1 class='title'>DATA CATCHER</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>✦ Bersihkan Data, Kumpulkan Skor! ✦</p>", unsafe_allow_html=True)
 
 # ============================================================
-# 🎮 HTML & JS (Anti Bocor & Skor Sempurna)
+# 🎮 HTML & JS (Lebar Full & Tombol Berfungsi)
 # ============================================================
-# PERHATIAN: Pastikan tidak ada spasi di awal baris HTML di bawah ini
-game_html = """<div class="game-wrapper" id="game-container">
-<div id="hud">
-    <div class="stat">⏱️ <span id="time">30</span>s</div>
-    <div class="stat">🏆 <span id="score">0</span></div>
-    <div class="stat">❤️ <span id="lives">3</span></div>
-</div>
-<div id="play-area"></div>
-<div id="start-screen" class="screen">
-    <h2>Data Catcher</h2>
-    <p>Klik <b>Data Bersih</b> (🍎, 💎, 📁) secepat mungkin.<br>Jangan klik <b>Data Sampah</b> (🗑️, 💩, 🐛)!</p>
-    <button id="btn-start" class="btn-start">🚀 MULAI GAME</button>
-</div>
-<div id="gameover-screen" class="screen" style="display:none;">
-    <h2>Game Over!</h2>
-    <p>Skor Akhir: <br><b style="font-size:48px; color:#a8323d;" id="final-score">0</b></p>
-    <button id="btn-restart" class="btn-start">🔄 Main Lagi</button>
-</div>
+game_html = """
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    * { box-sizing: border-box; }
+    body {
+        margin: 0; padding: 0;
+        font-family: 'Inter', sans-serif;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    /* Trik lebar maksimal di dalam iframe */
+    #game-container {
+        width: 100%;
+        max-width: 900px; 
+        height: 500px;
+        background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(112,28,35,0.15);
+        border: 1px solid rgba(217,195,163,0.55);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    #hud {
+        position: absolute;
+        top: 20px; left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        z-index: 10;
+    }
+    .stat {
+        background: rgba(255,255,255,0.9);
+        border: 1px solid rgba(217,195,163,0.8);
+        padding: 8px 25px;
+        border-radius: 12px;
+        font-weight: 700;
+        color: #701c23;
+        font-size: 18px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    #play-area {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        display: none;
+        overflow: hidden;
+    }
+
+    .item {
+        position: absolute;
+        font-size: 60px;
+        cursor: pointer;
+        user-select: none;
+        transition: transform 0.1s;
+        animation: fall linear forwards;
+    }
+    .item:active { transform: scale(1.3); }
+    @keyframes fall { 0% { top: -80px; } 100% { top: 100%; } }
+
+    .screen {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 20;
+        width: 90%;
+        max-width: 450px;
+        padding: 40px;
+        background: rgba(255,255,255,0.98);
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        border: 1px solid rgba(217,195,163,0.8);
+    }
+    h2 { color: #701c23; font-family: 'Playfair Display', serif; font-size: 32px; margin: 0 0 15px 0; }
+    p { color: #4e1318; font-size: 16px; margin-bottom: 25px; line-height: 1.6; }
+    
+    .btn-start {
+        background: linear-gradient(135deg, #701c23 0%, #a8323d 100%);
+        color: white; border: none; border-radius: 12px;
+        padding: 15px 30px; font-weight: 700; font-size: 16px;
+        cursor: pointer; box-shadow: 0 6px 18px rgba(112,28,35,0.35);
+        transition: transform 0.15s; width: 100%;
+    }
+    .btn-start:hover { transform: translateY(-2px); }
+    
+    .score-pop {
+        position: absolute; font-weight: 800; font-size: 24px;
+        pointer-events: none; animation: popUp 0.6s ease-out forwards;
+        text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
+    }
+    @keyframes popUp { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-70px) scale(1.5); opacity: 0; } }
+
+    /* 📱 Responsive HP */
+    @media (max-width: 768px) {
+        #game-container { height: 550px; border-radius: 0; border: none; }
+        .stat { padding: 6px 12px; font-size: 14px; }
+        .screen { padding: 30px 20px; }
+        h2 { font-size: 26px; }
+    }
+</style>
+</head>
+<body>
+<div id="game-container">
+    <div id="hud">
+        <div class="stat">⏱️ <span id="time">30</span>s</div>
+        <div class="stat">🏆 <span id="score">0</span></div>
+        <div class="stat">❤️ <span id="lives">3</span></div>
+    </div>
+    <div id="play-area"></div>
+    <div id="start-screen" class="screen">
+        <h2>Data Catcher</h2>
+        <p>Klik <b>Data Bersih</b> (🍎, 💎, 📁) secepat mungkin.<br>Jangan klik <b>Data Sampah</b> (🗑️, 💩, 🐛)!</p>
+        <button id="btn-start" class="btn-start">🚀 MULAI GAME</button>
+    </div>
+    <div id="gameover-screen" class="screen" style="display:none;">
+        <h2>Game Over!</h2>
+        <p>Skor Akhir: <br><b style="font-size:48px; color:#a8323d;" id="final-score">0</b></p>
+        <button id="btn-restart" class="btn-start">🔄 Main Lagi</button>
+    </div>
 </div>
 
 <script>
-setTimeout(() => {
     let score = 0, lives = 3, timeLeft = 30, isPlaying = false;
     let spawnInterval, timerInterval;
     const cleanItems = ["🍎", "🍌", "💎", "📁", "💾"];
@@ -203,23 +220,15 @@ setTimeout(() => {
         item.style.animationDuration = (Math.random() * 2 + 2) + "s";
 
         item.onclick = (e) => {
-            if (!isPlaying) return; 
-            item.style.pointerEvents = "none";
-            
-            // Ambil posisi X,Y yang benar (relatif ke dalam kotak game)
+            if (!isPlaying) return; item.style.pointerEvents = "none";
             const rect = playArea.getBoundingClientRect();
-            const x = e.clientX - rect.left; 
-            const y = e.clientY - rect.top;
+            const x = e.clientX - rect.left, y = e.clientY - rect.top;
 
             if (isClean) {
-                score += 10; 
-                showPop(x, y, "+10", "#28a745"); 
-                item.innerText = "✨"; 
+                score += 10; showPop(x, y, "+10", "#28a745"); item.innerText = "✨"; 
             } else {
-                lives--; 
-                score = Math.max(0, score - 5);
-                showPop(x, y, "-5", "#dc3545"); 
-                item.innerText = "💥";
+                lives--; score = Math.max(0, score - 5);
+                showPop(x, y, "-5", "#dc3545"); item.innerText = "💥";
                 if (lives <= 0) endGame();
             }
             document.getElementById("score").innerText = score;
@@ -239,33 +248,26 @@ setTimeout(() => {
 
     function showPop(x, y, text, color) {
         const pop = document.createElement("div");
-        pop.className = "score-pop"; 
-        pop.innerText = text;
-        
-        // Kalkulasi agar tulisan +10 pas di tengah emoji
-        pop.style.left = (x - 15) + "px"; 
-        pop.style.top = (y - 20) + "px"; 
-        pop.style.color = color;
-        
-        playArea.appendChild(pop); 
-        setTimeout(() => pop.remove(), 600);
+        pop.className = "score-pop"; pop.innerText = text;
+        pop.style.left = (x - 15) + "px"; pop.style.top = (y - 20) + "px"; pop.style.color = color;
+        playArea.appendChild(pop); setTimeout(() => pop.remove(), 600);
     }
 
     function endGame() {
-        isPlaying = false; 
-        clearInterval(spawnInterval); 
-        clearInterval(timerInterval);
-        playArea.style.display = "none"; 
-        playArea.innerHTML = "";
+        isPlaying = false; clearInterval(spawnInterval); clearInterval(timerInterval);
+        playArea.style.display = "none"; playArea.innerHTML = "";
         document.getElementById("final-score").innerText = score;
         gameoverScreen.style.display = "block";
     }
 
     if(btnStart) btnStart.addEventListener("click", startGame);
     if(btnRestart) btnRestart.addEventListener("click", startGame);
+</script>
+</body>
+</html>
+"""
 
-}, 200); 
-</script>"""
-
-# Tampilkan game
-st.markdown(game_html, unsafe_allow_html=True)
+# Render menggunakan components.html, dan CSS hack "width: 100% !important" di atasnya
+col1, col2, col3 = st.columns([0.05, 0.9, 0.05])
+with col2:
+    components.html(game_html, height=520, scrolling=False)
