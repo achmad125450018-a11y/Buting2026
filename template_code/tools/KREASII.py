@@ -2,7 +2,7 @@ import streamlit as st
 import random
 from datetime import date
 
-st.set_page_config(page_title="Data Type Sorter Pro", layout="centered")
+st.set_page_config(page_title="Data Pipeline Sorter", layout="centered")
 
 st.markdown("""
 <style>
@@ -29,85 +29,73 @@ label, p, span, div {
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Data Type Sorter Pro: Multi-Type Classification")
-st.markdown("Klasifikasikan berbagai jenis item data ke dalam tipe data yang tepat (Integer, Float, String, Boolean, atau Date).")
+st.title("Data Pipeline: Interactive Batch Sorter")
+st.markdown("Pindahkan dan klasifikasikan sekumpulan item data ke dalam kategori tipe data yang benar pada setiap wadah pemrosesan.")
 
 if "score" not in st.session_state:
     st.session_state.score = 0
-    st.session_state.lives = 3
     st.session_state.round = 1
-    st.session_state.current_item = None
-    st.session_state.current_type = None
+    st.session_state.batch_items = []
 
-def generate_item():
+def generate_batch():
     types = ["Integer", "Float", "String", "Boolean", "Date"]
-    chosen_type = random.choice(types)
-    if chosen_type == "Integer":
-        val = str(random.randint(-500, 500))
-    elif chosen_type == "Float":
-        val = str(round(random.uniform(-100, 100), 2))
-    elif chosen_type == "String":
-        words = ["Python", "Streamlit", "Dataset", "Analytics", "DataFrame", "Pandas"]
-        val = random.choice(words)
-    elif chosen_type == "Boolean":
-        val = str(random.choice([True, False]))
-    elif chosen_type == "Date":
-        val = str(date(random.randint(2020, 2026), random.randint(1, 12), random.randint(1, 28)))
-    return val, chosen_type
+    batch = []
+    for _ in range(4):
+        t = random.choice(types)
+        if t == "Integer":
+            val = str(random.randint(-100, 100))
+        elif t == "Float":
+            val = str(round(random.uniform(-50, 50), 2))
+        elif t == "String":
+            val = random.choice(["Dataset", "Python", "Streamlit", "Model", "Query"])
+        elif t == "Boolean":
+            val = str(random.choice([True, False]))
+        elif t == "Date":
+            val = str(date(random.randint(2023, 2026), random.randint(1, 12), random.randint(1, 28)))
+        batch.append({"value": val, "type": t})
+    return batch
 
-if st.session_state.current_item is None:
-    st.session_state.current_item, st.session_state.current_type = generate_item()
+if not st.session_state.batch_items:
+    st.session_state.batch_items = generate_batch()
 
 col1, col2 = st.columns(2)
-col1.metric("Skor", st.session_state.score)
-col2.metric("Nyawa", st.session_state.lives)
+col1.metric("Skor Total", st.session_state.score)
+col2.metric("Ronde Aktif", st.session_state.round)
 
-st.subheader(f"Ronde {st.session_state.round}")
-st.markdown("Tentukan Tipe Data untuk Nilai Berikut:")
-st.markdown(f"<h1 style='text-align: center; color: #d62728; background-color: #ffffff; padding: 25px; border-radius: 10px; border: 1px solid #ddd;'>{st.session_state.current_item}</h1>", unsafe_allow_html=True)
+st.subheader("Kotak Masuk Data (Unsorted Batch)")
+st.markdown("Tentukan kategori wadah yang tepat untuk setiap item data di bawah ini:")
 
-st.markdown("Pilih Tipe Data yang Sesuai:")
+user_choices = {}
+type_options = ["Integer", "Float", "String", "Boolean", "Date"]
 
-col_a, col_b, col_c, col_d, col_e = st.columns(5)
+for idx, item in enumerate(st.session_state.batch_items):
+    c1, c2 = st.columns([1, 2])
+    with c1:
+        st.markdown(f"**Item {idx+1}: {item['value']}**")
+    with c2:
+        user_choices[idx] = st.selectbox(f"Pilih Kategori Wadah Item {idx+1}", type_options, key=f"item_{st.session_state.round}_{idx}")
 
-selected_choice = None
-
-if col_a.button("Integer", use_container_width=True):
-    selected_choice = "Integer"
-if col_b.button("Float", use_container_width=True):
-    selected_choice = "Float"
-if col_c.button("String", use_container_width=True):
-    selected_choice = "String"
-if col_d.button("Boolean", use_container_width=True):
-    selected_choice = "Boolean"
-if col_e.button("Date", use_container_width=True):
-    selected_choice = "Date"
-
-if selected_choice is not None:
-    if selected_choice == st.session_state.current_type:
-        st.session_state.score += 15
-        st.success(f"Benar! Ini adalah tipe data {selected_choice}.")
+if st.button("Proses dan Pindahkan ke Kategori"):
+    correct_count = 0
+    for idx, item in enumerate(st.session_state.batch_items):
+        if user_choices[idx] == item["type"]:
+            correct_count += 1
+    
+    earned_score = correct_count * 10
+    st.session_state.score += earned_score
+    
+    if correct_count == len(st.session_state.batch_items):
+        st.success(f"Luar biasa! Semua {correct_count} item berhasil dipindahkan ke wadah yang tepat. Poin diperoleh: +{earned_score}.")
     else:
-        st.session_state.lives -= 1
-        st.error(f"Salah! Nilai tersebut adalah tipe data {st.session_state.current_type}.")
-        
-    if st.session_state.lives <= 0:
-        st.error("Permainan Berakhir. Nyawa Anda habis.")
-        if st.button("Main Lagi"):
-            st.session_state.score = 0
-            st.session_state.lives = 3
-            st.session_state.round = 1
-            st.session_state.current_item, st.session_state.current_type = generate_item()
-            st.rerun()
-    else:
-        st.session_state.round += 1
-        st.session_state.current_item, st.session_state.current_type = generate_item()
-        st.rerun()
+        st.warning(f"Berhasil memindahkan {correct_count} dari {len(st.session_state.batch_items)} item dengan benar. Poin diperoleh: +{earned_score}.")
+    
+    st.session_state.round += 1
+    st.session_state.batch_items = generate_batch()
+    st.rerun()
 
 st.markdown("---")
-if st.button("Reset Total Permainan"):
+if st.button("Reset Batch Permainan"):
     st.session_state.score = 0
-    st.session_state.lives = 3
     st.session_state.round = 1
-    st.session_state.current_item, st.session_state.current_type = generate_item()
+    st.session_state.batch_items = generate_batch()
     st.rerun()
