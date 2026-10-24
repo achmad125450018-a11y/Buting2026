@@ -347,15 +347,15 @@ if menu == "Badan Legislatif":
 if menu == "Badan Kesenatoran":
     def senator():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1YwXU3-HhvqYMd0RaQUnXp2hQcLFlkjDZ",
-            "https://drive.google.com/uc?export=view&id=1yAiY2HZ3zlPqp0VkdYlY1QC5SRLj9qdN",
+            "https://drive.google.com/uc?export=view&id=1nCvkOIQkGQ5XUSUJJorRcoe3zk57avsv",
+            "https://drive.google.com/uc?export=view&id=1K0oWaVNbsM907thwaf-Guq9C9pHd0PE_",
             "https://drive.google.com/uc?export=view&id=1YwXU3-HhvqYMd0RaQUnXp2hQcLFlkjDZ", #bang nando
-            "https://drive.google.com/uc?export=view&id=1OWRzNvT7GuMOzOYiOidkYKphG0W3zWNp",
-            "https://drive.google.com/uc?export=view&id=1FertBY6EDHYxU5gcSz9VKHTerUj8IFgd",
+            "https://drive.google.com/uc?export=view&id=1Zznlj_5MPWnoGDeug5RhSqldO7eDzRWP",
+            "https://drive.google.com/uc?export=view&id=1dEOC-0XD37er1jms4JWvXQktynoqN1tv",
             "https://drive.google.com/uc?export=view&id=1YwXU3-HhvqYMd0RaQUnXp2hQcLFlkjDZ", #kak lia hanna
-            "https://drive.google.com/uc?export=view&id=1p5tFSULhp7qpbivXe3tg3TEuVFBQwux3",
-            "https://drive.google.com/uc?export=view&id=1DRSrgbsdTL_eDM-Frl-11nQa7UT_T1hC",
-            "https://drive.google.com/uc?export=view&id=1SsIxjXzxT-8oLUpWW0Ghxz-H1KHzwiha",
+            "https://drive.google.com/uc?export=view&id=156ky8ui-NzbXrcwAjsOHK5A9Z_DyElfx",
+            "https://drive.google.com/uc?export=view&id=1QCJVH_7ziS6C790Ygt7RvFt3mJtRQP88",
+            "https://drive.google.com/uc?export=view&id=1TNeUxVIgMgyTnRaLDEaEFdZmDYf6xFVJ",
             "https://drive.google.com/uc?export=view&id=1YwXU3-HhvqYMd0RaQUnXp2hQcLFlkjDZ", #kak dwi rahma
         ]
         data_list = [
