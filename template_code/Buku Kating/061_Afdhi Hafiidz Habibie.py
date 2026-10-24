@@ -700,7 +700,7 @@ if menu == "Departemen MIKFES":
             "https://drive.google.com/uc?export=view&id=1iiAn3yefi1s5wA-OKxGM4alU11MdgCaS", #viola
             "https://drive.google.com/uc?export=view&id=12Rvc3EJ4FLKd_O3DUGTsAHeYGDY13IMC", #risa
             "https://drive.google.com/uc?export=view&id=1tHZJWNC9pGABN_wgCIdVNbarGHGDV63B", #vanisa
-            "https://drive.google.com/uc?export=view&id=1Z3NYAirEDmU1vcbMm1fyZjK9C75ug9gU", #yulia
+            "https://drive.google.com/uc?export=view&id=1Q8IihY68dunX-vtYST9ZDZ0HeBzgnXlB", #yulia
             "https://drive.google.com/uc?export=view&id=19nIwMobYNb4dx9Leoehnkpz0jD9G2-aQ", #akeyla
             "https://drive.google.com/uc?export=view&id=1OjUaTOlcipLL8eZnkK8H-vm0yTSrAphR", #elsa
             "https://drive.google.com/uc?export=view&id=154RfaTTcgOIitgugm42S4Xmwe7Fp2h2p", # fadya
