@@ -1,73 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.markdown(
-    """
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap');
 
-    /* Global Styling - Background Krim dengan Grafik Multi-Layer Bertumpuk */
-    .stApp {
-        background-color: #fbf9f5;
-        background-image: 
-            radial-gradient(rgba(181, 142, 75, 0.28) 1.5px, transparent 1.5px), 
-            radial-gradient(rgba(92, 64, 51, 0.15) 1.5px, #fbf9f5 1.5px),
-            linear-gradient(45deg, rgba(181, 142, 75, 0.05) 25%, transparent 25%),
-            linear-gradient(-45deg, rgba(181, 142, 75, 0.05) 25%, transparent 25%);
-        background-size: 36px 36px, 36px 36px, 60px 60px, 60px 60px;
-        background-position: 0 0, 18px 18px, 0 0, 30px 30px;
-        background-attachment: fixed;
-        color: #1e1b18;
-        font-family: 'Inter', sans-serif;
-    }
-
-    /* Sidebar disesuaikan warnanya agar senada, terang, dan rapi */
-    [data-testid="stSidebar"] {
-        background-color: #f0e8d5 !important;
-        border-right: 2px solid rgba(181, 142, 75, 0.4);
-    }
-    [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div, [data-testid="stSidebar"] label {
-        color: #1e1b18 !important;
-        font-weight: 500;
-    }
-
-    /* Gaya Kotak Profil / Konten di halaman person */
-    .person-card {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(246, 240, 226, 0.96) 100%); 
-        backdrop-filter: blur(8px);
-        border: 2px solid #b58e4b; 
-        outline: 2px dashed rgba(181, 142, 75, 0.4);
-        outline-offset: -6px;
-        padding: 26px; 
-        border-radius: 20px; 
-        box-shadow: 0 10px 30px rgba(181, 142, 75, 0.15); 
-        color: #1e1b18;
-        font-family: 'Inter', sans-serif;
-        position: relative;
-        overflow: hidden;
-        margin-bottom: 20px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-st.set_page_config(page_title="Math Matrix: Equation Chain", layout="wide")
-
-st.markdown("""
-<style>
-.stApp {
-    background-color: #09090b;
-    color: #ffffff;
-}
-h1 {
-    color: #f97316 !important;
-    font-family: 'Courier New', monospace;
-    text-align: center;
-    letter-spacing: 2px;
-}
-</style>
-""", unsafe_allow_html=True)
 
 st.title("MATH MATRIX: EQUATION CHAIN")
 st.markdown("<p style='text-align: center; color: #fdba74;'>Pilih urutan angka dan operator dari matriks 4x4 untuk merakit persamaan yang hasilnya pas dengan Angka Target!</p>", unsafe_allow_html=True)
