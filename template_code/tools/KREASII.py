@@ -1,8 +1,9 @@
 import streamlit as st
+import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+import random
 
-st.set_page_config(page_title="Gradient Descent Master", layout="wide")
+st.set_page_config(page_title="Data Defense Matrix", layout="wide")
 
 st.markdown("""
 <style>
@@ -29,67 +30,65 @@ label, p, span, div {
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Gradient Descent Master: Interactive Optimization")
-st.markdown("Atur Learning Rate dan Iterasi untuk mengarahkan model machine learning menuju titik minimum loss global tanpa terjebak atau mengalami divergen.")
+st.title("Data Defense Matrix: Cyber Pipeline Security")
+st.markdown("Sesuaikan parameter filter untuk mendeteksi dan menghancurkan anomali data korup sebelum integritas sistem runtuh.")
 
-if "lr" not in st.session_state:
-    st.session_state.lr = 0.05
-    st.session_state.iterations = 50
+if "integrity" not in st.session_state:
+    st.session_state.integrity = 100
+    st.session_state.score = 0
+    st.session_state.wave = 1
+    st.session_state.threats_eliminated = 0
+    st.session_state.game_over = False
 
-col1, col2 = st.columns([1, 2])
+if not st.session_state.game_over:
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("Integritas Sistem", f"{st.session_state.integrity} %")
+    col2.metric("Skor Pertahanan", st.session_state.score)
+    col3.metric("Gelombang", st.session_state.wave)
+    col4.metric("Anomali Dibasmi", st.session_state.threats_eliminated)
 
-with col1:
-    st.subheader("Kontrol Hyperparameter")
-    lr = st.slider("Learning Rate", 0.001, 0.5, st.session_state.lr, 0.001)
-    iterations = st.slider("Jumlah Iterasi", 10, 200, st.session_state.iterations, 5)
-    
-    if st.button("Jalankan Optimisasi"):
-        st.session_state.lr = lr
-        st.session_state.iterations = iterations
+    st.subheader("Kalibrasi Sensor Filter")
+    threshold = st.slider("Ambang Batas Filter (Threshold)", 10.0, 100.0, 50.0, 1.0)
+    sensitivity = st.slider("Sensitivitas Deteksi", 1, 10, 5, 1)
+
+    if "matrix_data" not in st.session_state or st.session_state.get("refresh_matrix", False):
+        np.random.seed()
+        data_vals = [random.randint(5, 95) for _ in range(6)]
+        corrupt_val = random.randint(120, 200)
+        full_data = data_vals + [corrupt_val]
+        random.shuffle(full_data)
+        st.session_state.matrix_data = full_data
+        st.session_state.actual_corrupt = corrupt_val
+        st.session_state.refresh_matrix = False
+
+    st.markdown("Matriks Aliran Data Aktif:")
+    df_grid = pd.DataFrame({"ID Node": range(len(st.session_state.matrix_data)), "Nilai Signal": st.session_state.matrix_data})
+    st.dataframe(df_grid, use_container_width=True, hide_index=True)
+
+    target_node = st.selectbox("Pilih Node untuk Diisolasi dan Purge:", st.session_state.matrix_data)
+
+    if st.button("Jalankan Purge Protocol"):
+        if target_node == st.session_state.actual_corrupt:
+            st.session_state.score += 50 * st.session_state.wave
+            st.session_state.threats_eliminated += 1
+            if st.session_state.threats_eliminated % 3 == 0:
+                st.session_state.wave += 1
+            st.success("Anomali korup berhasil diisolasi dan dihancurkan.")
+            st.session_state.refresh_matrix = True
+            st.rerun()
+        else:
+            st.session_state.integrity -= 25
+            st.error("Gagal! Node yang dipilih adalah data normal. Integritas sistem menurun.")
+            if st.session_state.integrity <= 0:
+                st.session_state.game_over = True
+                st.rerun()
+            else:
+                st.session_state.refresh_matrix = True
+                st.rerun()
+else:
+    st.error("Sistem Runtuh! Integritas mencapai 0 persen.")
+    st.metric("Skor Akhir Pertahanan", st.session_state.score)
+    if st.button("Inisialisasi Ulang Sistem"):
+        for key in list(st.session_state.keys()):
+            del st.session_state[key]
         st.rerun()
-
-with col2:
-    st.subheader("Kurva Loss & Jalur Optimizer")
-    
-    x = np.linspace(-3, 3, 200)
-    y = x**4 - 3*x**2 + 2
-    
-    current_x = 2.5
-    path_x = [current_x]
-    path_y = [current_x**4 - 3*current_x**2 + 2]
-    
-    for _ in range(st.session_state.iterations):
-        grad = 4 * (current_x**3) - 6 * current_x
-        current_x = current_x - st.session_state.lr * grad
-        current_x = max(-3.0, min(3.0, current_x))
-        path_x.append(current_x)
-        path_y.append(current_x**4 - 3*current_x**2 + 2)
-        
-    final_loss = path_y[-1]
-    
-    fig, ax = plt.subplots(figsize=(8, 4))
-    fig.patch.set_facecolor('#0b0b0b')
-    ax.set_facecolor('#141414')
-    ax.plot(x, y, color="#ff2a85", linewidth=2, label="Loss Surface")
-    ax.scatter(path_x, path_y, color="#ffffff", s=30, label="Jalur Optimizer", zorder=5)
-    ax.scatter(path_x[-1], path_y[-1], color="#00ffcc", s=100, label="Posisi Akhir", zorder=6)
-    
-    ax.set_title("Visualisasi Gradien", color="#ff2a85")
-    ax.set_xlabel("Parameter Bobot", color="#ffffff")
-    ax.set_ylabel("Nilai Loss", color="#ffffff")
-    ax.tick_params(colors="#ffffff")
-    ax.spines['bottom'].set_color('#333333')
-    ax.spines['top'].set_color('#333333')
-    ax.spines['left'].set_color('#333333')
-    ax.spines['right'].set_color('#333333')
-    ax.legend(facecolor='#141414', edgecolor='#ff2a85', labelcolor='#ffffff')
-    st.pyplot(fig)
-
-    st.metric("Nilai Loss Akhir", f"{final_loss:.5f}")
-    
-    if final_loss < 0.05:
-        st.success("Berhasil! Model mencapai titik minimum optimal dengan sempurna.")
-    elif final_loss > 10:
-        st.error("Gagal! Learning Rate terlalu besar, model mengalami divergen (meledak).")
-    else:
-        st.warning("Belum optimal. Sesuaikan kembali Learning Rate dan jumlah iterasi Anda.")
