@@ -1,12 +1,20 @@
 import streamlit as st
 
-# session state agar ketika pindah page tidak berubah data yang tersedia
+st.set_page_config(
+    page_title="02 Jacobi • Website Kating HMSD 2026",
+    page_icon="🌸",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
+# session state agar ketika pindah page tidak berubah data yang tersedia
 st.session_state.pindah = True
 
-Homepage = st.Page("Halaman Utama/halaman_utama.py",
+Homepage = st.Page(
+    "Halaman Utama/halaman_utama.py",
     title="02 Jacobi",
-    default=True)
+    default=True,
+)
 
 Mahasiswa1 = st.Page(
     "Buku Kating/004_Eyi Adelia.py",
@@ -85,20 +93,34 @@ Mahasiswa13 = st.Page(
     title="130 - Rahman Syapei",
     icon=":material/person:",
 )
-#Perlu diperhatikan perubahannya
+
+# Perlu diperhatikan perubahannya
 KREASI = st.Page("tools/KREASI.py", title="KREASI", icon=":material/search:")
 KREASII = st.Page("tools/KREASII.py", title="KREASII", icon=":material/search:")
 
-#Perlu diperhatikan perubahannya
+# Perlu diperhatikan perubahannya
 if st.session_state.pindah:
     pg = st.navigation(
         {
             "Halaman Utama": [Homepage],
-            "Buku Kating": [Mahasiswa1, Mahasiswa2, Mahasiswa3, Mahasiswa4, Mahasiswa5, Mahasiswa6, Mahasiswa7, Mahasiswa8, Mahasiswa9, Mahasiswa10, Mahasiswa11, Mahasiswa12, Mahasiswa13],
+            "Buku Kating": [
+                Mahasiswa1,
+                Mahasiswa2,
+                Mahasiswa3,
+                Mahasiswa4,
+                Mahasiswa5,
+                Mahasiswa6,
+                Mahasiswa7,
+                Mahasiswa8,
+                Mahasiswa9,
+                Mahasiswa10,
+                Mahasiswa11,
+                Mahasiswa12,
+                Mahasiswa13,
+            ],
             "Try Me !!": [KREASI, KREASII],
         }
     )
 else:
-    st.write("Maaf Anda kurang beruntung :(") 
+    st.write("Maaf Anda kurang beruntung :(")
 pg.run()
-
