@@ -19,7 +19,7 @@ h1 {
 """, unsafe_allow_html=True)
 
 st.title("CYBER HACK: TERMINAL OVERRIDE")
-st.markdown("<p style='text-align: center; color: #94a3b8;'>Ikuti pergerakan kotak data secara visual, lacak anomali target, dan bypass firewall sebelum waktu habis!</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #94a3b8;'>Matriks node diperluas menjadi 6 kotak! Ikuti pergerakannya dan lacak anomali target sebelum waktu habis.</p>", unsafe_allow_html=True)
 
 game_html = """
 <!DOCTYPE html>
@@ -51,7 +51,7 @@ game_html = """
     }
     .trace-container {
         width: 100%;
-        max-width: 400px;
+        max-width: 460px;
         background: #1e293b;
         height: 8px;
         border-radius: 4px;
@@ -81,13 +81,13 @@ game_html = """
     .grid-container {
         position: relative;
         margin: 15px auto;
-        width: 390px;
-        height: 105px;
+        width: 460px;
+        height: 95px;
         max-width: 100%;
     }
     .node-box {
-        width: 88px;
-        height: 95px;
+        width: 70px;
+        height: 85px;
         background: #0f172a;
         border: 2px solid #38bdf8;
         border-radius: 8px;
@@ -106,14 +106,14 @@ game_html = """
         box-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
     }
     .node-val {
-        font-size: 13px;
+        font-size: 11px;
         font-weight: bold;
         color: #f8fafc;
     }
     .node-type {
-        font-size: 9px;
+        font-size: 8px;
         color: #94a3b8;
-        margin-top: 4px;
+        margin-top: 3px;
         text-transform: uppercase;
     }
     .terminal-msg {
@@ -172,6 +172,8 @@ game_html = """
     let traceLeft = 100;
     let shuffleInterval = null;
 
+    const totalNodes = 6;
+
     const pool = [
         { name: "Integer", vals: ["42", "108", "512", "999", "12", "7", "256"] },
         { name: "Float", vals: ["3.14", "9.81", "0.55", "7.25", "4.19", "1.61"] },
@@ -200,7 +202,7 @@ game_html = """
         document.getElementById('mission-text').innerHTML = `TARGET PROTOKOL: Cari tipe data <span class="target-highlight">${targetType}</span>`;
 
         let rawNodes = [];
-        for(let i=0; i<3; i++) {
+        for(let i=0; i<totalNodes - 1; i++) {
             let val = domType.vals[Math.floor(Math.random() * domType.vals.length)];
             rawNodes.push({ val: val, type: domType.name, isAnom: false });
         }
@@ -214,7 +216,7 @@ game_html = """
             pos: idx
         }));
 
-        renderNodes(true);
+        renderNodes();
 
         setTimeout(() => {
             startShufflingPhase();
@@ -228,7 +230,7 @@ game_html = """
         nodes.forEach((node, index) => {
             const el = document.createElement('div');
             el.className = 'node-box';
-            el.style.left = (node.pos * 100) + 'px';
+            el.style.left = (node.pos * 77) + 'px';
             el.onclick = () => handleNodeClick(index);
 
             el.innerHTML = `
@@ -243,15 +245,15 @@ game_html = """
         gameState = 'shuffling';
         document.getElementById('terminal-msg').innerText = "Ikuti pergerakan kotak...";
 
-        let totalSwaps = 4 + (level * 2);
+        let totalSwaps = 5 + (level * 2);
         let currentSwap = 0;
-        let speed = Math.max(250, 450 - (level * 30));
+        let speed = Math.max(220, 420 - (level * 25));
 
         shuffleInterval = setInterval(() => {
-            let p1 = Math.floor(Math.random() * 4);
+            let p1 = Math.floor(Math.random() * totalNodes);
             let p2;
             do {
-                p2 = Math.floor(Math.random() * 4);
+                p2 = Math.floor(Math.random() * totalNodes);
             } while(p1 === p2);
 
             let node1 = nodes.find(n => n.pos === p1);
@@ -276,7 +278,7 @@ game_html = """
         document.getElementById('terminal-msg').innerHTML = `<span style="color: #4ade80;">Pilih kotak dengan tipe ${targetType}!</span>`;
         
         traceLeft = 100;
-        let maxTime = Math.max(3000, 8000 - (level * 500));
+        let maxTime = Math.max(3500, 9000 - (level * 400));
         let intervalTime = 50;
         let decrement = (intervalTime / maxTime) * 100;
 
