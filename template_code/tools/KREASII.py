@@ -46,8 +46,6 @@ if "score" not in st.session_state:
     st.session_state.score = 0
 if "round" not in st.session_state:
     st.session_state.round = 1
-if "items" not in st.session_state or not isinstance(st.session_state.items, list):
-    st.session_state.items = []
 
 def generate_items():
     types = ["Integer", "Float", "String", "Boolean", "Date"]
@@ -67,7 +65,7 @@ def generate_items():
         new_items.append({"id": random.randint(10000, 99999), "value": val, "type": t})
     return new_items
 
-if not st.session_state.items:
+if "items" not in st.session_state or not isinstance(st.session_state.items, list):
     st.session_state.items = generate_items()
 
 col_m1, col_m2 = st.columns(2)
@@ -76,39 +74,44 @@ col_m2.metric("Ronde Sistem", st.session_state.round)
 
 st.subheader("Terminal Antrian Data Masuk")
 
+if not isinstance(st.session_state.items, list):
+    st.session_state.items = generate_items()
+
 remaining_items = list(st.session_state.items)
 action_triggered = False
 
 for item in st.session_state.items:
+    if not isinstance(item, dict):
+        continue
     st.markdown(f"""
     <div class="data-card">
-        <h3>Unit Data: <span style="color: #38bdf8;">{item['value']}</span></h3>
+        <h3>Unit Data: <span style="color: #38bdf8;">{item.get('value', '')}</span></h3>
     </div>
     """, unsafe_allow_html=True)
     
     c1, c2, c3, c4, c5 = st.columns(5)
     
     chosen_target = None
-    if c1.button("Integer", key=f"int_{item['id']}", use_container_width=True):
+    if c1.button("Integer", key=f"int_{item.get('id', 0)}", use_container_width=True):
         chosen_target = "Integer"
-    elif c2.button("Float", key=f"float_{item['id']}", use_container_width=True):
+    elif c2.button("Float", key=f"float_{item.get('id', 0)}", use_container_width=True):
         chosen_target = "Float"
-    elif c3.button("String", key=f"str_{item['id']}", use_container_width=True):
+    elif c3.button("String", key=f"str_{item.get('id', 0)}", use_container_width=True):
         chosen_target = "String"
-    elif c4.button("Boolean", key=f"bool_{item['id']}", use_container_width=True):
+    elif c4.button("Boolean", key=f"bool_{item.get('id', 0)}", use_container_width=True):
         chosen_target = "Boolean"
-    elif c5.button("Date", key=f"date_{item['id']}", use_container_width=True):
+    elif c5.button("Date", key=f"date_{item.get('id', 0)}", use_container_width=True):
         chosen_target = "Date"
         
     if chosen_target is not None:
-        if chosen_target == item['type']:
+        if chosen_target == item.get('type'):
             st.session_state.score += 25
             st.success(f"Transfer berhasil ke terminal {chosen_target}.")
         else:
             st.session_state.score = max(0, st.session_state.score - 10)
-            st.error(f"Transfer gagal. Unit seharusnya menuju terminal {item['type']}.")
+            st.error(f"Transfer gagal. Unit seharusnya menuju terminal {item.get('type')}.")
         
-        remaining_items = [i for i in remaining_items if i['id'] != item['id']]
+        remaining_items = [i for i in remaining_items if isinstance(i, dict) and i.get('id') != item.get('id')]
         action_triggered = True
         break
 
