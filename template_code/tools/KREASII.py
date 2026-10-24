@@ -1,8 +1,7 @@
 import streamlit as st
 import random
-import time
 
-st.set_page_config(page_title="CyberAnomaly Time-Attack", layout="centered")
+st.set_page_config(page_title="CyberData Scanner", layout="centered")
 
 st.markdown("""
 <style>
@@ -47,108 +46,100 @@ label, p, span, div {
 </style>
 """, unsafe_allow_html=True)
 
-st.title("CyberAnomaly: Time-Attack Matrix")
-st.markdown("Isolasi anomali data dalam matriks 4x4 sebelum batas waktu habis dan jaga nyawa sistem Anda.")
+st.title("CyberData: Neural Node Scanner")
+st.markdown("Gunakan probe pemindai untuk menemukan node anomali tipe data tersembunyi di dalam matriks jaringan tanpa batas waktu.")
 
 if "score" not in st.session_state:
     st.session_state.score = 0
-if "streak" not in st.session_state:
-    st.session_state.streak = 0
-if "round" not in st.session_state:
-    st.session_state.round = 1
-if "lives" not in st.session_state:
-    st.session_state.lives = 3
-if "game_over" not in st.session_state:
-    st.session_state.game_over = False
+if "level" not in st.session_state:
+    st.session_state.level = 1
+if "scans_left" not in st.session_state:
+    st.session_state.scans_left = 3
+if "cleared_nodes" not in st.session_state:
+    st.session_state.cleared_nodes = []
 
-TIME_LIMIT = 15
-
-def generate_matrix_puzzle():
+def generate_puzzle():
     types_pool = [
         ("Integer", [str(random.randint(100, 999)) for _ in range(15)]),
         ("Float", [str(round(random.uniform(10.0, 99.9), 2)) for _ in range(15)]),
         ("String", ["NodeA", "NodeB", "Alpha", "Beta", "Gamma", "Delta", "Omega", "Zero", "Core", "Nexus", "Vector", "Stream", "Buffer", "Packet", "Matrix"]),
         ("Boolean", ["True", "False"])
     ]
-    
     dom_idx = random.randint(0, len(types_pool) - 1)
     dom_name, dom_vals = types_pool[dom_idx]
-    
     anom_pool = [t for i, t in enumerate(types_pool) if i != dom_idx]
     anom_name, anom_vals = random.choice(anom_pool)
     
-    grid_size = 16
     items = []
-    for _ in range(grid_size - 1):
-        items.append({"val": random.choice(dom_vals), "type": dom_name, "is_anom": False})
-        
-    items.append({"val": random.choice(anom_vals), "type": anom_name, "is_anom": True})
-    random.shuffle(items)
+    for i in range(16):
+        items.append({"id": i, "val": random.choice(dom_vals), "type": dom_name, "is_anom": False})
+    
+    anom_idx = random.randint(0, 15)
+    items[anom_idx] = {"id": anom_idx, "val": random.choice(anom_vals), "type": anom_name, "is_anom": True}
     return dom_name, anom_name, items
 
-def init_puzzle():
-    dom_name, anom_name, items = generate_matrix_puzzle()
-    st.session_state.dom_name = dom_name
-    st.session_state.anom_name = anom_name
-    st.session_state.puzzle_items = items
-    st.session_state.round_start_time = time.time()
-
 if "puzzle_items" not in st.session_state:
-    init_puzzle()
+    dom, anom, items = generate_puzzle()
+    st.session_state.dom_name = dom
+    st.session_state.anom_name = anom
+    st.session_state.puzzle_items = items
+    st.session_state.cleared_nodes = []
 
-elapsed = int(time.time() - st.session_state.round_start_time)
-time_left = max(0, TIME_LIMIT - elapsed)
+col1, col2, col3 = st.columns(3)
+col1.metric("Skor Total", st.session_state.score)
+col2.metric("Level Jaringan", st.session_state.level)
+col3.metric("Probe Tersisa", st.session_state.scans_left)
 
-if time_left == 0 and not st.session_state.game_over:
-    st.session_state.streak = 0
-    st.session_state.lives -= 1
-    if st.session_state.lives <= 0:
-        st.session_state.game_over = True
-    else:
-        init_puzzle()
-    st.rerun()
+st.markdown("---")
+st.markdown(f"### Target Pemindaian: Cari tipe <span style='color: #00f0ff;'>{st.session_state.anom_name}</span> di antara dominasi tipe <span style='color: #38bdf8;'>{st.session_state.dom_name}</span>!", unsafe_allow_html=True)
 
-if not st.session_state.game_over:
-    col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Skor Total", st.session_state.score)
-    col2.metric("Streak", st.session_state.streak)
-    col3.metric("Nyawa", st.session_state.lives)
-    col4.metric("Waktu", f"{time_left}s")
-
-    st.markdown("---")
-    st.markdown(f"### Misi Matrix: Cari tipe <span style='color: #00f0ff;'>{st.session_state.anom_name}</span> di antara dominasi tipe <span style='color: #38bdf8;'>{st.session_state.dom_name}</span>!", unsafe_allow_html=True)
-
-    items = st.session_state.puzzle_items
-    for row in range(4):
-        cols = st.columns(4)
-        for col in range(4):
-            idx = row * 4 + col
-            if idx < len(items):
-                item = items[idx]
-                with cols[col]:
-                    if st.button(f"[{idx+1}] {item['val']}", key=f"btn_matrix_{idx}_{st.session_state.round}", use_container_width=True):
+items = st.session_state.puzzle_items
+for row in range(4):
+    cols = st.columns(4)
+    for col in range(4):
+        idx = row * 4 + col
+        if idx < len(items):
+            item = items[idx]
+            with cols[col]:
+                if idx in st.session_state.cleared_nodes:
+                    st.button(f"[{idx+1}] TERKUNCI", key=f"disabled_{idx}", disabled=True, use_container_width=True)
+                else:
+                    if st.button(f"[{idx+1}] {item['val']}", key=f"scan_{idx}_{st.session_state.level}", use_container_width=True):
                         if item["is_anom"]:
-                            st.session_state.score += 50
-                            st.session_state.streak += 1
-                            st.session_state.round += 1
-                            init_puzzle()
+                            st.session_state.score += 100 * st.session_state.level
+                            st.session_state.level += 1
+                            st.session_state.scans_left = 3
+                            dom, anom, new_items = generate_puzzle()
+                            st.session_state.dom_name = dom
+                            st.session_state.anom_name = anom
+                            st.session_state.puzzle_items = new_items
+                            st.session_state.cleared_nodes = []
+                            st.success("Anomali berhasil diisolasi! Level jaringan meningkat.")
                             st.rerun()
                         else:
-                            st.session_state.streak = 0
-                            st.session_state.lives -= 1
-                            if st.session_state.lives <= 0:
-                                st.session_state.game_over = True
+                            st.session_state.scans_left -= 1
+                            st.session_state.cleared_nodes.append(idx)
+                            if st.session_state.scans_left <= 0:
+                                st.error("Probe habis! Jaringan mereset target baru.")
+                                dom, anom, new_items = generate_puzzle()
+                                st.session_state.dom_name = dom
+                                st.session_state.anom_name = anom
+                                st.session_state.puzzle_items = new_items
+                                st.session_state.scans_left = 3
+                                st.session_state.cleared_nodes = []
+                                st.rerun()
                             else:
-                                init_puzzle()
-                            st.rerun()
-else:
-    st.error("Koneksi Terputus! Nyawa sistem habis.")
-    st.metric("Skor Akhir", st.session_state.score)
-    if st.button("Inisialisasi Ulang Sistem"):
-        st.session_state.score = 0
-        st.session_state.streak = 0
-        st.session_state.round = 1
-        st.session_state.lives = 3
-        st.session_state.game_over = False
-        init_puzzle()
-        st.rerun()
+                                st.warning(f"Node normal. Probe tersisa: {st.session_state.scans_left}")
+                                st.rerun()
+
+st.markdown("---")
+if st.button("Reset Sistem Jaringan", key="reset_scanner_btn"):
+    st.session_state.score = 0
+    st.session_state.level = 1
+    st.session_state.scans_left = 3
+    dom, anom, new_items = generate_puzzle()
+    st.session_state.dom_name = dom
+    st.session_state.anom_name = anom
+    st.session_state.puzzle_items = new_items
+    st.session_state.cleared_nodes = []
+    st.rerun()
