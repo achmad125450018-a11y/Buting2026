@@ -16,7 +16,7 @@ def load_image(url):
 
 # JANGAN DIUBAH
 
-# Global Theme Styling: Inter/Courier New + Futuristic Green & Black + Sidebar Fix
+# Global Theme Styling: Inter/Courier New + Futuristic Green & Black + Hide Default Sidebar Nav
 st.markdown(
     """
     <style>
@@ -33,35 +33,9 @@ st.markdown(
         color: #f8fafc;
     }
 
-    /* Memperlebar sidebar dan mengatur jarak baris agar teks tidak menimpa */
-    [data-testid="stSidebar"] {
-        min-width: 320px !important;
-        padding-top: 1rem;
-    }
+    /* Menyembunyikan daftar file otomatis di sidebar agar tidak ada teks "person" bertumpuk */
     [data-testid="stSidebarNav"] {
-        width: 100%;
-    }
-    [data-testid="stSidebarNav"] ul {
-        display: flex;
-        flex-direction: column;
-        gap: 15px !important;
-    }
-    [data-testid="stSidebarNav"] li {
-        margin: 6px 0 !important;
-    }
-    [data-testid="stSidebarNav"] a {
-        display: block !important;
-        height: auto !important;
-        min-height: 50px !important;
-        padding: 10px 14px !important;
-        line-height: 1.5 !important;
-        white-space: normal !important;
-        font-size: 0.95em !important;
-    }
-    [data-testid="stSidebarNav"] span {
-        display: inline-block !important;
-        white-space: normal !important;
-        line-height: 1.5 !important;
+        display: none !important;
     }
     </style>
     """,
