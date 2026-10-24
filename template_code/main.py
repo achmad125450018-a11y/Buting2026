@@ -1,14 +1,25 @@
 import streamlit as st
-from utils import setup_common
 
 st.set_page_config(page_title="Buku Kating", layout="wide")
 
-# Panggil CSS Sidebar dari utils.py
-setup_common()
+st.markdown("""
+<style>
+    [data-testid="stSidebar"] {
+        background-color: #701c23 !important;
+    }
+    [data-testid="stSidebar"] *,
+    [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] div,
+    [data-testid="stSidebar"] svg {
+        color: #ffffff !important;
+        fill: #ffffff !important;
+    }
+</style>
+""", unsafe_allow_html=True)
 
-# ============================================================
-# 🧭 NAVIGASI HALAMAN (DENGAN GROUP HEADER)
-# ============================================================
+st.session_state.pindah = True
+
 Homepage = st.Page("Halaman Utama/halaman_utama.py", title="07 - POISSON", default=True)
 
 Mahasiswa1  = st.Page("Buku Kating/116_Yobel Imanuel Pasaribu.py", title="116 - Yobel Imanuel Pasaribu", icon=":material/person:")
@@ -18,7 +29,7 @@ Mahasiswa4  = st.Page("Buku Kating/075_Inness Eymard Gultom.py", title="075 - In
 Mahasiswa5  = st.Page("Buku Kating/084_Samuel Kristian.py", title="084 - Samuel Kristian", icon=":material/person:")
 Mahasiswa6  = st.Page("Buku Kating/008_Egia Ninta Pepayosa Ketaren.py", title="008 - Egia Ninta Pepayosa Ketaren", icon=":material/person:")
 Mahasiswa7  = st.Page("Buku Kating/028_Dzahra Adila Fatma.py", title="028 - Dzahra Adila Fatma", icon=":material/person:")
-Mahasiswa8  = st.Page("Buku Kating/018_Achmad Fardhan Al Basri Bandarudin.py", title="018 - Achmad Fardhan Bandarudin Al Basri", icon=":material/person:")
+Mahasiswa8  = st.Page("Buku Kating/018_Achmad Fardhan Al Basri Bandarudin.py", title="018 - Achmad Fardhan Al Basri Bandarudin", icon=":material/person:")
 Mahasiswa9  = st.Page("Buku Kating/033_Kayyisah Mazaya.py", title="033 - Kayyisah Mazaya", icon=":material/person:")
 Mahasiswa10 = st.Page("Buku Kating/074_Alfajri Anwar.py", title="074 - Alfajri Anwar", icon=":material/person:")
 Mahasiswa11 = st.Page("Buku Kating/037_Nailatun Inayah.py", title="037 - Nailatun Inayah", icon=":material/person:")
@@ -26,12 +37,14 @@ Mahasiswa11 = st.Page("Buku Kating/037_Nailatun Inayah.py", title="037 - Nailatu
 KREASI  = st.Page("tools/KREASI.py", title="KREASI", icon=":material/search:")
 KREASII = st.Page("tools/KREASII.py", title="KREASII", icon=":material/search:")
 
-# 💥 INI KUNCI NYA: Mengelompokkan halaman dengan judul (Header)
-pg = st.navigation({
-    "Halaman Utama": [Homepage],
-    "Buku Kating": [Mahasiswa1, Mahasiswa2, Mahasiswa3, Mahasiswa4, Mahasiswa5,
-                    Mahasiswa6, Mahasiswa7, Mahasiswa8, Mahasiswa9, Mahasiswa10, Mahasiswa11],
-    "Try Me !!": [KREASI, KREASII],
-})
+if st.session_state.pindah:
+    pg = st.navigation({
+        "Halaman Utama": [Homepage],
+        "Buku Kating": [Mahasiswa1, Mahasiswa2, Mahasiswa3, Mahasiswa4, Mahasiswa5,
+                        Mahasiswa6, Mahasiswa7, Mahasiswa8, Mahasiswa9, Mahasiswa10, Mahasiswa11],
+        "Try Me !!": [KREASI, KREASII],
+    })
+else:
+    st.write("Maaf Anda kurang beruntung :(")
 
 pg.run()
