@@ -88,6 +88,12 @@ elif menu == "Baleg":
                 "pesan": "Semangat terus kuliahnya bang, jangan lupa jaga kesehatan.",
             },
             {
+                "nama": "Monica Patricia Tanjung",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1FajHLFg1Adloc9Qj5KoPmQ97DDAmvDxF",
+                "kesan": "Kakaknya baik, ramah dan asik.",
+                "pesan": "Semangat terus kuliahnya kak, semoga tidurnya selalu cukup.",
+            },
+            {
                 "nama": "Gh Mikael Niko A S",
                 "link_gdrive": "https://drive.google.com/uc?export=view&id=1lm9RQDR0eqeYvkLDkze_AsKqhiEMD7ga",
                 "kesan": "Abangnya lucu, asik tapi agak pendiam.",
@@ -116,12 +122,6 @@ elif menu == "Baleg":
                 "link_gdrive": "https://drive.google.com/uc?export=view&id=1aZuCI5tlg6Mr5WGSrkp2pZ0hgthbiOOc",
                 "kesan": "Abangnya keren, pendiam dan baru sadar kalo kemarin pernah nyayi di datapudi.",
                 "pesan": "Semangat terus kuliahnya bang dan tipsnya biar ngoding bisa jadi hobi .",
-            },
-            {
-                "nama": "Monica Patricia Tanjung",
-                "link_gdrive": "https://drive.google.com/uc?export=view&id=1FajHLFg1Adloc9Qj5KoPmQ97DDAmvDxF",
-                "kesan": "Kakaknya baik, ramah dan asik.",
-                "pesan": "Semangat terus kuliahnya kak, semoga tidurnya selalu cukup.",
             },
             {
                 "nama": "Jona Timothy Ogatse Panjaitan",

@@ -88,6 +88,12 @@ elif menu == "Baleg":
                 "pesan": "Semangat bang kuliahnya",
             },
             {
+                "nama": "Monica Patricia Tanjung",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1LmJ0_dAkId8hUOrW-Mk6cHFT8lhFIiXh",
+                "kesan": "bang jeremi algoritma video ignya sama",
+                "pesan": "Semangat terus ya bang jeremi kualiahnya",
+            },
+            {
                 "nama": "Gh Mikael Niko A S",
                 "link_gdrive": "https://drive.google.com/uc?export=view&id=1NzfunTqYdz5-O1ZobEl9JCkEWblIGhuo",
                 "kesan": "Abangnya terlihat cool",
@@ -116,12 +122,6 @@ elif menu == "Baleg":
                 "link_gdrive": "https://drive.google.com/uc?export=view&id=1fp0Gwk12mCGzPIksEs_xN9wlxJlub57e",
                 "kesan": "Kakaknya imut banget",
                 "pesan": "Semangat ya kak kuliahnya :)",
-            },
-            {
-                "nama": "Monica Patricia Tanjung",
-                "link_gdrive": "https://drive.google.com/uc?export=view&id=1LmJ0_dAkId8hUOrW-Mk6cHFT8lhFIiXh",
-                "kesan": "bang jeremi algoritma video ignya sama",
-                "pesan": "Semangat terus ya bang jeremi kualiahnya",
             },
             {
                 "nama": "Jona Timothy Ogatse Panjaitan",
