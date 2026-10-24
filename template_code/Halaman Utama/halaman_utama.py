@@ -16,45 +16,55 @@ def load_image(url):
 
 # JANGAN DIUBAH
 
-# Pengaturan Konfigurasi Tema Global Krim & Emas (Elegan & Bergrafik)
+# Pengaturan Tema Global: Background Krim dengan Grafik Pola Modern Dot-Grid
 st.markdown(
     """
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Inter:wght@400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap');
 
-    /* Global Styling - Tema Krim & Elegan */
+    /* Global Styling - Background Krim dengan Grafik Dot Pattern Modern */
     .stApp {
-        background: linear-gradient(135deg, #fcf8f2 0%, #f0e6d2 100%);
-        color: #2c221e;
+        background-color: #fbf9f5;
+        background-image: radial-gradient(rgba(181, 142, 75, 0.22) 1.2px, transparent 1.2px), 
+                          radial-gradient(rgba(92, 64, 51, 0.12) 1.2px, #fbf9f5 1.2px);
+        background-size: 32px 32px;
+        background-position: 0 0, 16px 16px;
+        background-attachment: fixed;
+        color: #1e1b18;
         font-family: 'Inter', sans-serif;
     }
 
-    /* Sidebar hanya diubah warnanya menjadi krim hangat */
+    /* Sidebar disesuaikan warnanya agar senada dan tetap rapi */
     [data-testid="stSidebar"] {
-        background-color: #f5ede0 !important;
-        border-right: 1px solid #d4af37;
+        background-color: #f0e8d5 !important;
+        border-right: 2px solid rgba(181, 142, 75, 0.35);
     }
     [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div, [data-testid="stSidebar"] label {
-        color: #2c221e !important;
+        color: #1e1b18 !important;
+        font-weight: 500;
     }
 
+    /* Judul Utama dengan Grafis Modern Gradient */
     .main-title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Outfit', sans-serif;
         text-align: center;
         font-size: 3.5rem;
         font-weight: 900;
-        color: #5c3a21;
-        text-shadow: 2px 2px 15px rgba(197, 160, 89, 0.3);
+        background: linear-gradient(135deg, #5c4033 0%, #b58e4b 50%, #3d2817 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 4px 20px rgba(181, 142, 75, 0.25);
         margin-bottom: 0px;
     }
 
     .sub-title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Outfit', sans-serif;
         text-align: center;
-        font-size: 1.5rem;
-        color: #8b5a2b;
-        letter-spacing: 3px;
-        font-weight: 600;
+        font-size: 1.4rem;
+        color: #705335;
+        letter-spacing: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
         margin-bottom: 30px;
     }
     </style>
@@ -97,28 +107,30 @@ def streamlit_menu():
       orientation="horizontal",
       styles={
           "container": {
-              "padding": "5px",
-              "background-color": "#f4ecd8",
-              "border": "1px solid #c5a059",
-              "border-radius": "12px",
+              "padding": "6px",
+              "background-color": "rgba(240, 232, 213, 0.95)",
+              "border": "2px solid #b58e4b",
+              "border-radius": "16px",
+              "box-shadow": "0 8px 25px rgba(181, 142, 75, 0.2)",
           },
-          "icon": {"color": "#8b5a2b", "font-size": "18px"},
+          "icon": {"color": "#8c672b", "font-size": "19px"},
           "nav-link": {
               "font-size": "15px",
-              "font-family": "Inter, sans-serif",
+              "font-family": "Outfit, sans-serif",
               "text-align": "center",
-              "margin": "0px 5px",
-              "color": "#3e2723",
+              "margin": "0px 6px",
+              "color": "#2c221e",
               "font-weight": "600",
-              "--hover-color": "rgba(197, 160, 89, 0.2)",
+              "--hover-color": "rgba(181, 142, 75, 0.25)",
           },
           "nav-link-selected": {
               "background": (
-                  "linear-gradient(135deg, #c5a059 0%, #d4af37 100%)"
+                  "linear-gradient(135deg, #b58e4b 0%, #8c672b 100%)"
               ),
-              "border": "1px solid #8b5a2b",
+              "border": "1px solid #5c4033",
               "color": "#ffffff",
               "font-weight": "700",
+              "box-shadow": "0 4px 15px rgba(140, 103, 43, 0.4)",
           },
       },
   )
@@ -135,91 +147,105 @@ if menu == "Home":
         <style>
         .deskripsi-title {
             text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2em;
-            color: #5c3a21;
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.3em;
+            color: #4a3324;
             margin-bottom: 25px;
-            font-weight: 700;
-            text-shadow: 1px 1px 10px rgba(197, 160, 89, 0.3);
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(181, 142, 75, 0.2);
         }
         
         .photo-caption-box {
-            background: linear-gradient(135deg, #fdfbf7 0%, #f4ecd8 100%);
-            border: 1px solid #c5a059;
-            color: #3e2723;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border: 2px solid #b58e4b;
+            color: #1e1b18;
             text-align: center;
-            padding: 20px;
-            border-radius: 15px;
+            padding: 24px;
+            border-radius: 20px;
             margin-bottom: 25px;
-            box-shadow: 0 4px 20px rgba(139, 90, 43, 0.15);
+            box-shadow: 0 10px 30px rgba(181, 142, 75, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        .photo-caption-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, #5c4033, #b58e4b, #d4af37);
         }
         
         .badge-cosval {
             display: inline-block;
-            background: rgba(197, 160, 89, 0.2);
-            border: 1px solid #c5a059;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            margin-bottom: 10px;
+            background: #f4ebcc;
+            border: 1px solid #b58e4b;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.85em;
+            margin-bottom: 12px;
             letter-spacing: 2px;
             font-weight: 700;
-            color: #8b5a2b;
-            box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+            color: #5c4033;
+            box-shadow: 0 4px 12px rgba(181, 142, 75, 0.2);
         }
         
         .photo-text-title {
             margin: 0;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25em;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3em;
             font-weight: 700;
-            color: #2c221e;
+            color: #1e1b18;
         }
 
         .desc-box {
-            border: 2px solid #c5a059;
-            background: #fdfbf7;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 6px 25px rgba(139, 90, 43, 0.12);
+            border: 2px solid #b58e4b;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 12px 35px rgba(181, 142, 75, 0.12);
             margin-bottom: 30px;
+            position: relative;
         }
         
         .desc-heading {
-            color: #5c3a21;
-            font-family: 'Playfair Display', serif;
+            color: #4a3324;
+            font-family: 'Outfit', sans-serif;
             margin-top: 0;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             font-size: 1.5em;
-            font-weight: 700;
+            font-weight: 800;
         }
         
         .desc-content {
             color: #2c221e;
             font-family: 'Inter', sans-serif;
-            line-height: 1.8;
-            font-size: 1.05em;
+            line-height: 1.9;
+            font-size: 1.1em;
             margin: 0;
             text-align: justify;
+            font-weight: 500;
         }
 
         .book-cover {
-            background: linear-gradient(135deg, #fdfbf7 0%, #e9dcbe 100%);
-            border: 2px solid #8b5a2b;
-            color: #3e2723;
-            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border: 2px solid #8c672b;
+            color: #1e1b18;
+            padding: 55px 25px;
             text-align: center;
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(139, 90, 43, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(140, 103, 43, 0.2);
             margin-bottom: 20px;
         }
         
         .book-spread {
-            background: #fdfbf7;
-            border: 2px solid #c5a059;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 6px 20px rgba(139, 90, 43, 0.12);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border: 2px solid #b58e4b;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(181, 142, 75, 0.15);
             margin-bottom: 20px;
         }
         </style>
@@ -266,8 +292,8 @@ if menu == "Home":
 
     st.markdown(
         "<h2"
-        " style='text-align: center; font-family: Playfair Display; color:"
-        " #5c3a21; font-weight: 700;'>Album Dokumentasi Cosval</h2>",
+        " style='text-align: center; font-family: Outfit; color:"
+        " #4a3324; font-weight: 800;'>Album Dokumentasi Cosval</h2>",
         unsafe_allow_html=True,
     )
     st.write("")
@@ -288,9 +314,9 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-cover">
-                <h1 style="font-family: Playfair Display; color: #5c3a21; font-weight: 700;">ALBUM Kelompok COSVAL</h1>
-                <p style="color: #3e2723;">Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
-                <p style="color: #8b5a2b; font-size: 0.95em; margin-top: 15px; font-weight: 600;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
+                <h1 style="font-family: Outfit; color: #4a3324; font-weight: 800;">ALBUM Kelompok COSVAL</h1>
+                <p style="color: #2c221e; font-size: 1.05em; font-weight: 500;">Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
+                <p style="color: #8c672b; font-size: 1em; margin-top: 15px; font-weight: 700;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
             </div>
             """,
           unsafe_allow_html=True,
@@ -305,7 +331,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #5c3a21; margin-top: 0; font-family: Playfair Display;'>— Halaman 1 dari 3 —</h4>
+                <h4 style='text-align: center; color: #4a3324; margin-top: 0; font-family: Outfit; font-weight: 700;'>— Halaman 1 dari 3 —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -338,7 +364,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #5c3a21; margin-top: 0; font-family: Playfair Display;'>— Halaman 2 dari 3 —</h4>
+                <h4 style='text-align: center; color: #4a3324; margin-top: 0; font-family: Outfit; font-weight: 700;'>— Halaman 2 dari 3 —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -371,7 +397,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #5c3a21; margin-top: 0; font-family: Playfair Display;'>— Halaman 3 dari 3 (Akhir) —</h4>
+                <h4 style='text-align: center; color: #4a3324; margin-top: 0; font-family: Outfit; font-weight: 700;'>— Halaman 3 dari 3 (Akhir) —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -406,7 +432,7 @@ elif menu == "About Us":
 
   def about_page():
     st.markdown(
-        """<style>.centered-title {text-align: center; color: #5c3a21; font-family:'Playfair Display', serif; font-weight: 700;}</style>""",
+        """<style>.centered-title {text-align: center; color: #4a3324; font-family:'Outfit', sans-serif; font-weight: 800;}</style>""",
         unsafe_allow_html=True,
     )
     st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
@@ -415,12 +441,12 @@ elif menu == "About Us":
         """
         <style>
         .about-photo img {
-            border: 4px solid #c5a059 !important;
-            outline: 2px solid #8b5a2b !important;
-            border-radius: 12px !important;
+            border: 4px solid #b58e4b !important;
+            outline: 2px solid #5c4033 !important;
+            border-radius: 16px !important;
             padding: 4px !important;
-            background-color: #fdfbf7 !important;
-            box-shadow: 0 8px 20px rgba(139, 90, 43, 0.25) !important;
+            background-color: #ffffff !important;
+            box-shadow: 0 10px 25px rgba(181, 142, 75, 0.3) !important;
         }
         </style>
         """,
@@ -436,8 +462,8 @@ elif menu == "About Us":
     if filter_pilihan == "Semua":
       st.markdown(
           "<h2 style='text-align: center; margin-top: 20px;"
-          " margin-bottom: 20px; color: #5c3a21; font-family: \"Playfair"
-          " Display\", serif; font-weight: 700;'>Kenalan Yuk Sama Cosval!</h2>",
+          " margin-bottom: 20px; color: #4a3324; font-family: \"Outfit\","
+          " sans-serif; font-weight: 800;'>Kenalan Yuk Sama Cosval!</h2>",
           unsafe_allow_html=True,
       )
 
@@ -566,22 +592,23 @@ elif menu == "About Us":
           st.markdown(
               f"""
                     <div style="
-                        background: linear-gradient(135deg, #fdfbf7 0%, #f4ecd8 100%); 
-                        border: 2px solid #c5a059; 
-                        padding: 24px; 
-                        border-radius: 15px; 
-                        box-shadow: 0 6px 20px rgba(139, 90, 43, 0.15); 
-                        color: #2c221e;
+                        background: rgba(255, 255, 255, 0.92); 
+                        backdrop-filter: blur(8px);
+                        border: 2px solid #b58e4b; 
+                        padding: 26px; 
+                        border-radius: 20px; 
+                        box-shadow: 0 10px 30px rgba(181, 142, 75, 0.15); 
+                        color: #1e1b18;
                         font-family: 'Inter', sans-serif;
                         position: relative;
                         overflow: hidden;
                         margin-bottom: 20px;">
-                        <div style="position: absolute; top: 0; right: 0; width: 70px; height: 70px; background: linear-gradient(135deg, transparent 50%, rgba(197,160,89,0.25) 50%); pointer-events: none;"></div>
-                        <h3 style="margin-top: 0; color: #5c3a21; border-bottom: 2px solid #c5a059; padding-bottom: 8px; font-family: 'Playfair Display', serif;">{data['nama']}</h3>
-                        <p style="margin: 8px 0; font-size: 1.05em; color: #2c221e;"><b>Sebagai:</b> {data['sebagai']}</p>
-                        <p style="margin: 8px 0; font-size: 1.05em; color: #2c221e;"><b>NIM:</b> {data['nim']}</p>
-                        <p style="margin: 8px 0; font-size: 1.05em; color: #2c221e;"><b>Fun Fact:</b> {data['fun_fact']}</p>
-                        <p style="margin: 8px 0; font-size: 1.05em; color: #2c221e;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
+                        <div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(135deg, transparent 50%, rgba(181,142,75,0.2) 50%); pointer-events: none;"></div>
+                        <h3 style="margin-top: 0; color: #4a3324; border-bottom: 2px solid #b58e4b; padding-bottom: 10px; font-family: 'Outfit', sans-serif; font-weight: 800;">{data['nama']}</h3>
+                        <p style="margin: 10px 0; font-size: 1.05em; color: #1e1b18; font-weight: 500;"><b>Sebagai:</b> {data['sebagai']}</p>
+                        <p style="margin: 10px 0; font-size: 1.05em; color: #1e1b18; font-weight: 500;"><b>NIM:</b> {data['nim']}</p>
+                        <p style="margin: 10px 0; font-size: 1.05em; color: #1e1b18; font-weight: 500;"><b>Fun Fact:</b> {data['fun_fact']}</p>
+                        <p style="margin: 10px 0; font-size: 1.05em; color: #1e1b18; font-weight: 500;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
                     </div>
                     """,
               unsafe_allow_html=True,
