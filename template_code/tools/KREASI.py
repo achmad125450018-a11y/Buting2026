@@ -1,10 +1,9 @@
 # tools/KREASI.py
 import streamlit as st
-import random
-import time
+import streamlit.components.v1 as components
 
 # ============================================================
-# 🎨 SUPER PREMIUM UI — DATA CATCHER GAME
+# 🎨 UI STREAMLIT (Pembungkus Game)
 # ============================================================
 st.markdown("""
 <style>
@@ -57,205 +56,292 @@ html, body, [class*="css"] {
     margin-bottom: 30px;
     margin-top: 8px;
 }
-
-/* Kartu Utama */
-.game-card {
-    background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
-    padding: 30px 34px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(112,28,35,0.08);
-    border: 1px solid rgba(217,195,163,0.55);
-    margin-bottom: 24px;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-}
-.game-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 5px; height: 100%;
-    background: linear-gradient(180deg, #701c23, #d9c3a3, #701c23);
-}
-
-/* Emoji Animasi */
-.emoji-display {
-    font-size: 100px;
-    margin: 20px 0;
-    display: inline-block;
-    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-@keyframes popIn {
-    0% { transform: scale(0.5); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-/* Tombol Custom */
-.stButton > button {
-    background: linear-gradient(135deg, #701c23 0%, #a8323d 100%) !important;
-    color: #ffffff !important;
-    border: none !important;
-    border-radius: 12px !important;
-    padding: 14px 26px !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.5px !important;
-    font-size: 16px !important;
-    box-shadow: 0 6px 18px rgba(112,28,35,0.35) !important;
-    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
-    width: 100%;
-}
-.stButton > button:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 10px 24px rgba(112,28,35,0.5) !important;
-}
-.stButton > button:active {
-    transform: translateY(2px) !important;
-}
-
-/* Skor */
-.score-box {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-.stat {
-    background: rgba(217,195,163,0.15);
-    border: 1px solid rgba(217,195,163,0.5);
-    padding: 10px 20px;
-    border-radius: 12px;
-    font-weight: 700;
-    color: #701c23;
-    font-size: 18px;
-}
 </style>
 """, unsafe_allow_html=True)
 
-# ============================================================
-# GAME LOGIC & STATE
-# ============================================================
-# Inisialisasi session state
-if "game_state" not in st.session_state:
-    st.session_state.game_state = "idle" # idle, playing, gameover
-    st.session_state.score = 0
-    st.session_state.lives = 3
-    st.session_state.time_left = 20.0
-    st.session_state.current_emoji = "🍎"
-    st.session_state.current_type = "clean" # clean atau dirty
-    st.session_state.last_time = time.time()
-
-# Data Emoji
-CLEAN_DATA = ["🍎", "🍌", "💎", "📁", "💾"] # Data bersih (harus dipencet)
-DIRTY_DATA = ["🗑️", "💩", "🐛", "⚠️", "🦠"] # Data sampah (jangan dipencet!)
-
-# ============================================================
-# HEADER
-# ============================================================
 st.markdown("<h1 class='title'>DATA CATCHER</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>✦ Bersihkan Data, Kumpulkan Skor! ✦</p>", unsafe_allow_html=True)
 
 # ============================================================
-# GAME UI
+# 🎮 HTML/JS GAME (Interaktif & Mulus)
 # ============================================================
-if st.session_state.game_state == "idle":
-    st.markdown("""
-    <div class="game-card">
-        <h3 style="color: #701c23; margin-bottom: 10px;">Selamat Datang di Data Cleaning Simulator!</h3>
-        <p style="color: #4e1318; line-height: 1.6;">
-            Tugasmu adalah memungut <b>Data Bersih</b> (🍎, 💎, 📁) sebanyak mungkin, dan <b>JANGAN</b> menyentuh <b>Data Sampah</b> (🗑️, 💩, 🐛).<br>
-            Kamu punya <b>3 Nyawa</b> dan waktu <b>20 detik</b>. Siap?
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+game_html = """
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+    #game-container {
+        width: 100%;
+        max-width: 600px;
+        height: 450px;
+        background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(112,28,35,0.08);
+        border: 1px solid rgba(217,195,163,0.55);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     
-    if st.button("🚀 MULAI GAME"):
-        st.session_state.game_state = "playing"
-        st.session_state.score = 0
-        st.session_state.lives = 3
-        st.session_state.time_left = 20.0
-        st.session_state.last_time = time.time()
-        # Generate emoji pertama
-        is_clean = random.choice([True, False])
-        st.session_state.current_type = "clean" if is_clean else "dirty"
-        st.session_state.current_emoji = random.choice(CLEAN_DATA if is_clean else DIRTY_DATA)
-        st.rerun()
+    /* Header UI */
+    #hud {
+        position: absolute;
+        top: 15px;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+        color: #701c23;
+        font-size: 16px;
+        z-index: 10;
+    }
+    .stat {
+        background: rgba(217,195,163,0.15);
+        border: 1px solid rgba(217,195,163,0.5);
+        padding: 8px 15px;
+        border-radius: 10px;
+    }
 
-elif st.session_state.game_state == "playing":
-    # Hitung waktu yang berlalu
-    now = time.time()
-    elapsed = now - st.session_state.last_time
-    st.session_state.time_left -= elapsed
-    st.session_state.last_time = now
+    /* Area Main */
+    #play-area {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
 
-    # Cek Game Over (Waktu habis atau Nyawa habis)
-    if st.session_state.time_left <= 0 or st.session_state.lives <= 0:
-        st.session_state.game_state = "gameover"
-        st.rerun()
-
-    # Tampilkan Skor & Nyawa
-    st.markdown(f"""
-    <div class="score-box">
-        <div class="stat">⏱️ Waktu: {max(0, int(st.session_state.time_left))}s</div>
-        <div class="stat">🏆 Skor: {st.session_state.score}</div>
-        <div class="stat">❤️ Nyawa: {st.session_state.lives}</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Tampilkan Emoji Utama
-    st.markdown(f"""
-    <div class="game-card">
-        <div class="emoji-display">{st.session_state.current_emoji}</div>
-        <p style="color: #6b5a52; font-weight: 600;">
-            {"✅ TANGKAP DATA BERSIH!" if st.session_state.current_type == "clean" else "⛔ HINDARI DATA SAMPAH!"}
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Tombol Aksi
-    col1, col2 = st.columns(2)
+    /* Emoji Jatuh */
+    .item {
+        position: absolute;
+        font-size: 50px;
+        cursor: pointer;
+        user-select: none;
+        transition: transform 0.1s;
+        animation: fall linear forwards;
+    }
+    .item:active {
+        transform: scale(1.3);
+    }
     
-    # Logika ketika tombol TANGKAP ditekan
-    if col1.button("👆 TANGKAP", use_container_width=True):
-        if st.session_state.current_type == "clean":
-            st.session_state.score += 10
-        else:
-            st.session_state.lives -= 1
-            st.session_state.score = max(0, st.session_state.score - 5) # Penalti
-            
-        # Generate emoji baru
-        is_clean = random.choice([True, False])
-        st.session_state.current_type = "clean" if is_clean else "dirty"
-        st.session_state.current_emoji = random.choice(CLEAN_DATA if is_clean else DIRTY_DATA)
-        st.session_state.last_time = time.time() # Reset timer agar tidak terasa lambat
-        st.rerun()
+    @keyframes fall {
+        0% { top: -60px; }
+        100% { top: 450px; }
+    }
 
-    # Logika ketika tombol LEWATI (Skip) ditekan
-    if col2.button("⏭️ LEWATI", use_container_width=True):
-        if st.session_state.current_type == "dirty":
-            st.session_state.score += 5 # Dapat poin kecil karena berhasil menghindari
-        else:
-            st.session_state.lives -= 1 # Penalti karena melewatkan data bersih
-            
-        # Generate emoji baru
-        is_clean = random.choice([True, False])
-        st.session_state.current_type = "clean" if is_clean else "dirty"
-        st.session_state.current_emoji = random.choice(CLEAN_DATA if is_clean else DIRTY_DATA)
-        st.session_state.last_time = time.time()
-        st.rerun()
+    /* Layar Start & Game Over */
+    .screen {
+        text-align: center;
+        z-index: 20;
+        padding: 20px;
+    }
+    h2 {
+        color: #701c23;
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    p {
+        color: #4e1318;
+        font-size: 14px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    button {
+        background: linear-gradient(135deg, #701c23 0%, #a8323d 100%);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 30px;
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(112,28,35,0.35);
+        transition: transform 0.15s;
+    }
+    button:hover {
+        transform: translateY(-2px);
+    }
+    
+    /* Efek Skor Muncul */
+    .score-pop {
+        position: absolute;
+        font-weight: 800;
+        font-size: 20px;
+        pointer-events: none;
+        animation: popUp 0.5s ease-out forwards;
+    }
+    @keyframes popUp {
+        0% { transform: translateY(0) scale(1); opacity: 1; }
+        100% { transform: translateY(-50px) scale(1.5); opacity: 0; }
+    }
+</style>
+</head>
+<body>
 
-elif st.session_state.game_state == "gameover":
-    # Tampilkan hasil akhir
-    st.markdown(f"""
-    <div class="game-card" style="border: 2px solid #701c23;">
-        <h2 style="color: #701c23; font-family: 'Playfair Display'; margin-bottom: 10px;">GAME OVER!</h2>
-        <div style="font-size: 80px; margin: 10px 0;">🏆</div>
-        <p style="font-size: 20px; font-weight: 700; color: #4e1318;">Skor Akhir Kamu: <span style="font-size: 28px; color: #a8323d;">{st.session_state.score}</span></p>
-        <p style="color: #6b5a52; margin-top: 15px;">
-            {"⏱️ Waktu Habis!" if st.session_state.time_left <= 0 else "💔 Nyawa Habis!"}
-        </p>
+<div id="game-container">
+    <!-- HUD (Skor, Nyawa, Waktu) -->
+    <div id="hud">
+        <div class="stat">⏱️ Waktu: <span id="time">30</span>s</div>
+        <div class="stat">🏆 Skor: <span id="score">0</span></div>
+        <div class="stat">❤️ Nyawa: <span id="lives">3</span></div>
     </div>
-    """, unsafe_allow_html=True)
 
-    if st.button("🔄 MAIN LAGI"):
-        st.session_state.game_state = "idle"
-        st.rerun()
+    <!-- Area Permainan -->
+    <div id="play-area"></div>
+
+    <!-- Layar Start -->
+    <div id="start-screen" class="screen">
+        <h2>Selamat Datang!</h2>
+        <p>Klik <b>Data Bersih</b> (🍎, 💎, 📁) secepat mungkin.<br>Jangan klik <b>Data Sampah</b> (🗑️, 💩, 🐛)!</p>
+        <button onclick="startGame()">🚀 MULAI GAME</button>
+    </div>
+
+    <!-- Layar Game Over -->
+    <div id="gameover-screen" class="screen" style="display:none;">
+        <h2>Game Over!</h2>
+        <p>Skor Akhir Kamu: <b style="font-size:24px; color:#a8323d;" id="final-score">0</b></p>
+        <button onclick="startGame()">🔄 Main Lagi</button>
+    </div>
+</div>
+
+<script>
+    let score = 0;
+    let lives = 3;
+    let timeLeft = 30;
+    let isPlaying = false;
+    let spawnInterval, timerInterval;
+
+    const cleanItems = ["🍎", "🍌", "💎", "📁", "💾"];
+    const dirtyItems = ["🗑️", "💩", "🐛", "⚠️", "🦠"];
+
+    const playArea = document.getElementById("play-area");
+    const startScreen = document.getElementById("start-screen");
+    const gameoverScreen = document.getElementById("gameover-screen");
+
+    function startGame() {
+        score = 0;
+        lives = 3;
+        timeLeft = 30;
+        isPlaying = true;
+        
+        document.getElementById("score").innerText = score;
+        document.getElementById("lives").innerText = lives;
+        document.getElementById("time").innerText = timeLeft;
+        
+        startScreen.style.display = "none";
+        gameoverScreen.style.display = "none";
+        playArea.style.display = "block";
+        playArea.innerHTML = ""; // Bersihkan sisa emoji
+
+        // Timer mundur
+        timerInterval = setInterval(() => {
+            timeLeft--;
+            document.getElementById("time").innerText = timeLeft;
+            if (timeLeft <= 0) endGame();
+        }, 1000);
+
+        // Spawn emoji secara acak
+        spawnInterval = setInterval(spawnItem, 700);
+    }
+
+    function spawnItem() {
+        if (!isPlaying) return;
+
+        const item = document.createElement("div");
+        item.className = "item";
+        
+        // 60% peluang data bersih, 40% data sampah
+        const isClean = Math.random() > 0.4;
+        item.innerText = isClean ? cleanItems[Math.floor(Math.random() * cleanItems.length)] : dirtyItems[Math.floor(Math.random() * dirtyItems.length)];
+        
+        // Posisi X acak
+        item.style.left = Math.floor(Math.random() * 85) + "%";
+        // Durasi jatuh acak
+        const duration = Math.random() * 1.5 + 1.5; 
+        item.style.animationDuration = duration + "s";
+
+        // Logika saat diklik
+        item.onclick = (e) => {
+            if (!isPlaying) return;
+            item.style.pointerEvents = "none"; // Matikan klik ganda
+
+            const rect = playArea.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if (isClean) {
+                score += 10;
+                showPop(x, y, "+10", "#28a745");
+                item.innerText = "✨"; // Efek hancur
+            } else {
+                lives--;
+                score = Math.max(0, score - 5);
+                showPop(x, y, "-5", "#dc3545");
+                item.innerText = "💥";
+                if (lives <= 0) endGame();
+            }
+
+            document.getElementById("score").innerText = score;
+            document.getElementById("lives").innerText = lives;
+            
+            // Hancurkan elemen setelah animasi kecil
+            setTimeout(() => item.remove(), 100);
+        };
+
+        // Jika emoji berhasil menghindari klik (jatuh ke bawah)
+        item.addEventListener("animationend", () => {
+            if (isClean && isPlaying) {
+                // Penalti jika melewatkan data bersih
+                lives--;
+                document.getElementById("lives").innerText = lives;
+                if (lives <= 0) endGame();
+            }
+            item.remove();
+        });
+
+        playArea.appendChild(item);
+    }
+
+    function showPop(x, y, text, color) {
+        const pop = document.createElement("div");
+        pop.className = "score-pop";
+        pop.innerText = text;
+        pop.style.left = x + "px";
+        pop.style.top = y + "px";
+        pop.style.color = color;
+        playArea.appendChild(pop);
+        setTimeout(() => pop.remove(), 500);
+    }
+
+    function endGame() {
+        isPlaying = false;
+        clearInterval(spawnInterval);
+        clearInterval(timerInterval);
+        playArea.style.display = "none";
+        playArea.innerHTML = "";
+        
+        document.getElementById("final-score").innerText = score;
+        gameoverScreen.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
+"""
+
+# Render game di dalam Streamlit
+components.html(game_html, height=470, scrolling=False)
