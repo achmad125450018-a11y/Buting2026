@@ -1,63 +1,68 @@
 import streamlit as st
-import numpy as np
 import random
+import pandas as pd
 
-st.set_page_config(page_title="CosWave Challenge", layout="wide")
+st.set_page_config(page_title="Data Outlier Hunter", layout="centered")
 
 st.markdown("""
 <style>
 .stApp {
     background-color: #0b0b0b;
-    color: #e5e5e5;
-}
-[data-testid="stSidebar"] {
-    background-color: #141414;
-    color: #d4af37;
+    color: #f1f1f1;
 }
 h1, h2, h3 {
-    color: #ffd700 !important;
+    color: #ff2a85 !important;
     font-family: 'Helvetica Neue', sans-serif;
 }
 .stMetric {
-    background-color: #161616;
-    border: 1px solid #d4af37;
+    background-color: #141414;
+    border: 1px solid #ff2a85;
     padding: 15px;
     border-radius: 8px;
 }
 [data-testid="stMetricValue"] {
-    color: #ffd700 !important;
+    color: #ff2a85 !important;
 }
 </style>
 """, unsafe_allow_html=True)
 
-st.title("CosWave Target Challenge")
-st.markdown("Sesuaikan sudut untuk mencocokkan nilai target cosinus yang ditentukan.")
+st.title("Data Outlier Hunter")
+st.markdown("Temukan dan identifikasi data anomali atau outlier dari sampel yang diberikan untuk membersihkan dataset.")
 
-if "target_cos" not in st.session_state:
-    st.session_state.target_cos = round(random.uniform(-1, 1), 2)
+if "correct_outlier" not in st.session_state:
+    normal_data = [random.randint(10, 30) for _ in range(4)]
+    outlier_val = random.randint(80, 150)
+    st.session_state.dataset = normal_data + [outlier_val]
+    random.shuffle(st.session_state.dataset)
+    st.session_state.correct_outlier = outlier_val
+    st.session_state.score = 0
+    st.session_state.round = 1
 
-col1, col2 = st.columns(2)
-with col1:
-    st.metric("Target Nilai Cosinus", st.session_state.target_cos)
-with col2:
-    if st.button("Acak Target Baru"):
-        st.session_state.target_cos = round(random.uniform(-1, 1), 2)
+st.subheader(f"Misi Ronde {st.session_state.round}")
+st.markdown("Berikut adalah tabel sampel data yang perlu dianalisis:")
+
+df_display = pd.DataFrame({"Indeks": range(len(st.session_state.dataset)), "Nilai Data": st.session_state.dataset})
+st.dataframe(df_display, use_container_width=True, hide_index=True)
+
+selected_val = st.selectbox("Pilih Nilai yang Merupakan Outlier:", st.session_state.dataset)
+
+if st.button("Verifikasi Data"):
+    if selected_val == st.session_state.correct_outlier:
+        st.success("Benar. Anda berhasil mendeteksi data anomali.")
+        st.session_state.score += 10
+        normal_data = [random.randint(10, 30) for _ in range(4)]
+        outlier_val = random.randint(80, 150)
+        st.session_state.dataset = normal_data + [outlier_val]
+        random.shuffle(st.session_state.dataset)
+        st.session_state.correct_outlier = outlier_val
+        st.session_state.round += 1
         st.rerun()
+    else:
+        st.error("Salah. Nilai tersebut adalah data normal.")
 
-angle_deg = st.slider("Pilih Sudut (Derajat)", 0, 360, 0, 1)
-angle_rad = np.radians(angle_deg)
-current_cos = round(float(np.cos(angle_rad)), 2)
+st.metric("Skor Total", st.session_state.score)
 
-diff = round(abs(current_cos - st.session_state.target_cos), 2)
-
-st.metric("Nilai Cosinus Anda", current_cos, delta=f"Selisih: {diff}", delta_color="inverse")
-
-if diff <= 0.03:
-    st.success("Target Berhasil Dicapai")
-else:
-    st.warning("Geser sudut untuk mendekati nilai target")
-
-x = np.linspace(0, 360, 361)
-y = np.cos(np.radians(x))
-chart_data = {"Sudut": x, "Cosinus": y}
-st.line_chart(chart_data, x="Sudut", y="Cosinus", color=["#ffd700"])
+if st.button("Reset Permainan"):
+    for key in list(st.session_state.keys()):
+        del st.session_state[key]
+    st.rerun()
