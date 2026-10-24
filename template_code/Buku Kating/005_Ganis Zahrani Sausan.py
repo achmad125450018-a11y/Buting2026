@@ -4,7 +4,6 @@ import requests
 from PIL import Image, ImageOps
 from io import BytesIO
 
-# Pengaturan Konfigurasi Tema Global & Warna Sidebar agar Tampil Jelas
 st.markdown(
     """
     <style>
