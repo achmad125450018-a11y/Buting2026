@@ -349,7 +349,7 @@ if menu == "Badan Legislatif":
 if menu == "Badan Kesenatoran":
     def senator():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=11lN-8cFIoRe1VNK7b45VsGBQ-m7osbO9",
+            "https://drive.google.com/uc?export=view&id=18pFYiodYEd07IVviRGEycd-sjtKcNZax",
             "https://drive.google.com/uc?export=view&id=1Ie_cEMbITvBG28KC_fRR9ThBdU_RffXk",
             "https://drive.google.com/uc?export=view&id=1_urTTbpuJ2DLbq9Ym0QkgPwsky69ppL6",
             "https://drive.google.com/uc?export=view&id=1DtJVvMDe6lhO6fSfjzO-uZ6l-RnLeLAD",
@@ -479,7 +479,7 @@ if menu == "Badan Kesenatoran":
 if menu == "Departemen MIKFES":
     def mikfes():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1oUfqF4RYvpt_s2bjJeRkChTbhpxcqWqD",
+            "https://drive.google.com/uc?export=view&id=1m97ka3OYag0V_l8csSv2nlfy66ANWFA2",
             "https://drive.google.com/uc?export=view&id=1B3Sf_Ca_iIgPsGE3bBgmkJqw15tQDM-9",
             "https://drive.google.com/uc?export=view&id=1F1mtjj-N63X-porO2lmB3bExI-bCiHfd",
             "https://drive.google.com/uc?export=view&id=1192G1ajQX8Zx4jaOb-Oi3ZWNKSSdNoAI",
