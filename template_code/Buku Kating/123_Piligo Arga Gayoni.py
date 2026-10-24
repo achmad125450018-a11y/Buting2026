@@ -1,13 +1,37 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-import requests
-from PIL import Image, ImageOps
-from io import BytesIO
+import sys
+import os
 
-st.markdown("""<style>.centered-title {text-align: center;}</style>""",unsafe_allow_html=True)
-st.markdown("<h1 class='centered-title'>BUKU KATING</h1>", unsafe_allow_html=True)
+# Menambahkan root project ke sys.path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
 
-# bagian sini jangan diubah
+from tools.ui_helper import (
+    inject_custom_css,
+    load_image,
+    render_kating_cards,
+    get_menu_styles,
+)
+
+# Injeksi tema estetis global
+inject_custom_css()
+
+# Header Halaman Buku Kating
+st.markdown(
+    """
+    <div style="text-align: center; padding: 10px 0 16px 0;">
+        <h1 class="g-title" style="font-size: 2.8rem; margin-top: 4px;">
+            BUKU KATING
+        </h1>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+
 def streamlit_menu():
     selected = option_menu(
         menu_title=None,
@@ -37,64 +61,16 @@ def streamlit_menu():
         ],
         default_index=0,
         orientation="horizontal",
-        styles={
-            "container": {"padding": "0!important", "background-color": "#fafafa"},
-            "icon": {"color": "black", "font-size": "19px"},
-            "nav-link": {
-                "font-size": "15px",
-                "text-align": "left",
-                "margin": "0px",
-                "--hover-color": "#eee",
-            },
-            "nav-link-selected": {"background-color": "#9C6AC0"},
-        },
+        styles=get_menu_styles(),
     )
     return selected
 
-@st.cache_data
-def load_image(url):
-    response = requests.get(url)
-    if response.status_code != 200:
-        st.error(
-            f"Failed to fetch image from {url}, status code: {response.status_code}"
-        )
-        return None
-    try:
-        img = Image.open(BytesIO(response.content))
-        img = ImageOps.exif_transpose(img)
-        img = img.resize((300, 400))
-        return img
-    except Exception as e:
-        st.error(f"Error loading image: {e}")
-        return None
-    
-@st.cache_data
+
 def display_images_with_data(gambar_urls, data_list):
-    images = []
-    for i, url in enumerate(gambar_urls):
-        with st.spinner(f"Memuat gambar {i + 1} dari {len(gambar_urls)}"):
-            img = load_image(url)
-            if img is not None:
-                images.append(img)
+    """Menampilkan kating dalam bentuk Wide Horizontal Showcase Cards elegan dengan fitur live search."""
+    render_kating_cards(gambar_urls, data_list, department_title=menu)
 
-    for i, img in enumerate(images):
-        # Menggunakan Streamlit untuk menampilkan gambar di tengah kolom
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
-            st.image(img, use_container_width=True)
 
-        if i < len(data_list):
-            st.write(f"Nama: {data_list[i]['nama']}")
-            st.write(f"NIM: {data_list[i]['nim']}")
-            st.write(f"Umur: {data_list[i]['umur']}")
-            st.write(f"Asal: {data_list[i]['asal']}")
-            st.write(f"Alamat: {data_list[i]['alamat']}")
-            st.write(f"Hobbi: {data_list[i]['hobbi']}")
-            st.write(f"Sosial Media: {data_list[i]['sosmed']}")
-            st.write(f"Kesan: {data_list[i]['kesan']}")
-            st.write(f"Pesan: {data_list[i]['pesan']}")
-            st.write("  ")
-    st.write("Semua gambar telah dimuat!")
 menu = streamlit_menu()
 
 # BAGIAN SINI YANG HANYA BOLEH DIUABAH
@@ -556,7 +532,7 @@ elif menu == "Departemen Internal":
 
         ]
         data_list = [
-             {
+            {
                 "nama": "Haikal Fransiskus Simbolon",
                 "nim": "123450123",
                 "umur": "23",
@@ -756,7 +732,7 @@ elif menu == "Departemen PSDA":
             "https://drive.google.com/uc?export=view&id=1usOIXqXuvgwImLT71NvCULHHP0GRX8ge",
             "https://drive.google.com/uc?export=view&id=121J109uHW7YX8W4NdU_GCIiFDBx_PPN-",
         ]
-data_list = [
+        data_list = [
             {
                 "nama": "Arienta Khusnul Ananda",
                 "nim": "123450097",
@@ -766,7 +742,7 @@ data_list = [
                 "hobbi": "Ngerjain Anak Kader",
                 "sosmed": "@arientakhsnl_",
                 "kesan": "Kak arienta awalnya keliatan serem, tapi aslinya baik dan lucu banget",  
-                "pesan":"Makasih banyak ya kak, udah jadi salah satu orang dibalik CEO HMSD yang bikin aku berkembang."# 1
+                "pesan":"Makasih banyak ya kak, udah jadi salah satu orang dibalik CEO HMSD yang bikin aku berkembang."
             },
             {
                 "nama": "Vany Salsabila Putri",
@@ -777,7 +753,7 @@ data_list = [
                 "hobbi": "Pacaran",
                 "sosmed": "@vany.salsabilaa",
                 "kesan": "Kak vany lucu dan baik",  
-                "pesan":"Semangat terus ya kakaaaa semester ini, semoga lancar2 kuliahnya sampai lulus"# 1
+                "pesan":"Semangat terus ya kakaaaa semester ini, semoga lancar2 kuliahnya sampai lulus"
             },
             {
                 "nama": "Nobel Nizam Fathirizki",
@@ -788,7 +764,7 @@ data_list = [
                 "hobbi": "Banyak",
                 "sosmed": "@nobelnizam",
                 "kesan": "Keren, jago sulap dan ngoding, berusaha yang terbaik demi kami",  
-                "pesan":"sehat terus ya bangg"# 1
+                "pesan":"sehat terus ya bangg"
             },
             {
                 "nama": "Afriza Azmi",
@@ -810,7 +786,7 @@ data_list = [
                 "hobbi": "Cekek Ayam",
                 "sosmed": "@ykeall",
                 "kesan": "Bang ayake ini paling lucu dan soft spoken bagiku",  
-                "pesan":"Semangat terus ya bang kuliahnya"# 1
+                "pesan":"Semangat terus ya bang kuliahnya"
             },
             {
                 "nama": "Caesar Ozora Alrando",
@@ -821,7 +797,7 @@ data_list = [
                 "hobbi": "Pulang Kampung",
                 "sosmed": "@caesar.oriza",
                 "kesan": "Keren dan tampak sangar",  
-                "pesan":"Sehat selalu ya bangg"# 1
+                "pesan":"Sehat selalu ya bangg"
             },
             {
                 "nama": "Euodia Meiliana Fredita",
@@ -832,7 +808,7 @@ data_list = [
                 "hobbi": "Surving",
                 "sosmed": "@yudiameilianaa_",
                 "kesan": "Kaka ini lucu dan asik banget deh walau awalnya bikin takut",  
-                "pesan":"Semangat ya kakaa semester ini, semoga lancar terusss kuliahnya ^^"# 1
+                "pesan":"Semangat ya kakaa semester ini, semoga lancar terusss kuliahnya ^^"
             },
             {
                 "nama": "Haikal Seventino Tamba",
@@ -843,7 +819,7 @@ data_list = [
                 "hobbi": "Tidur",
                 "sosmed": "@_haikaaall",
                 "kesan": "Bang haikal baik dan keren",  
-                "pesan":"Sehat selalu ya banggg"# 1
+                "pesan":"Sehat selalu ya banggg"
             },
             {
                 "nama": "Putri Manna Anantama Simbolon",
@@ -854,7 +830,7 @@ data_list = [
                 "hobbi": "jalan kaki ga boleh naik gojek",
                 "sosmed": "@putrimannaa",
                 "kesan": "Lucu dan baikk walau kadang galak",  
-                "pesan":"Semangat terus kakaaa kuliahnya"# 1
+                "pesan":"Semangat terus kakaaa kuliahnya"
             },
             {
                 "nama": "Queenta Thifaal Nabila",
@@ -865,7 +841,7 @@ data_list = [
                 "hobbi": "Makanin anak ayam",
                 "sosmed": "@queentanaabila",
                 "kesan": "Awalnya saya takut, cuma aslinya baik dan lucu bangett",  
-                "pesan":"Sukses swelalu ya kak"# 1
+                "pesan":"Sukses swelalu ya kak"
             },
             {
                 "nama": "Desman Velius Halawa",
@@ -876,7 +852,7 @@ data_list = [
                 "hobbi": "Main musik",
                 "sosmed": "@dsmanhal",
                 "kesan": "Abang ini humble",  
-                "pesan":"sukses selalu bang desmannn, semoga lancar sampai lulus ya bangg"# 1
+                "pesan":"sukses selalu bang desmannn, semoga lancar sampai lulus ya bangg"
             },
             {
                 "nama": "Azzelya Thianandry",
@@ -887,7 +863,7 @@ data_list = [
                 "hobbi": "Pilates ",
                 "sosmed": "@azzelytn",
                 "kesan": "kak azzelya cantik dan baikk ",  
-                "pesan":"Semangat dan sehat selaluu kakaaa"# 1
+                "pesan":"Semangat dan sehat selaluu kakaaa"
             },
             {
                 "nama": "Charrlindah",
@@ -898,7 +874,7 @@ data_list = [
                 "hobbi": "Ngurus Peternakan ",
                 "sosmed": "@charrlln",
                 "kesan": "Kaka ini suka nyanyi dan juga lucu",  
-                "pesan":"semoga sehat selalu ya kak"# 1
+                "pesan":"semoga sehat selalu ya kak"
             },
             {
                 "nama": "Jeremi Marolop P. Situmorang",
@@ -944,8 +920,8 @@ data_list = [
                 "kesan": "Kakak lucu dan suka senyum",  
                 "pesan":"lancar selalu kakaaa kuliahnya yaa^"
             }
-            ]
-    display_images_with_data(gambar_urls, data_list)
+        ]
+        display_images_with_data(gambar_urls, data_list)
     DepartemenPSDA()
 
 # Tambahkan menu lainnya sesuai kebutuhan
