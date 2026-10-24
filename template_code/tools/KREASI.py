@@ -56,6 +56,12 @@ html, body, [class*="css"] {
     margin-bottom: 30px;
     margin-top: 8px;
 }
+
+/* Memaksa iframe Streamlit jadi lebar 100% */
+iframe {
+    width: 100% !important;
+    border: none !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -63,14 +69,13 @@ st.markdown("<h1 class='title'>DATA CATCHER</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>✦ Bersihkan Data, Kumpulkan Skor! ✦</p>", unsafe_allow_html=True)
 
 # ============================================================
-# 🎮 HTML/JS GAME (Versi Lebar & Interaktif)
+# 🎮 HTML/JS GAME (Lebar Maksimal & Waktu Normal)
 # ============================================================
 game_html = """
 <!DOCTYPE html>
 <html>
 <head>
 <style>
-    /* Reset */
     * { box-sizing: border-box; }
     body {
         margin: 0;
@@ -79,16 +84,13 @@ game_html = """
         background-color: transparent;
         display: flex;
         justify-content: center;
-        align-items: center;
         height: 100vh;
-        overflow: hidden;
     }
     
-    /* Wadah Game Utama */
     #game-container {
         width: 100%;
-        height: 100%; /* Penuhi iframe */
-        max-width: 900px; /* Diperlebar dari 600px */
+        max-width: 1000px; /* Diperlebar maksimal */
+        height: 550px;
         background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(112,28,35,0.08);
@@ -101,13 +103,12 @@ game_html = """
         align-items: center;
     }
     
-    /* HUD (Skor, Nyawa, Waktu) */
     #hud {
         position: absolute;
         top: 20px;
         width: 100%;
         display: flex;
-        justify-content: center; /* Tengah */
+        justify-content: center;
         gap: 20px;
         z-index: 10;
     }
@@ -120,9 +121,9 @@ game_html = """
         color: #701c23;
         font-size: 18px;
         text-align: center;
+        min-width: 120px;
     }
 
-    /* Area Permainan */
     #play-area {
         position: absolute;
         top: 0;
@@ -133,7 +134,6 @@ game_html = """
         overflow: hidden;
     }
 
-    /* Emoji Jatuh */
     .item {
         position: absolute;
         font-size: 60px;
@@ -142,21 +142,18 @@ game_html = """
         transition: transform 0.1s;
         animation: fall linear forwards;
     }
-    .item:active {
-        transform: scale(1.3);
-    }
+    .item:active { transform: scale(1.3); }
     
     @keyframes fall {
         0% { top: -80px; }
         100% { top: 100%; }
     }
 
-    /* Layar Start & Game Over */
     .screen {
         text-align: center;
         z-index: 20;
         padding: 40px;
-        background: rgba(255,255,255,0.9);
+        background: rgba(255,255,255,0.95);
         border-radius: 20px;
         box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         margin: 20px;
@@ -191,7 +188,6 @@ game_html = """
         box-shadow: 0 10px 24px rgba(112,28,35,0.5);
     }
     
-    /* Efek Skor Muncul */
     .score-pop {
         position: absolute;
         font-weight: 800;
@@ -209,24 +205,20 @@ game_html = """
 <body>
 
 <div id="game-container">
-    <!-- HUD -->
     <div id="hud">
         <div class="stat">⏱️ Waktu: <span id="time">30</span>s</div>
         <div class="stat">🏆 Skor: <span id="score">0</span></div>
         <div class="stat">❤️ Nyawa: <span id="lives">3</span></div>
     </div>
 
-    <!-- Area Jatuh -->
     <div id="play-area"></div>
 
-    <!-- Layar Start -->
     <div id="start-screen" class="screen">
         <h2>Selamat Datang!</h2>
         <p>Klik <b>Data Bersih</b> (🍎, 💎, 📁) secepat mungkin.<br>Jangan klik <b>Data Sampah</b> (🗑️, 💩, 🐛)!</p>
         <button onclick="startGame()">🚀 MULAI GAME</button>
     </div>
 
-    <!-- Layar Game Over -->
     <div id="gameover-screen" class="screen" style="display:none;">
         <h2>Game Over!</h2>
         <p>Skor Akhir Kamu: <br><b style="font-size:48px; color:#a8323d;" id="final-score">0</b></p>
@@ -249,6 +241,7 @@ game_html = """
     const gameoverScreen = document.getElementById("gameover-screen");
 
     function startGame() {
+        // Reset state
         score = 0;
         lives = 3;
         timeLeft = 30;
@@ -263,13 +256,19 @@ game_html = """
         playArea.style.display = "block";
         playArea.innerHTML = ""; 
 
+        // Hentikan timer lama jika ada (biar ga dobel)
+        clearInterval(timerInterval);
+        clearInterval(spawnInterval);
+
+        // Timer mundur normal 1 detik
         timerInterval = setInterval(() => {
+            if (!isPlaying) return;
             timeLeft--;
             document.getElementById("time").innerText = timeLeft;
             if (timeLeft <= 0) endGame();
         }, 1000);
 
-        // Spawn lebih sering biar seru
+        // Spawn emoji
         spawnInterval = setInterval(spawnItem, 600);
     }
 
@@ -282,10 +281,9 @@ game_html = """
         const isClean = Math.random() > 0.4;
         item.innerText = isClean ? cleanItems[Math.floor(Math.random() * cleanItems.length)] : dirtyItems[Math.floor(Math.random() * dirtyItems.length)];
         
-        // Posisi X acak (menghindari ujung agar tidak terpotong)
         item.style.left = Math.floor(Math.random() * 85 + 5) + "%";
         
-        const duration = Math.random() * 2 + 2; // 2 - 4 detik jatuh
+        const duration = Math.random() * 2 + 2; // Jatuh selama 2-4 detik
         item.style.animationDuration = duration + "s";
 
         item.onclick = (e) => {
@@ -351,7 +349,5 @@ game_html = """
 </html>
 """
 
-# Bungkus dengan st.columns agar Streamlit memberikan ruang yang luas
-col1, col2, col3 = st.columns([1, 8, 1])
-with col2:
-    components.html(game_html, height=600, scrolling=False)
+# Render di Streamlit (Lebar penuh & tinggi pas)
+components.html(game_html, height=570, scrolling=False)
