@@ -55,17 +55,14 @@ game_html = """
         min-height: 24px;
     }
     .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
+        position: relative;
         margin: 20px auto;
-        width: 100%;
-        max-width: 550px;
-        height: 130px;
+        width: 540px;
+        height: 120px;
+        max-width: 100%;
     }
     .box {
-        flex: 1;
+        width: 120px;
         height: 110px;
         background: #312e81;
         border: 3px solid #facc15;
@@ -74,13 +71,14 @@ game_html = """
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transition: transform 0.3s ease, border-color 0.2s;
+        position: absolute;
+        top: 0;
+        transition: left 0.4s ease-in-out;
         cursor: pointer;
         box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
     .box:hover {
         border-color: #38bdf8;
-        transform: translateY(-4px);
     }
     .box-val {
         font-size: 16px;
@@ -161,15 +159,21 @@ game_html = """
         targetType = anomType.name;
         document.getElementById('instruction').innerHTML = `Cari kotak tipe data: <span style="color: #facc15;">${targetType}</span>`;
 
-        boxes = [];
+        let rawBoxes = [];
         for(let i=0; i<3; i++) {
             let val = domType.vals[Math.floor(Math.random() * domType.vals.length)];
-            boxes.push({ val: val, type: domType.name, isAnom: false });
+            rawBoxes.push({ val: val, type: domType.name, isAnom: false });
         }
         let anomVal = anomType.vals[Math.floor(Math.random() * anomType.vals.length)];
-        boxes.push({ val: anomVal, type: anomType.name, isAnom: true });
+        rawBoxes.push({ val: anomVal, type: anomType.name, isAnom: true });
 
-        shuffleArray(boxes);
+        shuffleArray(rawBoxes);
+        
+        boxes = rawBoxes.map((b, idx) => ({
+            ...b,
+            currentPos: idx
+        }));
+
         renderBoxes(true);
     }
 
@@ -187,6 +191,7 @@ game_html = """
         boxes.forEach((box, index) => {
             const el = document.createElement('div');
             el.className = 'box';
+            el.style.left = (box.currentPos * 138) + 'px';
             el.onclick = () => handleBoxClick(index);
 
             if (showContent) {
@@ -197,7 +202,7 @@ game_html = """
             } else {
                 el.innerHTML = `
                     <div class="box-val" style="font-size: 24px;">[ ? ]</div>
-                    <div class="box-type">Kotak ${index + 1}</div>
+                    <div class="box-type">Kotak ${box.currentPos + 1}</div>
                 `;
             }
             container.appendChild(el);
@@ -213,20 +218,23 @@ game_html = """
         renderBoxes(false);
         await sleep(600);
 
-        let swaps = 4 + round;
+        let swaps = 5 + round;
         for(let s = 0; s < swaps; s++) {
-            let idx1 = Math.floor(Math.random() * 4);
-            let idx2;
+            let pos1 = Math.floor(Math.random() * 4);
+            let pos2;
             do {
-                idx2 = Math.floor(Math.random() * 4);
-            } while(idx1 === idx2);
+                pos2 = Math.floor(Math.random() * 4);
+            } while(pos1 === pos2);
 
-            let temp = boxes[idx1];
-            boxes[idx1] = boxes[idx2];
-            boxes[idx2] = temp;
+            let box1 = boxes.find(b => b.currentPos === pos1);
+            let box2 = boxes.find(b => b.currentPos === pos2);
+
+            let temp = box1.currentPos;
+            box1.currentPos = box2.currentPos;
+            box2.currentPos = temp;
 
             renderBoxes(false);
-            await sleep(350);
+            await sleep(450);
         }
 
         gameState = 'guessing';
