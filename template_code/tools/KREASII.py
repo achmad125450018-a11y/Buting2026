@@ -1,8 +1,7 @@
 import streamlit as st
 import random
-from datetime import date
 
-st.set_page_config(page_title="CyberData Matrix", layout="centered")
+st.set_page_config(page_title="CyberAnomaly Hunter", layout="centered")
 
 st.markdown("""
 <style>
@@ -19,15 +18,6 @@ h1, h2, h3 {
 label, p, span, div {
     color: #f1f5f9 !important;
 }
-.data-card {
-    background-color: #0f172a;
-    border: 1px solid #00f0ff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
-    margin-bottom: 25px;
-    text-align: center;
-}
 .stMetric {
     background-color: #0f172a;
     border: 1px solid #38bdf8;
@@ -37,80 +27,88 @@ label, p, span, div {
 [data-testid="stMetricValue"] {
     color: #38bdf8 !important;
 }
+.stButton>button {
+    background-color: #0f172a !important;
+    color: #38bdf8 !important;
+    border: 1px solid #38bdf8 !important;
+    font-family: 'Courier New', monospace !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+}
+.stButton>button:hover {
+    background-color: #1e293b !important;
+    border-color: #00f0ff !important;
+    color: #00f0ff !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
-st.title("CyberData: Interactive Transfer Matrix")
-st.markdown("Transfer unit data yang masuk ke terminal tipe data yang tepat.")
+st.title("CyberAnomaly: Data Type Hunter")
+st.markdown("Temukan unit data anomali yang memiliki tipe berbeda di antara kumpulan data utama.")
 
 if "score" not in st.session_state:
     st.session_state.score = 0
 if "streak" not in st.session_state:
     st.session_state.streak = 0
+if "round" not in st.session_state:
+    st.session_state.round = 1
 
-def get_new_item():
-    types = ["Integer", "Float", "String", "Boolean", "Date"]
-    t = random.choice(types)
-    if t == "Integer":
-        val = str(random.randint(-500, 500))
-    elif t == "Float":
-        val = str(round(random.uniform(-250, 250), 2))
-    elif t == "String":
-        val = random.choice(["CyberNode", "NeuralCore", "MatrixProtocol", "QuantumBit", "VectorStream"])
-    elif t == "Boolean":
-        val = str(random.choice([True, False]))
-    elif t == "Date":
-        val = str(date(random.randint(2025, 2030), random.randint(1, 12), random.randint(1, 28)))
-    return {"value": val, "type": t}
-
-if "current_item" not in st.session_state or not isinstance(st.session_state.current_item, dict):
-    st.session_state.current_item = get_new_item()
-
-col1, col2 = st.columns(2)
-col1.metric("Skor Total", st.session_state.score)
-col2.metric("Streak Beruntun", st.session_state.streak)
-
-st.subheader("Unit Data Aktif")
-item = st.session_state.current_item
-
-st.markdown(f"""
-<div class="data-card">
-    <h2 style="color: #00f0ff; font-size: 36px; margin: 0;">{item['value']}</h2>
-</div>
-""", unsafe_allow_html=True)
-
-st.markdown("Pilih Terminal Kategori Tujuan untuk Mentransfer Unit Data Ini:")
-
-c1, c2, c3, c4, c5 = st.columns(5)
-
-chosen = None
-if c1.button("Integer", use_container_width=True):
-    chosen = "Integer"
-elif c2.button("Float", use_container_width=True):
-    chosen = "Float"
-elif c3.button("String", use_container_width=True):
-    chosen = "String"
-elif c4.button("Boolean", use_container_width=True):
-    chosen = "Boolean"
-elif c5.button("Date", use_container_width=True):
-    chosen = "Date"
-
-if chosen is not None:
-    if chosen == item["type"]:
-        st.session_state.score += 20
-        st.session_state.streak += 1
-        st.success(f"Transfer sukses ke terminal {chosen}.")
-    else:
-        st.session_state.streak = 0
-        st.session_state.score = max(0, st.session_state.score - 10)
-        st.error(f"Transfer gagal. Unit tersebut adalah tipe data {item['type']}.")
+def generate_puzzle():
+    types_pool = [
+        ("String", ["DataNode", "NeuralCore", "MatrixStream", "VectorNode"]),
+        ("Integer", [str(random.randint(10, 99)) for _ in range(4)]),
+        ("Float", [str(round(random.uniform(1.0, 9.9), 2)) for _ in range(4)]),
+        ("Boolean", ["True", "False"])
+    ]
     
-    st.session_state.current_item = get_new_item()
-    st.rerun()
+    dom_idx = random.randint(0, len(types_pool) - 1)
+    dom_name, dom_vals = types_pool[dom_idx]
+    
+    anom_pool = [t for i, t in enumerate(types_pool) if i != dom_idx]
+    anom_name, anom_vals = random.choice(anom_pool)
+    
+    items = []
+    for _ in range(4):
+        items.append({"val": random.choice(dom_vals), "type": dom_name, "is_anom": False})
+        
+    anom_val = random.choice(anom_vals)
+    items.append({"val": anom_val, "type": anom_name, "is_anom": True})
+    
+    random.shuffle(items)
+    return dom_name, anom_name, items
+
+if "puzzle_data" not in st.session_state or not isinstance(st.session_state.puzzle_data, tuple):
+    st.session_state.dom_name, st.session_state.anom_name, st.session_state.puzzle_items = generate_puzzle()
+
+col1, col2, col3 = st.columns(3)
+col1.metric("Skor Total", st.session_state.score)
+col2.metric("Streak", st.session_state.streak)
+col3.metric("Ronde", st.session_state.round)
 
 st.markdown("---")
-if st.button("Reset Sistem"):
+st.markdown(f"### Misi: Temukan tipe data <span style='color: #00f0ff;'>{st.session_state.anom_name}</span> di antara kumpulan tipe <span style='color: #38bdf8;'>{st.session_state.dom_name}</span>!", unsafe_allow_html=True)
+
+for idx, item in enumerate(st.session_state.puzzle_items):
+    if st.button(f"Unit Data [{idx+1}] -> {item['val']}", key=f"btn_unit_{idx}_{st.session_state.round}"):
+        if item["is_anom"]:
+            st.session_state.score += 25
+            st.session_state.streak += 1
+            st.success(f"Berhasil! Unit tersebut adalah tipe {item['type']} (Anomali).")
+            st.session_state.round += 1
+            st.session_state.dom_name, st.session_state.anom_name, st.session_state.puzzle_items = generate_puzzle()
+            st.rerun()
+        else:
+            st.session_state.streak = 0
+            st.session_state.score = max(0, st.session_state.score - 10)
+            st.error(f"Gagal! Unit tersebut adalah data normal bertipe {item['type']}.")
+
+st.markdown("---")
+if st.button("Reset Sistem Matrix", key="reset_sys_btn"):
     st.session_state.score = 0
     st.session_state.streak = 0
-    st.session_state.current_item = get_new_item()
+    st.session_state.round = 1
+    st.session_state.dom_name, st.session_state.anom_name, st.session_state.puzzle_items = generate_puzzle()
     st.rerun()
