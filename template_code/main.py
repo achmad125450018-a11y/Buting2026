@@ -3,11 +3,11 @@ import streamlit as st
 st.set_page_config(page_title="Buku Kating", layout="wide")
 
 # ============================================================
-# 🎨 CSS GLOBAL & HACK LEBAR LAYAR
+# 🎨 CSS GLOBAL (Hanya Warna Sidebar)
 # ============================================================
 st.markdown("""
 <style>
-    /* 1. Warna Sidebar */
+    /* Warna Sidebar Maroon */
     [data-testid="stSidebar"] {
         background-color: #701c23 !important;
     }
@@ -18,13 +18,6 @@ st.markdown("""
     [data-testid="stSidebar"] svg {
         color: #ffffff !important;
         fill: #ffffff !important;
-    }
-
-    /* 2. Menghancurkan batas lebar Streamlit agar game lebar */
-    [data-testid="stAppViewBlockContainer"], .block-container {
-        max-width: 100% !important;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
     }
 </style>
 """, unsafe_allow_html=True)
