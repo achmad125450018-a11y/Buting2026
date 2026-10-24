@@ -16,13 +16,13 @@ def load_image(url):
 
 # JANGAN DIUBAH
 
-# Pengaturan Tema Global: Background & Kotak dengan Grafik Ramai, Modern, & Elegan
+# Pengaturan Tema Global: Background Krim dengan Grafik Pola Modern Dot-Grid & Diagonal
 st.markdown(
     """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap');
 
-    /* Global Styling - Background Krim dengan Grafik Multi-Layer Bertumpuk (Dot & Diagonal Grid) */
+    /* Global Styling - Background Krim dengan Grafik Multi-Layer Bertumpuk */
     .stApp {
         background-color: #fbf9f5;
         background-image: 
@@ -158,7 +158,6 @@ if menu == "Home":
             text-shadow: 0 2px 10px rgba(181, 142, 75, 0.2);
         }
         
-        /* Kotak dengan bingkai ganda dan aksen grafis modern yang ramai */
         .photo-caption-box {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(246, 240, 226, 0.96) 100%);
             backdrop-filter: blur(8px);
@@ -549,4 +548,73 @@ elif menu == "About Us":
             "sebagai": "Anggota",
             "nim": "122450000",
             "fun_fact": "Isi fun fact",
-            "motto_
+            "motto_hidup": "Isi motto hidup",
+        },
+        {
+            "nama": "Nama Anggota 6",
+            "sebagai": "Anggota",
+            "nim": "122450000",
+            "fun_fact": "Isi fun fact",
+            "motto_hidup": "Isi motto hidup",
+        },
+        {
+            "nama": "Nama Anggota 7",
+            "sebagai": "Anggota",
+            "nim": "122450000",
+            "fun_fact": "Isi fun fact",
+            "motto_hidup": "Isi motto hidup",
+        },
+        {
+            "nama": "Nama Anggota 8",
+            "sebagai": "Anggota",
+            "nim": "122450000",
+            "fun_fact": "Isi fun fact",
+            "motto_hidup": "Isi motto hidup",
+        },
+        {
+            "nama": "Nama Anggota 9",
+            "sebagai": "Anggota",
+            "nim": "122450000",
+            "fun_fact": "Isi fun fact",
+            "motto_hidup": "Isi motto hidup",
+        },
+    ]
+
+    if filter_pilihan == "Semua":
+      indices = list(range(11))
+    elif filter_pilihan == "Pak Lurah":
+      indices = [0]
+    elif filter_pilihan == "Bu Lurah":
+      indices = [1]
+    else:
+      indices = list(range(2, 11))
+
+    for idx in indices:
+      if idx < len(data_list) and idx < len(gambar_urls):
+        img = load_image(gambar_urls[idx])
+        data = data_list[idx]
+
+        col_img, col_bio = st.columns([1, 1.4])
+
+        with col_img:
+          st.image(img, use_container_width=True)
+
+        with col_bio:
+          st.markdown(
+              f"""
+                    <div style="
+                        background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(246, 240, 226, 0.96) 100%); 
+                        backdrop-filter: blur(8px);
+                        border: 2px solid #b58e4b; 
+                        outline: 2px dashed rgba(181, 142, 75, 0.4);
+                        outline-offset: -6px;
+                        padding: 26px; 
+                        border-radius: 20px; 
+                        box-shadow: 0 10px 30px rgba(181, 142, 75, 0.15); 
+                        color: #1e1b18;
+                        font-family: 'Inter', sans-serif;
+                        position: relative;
+                        overflow: hidden;
+                        margin-bottom: 20px;">
+                        <div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(135deg, transparent 50%, rgba(181,142,75,0.25) 50%); pointer-events: none;"></div>
+                        <h3 style="margin-top: 0; color: #4a3324; border-bottom: 2px solid #b58e4b; padding-bottom:
