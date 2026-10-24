@@ -209,21 +209,21 @@ elif menu == "Baleg":
 elif menu == "Departemen Minbak":
     def Departemen_Minbak():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1Udk2xpvnZx6fPqH0f9wwTJN980Bz1TkV",
-            "https://drive.google.com/uc?export=view&id=15Yw6OAHvR23TlQWly2hcYUanBIOinm8K",
-            "https://drive.google.com/uc?export=view&id=1LAJkUbx8KooEozXE57nFs0fWwWtw2aIP",
-            "https://drive.google.com/uc?export=view&id=1ycj9bzqvPwFxuGZBljR6lo3qUM8UVrib",
-            "https://drive.google.com/uc?export=view&id=1bmq4huEEg36soPANR5uIcqpw-PPk38x2",
-            "https://drive.google.com/uc?export=view&id=10dndlb7oI4Iu3gjolRIzTLtk5cAeTpQF",
-            "https://drive.google.com/uc?export=view&id=17KZMQOw0MuSyUy28i0J71aVIFCwrPtNf",
-            "https://drive.google.com/uc?export=view&id=1CadH0SDhfRZiE9V3cehnGvRk7UDupoYm",
-            "https://drive.google.com/uc?export=view&id=1BUjU9oqJxp17o_Rn-Wg-QGqDnkfIZvyX",
-            "https://drive.google.com/uc?export=view&id=1Ic-k9SPonBkbgOwesBrmyK__ne-o-rvv",
-            "https://drive.google.com/uc?export=view&id=1Yruir4LTmRioWy3eogCH8peS6sw14xg2",
-            "https://drive.google.com/uc?export=view&id=1l6WFa-Obnwn1x7t9BQf3L7cAFL9iPss5",
-            "https://drive.google.com/uc?export=view&id=13yIUWXRoArqanTVyR5a4I_jGqslJ8J0o",
-            "https://drive.google.com/uc?export=view&id=13yIUWXRoArqanTVyR5a4I_jGqslJ8J0o",
-            "https://drive.google.com/uc?export=view&id=1cMHzTwL_osj4CvaWdPCSfrrpTdqQKAoJ"
+            "https://drive.google.com/uc?export=view&id=1oUCS2tUHoQcpYaGCqxYVyvyE5_3AgQ1L",
+            "https://drive.google.com/uc?export=view&id=1oIHqd9w0B5LWTjejJV2FNEsC2OWEOMGc",
+            "https://drive.google.com/uc?export=view&id=1qkSQTdaUCDtMiEJEUU7fQ7sCZJ6zbHtD",
+            "https://drive.google.com/uc?export=view&id=1OBN4S6MU3V_bOJO9U4V4sULPwq4kNitV",
+            "https://drive.google.com/uc?export=view&id=1fuDNw5lovANFywGK3lJF0p_cS49pQzR0",
+            "https://drive.google.com/uc?export=view&id=1j6Pb9pQfrDcLFmprpBH2kWNjLIkJprXq",
+            "https://drive.google.com/uc?export=view&id=1Bxpc4PUlKHwMfOocW1Ij3zpq5S6pxxjC",
+            "https://drive.google.com/uc?export=view&id=1qMHYGCvD8Mdt8qYjT4Xee6dKa7hvcIDi",
+            "https://drive.google.com/uc?export=view&id=1jlcNxVJVs8eNxY9u7EdgGMOHBpyuF2yf",
+            "https://drive.google.com/uc?export=view&id=18wNtTi3DichJGeTBy0k5OyWFhPL0SS9F",
+            "https://drive.google.com/uc?export=view&id=1XSW7bOf4vH12uCCfIhGjwIQibAMaw5Ct",
+            "https://drive.google.com/uc?export=view&id=1697LjAARLZzn2zrskHjHczbl1y8eTqxF",
+            "https://drive.google.com/uc?export=view&id=1q01hzS4qJCG7QrxdqmGTJXRZEhYB0tSz",
+            "https://drive.google.com/uc?export=view&id=1E0Ewz5xdMJDCqpv44dxMK78EZmiyYsSG",
+            "https://drive.google.com/uc?export=view&id=1gifkBdha3tiUhf_lqtPP0fzK7E_0pzsl",
         ]
 
         data_list = [
