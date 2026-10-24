@@ -485,9 +485,16 @@ if menu == "Departemen MIKFES":
             "https://drive.google.com/uc?export=view&id=1Ml9GKM4ZJ0j5XPInbqklzBaUHOpXaCq0",
             "https://drive.google.com/uc?export=view&id=1y47hF232Pq91Qw3q8y6ZqeB4KSrndgFs",
             "https://drive.google.com/uc?export=view&id=1Y1XktCO2D4tnUNKvtCtm6cAIfkdLT9zb",
+            "https://drive.google.com/uc?export=view&id=1FXvvC060njR1_-m-l_unZWmx7l_lJxCT",
             "https://drive.google.com/uc?export=view&id=1CfquAfSW3Gw41L6Q-lCI5RS23W4MM7-g",
             "https://drive.google.com/uc?export=view&id=1QKaz5MKfppFLCfSOAlkf_CS-HV7FbLx2",
-            "https://drive.google.com/uc?export=view&id=1J2v3zGFWZemwxekT6Qw4FOn2mx13Tzu6",
+            "https://drive.google.com/uc?export=view&id=1ncsLzwAu5BO5N_FyoaRSkOo4Ojw7cmYT",
+            "https://drive.google.com/uc?export=view&id=1LIl_vL-UZ7oj49UD9nubhl-NXPBHWqge",
+            "https://drive.google.com/uc?export=view&id=1c6w7z9UabT6JBPf-YhNW-p2RRoLMdGYZ",
+            "https://drive.google.com/uc?export=view&id=1Pv2sy-Ab-tBsc3fw9QN2BB8zwokpMgPf",
+            "https://drive.google.com/uc?export=view&id=15cq-IfafVPT5QyJpVhF3kE7vGJoSGkLR",
+            "https://drive.google.com/uc?export=view&id=1gexcjHkKZoxx9lxoZvPYbhmQ8rCso1GC",
+            "https://drive.google.com/uc?export=view&id=1BSyGem1tMTKdubzR8fhmoBJ80LrthHoG",
         ]
 
         data_list = [
@@ -634,6 +641,84 @@ if menu == "Departemen MIKFES":
                 "kesan": "Kakaknya baik banget!!",
                 "pesan": "Semangat terus kak!"
             },
+            {
+                "Nama": "Vannisa Ramadhani",
+                "NIM" : "124450078",
+                "Asal" : "Kepulauan Riau",
+                "Alamat" : "Teluk Betung",
+                "Hobi": "Nonton KHW",
+                "Umur" : "19",
+                "Sosmed" : "@vunnycaa",
+                "Kesan" : "Ramah dan selalu terlihat ceria.",
+                "Pesan" : "Tetap jadi pribadi yang menyenangkan, Kak."
+            },
+            {
+                "Nama": "Yulia Cristine Malau",
+                "NIM" : "Belum Tahu",
+                "Asal" : "Belum Tahu",
+                "Alamat" : "Belum Tahu",
+                "Hobi": "Belum Tahu",
+                "Umur" : "Belum Tahu",
+                "Sosmed" : "Belum Tahu",
+                "Kesan" : "Sopan dan menghargai orang lain.",
+                "Pesan" : "Semoga selalu sukses dalam setiap kegiatan, Kak."
+            },
+            {
+                "Nama": "Elsa Sitorus",
+                "NIM" : "124450088",
+                "Asal" : "Sumatera Utara",
+                "Alamat" : "Pemda",
+                "Hobi": "Rebahan",
+                "Umur" : "21",
+                "Sosmed" : "_els.a",
+                "Kesan" : "Murah senyum dan enak diajak bicara.",
+                "Pesan" : "Tetap jadi kakak yang hangat, ya, Kak."
+            },
+            {
+                "Nama": "Lovianora Saragih",
+                "NIM" : "124450105",
+                "Asal" : "Sumatera Utara",
+                "Alamat" : "Way Huwi",
+                "Hobi": "Dengerin Musik",
+                "Umur" : "19",
+                "Sosmed" : "_loviaa",
+                "Kesan" : "Kalem tapi tetap hangat saat berinteraksi.",
+                "Pesan" : "Semoga selalu dimudahkan dalam studinya, Kak."
+            },
+            {
+                "Nama": "Kaleb Filbert Istel",
+                "NIM" : "124450053",
+                "Asal" : "Bandar Lampung",
+                "Alamat" : "Campang Raya",
+                "Hobi": "Ngegym, baca novel",
+                "Umur" : "20",
+                "Sosmed" : "@kelelep_comberan",
+                "Kesan" : "Konsisten menjaga kebiasaan hidup sehat.",
+                "Pesan" : "Tularkan semangat hidup sehatmu ke kami, Kak."
+            },
+            {
+                "Nama": "Muhammad Syafiqul Falakh",
+                "NIM" : "124450099",
+                "Asal" : "Belum Tahu",
+                "Alamat" : "Belum Tahu",
+                "Hobi": "Belum Tahu",
+                "Umur" : "Belum Tahu",
+                "Sosmed" : "@syaafiqui",
+                "Kesan" : "Pendiam tapi diam-diam bisa diandalkan.",
+                "Pesan" : "Jangan sungkan berbagi pendapat ke kami, Kak."
+            },
+            {
+                "Nama": "Rifky Henry Ferdianto",
+                "NIM" : "124450115",
+                "Asal" : "Kobum",
+                "Alamat" : "Rajabasa",
+                "Hobi": "Lari dari kenyataan",
+                "Umur" : "28",
+                "Sosmed" : "henryferdianto",
+                "Kesan" : "Humornya unik dan bikin suasana cair.",
+                "Pesan" : "Semoga kenyataan selalu ramah padamu, Kak."
+            },
+            
         ]
 
         display_images_with_data(gambar_urls, data_list)
@@ -644,8 +729,22 @@ if menu == "Departemen PSDA":
     def psda():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1LdrnIp0OvtSvDT-IDldV3A22HaVR6Sdx",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1CbyhJd_x4vRCHuWH6ZXSmL7WseP8Gyv3",
+            "https://drive.google.com/uc?export=view&id=1cWrkcMXWG7ZH3U3F7QPLIlAWxKexcsIG",
+            "https://drive.google.com/uc?export=view&id=1cjH2G2801puyZL8kFQKfEcdUX9-W-4QS",
+            "https://drive.google.com/uc?export=view&id=1FNgDX7rosek1F8oEcc8FCik2oBs2Hg64",
+            "https://drive.google.com/uc?export=view&id=1t0jlFr1CLdf8S-7tji6jEsiKiCuaNRJq",
+            "https://drive.google.com/uc?export=view&id=1lkRPwFFhOW5YX7nwcg74pirZeRK8Opis",
+            "https://drive.google.com/uc?export=view&id=1lEQe4VmE_TN4f8E_lkKfvcgc7kk7gxqW",
+            "https://drive.google.com/uc?export=view&id=1f1iZxkEA8dEWYyx6ZnSEHP7Iw01o_R4B",
+            "https://drive.google.com/uc?export=view&id=1EpTz20jy2DcIeeEHj8SK0dJrpYX23sBQ",
+            "https://drive.google.com/uc?export=view&id=1lN5v6I2K5I6bhRd6aAIJPLl1bdo2F9HZ",
+            "https://drive.google.com/uc?export=view&id=17xseR4KYV7SuMCzfgwjk5p-B-I0niFCf",
+            "https://drive.google.com/uc?export=view&id=1xPxUGMeCkt6Rayh8eV3_Vsr9ny8p72eh",
+            "https://drive.google.com/uc?export=view&id=1AkIZVmaFAbT8mI_NKknMb0aYa3wRC9Q_",
+            "https://drive.google.com/uc?export=view&id=14b8qmnde8c_RCxwRR6zL5KXbnFzcEbi1",
+            "https://drive.google.com/uc?export=view&id=1N1-27XeDk4m3ff2BQ7xC8jholR5ehmSW",
+            "https://drive.google.com/uc?export=view&id=1nOXS7amS3k3UD2HDvYO6EUF6NinWq9e7",
         ]
         data_list = [
             {
@@ -658,17 +757,6 @@ if menu == "Departemen PSDA":
                 "sosmed": "@arientakhsnl_",
                 "kesan": "-",  
                 "pesan":"semangat terus kuliahnya kakak !!!"# 1
-            },
-            {
-                "nama": "Nadya Ratu Anjani",
-                "nim": "123450083",
-                "umur": "21",
-                "asal":"Bandar Lampung",
-                "alamat": "Sukarame",
-                "hobbi": "Danger lagu",
-                "sosmed": "@nadyaanjaani",
-                "kesan": "Bang Aqil juga ga kalah keren! baik jugaa",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 2
             },
             {
                 "nama": "Vany Salsabila Putri",
