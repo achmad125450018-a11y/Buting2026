@@ -1059,28 +1059,28 @@ if menu == "Departemen Medkraf":
 if menu == "Departemen Eksternal":
     def Departemen_Eksternal():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1e2WuUW2YCWbIU_Nom3EMwKsmI1pBKiqA",
+            "https://drive.google.com/uc?export=view&id=1GMVXI6Fl3QFsFcFrASOL-PF7KvGm27tp",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
         ]
         data_list = [
             {
@@ -1106,17 +1106,6 @@ if menu == "Departemen Eksternal":
                 "pesan": "semangat terus kuliahnya kakak !!!"
             },
             {
-                "nama": "Aditya Taufiqurrohman",
-                "nim": "123450032",
-                "umur": "15 Tahun",
-                "asal": "tetangga kadep",
-                "alamat": "belwis",
-                "hobbi": "memancing keributan",
-                "sosmed": "@adityatfq",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "semangat terus kuliahnya kakak !!!"
-            },
-            {
                 "nama": "Khoirul Muthoharoh",
                 "nim": "123450021",
                 "umur": "-",
@@ -1128,57 +1117,13 @@ if menu == "Departemen Eksternal":
                 "pesan": "semangat terus kuliahnya kakak !!!"
             },
             {
-                "nama": "Selma Siti Aisyah",
-                "nim": "123450044",
-                "umur": "20 tahun",
-                "asal": "lampung",
-                "alamat": "balam",
-                "hobbi": "jalan-jalan",
-                "sosmed": "@selmasiti_aisyah",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "semangat terus kuliahnya kakak !!!"
-            },
-            {
-                "nama": "Ashila Islamisahfa Vanisha",
-                "nim": "124450028",
-                "umur": "20 tahun",
-                "asal": "sini",
-                "alamat": "jauh pokoknya",
-                "hobbi": "tidur",
-                "sosmed": "@kshigf",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "semangat terus kuliahnya kakak !!!"
-            },
-            {
-                "nama": "Indah Khairunnisa",
-                "nim": "124450077",
-                "umur": "20 Tahun",
-                "asal": "Ampera",
-                "alamat": "Disini aja",
-                "hobbi": "mancing emosi, mancing ikan, mancing kecebong, mancing cupang",
-                "sosmed": "@khaindaa_",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "semangat terus kuliahnya kakak !!!"
-            },
-            {
-                "nama": "Bima Ekayasa",
-                "nim": "124450106",
-                "umur": "-",
-                "asal": "Lampung",
-                "alamat": "Balam",
-                "hobbi": "berlaku humoris dan manis",
-                "sosmed": "@bimayasa_",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "semangat terus kuliahnya kakak !!!"
-            },
-            {
-                "nama": "Ahmad Bimo Akbar Arkana",
-                "nim": "124450113",
-                "umur": "-",
-                "asal": "Tanggamus",
-                "alamat": "Balam",
-                "hobbi": "lihat lihat perumahan",
-                "sosmed": "@bimo_arkana",
+                "nama": "Ahmad Rizky",
+                "nim": "123450050",
+                "umur": "21 Tahun ini alhamdulillah",
+                "asal": "Tangerang Selatan",
+                "alamat": "GH",
+                "hobbi": "ga ngapa ngapain",
+                "sosmed": "@ahmad.rizky___",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
                 "pesan": "semangat terus kuliahnya kakak !!!"
             },
@@ -1194,13 +1139,57 @@ if menu == "Departemen Eksternal":
                 "pesan": "semangat terus kuliahnya kakak !!!"
             },
             {
-                "nama": "Yollanda Agustina",
-                "nim": "124450024",
+                "nama": "Ahmad Bimo Akbar Arkana",
+                "nim": "124450113",
                 "umur": "-",
-                "asal": "Kerangka Bawang Sebelah Barat",
-                "alamat": "Kayu Mulya",
-                "hobbi": "Tanya bang Henry",
-                "sosmed": "@yollanda_agustina16",
+                "asal": "Tanggamus",
+                "alamat": "Balam",
+                "hobbi": "lihat lihat perumahan",
+                "sosmed": "@bimo_arkana",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+            {
+                "nama": "Alfaya Abiyyi",
+                "nim": "124450006",
+                "umur": "nelson piquet",
+                "asal": "balam",
+                "alamat": "balam",
+                "hobbi": "makan yang manis biar manis",
+                "sosmed": "@alfabiyi",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+            {
+                "nama": "Asri Meilani",
+                "nim": "124450010",
+                "umur": "20 tahun",
+                "asal": "Lampung Barat",
+                "alamat": "Korpri Raya",
+                "hobbi": "menonton film",
+                "sosmed": "@asrmeilani",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+            {
+                "nama": "Bima Ekayasa",
+                "nim": "124450106",
+                "umur": "-",
+                "asal": "Lampung",
+                "alamat": "Balam",
+                "hobbi": "berlaku humoris dan manis",
+                "sosmed": "@bimayasa_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+             {
+                "nama": "Indah Khairunnisa",
+                "nim": "124450077",
+                "umur": "20 Tahun",
+                "asal": "Ampera",
+                "alamat": "Disini aja",
+                "hobbi": "mancing emosi, mancing ikan, mancing kecebong, mancing cupang",
+                "sosmed": "@khaindaa_",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
                 "pesan": "semangat terus kuliahnya kakak !!!"
             },
@@ -1212,6 +1201,28 @@ if menu == "Departemen Eksternal":
                 "alamat": "bebas",
                 "hobbi": "ngefollow up chat",
                 "sosmed": "@erlsriska",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+            {
+                "nama": "Yollanda Agustina",
+                "nim": "124450024",
+                "umur": "-",
+                "asal": "Kerangka Bawang Sebelah Barat",
+                "alamat": "Kayu Mulya",
+                "hobbi": "Ikut Kepanitiaan",
+                "sosmed": "@yollanda_agustina16",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+            {
+                "nama": "Aditya Taufiqurrohman",
+                "nim": "123450032",
+                "umur": "15 Tahun",
+                "asal": "tetangga kadep",
+                "alamat": "belwis",
+                "hobbi": "memancing keributan",
+                "sosmed": "@adityatfq",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
                 "pesan": "semangat terus kuliahnya kakak !!!"
             },
@@ -1234,6 +1245,17 @@ if menu == "Departemen Eksternal":
                 "alamat": "Gerbar",
                 "hobbi": "Jadi orang baik",
                 "sosmed": "-",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+            {
+                "nama": "Ashila Islamisahfa Vanisha",
+                "nim": "124450028",
+                "umur": "20 tahun",
+                "asal": "sini",
+                "alamat": "jauh pokoknya",
+                "hobbi": "tidur",
+                "sosmed": "@kshigf",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
                 "pesan": "semangat terus kuliahnya kakak !!!"
             },
@@ -1271,17 +1293,6 @@ if menu == "Departemen Eksternal":
                 "pesan": "semangat terus kuliahnya kakak !!!"
             },
             {
-                "nama": "Alfaya Abiyyi",
-                "nim": "124450006",
-                "umur": "nelson piquet",
-                "asal": "balam",
-                "alamat": "balam",
-                "hobbi": "makan yang manis biar manis",
-                "sosmed": "@alfabiyi",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "semangat terus kuliahnya kakak !!!"
-            },
-            {
                 "nama": "Muhammad Rizaldi",
                 "nim": "124450093",
                 "umur": "Masih muda lah",
@@ -1304,24 +1315,13 @@ if menu == "Departemen Eksternal":
                 "pesan": "semangat terus kuliahnya kakak !!!"
             },
             {
-                "nama": "Asri Meilani",
-                "nim": "124450010",
+                "nama": "Selma Siti Aisyah",
+                "nim": "123450044",
                 "umur": "20 tahun",
-                "asal": "Lampung Barat",
-                "alamat": "Korpri Raya",
-                "hobbi": "menonton film",
-                "sosmed": "@asrmeilani",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "semangat terus kuliahnya kakak !!!"
-            },
-            {
-                "nama": "Ahmad Rizky",
-                "nim": "123450050",
-                "umur": "21 Tahun ini alhamdulillah",
-                "asal": "Tangerang Selatan",
-                "alamat": "GH",
-                "hobbi": "ga ngapa ngapain",
-                "sosmed": "@ahmad.rizky___",
+                "asal": "lampung",
+                "alamat": "balam",
+                "hobbi": "jalan-jalan",
+                "sosmed": "@selmasiti_aisyah",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
                 "pesan": "semangat terus kuliahnya kakak !!!"
             }
