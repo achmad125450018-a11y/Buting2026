@@ -38,17 +38,12 @@ st.markdown(
 url = "https://drive.google.com/uc?export=view&id=12cQ4T8NkVvVPVNX6zBQC4sviFcc4cDWx"   # Logo Himpunan HMSD (DI ATAS)
 url1 = "https://drive.google.com/uc?export=view&id=12RBvQdMiqqqph-Q1QqLb0zvvIPnBjCYb"  # Logo Departemen / Kegiatan (DI BAWAH)
 
-# 1. Logo Himpunan di Atas (Ukuran normal, tidak terpotong, proporsional)
-col1, col2, col3 = st.columns([1.5, 2, 1.5])
-with col2:
+# Logo Himpunan & Logo Departemen berdampingan (ukuran kecil, rapi di tengah)
+_pad_l, logo_a, logo_b, _pad_r = st.columns([1.4, 1.3, 1.3, 1.4], gap="medium")
+with logo_a:
     img_himpunan = load_image(url, fallback_name="Logo Himpunan HMSD", keep_ratio=True)
     st.image(img_himpunan, use_container_width=True)
-
-st.write("")
-
-# 2. Logo Departemen/Kegiatan di Bawah Logo Himpunan (Ukuran normal, tidak terpotong)
-col1, col2, col3 = st.columns([1.5, 2, 1.5])
-with col2:
+with logo_b:
     img_kegiatan = load_image(url1, fallback_name="Logo Departemen CEO HMSD", keep_ratio=True)
     st.image(img_kegiatan, use_container_width=True)
 
@@ -78,7 +73,6 @@ if menu == "Home":
             """
             <div style="text-align: center; margin: 10px 0 16px 0;">
                 <h2 style="font-size: 2.2rem; font-weight: 700; color: #ffffff; margin: 0;">Deskripsi Kelompok</h2>
-                <div style="font-size: 0.95rem; color: #a78bfa; margin-top: 4px;">✨ Langkah, Karya, & Semangat Juang Kelompok Tensor</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -105,7 +99,7 @@ if menu == "Home":
         st.markdown(
             """
             <div class="jargon-card">
-                <span class="g-tag">⚡ JARGON KEBANGGAAN KELOMPOK TENSOR ⚡</span>
+                <span class="g-tag">⚡ JARGON KELOMPOK TENSOR ⚡</span>
                 <div class="jargon-text">
                     "Berpikir Multidimensi ,Bergerak Tanpa Batas, TENSOR hadir membawa Kualitas, Kompak dalam Aksi, Kuat dalam Kreasi, TENSOR TENSOR TENSOR Siap Berprestasi !!!"
                 </div>
@@ -119,20 +113,18 @@ if menu == "Home":
         st.markdown(
             """
             <div style="text-align: center; margin: 24px 0 12px 0;">
-                <span class="g-tag">📸 Official Team Portrait</span>
+                <span class="g-tag">📸 Official Tensor Team Portrait</span>
                 <div style="font-size: 1.3rem; font-weight: 700; color: #ffffff; margin-top: 6px;">Keluarga Besar Kelompok Tensor</div>
-                <div style="font-size: 0.82rem; color: #94a3b8; margin-top: 2px;">(Sentuh / arahkan kursor ke foto untuk melihat efek kilau kaca)</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-        col1, col2, col3 = st.columns([0.4, 3.2, 0.4])
+        col1, col2, col3 = st.columns([0.8, 3.4, 0.8])
         with col2:
-            st.markdown('<div class="glass-photo-wrap">', unsafe_allow_html=True)
-            img_kelompok = load_image(foto_kelompok, fallback_name="Foto Kelompok Tensor", keep_ratio=True)
-            st.image(img_kelompok, use_container_width=True)
-            st.markdown('</div>', unsafe_allow_html=True)
+            with st.container(key="shine-photo-team"):
+                img_kelompok = load_image(foto_kelompok, fallback_name="Foto Kelompok Tensor", keep_ratio=True)
+                st.image(img_kelompok, use_container_width=True)
 
         st.write("")
 
@@ -141,8 +133,7 @@ if menu == "Home":
             """
             <div style="text-align: center; margin: 28px 0 18px 0;">
                 <span class="g-tag">🎞️ Behind The Scene & Moments</span>
-                <h3 style="font-size: 1.85rem; font-weight: 700; color: #ffffff; margin: 6px 0 4px 0;">Galeri Kebersamaan Kami</h3>
-                <p style="color: #94a3b8; font-size: 0.9rem; margin: 0;">Dari nugas larut malam, serunya dinamika lapangan, hingga tawa pelepas penat.</p>
+                <h3 style="font-size: 1.85rem; font-weight: 700; color: #ffffff; margin: 6px 0 4px 0;">Dokumentasi Kami</h3>
             </div>
             """,
             unsafe_allow_html=True,
@@ -165,10 +156,9 @@ if menu == "Home":
             )
             # Slot foto kerja kelompok
             foto_nugas = "https://drive.google.com/uc?export=view&id=19fo5WQL02HB7IzvRUwhNoKySjy6uJ_Lv"
-            st.markdown('<div class="glass-photo-wrap">', unsafe_allow_html=True)
-            img_nugas = load_image(foto_nugas, fallback_name="Kerja Kelompok", keep_ratio=True)
-            st.image(img_nugas, use_container_width=True)
-            st.markdown('</div>', unsafe_allow_html=True)
+            with st.container(key="shine-photo-gallery-1"):
+                img_nugas = load_image(foto_nugas, fallback_name="Kerja Kelompok", keep_ratio=True)
+                st.image(img_nugas, use_container_width=True)
 
         with col_m2:
             st.markdown(
@@ -185,10 +175,9 @@ if menu == "Home":
             )
             # Slot foto kegiatan rangkaian
             foto_rangkaian = "https://drive.google.com/uc?export=view&id=11UyAE4hUKZ8dG0JG3OxqZCLOrAGGDGJ_"
-            st.markdown('<div class="glass-photo-wrap">', unsafe_allow_html=True)
-            img_rangkaian = load_image(foto_rangkaian, fallback_name="Rangkaian Acara", keep_ratio=True)
-            st.image(img_rangkaian, use_container_width=True)
-            st.markdown('</div>', unsafe_allow_html=True)
+            with st.container(key="shine-photo-gallery-2"):
+                img_rangkaian = load_image(foto_rangkaian, fallback_name="Rangkaian Acara", keep_ratio=True)
+                st.image(img_rangkaian, use_container_width=True)
 
         with col_m3:
             st.markdown(
@@ -205,10 +194,9 @@ if menu == "Home":
             )
             # Slot foto hangout/main
             foto_main = "https://drive.google.com/uc?export=view&id=1tWFKgAL9u58RnOrhMx-IexoK8y_FJLXb"
-            st.markdown('<div class="glass-photo-wrap">', unsafe_allow_html=True)
-            img_main = load_image(foto_main, fallback_name="Main & Hangout", keep_ratio=True)
-            st.image(img_main, use_container_width=True)
-            st.markdown('</div>', unsafe_allow_html=True)
+            with st.container(key="shine-photo-gallery-3"):
+                img_main = load_image(foto_main, fallback_name="Main & Hangout", keep_ratio=True)
+                st.image(img_main, use_container_width=True)
 
         st.write("")
 
@@ -233,54 +221,97 @@ elif menu == "About Us":
             """
             <div style="text-align: center; margin: 10px 0 20px 0;">
                 <h2 style="font-size: 2.2rem; font-weight: 700; color: #ffffff; margin: 0;">Anggota Kelompok</h2>
-                <div style="font-size: 0.95rem; color: #a78bfa; margin-top: 4px;">Kenali orang-orang di balik pembuatan Buku Kating Tensor</div>
-                <div style="font-size: 0.82rem; color: #94a3b8; margin-top: 2px;">(Setiap kartu dilengkapi efek kaca halus saat disentuh)</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1rJzgdR7_6woOOUN1rxC_kR5RDAex8rYC",  # Foto Anggota 1
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Foto Anggota 2
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Foto Anggota 3
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Foto Anggota 4
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Foto Anggota 5
+            "https://drive.google.com/uc?export=view&id=1rJzgdR7_6woOOUN1rxC_kR5RDAex8rYC"
         ]
 
         data_list = [
             {
                 "nama": "Ahmad Fadylah",
                 "sebagai": "Pak lurah",
-                "nim": "124450103",
+                "nim": "125450103",
                 "fun_fact": "Suka ngeliatin Sunset",
                 "motto_hidup": "Nothing is impossible",
             },
             {
                 "nama": "Laikha Salwa Balqis",
                 "sebagai": "Bu Lurah",
-                "nim": "124450122",
-                "fun_fact": "Suka ngoding sampai pagi",
-                "motto_hidup": "Tetap santuy walaupun error banyak",
-            },
-            {
-                "nama": "",
-                "sebagai": "Anggota",
-                "nim": "12445xxxx",
+                "nim": "125450112",
                 "fun_fact": "[Isi Fun Fact]",
                 "motto_hidup": "[Isi Motto]",
             },
             {
-                "nama": "[Nama Teman 4]",
+                "nama": "Hanifa Az'zahra",
                 "sebagai": "Anggota",
-                "nim": "12445xxxx",
+                "nim": "125450001",
                 "fun_fact": "[Isi Fun Fact]",
                 "motto_hidup": "[Isi Motto]",
             },
             {
-                "nama": "[Nama Teman 5]",
+                "nama": "Jauza Virna Radyta",
                 "sebagai": "Anggota",
-                "nim": "12445xxxx",
+                "nim": "125450009",
+                "fun_fact": "[Isi Fun Fact]",
+                "motto_hidup": "[Isi Motto]",
+            },
+            {
+                "nama": "Lusia Zefanya Sihotang",
+                "sebagai": "Anggota",
+                "nim": "125450010",
+                "fun_fact": "[Isi Fun Fact]",
+                "motto_hidup": "[Isi Motto]",
+            },
+            {
+                "nama": "Enzo Hamman Albarru",
+                "sebagai": "Anggota",
+                "nim": "125450022",
+                "fun_fact": "[Isi Fun Fact]",
+                "motto_hidup": "[Isi Motto]",
+            },
+            {
+                "nama": "Mario Figo Dito",
+                "sebagai": "Anggota",
+                "nim": "125450048",
+                "fun_fact": "[Isi Fun Fact]",
+                "motto_hidup": "[Isi Motto]",
+            },
+            {
+                "nama": "Kasih Martha Reichella",
+                "sebagai": "Anggota",
+                "nim": "125450060",
+                "fun_fact": "[Isi Fun Fact]",
+                "motto_hidup": "[Isi Motto]",
+            },
+            {
+                "nama": "Muhammad Reyza Fasihurahman",
+                "sebagai": "Anggota",
+                "nim": "125450094",
+                "fun_fact": "[Isi Fun Fact]",
+                "motto_hidup": "[Isi Motto]",
+            },
+            {
+                "nama": "Nadira Alifa Arifin",
+                "sebagai": "Anggota",
+                "nim": "125450101",
+                "fun_fact": "[Isi Fun Fact]",
+                "motto_hidup": "[Isi Motto]",
+            },
+            {
+                "nama": "Gisella Salvia Pavita",
+                "sebagai": "Anggota",
+                "nim": "125450107",
+                "fun_fact": "[Isi Fun Fact]",
+                "motto_hidup": "[Isi Motto]",
+            },
+            {
+                "nama": "Piligo Arga Gayoni",
+                "sebagai": "Anggota",
+                "nim": "125450123",
                 "fun_fact": "[Isi Fun Fact]",
                 "motto_hidup": "[Isi Motto]",
             },
@@ -288,7 +319,9 @@ elif menu == "About Us":
 
         # Tampilkan anggota secara vertikal proporsional (2 kolom) dengan efek kaca saat disentuh
         for row in range(0, len(data_list), 2):
-            cols = st.columns(2, gap="large")
+            # empty side columns shrink the two cards while keeping 2 per row
+            _pad_l, col_a, col_b, _pad_r = st.columns([1.2, 3, 3, 1.2], gap="medium")
+            cols = [col_a, col_b]
             for ci in range(2):
                 idx = row + ci
                 if idx >= len(data_list):
@@ -305,34 +338,41 @@ elif menu == "About Us":
                 badge_class = "tm-lurah" if is_lurah else "tm-member"
 
                 with cols[ci]:
-                    # Pembungkus Kartu Kaca (Glass Card)
-                    st.markdown(
-                        f"""
-                        <div class="glass-box" style="margin-bottom: 24px; padding: 16px;">
-                        """,
-                        unsafe_allow_html=True,
-                    )
+                    with st.container(key=f"glass-card-{idx}"):
+                        with st.container(key=f"glass-photo-{idx}"):
+                            img = load_image(url_img, fallback_name=nama)
+                            st.image(img, use_container_width=True)
 
-                    # Foto vertikal di atas dengan efek kaca
-                    st.markdown('<div class="glass-photo-wrap">', unsafe_allow_html=True)
-                    img = load_image(url_img, fallback_name=nama)
-                    st.image(img, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
-
-                    # Biodata rapi di bawah foto
-                    st.markdown(
-                        f"""
-                            <div style="margin-top: 14px;">
-                                <div class="tm-name">{nama}</div>
-                                <span class="tm-role {badge_class}">{sebagai}</span>
-                                <div class="k-sep"></div>
-                                <div class="k-info"><span class="k-info-label">NIM:</span><span class="k-info-val">{nim}</span></div>
-                                <div class="k-info"><span class="k-info-label">Fun Fact:</span><span class="k-info-val">{fun_fact}</span></div>
-                                <div class="k-info"><span class="k-info-label">Motto:</span><span class="k-info-val" style="font-style: italic;">"{motto}"</span></div>
-                            </div>
-                        </div>
-                        """,
-                        unsafe_allow_html=True,
-                    )
+                            st.markdown(
+                                f"""
+                                <div class="photo-overlay">
+                                    <div class="po-head">
+                                        <div class="po-name">{nama}</div>
+                                        <span class="tm-role {badge_class}">{sebagai}</span>
+                                    </div>
+                                    <div class="po-more">
+                                        <div class="po-row">
+                                            <span class="po-ico">🎓</span>
+                                            <div>
+                                                <div class="po-label">NIM</div>
+                                                <div class="po-val po-mono">{nim}</div>
+                                            </div>
+                                        </div>
+                                        <div class="po-row">
+                                            <span class="po-ico">✨</span>
+                                            <div>
+                                                <div class="po-label">Fun Fact</div>
+                                                <div class="po-val">{fun_fact}</div>
+                                            </div>
+                                        </div>
+                                        <div class="po-quote">
+                                            <span class="po-label">Motto</span>
+                                            "{motto}"
+                                        </div>
+                                    </div>
+                                </div>
+                                """,
+                                unsafe_allow_html=True,
+                            )
 
     about_page()

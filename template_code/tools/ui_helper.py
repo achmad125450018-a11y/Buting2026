@@ -4,12 +4,13 @@ Design System – Buku Kating Digital TENSOR 2026
 Dark Violet Theme · Clean, Minimal & Elegant
 """
 
-import base64
+import html
 import re
 from io import BytesIO
 
 import requests
 import streamlit as st
+from streamlit_option_menu import option_menu
 from PIL import Image, ImageDraw, ImageOps
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -95,7 +96,8 @@ html, body, [class*="css"], .stMarkdown p, .stMarkdown div, h1, h2, h3, h4, labe
 }
 
 /* ── Efek Kaca (Glassmorphism & Sheen Hover) ── */
-.glass-box {
+.glass-box,
+[class*="st-key-glass-card-"] {
     background: rgba(19, 15, 36, 0.75);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -107,7 +109,8 @@ html, body, [class*="css"], .stMarkdown p, .stMarkdown div, h1, h2, h3, h4, labe
     transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.glass-box:hover {
+.glass-box:hover,
+[class*="st-key-glass-card-"]:hover {
     background: rgba(28, 22, 54, 0.55);
     border-color: rgba(196, 181, 253, 0.6);
     box-shadow: 
@@ -116,7 +119,8 @@ html, body, [class*="css"], .stMarkdown p, .stMarkdown div, h1, h2, h3, h4, labe
     transform: translateY(-4px) scale(1.008);
 }
 
-.glass-box::before {
+.glass-box::before,
+[class*="st-key-glass-card-"]::before {
     content: '';
     position: absolute;
     top: 0;
@@ -135,13 +139,15 @@ html, body, [class*="css"], .stMarkdown p, .stMarkdown div, h1, h2, h3, h4, labe
     z-index: 2;
 }
 
-.glass-box:hover::before {
+.glass-box:hover::before,
+[class*="st-key-glass-card-"]:hover::before {
     left: 160%;
     transition: all 0.75s ease-in-out;
 }
 
 /* ── Efek Kaca Khusus Foto Kelompok & Anggota ── */
-.glass-photo-wrap {
+.glass-photo-wrap,
+[class*="st-key-glass-photo-"] {
     position: relative;
     border-radius: 14px;
     overflow: hidden;
@@ -149,7 +155,8 @@ html, body, [class*="css"], .stMarkdown p, .stMarkdown div, h1, h2, h3, h4, labe
     transition: all 0.35s ease;
 }
 
-.glass-photo-wrap:hover {
+.glass-photo-wrap:hover,
+[class*="st-key-glass-photo-"]:hover {
     border-color: rgba(196, 181, 253, 0.65);
     box-shadow: 
         0 14px 36px 0 rgba(139, 92, 246, 0.35),
@@ -157,15 +164,18 @@ html, body, [class*="css"], .stMarkdown p, .stMarkdown div, h1, h2, h3, h4, labe
     transform: translateY(-4px) scale(1.01);
 }
 
-.glass-photo-wrap img {
+.glass-photo-wrap img,
+[class*="st-key-glass-photo-"] img {
     transition: transform 0.4s ease;
 }
 
-.glass-photo-wrap:hover img {
+.glass-photo-wrap:hover img,
+[class*="st-key-glass-photo-"]:hover img {
     transform: scale(1.02);
 }
 
-.glass-photo-wrap::before {
+.glass-photo-wrap::before,
+[class*="st-key-glass-photo-"]::before {
     content: '';
     position: absolute;
     top: 0;
@@ -184,9 +194,332 @@ html, body, [class*="css"], .stMarkdown p, .stMarkdown div, h1, h2, h3, h4, labe
     z-index: 3;
 }
 
-.glass-photo-wrap:hover::before {
+.glass-photo-wrap:hover::before,
+[class*="st-key-glass-photo-"]:hover::before {
     left: 160%;
     transition: all 0.8s ease-in-out;
+}
+
+
+/* Streamlit container versions: let inner elements fill and clip properly */
+[class*="st-key-glass-photo-"] .stImage img {
+    border: none;
+    border-radius: 0;
+}
+[class*="st-key-glass-card-"], [class*="st-key-glass-photo-"] {
+    gap: 0;
+}
+[class*="st-key-glass-card-"][class*="st-key-glass-card-"] {
+    margin-bottom: 24px;
+}
+
+
+/* ── Photo overlay: name + title always visible, details slide up on hover ── */
+[class*="st-key-glass-photo-"] {
+    --head-h: 78px;
+}
+
+[class*="st-key-glass-photo-"] .stElementContainer:has(.photo-overlay),
+[class*="st-key-glass-photo-"] .element-container:has(.photo-overlay) {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.photo-overlay {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 40px 14px 12px;
+    background:
+        radial-gradient(120% 90% at 0% 100%, rgba(139, 92, 246, 0.22), transparent 65%),
+        linear-gradient(to bottom,
+            rgba(19, 15, 36, 0) 0,
+            rgba(19, 15, 36, 0.78) 40px,
+            rgba(16, 12, 32, 0.92) 100%);
+    transform: translateY(calc(100% - var(--head-h)));
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.photo-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 40px);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 40px);
+    pointer-events: none;
+}
+
+.po-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.po-name {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+}
+.photo-overlay .tm-role { margin: 0; flex-shrink: 0; font-size: 0.64rem; padding: 2px 8px; }
+.po-nim { font-family: 'Courier New', Courier, monospace; letter-spacing: 0.04em; text-transform: none; }
+
+.po-more {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(167, 139, 250, 0.22);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.po-more > * {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.po-row { display: flex; align-items: center; gap: 10px; }
+.po-ico {
+    width: 28px; height: 28px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    background: rgba(139, 92, 246, 0.16);
+    border: 1px solid rgba(167, 139, 250, 0.28);
+}
+.po-label {
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #a78bfa;
+    margin-bottom: 1px;
+}
+.po-val { font-size: 0.82rem; font-weight: 500; color: #f1f5f9; line-height: 1.3; }
+.po-mono { font-family: 'Courier New', Courier, monospace; letter-spacing: 0.04em; }
+
+.po-quote {
+    padding: 7px 11px;
+    border-left: 3px solid #a855f7;
+    border-radius: 0 10px 10px 0;
+    background: linear-gradient(90deg, rgba(168, 85, 247, 0.16), rgba(168, 85, 247, 0.03));
+    font-size: 0.82rem;
+    font-style: italic;
+    color: #f3e8ff;
+    line-height: 1.4;
+}
+.po-quote .po-label { font-style: normal; color: #d8b4fe; }
+
+[class*="st-key-glass-photo-"]:hover .photo-overlay { transform: translateY(0); }
+[class*="st-key-glass-photo-"]:hover .po-more > * { opacity: 1; transform: translateY(0); }
+[class*="st-key-glass-photo-"]:hover .po-more > :nth-child(1) { transition-delay: 0.12s; }
+[class*="st-key-glass-photo-"]:hover .po-more > :nth-child(2) { transition-delay: 0.20s; }
+[class*="st-key-glass-photo-"]:hover .po-more > :nth-child(3) { transition-delay: 0.28s; }
+
+/* ── Compact cards ── */
+[class*="st-key-glass-photo-"] .stImage img,
+[class*="st-key-glass-photo-"] [data-testid="stImage"] img {
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
+    object-fit: cover !important;
+    object-position: center 25% !important;
+}
+[class*="st-key-glass-card-"] { padding: 12px; }
+
+/* Photo inside a glass card: no second layer of effects */
+[class*="st-key-glass-card-"] [class*="st-key-glass-photo-"] {
+    border-color: rgba(139, 92, 246, 0.15);
+    transition: none;
+}
+[class*="st-key-glass-card-"] [class*="st-key-glass-photo-"]:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(139, 92, 246, 0.15);
+}
+[class*="st-key-glass-card-"] [class*="st-key-glass-photo-"]::before { display: none; }
+[class*="st-key-glass-card-"] [class*="st-key-glass-photo-"]:hover img { transform: none; }
+
+/* soften card hover */
+[class*="st-key-glass-card-"]:hover { transform: translateY(-2px); }
+
+/* ── Kating card: solid, info always visible (no glass, no hover) ── */
+[class*="st-key-kating-card-"] {
+    background: rgba(19, 15, 36, 0.95);
+    border: 1px solid rgba(139, 92, 246, 0.22);
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 20px;
+    gap: 0;
+}
+[class*="st-key-kating-card-"] .stImage img,
+[class*="st-key-kating-card-"] [data-testid="stImage"] img {
+    aspect-ratio: 4 / 5;
+    height: auto;
+    object-fit: cover;
+    object-position: center 25%;
+    border: none;
+    border-radius: 10px;
+}
+.kc-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 12px;
+}
+.kc-name {
+    min-width: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f8fafc;
+    line-height: 1.3;
+}
+.kc-nim {
+    flex-shrink: 0;
+    padding: 3px 10px;
+    border-radius: 99px;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    color: #c4b5fd;
+}
+.kc-nim-label {
+    margin-right: 7px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    color: #a78bfa;
+}
+.kc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(139, 92, 246, 0.2);
+}
+.kc-cell { min-width: 0; }
+.kc-cell.wide { grid-column: 1 / -1; }
+.kc-label {
+    display: block;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #a78bfa;
+    margin-bottom: 2px;
+}
+.kc-val {
+    font-size: 0.88rem;
+    color: #f1f5f9;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+/* Fix: Streamlit pulls markdown up by -1rem, which made the last block overflow the card border */
+[class*="st-key-kating-card-"] [data-testid="stElementContainer"],
+[class*="st-key-kating-card-"] .element-container,
+[class*="st-key-kating-card-"] [data-testid="stMarkdown"],
+[class*="st-key-kating-card-"] [data-testid="stMarkdownContainer"] {
+    margin-bottom: 0 !important;
+}
+
+/* Equal-height cards: every card in a row stretches to the tallest one */
+[data-testid="stHorizontalBlock"]:has([class*="st-key-kating-card-"]) {
+    align-items: stretch !important;
+}
+[data-testid="stHorizontalBlock"]:has([class*="st-key-kating-card-"]) > [data-testid="stColumn"],
+[data-testid="stHorizontalBlock"]:has([class*="st-key-kating-card-"]) > [data-testid="column"] {
+    display: flex;
+    flex-direction: column;
+}
+[data-testid="stHorizontalBlock"]:has([class*="st-key-kating-card-"]) > [data-testid="stColumn"] > [data-testid="stVerticalBlock"],
+[data-testid="stHorizontalBlock"]:has([class*="st-key-kating-card-"]) > [data-testid="column"] > [data-testid="stVerticalBlock"] {
+    flex: 1 1 auto;
+}
+[data-testid="stVerticalBlock"] > [class*="st-key-kating-card-"],
+[data-testid="stVerticalBlock"] > [data-testid="stLayoutWrapper"]:has(> [class*="st-key-kating-card-"]) {
+    flex: 1 1 auto;
+}
+[data-testid="stLayoutWrapper"] > [class*="st-key-kating-card-"] {
+    height: 100%;
+}
+
+/* ── Home page photos: glass + shimmer effect on the real photo wrapper ── */
+[class*="st-key-shine-photo-"] {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    gap: 0;
+    transition: all 0.35s ease;
+}
+[class*="st-key-shine-photo-"]:hover {
+    border-color: rgba(196, 181, 253, 0.65);
+    box-shadow:
+        0 14px 36px 0 rgba(139, 92, 246, 0.35),
+        inset 0 0 20px 0 rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px) scale(1.01);
+}
+[class*="st-key-shine-photo-"] .stImage img,
+[class*="st-key-shine-photo-"] [data-testid="stImage"] img {
+    border: none;
+    border-radius: 0;
+    transition: transform 0.4s ease;
+}
+[class*="st-key-shine-photo-"]:hover img { transform: scale(1.02); }
+[class*="st-key-shine-photo-"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.15),
+        rgba(216, 180, 254, 0.3),
+        transparent
+    );
+    transform: skewX(-25deg);
+    pointer-events: none;
+    z-index: 3;
+}
+[class*="st-key-shine-photo-"]:hover::before {
+    left: 160%;
+    transition: all 0.8s ease-in-out;
+}
+
+/* Gallery photos: same ratio so the three columns line up */
+[class*="st-key-shine-photo-gallery-"] .stImage img,
+[class*="st-key-shine-photo-gallery-"] [data-testid="stImage"] img {
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: center 30% !important;
+}
+
+/* Less empty space above the page title */
+.block-container,
+[data-testid="stMainBlockContainer"] {
+    padding-top: 3.5rem !important;
 }
 
 /* ── Jargon Banner Estetis ── */
@@ -459,9 +792,11 @@ def clean_text(text: str) -> str:
     return str(text).replace("**", "").strip() if text else ""
 
 
-def get_menu_styles() -> dict:
-    """Style elegan untuk option_menu bernuansa dark purple dengan efek klik aktif."""
-    return {
+def get_menu_styles(columns: int = 0) -> dict:
+    """Style option_menu bernuansa dark purple.
+    columns > 0: susun item menjadi grid rata dengan `columns` item per baris
+    (mis. 10 departemen -> 5 x 2)."""
+    styles = {
         "container": {
             "padding": "4px 8px",
             "background-color": "rgba(19, 15, 36, 0.95)",
@@ -487,6 +822,40 @@ def get_menu_styles() -> dict:
             "box-shadow": "0 4px 14px rgba(139, 92, 246, 0.35)",
         },
     }
+    if columns:
+        gap = 4
+        styles["container"].update({"padding": "6px", "margin-bottom": "14px"})
+        styles["nav"] = {"flex-wrap": "wrap", "gap": f"{gap}px"}
+        # tiap item = 1/columns lebar baris (dikurangi bagian gap), jadi semua tombol sama lebar
+        share = gap * (columns - 1) / columns
+        styles["nav-item"] = {"flex": f"0 0 calc({100 / columns:.4f}% - {share:.2f}px)"}
+        styles["icon"] = {"color": "#c4b5fd", "font-size": "14px", "margin": "0"}
+        styles["nav-link"].update(
+            {
+                "display": "flex",
+                "align-items": "center",
+                "justify-content": "center",
+                "gap": "6px",
+                "font-size": "13px",
+                "padding": "9px 6px",
+                "margin": "0",
+                "white-space": "nowrap",
+            }
+        )
+    return styles
+
+
+def dept_menu(options: list, columns: int = 5, default_index: int = 0, key: str = "dept_menu") -> str:
+    """Menu departemen berupa grid rapi (default 5 item per baris), nama item tidak diubah."""
+    return option_menu(
+        menu_title=None,
+        options=options,
+        icons=["people-fill"] * len(options),
+        default_index=default_index,
+        orientation="horizontal",
+        styles=get_menu_styles(columns=columns),
+        key=key,
+    )
 
 
 def render_kating_cards(
@@ -560,9 +929,30 @@ def render_kating_cards(
             unsafe_allow_html=True,
         )
 
-    # Grid 2 Kolom Vertikal (Foto di atas, Biodata di bawah)
+    # 2 kartu per baris, sedikit dipusatkan dengan kolom kosong di sisi
+    slug = re.sub(r"[^a-z0-9]+", "-", department_title.lower()).strip("-")
+
+    def _cell(label, val, wide=False):
+        if not val or val == "-":
+            return ""
+        cls = "kc-cell wide" if wide else "kc-cell"
+        return (
+            f'<div class="{cls}"><span class="kc-label">{label}</span>'
+            f'<div class="kc-val">{html.escape(val)}</div></div>'
+        )
+
+    def _quote(label, text, cls):
+        text = clean_text(text)
+        if not text or text == "-":
+            return ""
+        return (
+            f'<div class="k-q {cls}"><span class="k-q-label">{label}:</span>'
+            f'\u201c{html.escape(text)}\u201d</div>'
+        )
+
     for row in range(0, len(filtered), 2):
-        cols = st.columns(2, gap="large")
+        _pad_l, col_a, col_b, _pad_r = st.columns([0.5, 3, 3, 0.5], gap="medium")
+        cols = [col_a, col_b]
         for ci in range(2):
             idx = row + ci
             if idx >= len(filtered):
@@ -576,52 +966,31 @@ def render_kating_cards(
             alamat = clean_text(data.get("alamat", ""))
             hobbi  = clean_text(data.get("hobbi", ""))
             sosmed = clean_text(data.get("sosmed", ""))
-            kesan  = data.get("kesan", "")
-            pesan  = data.get("pesan", "")
+
+            nim_badge = (
+                f'<span class="kc-nim"><span class="kc-nim-label">NIM</span>{html.escape(nim)}</span>'
+                if nim else ""
+            )
+            grid = (
+                _cell("Umur", f"{umur} Tahun" if umur else "")
+                + _cell("Asal", asal)
+                + _cell("Hobbi", hobbi)
+                + _cell("Sosmed", sosmed)
+                + _cell("Alamat", alamat, wide=True)
+            )
+            grid_html = f'<div class="kc-grid">{grid}</div>' if grid else ""
+            quotes = _quote("Kesan", data.get("kesan", ""), "k-kesan") + _quote(
+                "Pesan", data.get("pesan", ""), "k-pesan"
+            )
+
+            # satu baris HTML tanpa indentasi/newline agar tidak dibaca sebagai code block
+            card_html = (
+                f'<div class="kc-head"><div class="kc-name">{html.escape(nama)}</div>{nim_badge}</div>'
+                f"{grid_html}{quotes}"
+            )
 
             with cols[ci]:
-                # 1. Foto Vertikal di Atas
-                img = load_image(url, fallback_name=nama)
-                st.image(img, use_container_width=True)
-
-                # 2. Biodata Rapi di Bawah Foto (Susunan Asli & Normal)
-                def _line(label, val):
-                    if val and val != "-":
-                        return (
-                            f'<div class="k-info">'
-                            f'<span class="k-info-label">{label}:</span>'
-                            f'<span class="k-info-val">{val}</span>'
-                            f'</div>'
-                        )
-                    return ""
-
-                info_body = (
-                    _line("NIM", nim)
-                    + _line("Umur", f"{umur} Tahun" if umur else "")
-                    + _line("Asal", asal)
-                    + _line("Alamat", alamat)
-                    + _line("Hobbi", hobbi)
-                    + _line("Sosmed", sosmed)
-                )
-
-                kesan_html = (
-                    f'<div class="k-q k-kesan"><span class="k-q-label">Kesan:</span>"{kesan}"</div>'
-                    if kesan and kesan not in ("", "-") else ""
-                )
-                pesan_html = (
-                    f'<div class="k-q k-pesan"><span class="k-q-label">Pesan:</span>"{pesan}"</div>'
-                    if pesan and pesan not in ("", "-") else ""
-                )
-
-                st.markdown(
-                    f"""
-                    <div class="k-card">
-                        <div class="k-name">{nama}</div>
-                        <div class="k-sep"></div>
-                        {info_body}
-                        {kesan_html}
-                        {pesan_html}
-                    </div>
-                    """,
-                    unsafe_allow_html=True,
-                )
+                with st.container(key=f"kating-card-{slug}-{idx}"):
+                    img = load_image(url, fallback_name=nama)
+                    st.image(img, use_container_width=True)
+                    st.markdown(card_html, unsafe_allow_html=True)
