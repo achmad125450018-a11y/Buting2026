@@ -1,68 +1,70 @@
 import streamlit as st
 import random
 
-st.set_page_config(page_title="CyberData Scanner", layout="centered")
+st.set_page_config(page_title="Data Bros Platformer", layout="centered")
 
 st.markdown("""
 <style>
 .stApp {
-    background-color: #030712;
+    background-color: #1e1b4b;
     color: #ffffff;
 }
 h1, h2, h3 {
-    color: #38bdf8 !important;
+    color: #facc15 !important;
     font-family: 'Courier New', monospace;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 label, p, span, div {
-    color: #f1f5f9 !important;
+    color: #f8fafc !important;
 }
 .stMetric {
-    background-color: #0f172a;
-    border: 1px solid #38bdf8;
+    background-color: #312e81;
+    border: 2px solid #facc15;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 12px;
 }
 [data-testid="stMetricValue"] {
-    color: #38bdf8 !important;
+    color: #facc15 !important;
 }
 .stButton>button {
-    background-color: #0f172a !important;
-    color: #38bdf8 !important;
-    border: 1px solid #38bdf8 !important;
+    background-color: #312e81 !important;
+    color: #facc15 !important;
+    border: 2px solid #facc15 !important;
     font-family: 'Courier New', monospace !important;
     font-weight: bold !important;
-    font-size: 13px !important;
+    font-size: 16px !important;
     width: 100%;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 20px;
+    border-radius: 12px;
 }
 .stButton>button:hover {
-    background-color: #1e293b !important;
-    border-color: #00f0ff !important;
-    color: #00f0ff !important;
+    background-color: #4338ca !important;
+    border-color: #38bdf8 !important;
+    color: #38bdf8 !important;
 }
 </style>
 """, unsafe_allow_html=True)
 
-st.title("CyberData: Neural Node Scanner")
-st.markdown("Gunakan probe pemindai untuk menemukan node anomali tipe data tersembunyi di dalam matriks jaringan tanpa batas waktu.")
+st.title("Data Bros: Platformer Anomaly Quest")
+st.markdown("Bantu Mario menjelajahi dunia digital dengan memukul blok misteri yang tepat untuk menemukan anomali tipe data.")
 
 if "score" not in st.session_state:
     st.session_state.score = 0
-if "level" not in st.session_state:
-    st.session_state.level = 1
-if "scans_left" not in st.session_state:
-    st.session_state.scans_left = 3
-if "cleared_nodes" not in st.session_state:
-    st.session_state.cleared_nodes = []
+if "coins" not in st.session_state:
+    st.session_state.coins = 0
+if "lives" not in st.session_state:
+    st.session_state.lives = 3
+if "world" not in st.session_state:
+    st.session_state.world = 1
+if "stage" not in st.session_state:
+    st.session_state.stage = 1
 
-def generate_puzzle():
+def generate_mario_puzzle():
     types_pool = [
-        ("Integer", [str(random.randint(100, 999)) for _ in range(15)]),
-        ("Float", [str(round(random.uniform(10.0, 99.9), 2)) for _ in range(15)]),
-        ("String", ["NodeA", "NodeB", "Alpha", "Beta", "Gamma", "Delta", "Omega", "Zero", "Core", "Nexus", "Vector", "Stream", "Buffer", "Packet", "Matrix"]),
+        ("Integer", [str(random.randint(1, 99)) for _ in range(3)]),
+        ("Float", [str(round(random.uniform(1.0, 9.9), 2)) for _ in range(3)]),
+        ("String", ["Koopa", "Goomba", "Peach", "Luigi", "Toad"]),
         ("Boolean", ["True", "False"])
     ]
     dom_idx = random.randint(0, len(types_pool) - 1)
@@ -70,76 +72,71 @@ def generate_puzzle():
     anom_pool = [t for i, t in enumerate(types_pool) if i != dom_idx]
     anom_name, anom_vals = random.choice(anom_pool)
     
-    items = []
-    for i in range(16):
-        items.append({"id": i, "val": random.choice(dom_vals), "type": dom_name, "is_anom": False})
-    
-    anom_idx = random.randint(0, 15)
-    items[anom_idx] = {"id": anom_idx, "val": random.choice(anom_vals), "type": anom_name, "is_anom": True}
-    return dom_name, anom_name, items
+    blocks = []
+    for _ in range(3):
+        blocks.append({"val": random.choice(dom_vals), "type": dom_name, "is_anom": False})
+    blocks.append({"val": random.choice(anom_vals), "type": anom_name, "is_anom": True})
+    random.shuffle(blocks)
+    return dom_name, anom_name, blocks
 
-if "puzzle_items" not in st.session_state:
-    dom, anom, items = generate_puzzle()
-    st.session_state.dom_name = dom
-    st.session_state.anom_name = anom
-    st.session_state.puzzle_items = items
-    st.session_state.cleared_nodes = []
+if "mario_puzzle" not in st.session_state or "blocks" not in st.session_state:
+    d, a, b = generate_mario_puzzle()
+    st.session_state.dom_name = d
+    st.session_state.anom_name = a
+    st.session_state.blocks = b
 
-col1, col2, col3 = st.columns(3)
-col1.metric("Skor Total", st.session_state.score)
-col2.metric("Level Jaringan", st.session_state.level)
-col3.metric("Probe Tersisa", st.session_state.scans_left)
+col1, col2, col3, col4 = st.columns(4)
+col1.metric("World", f"{st.session_state.world}-{st.session_state.stage}")
+col2.metric("Coins", st.session_state.coins)
+col3.metric("Score", st.session_state.score)
+col4.metric("Lives", st.session_state.lives)
 
 st.markdown("---")
-st.markdown(f"### Target Pemindaian: Cari tipe <span style='color: #00f0ff;'>{st.session_state.anom_name}</span> di antara dominasi tipe <span style='color: #38bdf8;'>{st.session_state.dom_name}</span>!", unsafe_allow_html=True)
+st.markdown(f"### MISI MARIO: Pukul blok misteri yang berisi tipe data <span style='color: #38bdf8;'>{st.session_state.anom_name}</span> di antara blok tipe <span style='color: #facc15;'>{st.session_state.dom_name}</span>!", unsafe_allow_html=True)
 
-items = st.session_state.puzzle_items
-for row in range(4):
+if st.session_state.lives > 0:
     cols = st.columns(4)
-    for col in range(4):
-        idx = row * 4 + col
-        if idx < len(items):
-            item = items[idx]
-            with cols[col]:
-                if idx in st.session_state.cleared_nodes:
-                    st.button(f"[{idx+1}] TERKUNCI", key=f"disabled_{idx}", disabled=True, use_container_width=True)
+    for idx, block in enumerate(st.session_state.blocks):
+        with cols[idx]:
+            if st.button(f"[ ? ]\nBlok {idx+1}", key=f"mario_block_{idx}_{st.session_state.world}_{st.session_state.stage}"):
+                if block["is_anom"]:
+                    st.session_state.score += 100
+                    st.session_state.coins += 1
+                    st.success(f"Berhasil! Blok berisi {block['val']} ({block['type']}). Mario maju ke stage berikutnya!")
+                    st.session_state.stage += 1
+                    if st.session_state.stage > 3:
+                        st.session_state.stage = 1
+                        st.session_state.world += 1
+                    d, a, b = generate_mario_puzzle()
+                    st.session_state.dom_name = d
+                    st.session_state.anom_name = a
+                    st.session_state.blocks = b
+                    st.rerun()
                 else:
-                    if st.button(f"[{idx+1}] {item['val']}", key=f"scan_{idx}_{st.session_state.level}", use_container_width=True):
-                        if item["is_anom"]:
-                            st.session_state.score += 100 * st.session_state.level
-                            st.session_state.level += 1
-                            st.session_state.scans_left = 3
-                            dom, anom, new_items = generate_puzzle()
-                            st.session_state.dom_name = dom
-                            st.session_state.anom_name = anom
-                            st.session_state.puzzle_items = new_items
-                            st.session_state.cleared_nodes = []
-                            st.success("Anomali berhasil diisolasi! Level jaringan meningkat.")
-                            st.rerun()
-                        else:
-                            st.session_state.scans_left -= 1
-                            st.session_state.cleared_nodes.append(idx)
-                            if st.session_state.scans_left <= 0:
-                                st.error("Probe habis! Jaringan mereset target baru.")
-                                dom, anom, new_items = generate_puzzle()
-                                st.session_state.dom_name = dom
-                                st.session_state.anom_name = anom
-                                st.session_state.puzzle_items = new_items
-                                st.session_state.scans_left = 3
-                                st.session_state.cleared_nodes = []
-                                st.rerun()
-                            else:
-                                st.warning(f"Node normal. Probe tersisa: {st.session_state.scans_left}")
-                                st.rerun()
+                    st.session_state.lives -= 1
+                    st.session_state.score = max(0, st.session_state.score - 50)
+                    if st.session_state.lives <= 0:
+                        st.error("Game Over! Mario kehabisan nyawa.")
+                        st.rerun()
+                    else:
+                        st.error(f"Trap! Blok berisi {block['val']} ({block['type']}). Mario kehilangan 1 nyawa!")
+                        d, a, b = generate_mario_puzzle()
+                        st.session_state.dom_name = d
+                        st.session_state.anom_name = a
+                        st.session_state.blocks = b
+                        st.rerun()
+else:
+    st.error("Permainan Berakhir. Tekan tombol reset di bawah untuk memulai ulang petualangan Mario.")
 
 st.markdown("---")
-if st.button("Reset Sistem Jaringan", key="reset_scanner_btn"):
+if st.button("Reset Permainan Mario"):
     st.session_state.score = 0
-    st.session_state.level = 1
-    st.session_state.scans_left = 3
-    dom, anom, new_items = generate_puzzle()
-    st.session_state.dom_name = dom
-    st.session_state.anom_name = anom
-    st.session_state.puzzle_items = new_items
-    st.session_state.cleared_nodes = []
+    st.session_state.coins = 0
+    st.session_state.lives = 3
+    st.session_state.world = 1
+    st.session_state.stage = 1
+    d, a, b = generate_mario_puzzle()
+    st.session_state.dom_name = d
+    st.session_state.anom_name = a
+    st.session_state.blocks = b
     st.rerun()
