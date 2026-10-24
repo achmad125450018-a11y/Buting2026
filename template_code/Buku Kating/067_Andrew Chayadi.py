@@ -734,8 +734,8 @@ elif menu == "Departemen PSDA":
 
         with tab1:
             gambar_urls_Inti = [
-            "https://drive.google.com/uc?export=view&id=1l2mlr7vZPK41txxoyWGfxdGzpn2TJGoA",
-            "https://drive.google.com/uc?export=view&id=1PF8M1Y58whudIhc83cL6I0uxK-hC5lDp",
+            "https://drive.google.com/uc?export=view&id=1JJACXP6B30Q7tvxMs8xltgxrue3Md7NJ",
+            "https://drive.google.com/uc?export=view&id=1VfrqEqHNT3KFHdcgh9EFPMZexuOdmPhF",
             ]
             data_list_Inti = [
             {
@@ -765,11 +765,11 @@ elif menu == "Departemen PSDA":
 
         with tab2:
             gambar_urls_Divisi_Kaderisasi = [
-                "https://drive.google.com/uc?export=view&id=1Wo-8soBycLgfDxPR7Rb50iSC7Mj_SW4N",
-                "https://drive.google.com/uc?export=view&id=1ZBiVMQIlfOFOO1V17kk2a_uw0tlXSYNH",
-                "https://drive.google.com/uc?export=view&id=14j7DPtXOytTM0xGlO8TCjJjmG4W3CPGS",
-                "https://drive.google.com/uc?export=view&id=1XHITpW-V7FOZZ9nfDzZTUKlvsfwhiqbp",
-                "https://drive.google.com/uc?export=view&id=1gp0_vVYSSZgvk3TuL9o0UHZVdHKjZFjV",
+                "https://drive.google.com/uc?export=view&id=1BNCJseiunQJpr7z2TWavHsz-wDeokcMy",
+                "https://drive.google.com/uc?export=view&id=1Yd-HFkMvq4CSDQ6W3TgPGpwLv1X9cTyp",
+                "https://drive.google.com/uc?export=view&id=1FKzZtv-iDhjZB_ZCI_bV5kmK1IqjbLUL",
+                "https://drive.google.com/uc?export=view&id=1hwMvpoPLc4SgNgdcSQOvwFhIM6yzQs9e",
+                "https://drive.google.com/uc?export=view&id=13ZKxCk_pOUaiNoq_XNuBCBiXuzs0w4iX",
             ]
             data_list_Divisi_Kaderisasi = [
             {
@@ -843,13 +843,13 @@ elif menu == "Departemen PSDA":
 
         with tab3:
             gambar_urls_Divisi_Peningkatan_Mutu_Anggota = [
-            "https://drive.google.com/uc?export=view&id=1cc-Wlmi94WY19QG1zf35BwW9IWSFRlfa",
-            "https://drive.google.com/uc?export=view&id=1Uw7KgQAlkNLkRxB6hE79jHAv6QU6LNE5",
-            "https://drive.google.com/uc?export=view&id=1P0GLKwFaHTdIrF_qkG-Je7tgM5DcYl99",
-            "https://drive.google.com/uc?export=view&id=15J9w3W-oSCsfn2-VefhEpXoyNco1WDCH",
-            "https://drive.google.com/uc?export=view&id=12hUosoUbyvSkaiuGJflZ1giQxQEDK_nX",
-            "https://drive.google.com/uc?export=view&id=1z_d0ExZuDLRVU01LJmsRcJLH906VWOiH",
-            "https://drive.google.com/uc?export=view&id=1J4bgCQNDSpbHz8J_VifkQQ4hIY4oOveD"
+            "https://drive.google.com/uc?export=view&id=1tezAhG2bdA6gOP7Ir1LESWKmGbBPcRam",
+            "https://drive.google.com/uc?export=view&id=1yi0snKFlXFzL4Dl_Qdui3zsAEC2XJlRZ",
+            "https://drive.google.com/uc?export=view&id=1lP8FqydrgsV05nKcBMaPux-o0264C7-b",
+            "https://drive.google.com/uc?export=view&id=1vSYX0aitpovtJhjNrK3pKbzmxaOI1dKI",
+            "https://drive.google.com/uc?export=view&id=1Vz4wKISAoes9cNV7M2VCtGoE8BKY1Y_6",
+            "https://drive.google.com/uc?export=view&id=18h9zPrV_t4doWuOJ6GliFr-0KILXfYu6",
+            "https://drive.google.com/uc?export=view&id=1Pfodd3LlwhHsMorMSa7dQqeReam9AExr"
             ]
             data_list_Divisi_Peningkatan_Mutu_Anggota = [
             {
