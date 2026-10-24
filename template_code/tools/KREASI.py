@@ -140,121 +140,132 @@ st.markdown("<h1 class='title'>DATA CATCHER</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>✦ Bersihkan Data, Kumpulkan Skor! ✦</p>", unsafe_allow_html=True)
 
 # ============================================================
-# 🎮 HTML & JS (Tanpa Iframe, Pakai Event Listener)
+# 🎮 HTML & JS (Anti Bocor & Skor Sempurna)
 # ============================================================
-game_html = """
-<div class="game-wrapper" id="game-container">
-    <div id="hud">
-        <div class="stat">⏱️ <span id="time">30</span>s</div>
-        <div class="stat">🏆 <span id="score">0</span></div>
-        <div class="stat">❤️ <span id="lives">3</span></div>
-    </div>
-    <div id="play-area"></div>
-    
-    <!-- Tombol tidak pakai onclick, kita sambungkan via JS -->
-    <div id="start-screen" class="screen">
-        <h2>Data Catcher</h2>
-        <p>Klik <b>Data Bersih</b> (🍎, 💎, 📁) secepat mungkin.<br>Jangan klik <b>Data Sampah</b> (🗑️, 💩, 🐛)!</p>
-        <button id="btn-start" class="btn-start">🚀 MULAI GAME</button>
-    </div>
-    
-    <div id="gameover-screen" class="screen" style="display:none;">
-        <h2>Game Over!</h2>
-        <p>Skor Akhir: <br><b style="font-size:48px; color:#a8323d;" id="final-score">0</b></p>
-        <button id="btn-restart" class="btn-start">🔄 Main Lagi</button>
-    </div>
+# PERHATIAN: Pastikan tidak ada spasi di awal baris HTML di bawah ini
+game_html = """<div class="game-wrapper" id="game-container">
+<div id="hud">
+    <div class="stat">⏱️ <span id="time">30</span>s</div>
+    <div class="stat">🏆 <span id="score">0</span></div>
+    <div class="stat">❤️ <span id="lives">3</span></div>
+</div>
+<div id="play-area"></div>
+<div id="start-screen" class="screen">
+    <h2>Data Catcher</h2>
+    <p>Klik <b>Data Bersih</b> (🍎, 💎, 📁) secepat mungkin.<br>Jangan klik <b>Data Sampah</b> (🗑️, 💩, 🐛)!</p>
+    <button id="btn-start" class="btn-start">🚀 MULAI GAME</button>
+</div>
+<div id="gameover-screen" class="screen" style="display:none;">
+    <h2>Game Over!</h2>
+    <p>Skor Akhir: <br><b style="font-size:48px; color:#a8323d;" id="final-score">0</b></p>
+    <button id="btn-restart" class="btn-start">🔄 Main Lagi</button>
+</div>
 </div>
 
 <script>
-    // Kita bungkus dalam setTimeout agar Streamlit selesai me-render HTML
-    setTimeout(() => {
-        let score = 0, lives = 3, timeLeft = 30, isPlaying = false;
-        let spawnInterval, timerInterval;
-        const cleanItems = ["🍎", "🍌", "💎", "📁", "💾"];
-        const dirtyItems = ["🗑️", "💩", "🐛", "⚠️", "🦠"];
-        
-        const playArea = document.getElementById("play-area");
-        const startScreen = document.getElementById("start-screen");
-        const gameoverScreen = document.getElementById("gameover-screen");
-        const btnStart = document.getElementById("btn-start");
-        const btnRestart = document.getElementById("btn-restart");
+setTimeout(() => {
+    let score = 0, lives = 3, timeLeft = 30, isPlaying = false;
+    let spawnInterval, timerInterval;
+    const cleanItems = ["🍎", "🍌", "💎", "📁", "💾"];
+    const dirtyItems = ["🗑️", "💩", "🐛", "⚠️", "🦠"];
+    
+    const playArea = document.getElementById("play-area");
+    const startScreen = document.getElementById("start-screen");
+    const gameoverScreen = document.getElementById("gameover-screen");
+    const btnStart = document.getElementById("btn-start");
+    const btnRestart = document.getElementById("btn-restart");
 
-        // --- FUNGSI UTAMA GAME ---
-        function startGame() {
-            clearInterval(timerInterval); clearInterval(spawnInterval);
-            score = 0; lives = 3; timeLeft = 30; isPlaying = true;
+    function startGame() {
+        clearInterval(timerInterval); clearInterval(spawnInterval);
+        score = 0; lives = 3; timeLeft = 30; isPlaying = true;
+        document.getElementById("score").innerText = score;
+        document.getElementById("lives").innerText = lives;
+        document.getElementById("time").innerText = timeLeft;
+        startScreen.style.display = "none"; gameoverScreen.style.display = "none";
+        playArea.style.display = "block"; playArea.innerHTML = ""; 
+
+        timerInterval = setInterval(() => {
+            if (!isPlaying) return;
+            timeLeft--; document.getElementById("time").innerText = timeLeft;
+            if (timeLeft <= 0) endGame();
+        }, 1000);
+
+        spawnInterval = setInterval(spawnItem, 600);
+    }
+
+    function spawnItem() {
+        if (!isPlaying) return;
+        const item = document.createElement("div");
+        item.className = "item";
+        const isClean = Math.random() > 0.4;
+        item.innerText = isClean ? cleanItems[Math.floor(Math.random() * cleanItems.length)] : dirtyItems[Math.floor(Math.random() * dirtyItems.length)];
+        item.style.left = Math.floor(Math.random() * 85 + 5) + "%";
+        item.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
+        item.onclick = (e) => {
+            if (!isPlaying) return; 
+            item.style.pointerEvents = "none";
+            
+            // Ambil posisi X,Y yang benar (relatif ke dalam kotak game)
+            const rect = playArea.getBoundingClientRect();
+            const x = e.clientX - rect.left; 
+            const y = e.clientY - rect.top;
+
+            if (isClean) {
+                score += 10; 
+                showPop(x, y, "+10", "#28a745"); 
+                item.innerText = "✨"; 
+            } else {
+                lives--; 
+                score = Math.max(0, score - 5);
+                showPop(x, y, "-5", "#dc3545"); 
+                item.innerText = "💥";
+                if (lives <= 0) endGame();
+            }
             document.getElementById("score").innerText = score;
             document.getElementById("lives").innerText = lives;
-            document.getElementById("time").innerText = timeLeft;
-            startScreen.style.display = "none"; gameoverScreen.style.display = "none";
-            playArea.style.display = "block"; playArea.innerHTML = ""; 
+            setTimeout(() => item.remove(), 100);
+        };
 
-            timerInterval = setInterval(() => {
-                if (!isPlaying) return;
-                timeLeft--; document.getElementById("time").innerText = timeLeft;
-                if (timeLeft <= 0) endGame();
-            }, 1000);
+        item.addEventListener("animationend", () => {
+            if (isClean && isPlaying) {
+                lives--; document.getElementById("lives").innerText = lives;
+                if (lives <= 0) endGame();
+            }
+            item.remove();
+        });
+        playArea.appendChild(item);
+    }
 
-            spawnInterval = setInterval(spawnItem, 600);
-        }
+    function showPop(x, y, text, color) {
+        const pop = document.createElement("div");
+        pop.className = "score-pop"; 
+        pop.innerText = text;
+        
+        // Kalkulasi agar tulisan +10 pas di tengah emoji
+        pop.style.left = (x - 15) + "px"; 
+        pop.style.top = (y - 20) + "px"; 
+        pop.style.color = color;
+        
+        playArea.appendChild(pop); 
+        setTimeout(() => pop.remove(), 600);
+    }
 
-        function spawnItem() {
-            if (!isPlaying) return;
-            const item = document.createElement("div");
-            item.className = "item";
-            const isClean = Math.random() > 0.4;
-            item.innerText = isClean ? cleanItems[Math.floor(Math.random() * cleanItems.length)] : dirtyItems[Math.floor(Math.random() * dirtyItems.length)];
-            item.style.left = Math.floor(Math.random() * 85 + 5) + "%";
-            item.style.animationDuration = (Math.random() * 2 + 2) + "s";
+    function endGame() {
+        isPlaying = false; 
+        clearInterval(spawnInterval); 
+        clearInterval(timerInterval);
+        playArea.style.display = "none"; 
+        playArea.innerHTML = "";
+        document.getElementById("final-score").innerText = score;
+        gameoverScreen.style.display = "block";
+    }
 
-            item.onclick = (e) => {
-                if (!isPlaying) return; item.style.pointerEvents = "none";
-                const rect = playArea.getBoundingClientRect();
-                const x = e.clientX - rect.left, y = e.clientY - rect.top;
+    if(btnStart) btnStart.addEventListener("click", startGame);
+    if(btnRestart) btnRestart.addEventListener("click", startGame);
 
-                if (isClean) {
-                    score += 10; showPop(x, y, "+10", "#28a745"); item.innerText = "✨"; 
-                } else {
-                    lives--; score = Math.max(0, score - 5);
-                    showPop(x, y, "-5", "#dc3545"); item.innerText = "💥";
-                    if (lives <= 0) endGame();
-                }
-                document.getElementById("score").innerText = score;
-                document.getElementById("lives").innerText = lives;
-                setTimeout(() => item.remove(), 100);
-            };
-
-            item.addEventListener("animationend", () => {
-                if (isClean && isPlaying) {
-                    lives--; document.getElementById("lives").innerText = lives;
-                    if (lives <= 0) endGame();
-                }
-                item.remove();
-            });
-            playArea.appendChild(item);
-        }
-
-        function showPop(x, y, text, color) {
-            const pop = document.createElement("div");
-            pop.className = "score-pop"; pop.innerText = text;
-            pop.style.left = x + "px"; pop.style.top = y + "px"; pop.style.color = color;
-            playArea.appendChild(pop); setTimeout(() => pop.remove(), 600);
-        }
-
-        function endGame() {
-            isPlaying = false; clearInterval(spawnInterval); clearInterval(timerInterval);
-            playArea.style.display = "none"; playArea.innerHTML = "";
-            document.getElementById("final-score").innerText = score;
-            gameoverScreen.style.display = "block";
-        }
-
-        // --- SAMBUNGKAN TOMBOL DENGAN FUNGSI ---
-        if(btnStart) btnStart.addEventListener("click", startGame);
-        if(btnRestart) btnRestart.addEventListener("click", startGame);
-
-    }, 200); // Beri waktu 200ms untuk render
-</script>
-"""
+}, 200); 
+</script>"""
 
 # Tampilkan game
 st.markdown(game_html, unsafe_allow_html=True)
