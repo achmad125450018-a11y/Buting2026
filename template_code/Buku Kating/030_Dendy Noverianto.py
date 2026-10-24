@@ -889,3 +889,205 @@ if menu == "Departemen SSD":
         ]
         display_images_with_data(gambar_urls, data_list)
     Departemen_SSD()
+
+if menu == "Departemen Internal":
+    def Departemen_Internal():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=189bHQF-ZT4oF3TJYw_4XNI_20HM-zdpR",
+            "https://drive.google.com/uc?export=view&id=11wn4CQ5JeuYlsIBI5KUL3A5p6cwG9JK8",
+            "https://drive.google.com/uc?export=view&id=1MJbX2GQuMpMYveB-f5Reac_LKIAubCmk",
+            "https://drive.google.com/uc?export=view&id=1kZO9T6pDSzFwOoIqzcR-tOULlC0s3q-8",
+            "https://drive.google.com/uc?export=view&id=12F1DQdnJx2WvtNxV0Sll3So41Ohlm4nl",
+            "https://drive.google.com/uc?export=view&id=15m4P8sVzjeGuK8-UhINiIxwG0hys_Eo1",
+            "https://drive.google.com/uc?export=view&id=18qf8E3UO-vGKjFhuAhLw4Ebks_c-62wo",
+            "https://drive.google.com/uc?export=view&id=13uR6dlRnXoeantPyyOPzO5iqRC-i2RUF",
+            "https://drive.google.com/uc?export=view&id=1c562eeU2N6lJ55fzOnZe5r3dhxl1kphU",
+            "https://drive.google.com/uc?export=view&id=1gSNxpyEy5Mmr4b1AbYYur3y5-6SWqszt",
+            "https://drive.google.com/uc?export=view&id=18pNyvU6ZRLELjTX2YOZZARPSlUZGjQZ-",
+            "https://drive.google.com/uc?export=view&id=1r5f4nUBu4OMz29PJJx1Aq6ECxarBqiGl",
+            "https://drive.google.com/uc?export=view&id=1pc2Il9qpSzxKYLGI5pvcgqkJRB_yziXS",
+            "https://drive.google.com/uc?export=view&id=17_yN4ED6Ie_bxzmZxZ8WThIhm5rHm6tY",
+            "https://drive.google.com/uc?export=view&id=1bhYsNB9HXFLWW9ZIpKzY4XZ64ZF-rS5D",
+            "https://drive.google.com/uc?export=view&id=137K-qHUOjqVlIPqK5ibXacPa_AsgFLAq",
+        ]
+        data_list = [
+            {
+                "nama": "Haikal Fransisko Simbolon",
+                "nim": "123450106",
+                "umur": "20",
+                "asal": "Jambi",
+                "alamat": "Way Halim",
+                "hobbi": "Ngeledek orang",
+                "sosmed": "@haikalsbln",
+                "kesan": "Bang Haikal adalah sosok yang hangat, merangkul, dan peduli dalam menjaga keharmonisan serta hubungan di internal Himpunan",  
+                "pesan": "Semoga sukses selalu, baik dalam akademik maupun organisasinya."
+            },
+            {
+                "nama": "Kharisma Mustika Sari",
+                "nim": "123450034",
+                "umur": "21",
+                "asal": "Way Kanan",
+                "alamat": "Untung Senopati",
+                "hobbi": "Suka nolong orang",
+                "sosmed": "@rismaa.mustika_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+            {
+                "nama": "Hanna Grecia Sinaga",
+                "nim": "123450038",
+                "umur": "21",
+                "asal": "Sumatra Utara, Kisaran City",
+                "alamat": "Sukarame",
+                "hobbi": "Ngabarin orang tua",
+                "sosmed": "@hanna_g_sinaga",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+            {
+                "nama": "A Farhan Ghani",
+                "nim": "123450121",
+                "umur": "21",
+                "asal": "Kemiling",
+                "alamat": "Kemiling",
+                "hobbi": "Balap Liar",
+                "sosmed": "@farhanghani",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+            {
+                "nama": "Aisyah Khairun Nisa",
+                "nim": "124450096",
+                "umur": "18",
+                "asal": "Riau",
+                "alamat": "Belwis",
+                "hobbi": "Ngeliatin orang",
+                "sosmed": "@aisyahkhair._",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+            {
+                "nama": "Cerine Sihotang",
+                "nim": "124450049",
+                "umur": "19",
+                "asal": "Medan",
+                "alamat": "Belwis",
+                "hobbi": "Balap liar",
+                "sosmed": "@cerine_ipynb",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+            {
+                "nama": "Jaya Saputra Tamba",
+                "nim": "124450094",
+                "umur": "19",
+                "asal": "Medan",
+                "alamat": "Pemda",
+                "hobbi": "Berkebun dan membuat lagu",
+                "sosmed": "@jay.saputratmb",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+            {
+                "nama": "Najla Nur Syifa",
+                "nim": "124450051",
+                "umur": "20",
+                "asal": "Aceh",
+                "alamat": "Belwis",
+                "hobbi": "Gangguin cika",
+                "sosmed": "@njlanursyifa",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan": "semangat terus kuliahnya kakak !!!"
+            },
+            {
+                "nama": "Rozaq Ramdani",
+                "nim": "124450100",
+                "umur": "18",
+                "asal": "Lampung Selatan",
+                "alamat": "Korpri Raya",
+                "hobbi": "Isengin harvin di kelas",
+                "sosmed": "@rozaqramdani__",
+                "kesan": "Orangnya asik dan ramah",
+                "pesan": "Semangat terus kuliahnya!"
+            },
+            {
+                "nama": "Rozaq Ramdani",
+                "nim": "124450100",
+                "umur": "18",
+                "asal": "Lampung Selatan",
+                "alamat": "Korpri Raya",
+                "hobbi": "Isengin harvin di kelas",
+                "sosmed": "@rozaqramdani__",
+                "kesan": "Orangnya asik dan ramah",
+                "pesan": "Semangat terus kuliahnya!"
+            },
+            {
+                "nama": "Rozaq Ramdani",
+                "nim": "124450100",
+                "umur": "18",
+                "asal": "Lampung Selatan",
+                "alamat": "Korpri Raya",
+                "hobbi": "Isengin harvin di kelas",
+                "sosmed": "@rozaqramdani__",
+                "kesan": "Orangnya asik dan ramah",
+                "pesan": "Semangat terus kuliahnya!"
+            },
+            {
+                "nama": "Rozaq Ramdani",
+                "nim": "124450100",
+                "umur": "18",
+                "asal": "Lampung Selatan",
+                "alamat": "Korpri Raya",
+                "hobbi": "Isengin harvin di kelas",
+                "sosmed": "@rozaqramdani__",
+                "kesan": "Orangnya asik dan ramah",
+                "pesan": "Semangat terus kuliahnya!"
+            },
+            {
+                "nama": "Rozaq Ramdani",
+                "nim": "124450100",
+                "umur": "18",
+                "asal": "Lampung Selatan",
+                "alamat": "Korpri Raya",
+                "hobbi": "Isengin harvin di kelas",
+                "sosmed": "@rozaqramdani__",
+                "kesan": "Orangnya asik dan ramah",
+                "pesan": "Semangat terus kuliahnya!"
+            },
+            {
+                "nama": "Rozaq Ramdani",
+                "nim": "124450100",
+                "umur": "18",
+                "asal": "Lampung Selatan",
+                "alamat": "Korpri Raya",
+                "hobbi": "Isengin harvin di kelas",
+                "sosmed": "@rozaqramdani__",
+                "kesan": "Orangnya asik dan ramah",
+                "pesan": "Semangat terus kuliahnya!"
+            },
+            {
+                "nama": "Rozaq Ramdani",
+                "nim": "124450100",
+                "umur": "18",
+                "asal": "Lampung Selatan",
+                "alamat": "Korpri Raya",
+                "hobbi": "Isengin harvin di kelas",
+                "sosmed": "@rozaqramdani__",
+                "kesan": "Orangnya asik dan ramah",
+                "pesan": "Semangat terus kuliahnya!"
+            },
+            {
+                "nama": "Rozaq Ramdani",
+                "nim": "124450100",
+                "umur": "18",
+                "asal": "Lampung Selatan",
+                "alamat": "Korpri Raya",
+                "hobbi": "Isengin harvin di kelas",
+                "sosmed": "@rozaqramdani__",
+                "kesan": "Orangnya asik dan ramah",
+                "pesan": "Semangat terus kuliahnya!"
+            },
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    Departemen_Internal()
+
