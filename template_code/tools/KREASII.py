@@ -19,7 +19,7 @@ h1 {
 """, unsafe_allow_html=True)
 
 st.title("CYBER HACK: TERMINAL OVERRIDE")
-st.markdown("<p style='text-align: center; color: #94a3b8;'>Ikuti pergerakan kotak data, lacak anomali target, dan bypass firewall sebelum sistem trace mendeteksi Anda!</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #94a3b8;'>Ikuti pergerakan kotak data secara visual, lacak anomali target, dan bypass firewall sebelum waktu habis!</p>", unsafe_allow_html=True)
 
 game_html = """
 <!DOCTYPE html>
@@ -221,7 +221,7 @@ game_html = """
         }, 2200);
     }
 
-    function renderNodes(showContent) {
+    function renderNodes() {
         const container = document.getElementById('grid-container');
         container.innerHTML = '';
         
@@ -231,29 +231,21 @@ game_html = """
             el.style.left = (node.pos * 100) + 'px';
             el.onclick = () => handleNodeClick(index);
 
-            if (showContent) {
-                el.innerHTML = `
-                    <div class="node-val">${node.val}</div>
-                    <div class="node-type">${node.type}</div>
-                `;
-            } else {
-                el.innerHTML = `
-                    <div class="node-val" style="color: #38bdf8; font-size:11px;">[SECURE]</div>
-                    <div class="node-type">NODE 0${node.pos + 1}</div>
-                `;
-            }
+            el.innerHTML = `
+                <div class="node-val">${node.val}</div>
+                <div class="node-type">${node.type}</div>
+            `;
             container.appendChild(el);
         });
     }
 
     async function startShufflingPhase() {
         gameState = 'shuffling';
-        renderNodes(false);
-        document.getElementById('terminal-msg').innerText = "Firewall mengacak posisi node...";
+        document.getElementById('terminal-msg').innerText = "Ikuti pergerakan kotak...";
 
         let totalSwaps = 4 + (level * 2);
         let currentSwap = 0;
-        let speed = Math.max(200, 400 - (level * 30));
+        let speed = Math.max(250, 450 - (level * 30));
 
         shuffleInterval = setInterval(() => {
             let p1 = Math.floor(Math.random() * 4);
@@ -269,7 +261,7 @@ game_html = """
             node1.pos = node2.pos;
             node2.pos = temp;
 
-            renderNodes(false);
+            renderNodes();
             currentSwap++;
 
             if (currentSwap >= totalSwaps) {
@@ -281,7 +273,7 @@ game_html = """
 
     function startGuessingPhase() {
         gameState = 'guessing';
-        document.getElementById('terminal-msg').innerHTML = `<span style="color: #4ade80;">Pilih node yang menyembunyikan tipe ${targetType}!</span>`;
+        document.getElementById('terminal-msg').innerHTML = `<span style="color: #4ade80;">Pilih kotak dengan tipe ${targetType}!</span>`;
         
         traceLeft = 100;
         let maxTime = Math.max(3000, 8000 - (level * 500));
@@ -301,7 +293,7 @@ game_html = """
 
             if (traceLeft <= 0) {
                 clearInterval(traceTimer);
-                handleFailure("Waktu trace habis! Firewall mendeteksi akses Anda.");
+                handleFailure("Waktu habis! Sistem mendeteksi kegagalan pelacakan.");
             }
         }, intervalTime);
     }
@@ -311,7 +303,7 @@ game_html = """
         clearInterval(traceTimer);
         gameState = 'result';
 
-        renderNodes(true);
+        renderNodes();
         const clickedNode = nodes[index];
         const msgEl = document.getElementById('terminal-msg');
 
@@ -319,11 +311,11 @@ game_html = """
             score += 200 * level;
             level += 1;
             msgEl.style.color = "#4ade80";
-            msgEl.innerText = "BYPASS BERHASIL! Akses diberikan.";
+            msgEl.innerText = "BERHASIL MELACAK ANOMALI!";
             updateStats();
             setTimeout(initRound, 2000);
         } else {
-            handleFailure(`Akses Ditolak! Node berisi ${clickedNode.type} (${clickedNode.val}).`);
+            handleFailure(`SALAH! Itu adalah tipe ${clickedNode.type} (${clickedNode.val}).`);
         }
     }
 
@@ -331,7 +323,7 @@ game_html = """
         clearInterval(traceTimer);
         lives -= 1;
         gameState = 'gameover';
-        renderNodes(true);
+        renderNodes();
         
         const msgEl = document.getElementById('terminal-msg');
         msgEl.style.color = "#ef4444";
