@@ -211,11 +211,11 @@ game_html = """
         lives = 3;
         level = 1;
         document.getElementById('main-btn').style.display = 'none';
-        gameActive = true;
         initRound();
     }
 
     function initRound() {
+        gameActive = true; // Diaktifkan kembali di setiap awal ronde baru
         currentExpression = [];
         document.getElementById('terminal-msg').innerText = "";
         document.getElementById('expr-display').innerText = "Pilih ubin untuk merakit rumus...";
