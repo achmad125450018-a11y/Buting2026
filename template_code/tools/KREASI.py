@@ -68,21 +68,118 @@ def reset_game():
 if "prediction" not in st.session_state:
     reset_game()
 
+
 st.markdown(
     """
     <style>
-    .stApp {background: linear-gradient(180deg, #101827 0%, #151b2c 100%);}
-    .main-title {font-size: 2.7rem; font-weight: 800; color: #f4f0ff;}
-    .subtitle {color: #b9c2d8; font-size: 1.05rem; margin-bottom: 1.5rem;}
+    /* Latar utama biru sangat muda */
+    .stApp {
+        background: linear-gradient(135deg, #eef7ff 0%, #dceeff 100%);
+        color: #173b68;
+    }
+
+    /* Judul aplikasi */
+    .main-title {
+        font-size: 2.7rem;
+        font-weight: 800;
+        color: #0754a6;
+        margin-bottom: 0.1rem;
+    }
+
+    .subtitle {
+        color: #416b98;
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Kartu cerita kasus */
     .case-box {
-        padding: 1.1rem 1.25rem; border: 1px solid #343d56;
-        border-radius: 14px; background: rgba(30, 39, 60, 0.8);
+        padding: 1.3rem 1.5rem;
+        border: 1px solid #b9dcff;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #ffffff, #e4f3ff);
+        box-shadow: 0 4px 14px rgba(30, 110, 190, 0.08);
         margin-bottom: 1rem;
+        color: #173b68;
+    }
+
+    /* Judul dan teks */
+    h1, h2, h3, h4 {
+        color: #124d8c !important;
+    }
+
+    p, label, .stMarkdown {
+        color: #244c76;
+    }
+
+    /* Tombol biru */
+    .stButton > button {
+        background: linear-gradient(135deg, #1688ee, #0866cc);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 0.55rem 1rem;
+        font-weight: 600;
+        transition: 0.2s ease;
+    }
+
+    .stButton > button:hover {
+        background: linear-gradient(135deg, #0874d8, #064fa8);
+        color: white;
+        border: none;
+        box-shadow: 0 4px 12px rgba(8, 102, 204, 0.25);
+    }
+
+    /* Sidebar */
+    [data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #d9edff, #eff8ff);
+        border-right: 1px solid #c5e2ff;
+    }
+
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3 {
+        color: #0754a6 !important;
+    }
+
+    /* Kotak informasi */
+    [data-testid="stAlert"] {
+        border-radius: 12px;
+    }
+
+    /* Kartu metric */
+    [data-testid="stMetric"] {
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid #c6e2ff;
+        border-radius: 12px;
+        padding: 12px;
+    }
+
+    [data-testid="stMetricValue"] {
+        color: #0874d8;
+    }
+
+    /* Radio button */
+    [data-testid="stRadio"] label {
+        color: #173b68;
+    }
+
+    /* Expander */
+    [data-testid="stExpander"] {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid #c5e2ff;
+        border-radius: 12px;
+    }
+
+    /* Garis pemisah */
+    hr {
+        border-color: #c5e2ff;
     }
     </style>
     """,
     unsafe_allow_html=True,
 )
+
 
 st.markdown('<div class="main-title">🔎 Bayesian Mystery</div>', unsafe_allow_html=True)
 st.markdown(
