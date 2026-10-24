@@ -16,54 +16,26 @@ def load_image(url):
 
 # JANGAN DIUBAH
 
-# Pengaturan Konfigurasi Halaman & Tema Global Futuristik (Teks Terang, HD, & Sidebar Rapi)
+# Pengaturan Konfigurasi Tema Global & Warna Sidebar agar Tampil Jelas
 st.markdown(
     """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;600;700&display=swap');
 
-    /* Global Styling - Teks dibuat sangat terang dan jelas */
+    /* Global Styling */
     .stApp {
         background: radial-gradient(circle at 50% 10%, #090d16 0%, #030712 100%);
         color: #ffffff;
         font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* Perbaikan total sidebar agar tulisan terang, jelas, dan tidak menimpa */
+    /* Sidebar dikembalikan seperti awal, hanya menyesuaikan warna teks agar terang & terbaca */
     [data-testid="stSidebar"] {
-        min-width: 330px !important;
         background-color: #060918 !important;
         border-right: 1px solid rgba(0, 243, 255, 0.2);
     }
-    [data-testid="stSidebarNav"] {
-        width: 100%;
-    }
-    [data-testid="stSidebarNav"] ul {
-        display: flex;
-        flex-direction: column;
-        gap: 6px !important;
-    }
-    [data-testid="stSidebarNav"] a {
-        display: block !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        padding: 10px 14px !important;
-        font-size: 0.95em !important;
-        font-weight: 600 !important;
-        border-radius: 8px;
+    [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div {
         color: #ffffff !important;
-        background: rgba(15, 23, 42, 0.6);
-        border: 1px solid rgba(0, 243, 255, 0.1);
-        transition: all 0.2s ease;
-    }
-    [data-testid="stSidebarNav"] a span {
-        color: #ffffff !important;
-    }
-    [data-testid="stSidebarNav"] a:hover {
-        background: rgba(0, 243, 255, 0.15) !important;
-        border-color: #00f3ff !important;
-        color: #00f3ff !important;
     }
 
     .main-title {
@@ -483,7 +455,7 @@ elif menu == "About Us":
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-        "https://drive.group.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Safe
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
