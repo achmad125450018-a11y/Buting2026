@@ -16,12 +16,14 @@ def load_image(url):
 
 # JANGAN DIUBAH
 
-# Global Theme Styling: Times New Roman + Futuristic Green & Black + Sidebar Overlap Fix
+# Global Theme Styling: Inter/Courier New + Futuristic Green & Black + Sidebar Fix
 st.markdown(
     """
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Courier+New:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+    
     html, body, [class*="st"] {
-        font-family: 'Times New Roman', Times, serif !important;
+        font-family: 'Inter', sans-serif !important;
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
@@ -31,24 +33,35 @@ st.markdown(
         color: #f8fafc;
     }
 
-    /* Memperbaiki spasi dan teks sidebar agar tidak saling menimpa */
+    /* Memperlebar sidebar dan mengatur jarak baris agar teks tidak menimpa */
     [data-testid="stSidebar"] {
+        min-width: 320px !important;
         padding-top: 1rem;
+    }
+    [data-testid="stSidebarNav"] {
+        width: 100%;
     }
     [data-testid="stSidebarNav"] ul {
         display: flex;
         flex-direction: column;
-        gap: 12px !important;
+        gap: 15px !important;
     }
     [data-testid="stSidebarNav"] li {
-        margin: 2px 0 !important;
+        margin: 6px 0 !important;
     }
     [data-testid="stSidebarNav"] a {
-        white-space: normal !important;
+        display: block !important;
         height: auto !important;
-        padding: 8px 12px !important;
-        line-height: 1.3 !important;
-        font-size: 1.05em !important;
+        min-height: 50px !important;
+        padding: 10px 14px !important;
+        line-height: 1.5 !important;
+        white-space: normal !important;
+        font-size: 0.95em !important;
+    }
+    [data-testid="stSidebarNav"] span {
+        display: inline-block !important;
+        white-space: normal !important;
+        line-height: 1.5 !important;
     }
     </style>
     """,
@@ -58,7 +71,7 @@ st.markdown(
 st.markdown(
     """
     <div style='text-align: center; padding: 20px 0;'>
-        <h1 style='font-size: 4.2em; font-weight: 800; color: #4ade80; text-shadow: 0 0 25px rgba(74, 222, 128, 0.4); font-family: "Times New Roman", Times, serif; letter-spacing: 2px; margin-bottom: 0;'>WEBSITE KATING</h1>
+        <h1 style='font-size: 4.2em; font-weight: 800; color: #4ade80; text-shadow: 0 0 25px rgba(74, 222, 128, 0.4); font-family: "Courier New", monospace; letter-spacing: 2px; margin-bottom: 0;'>WEBSITE KATING</h1>
         <p style='font-size: 1.5em; font-weight: 600; color: #94a3b8; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px;'>CEO HMSD Adyatama ITERA 2026</p>
     </div>
     """,
@@ -99,11 +112,11 @@ def streamlit_menu():
           },
           "icon": {"color": "#4ade80", "font-size": "19px"},
           "nav-link": {
-              "font-size": "16px",
+              "font-size": "15px",
               "text-align": "center",
               "margin": "0px",
               "color": "#f8fafc",
-              "font-family": "Times New Roman, Times, serif",
+              "font-family": "Inter, sans-serif",
               "--hover-color": "#22c55e22",
           },
           "nav-link-selected": {
@@ -126,7 +139,7 @@ if menu == "Home":
         <style>
         .deskripsi-title {
             text-align: center;
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'Courier New', monospace;
             font-size: 2.3em;
             color: #4ade80;
             margin-bottom: 20px;
@@ -152,7 +165,7 @@ if menu == "Home":
             background: #22c55e;
             padding: 5px 15px;
             border-radius: 20px;
-            font-size: 0.9em;
+            font-size: 0.85em;
             margin-bottom: 10px;
             letter-spacing: 2px;
             font-weight: 700;
@@ -162,8 +175,8 @@ if menu == "Home":
         
         .photo-text-title {
             margin: 0;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 1.35em;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3em;
             font-weight: 700;
             line-height: 1.4;
             color: #f8fafc;
@@ -181,18 +194,18 @@ if menu == "Home":
         
         .desc-heading {
             color: #4ade80;
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'Courier New', monospace;
             margin-top: 0;
             margin-bottom: 15px;
-            font-size: 1.6em;
+            font-size: 1.5em;
             font-weight: 700;
         }
         
         .desc-content {
             color: #e2e8f0;
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.8;
-            font-size: 1.15em;
+            font-size: 1.05em;
             margin: 0;
             text-align: justify;
         }
@@ -260,8 +273,8 @@ if menu == "Home":
 
     st.markdown(
         "<h2 style='text-align: center; color: #4ade80; font-family:"
-        " \"Times New Roman\", Times, serif; font-weight: 700;'>Album"
-        " Dokumentasi Cosval</h2>",
+        " \"Courier New\", monospace; font-weight: 700;'>Album Dokumentasi"
+        " Cosval</h2>",
         unsafe_allow_html=True,
     )
     st.write("")
@@ -282,9 +295,9 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-cover">
-                <h1 style="color: #4ade80; font-family: 'Times New Roman', Times, serif; font-weight: 700;">ALBUM Kelompok COSVAL</h1>
+                <h1 style="color: #4ade80; font-family: 'Courier New', monospace; font-weight: 700;">ALBUM Kelompok COSVAL</h1>
                 <p style="color: #94a3b8;">Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
-                <p style="color: #22c55e; font-size: 0.95em; margin-top: 15px; font-weight: 600;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
+                <p style="color: #22c55e; font-size: 0.9em; margin-top: 15px; font-weight: 600;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
             </div>
             """,
           unsafe_allow_html=True,
@@ -400,7 +413,7 @@ elif menu == "About Us":
 
   def about_page():
     st.markdown(
-        """<style>.centered-title {text-align: center; color: #4ade80; font-family:"Times New Roman", Times, serif; font-weight: 700;}</style>""",
+        """<style>.centered-title {text-align: center; color: #4ade80; font-family:"Courier New", monospace; font-weight: 700;}</style>""",
         unsafe_allow_html=True,
     )
     st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
@@ -430,9 +443,8 @@ elif menu == "About Us":
     if filter_pilihan == "Semua":
       st.markdown(
           "<h2 style='text-align: center; margin-top: 20px;"
-          " margin-bottom: 20px; color: #4ade80; font-family: \"Times New"
-          " Roman\", Times, serif; font-weight: 700;'>Kenalan Yuk Sama"
-          " Cosval!</h2>",
+          " margin-bottom: 20px; color: #4ade80; font-family: \"Courier New\","
+          " monospace; font-weight: 700;'>Kenalan Yuk Sama Cosval!</h2>",
           unsafe_allow_html=True,
       )
 
@@ -558,7 +570,6 @@ elif menu == "About Us":
           st.image(img, use_container_width=True)
 
         with col_bio:
-          # Kotak About Us dengan grafik latar belakang futuristik (tech gradient + cyber grid accent)
           st.markdown(
               f"""
                     <div style="
@@ -568,17 +579,17 @@ elif menu == "About Us":
                         border-radius: 12px; 
                         box-shadow: 0 6px 20px rgba(34, 197, 94, 0.2); 
                         color: #f8fafc;
-                        font-family: 'Times New Roman', Times, serif;
+                        font-family: 'Inter', sans-serif;
                         word-wrap: break-word;
                         position: relative;
                         overflow: hidden;
                         margin-bottom: 20px;">
                         <div style="position: absolute; top: 0; right: 0; width: 70px; height: 70px; background: linear-gradient(135deg, transparent 50%, rgba(34,197,94,0.25) 50%); pointer-events: none;"></div>
-                        <h3 style="margin-top: 0; color: #4ade80; border-bottom: 2px solid #22c55e; padding-bottom: 8px; font-family: 'Times New Roman', Times, serif;">{data['nama']}</h3>
-                        <p style="margin: 8px 0; font-size: 1.1em;"><b>Sebagai:</b> {data['sebagai']}</p>
-                        <p style="margin: 8px 0; font-size: 1.1em;"><b>NIM:</b> {data['nim']}</p>
-                        <p style="margin: 8px 0; font-size: 1.1em;"><b>Fun Fact:</b> {data['fun_fact']}</p>
-                        <p style="margin: 8px 0; font-size: 1.1em;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
+                        <h3 style="margin-top: 0; color: #4ade80; border-bottom: 2px solid #22c55e; padding-bottom: 8px; font-family: 'Courier New', monospace;">{data['nama']}</h3>
+                        <p style="margin: 8px 0; font-size: 1.05em;"><b>Sebagai:</b> {data['sebagai']}</p>
+                        <p style="margin: 8px 0; font-size: 1.05em;"><b>NIM:</b> {data['nim']}</p>
+                        <p style="margin: 8px 0; font-size: 1.05em;"><b>Fun Fact:</b> {data['fun_fact']}</p>
+                        <p style="margin: 8px 0; font-size: 1.05em;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
                     </div>
                     """,
               unsafe_allow_html=True,
