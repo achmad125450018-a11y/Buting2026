@@ -477,8 +477,17 @@ if menu == "Departemen MIKFES":
     def mikfes():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1eyqvx79ZWpnQoyR0lAyRr75Hyf0I-LuI",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1eAwxOqcO2CHwEVU9tD7etDWtyl__dwaX",
+            "https://drive.google.com/uc?export=view&id=17uksT4DLi3Dl3Wm9eXkLgOboaMnBCNvf",
+            "https://drive.google.com/uc?export=view&id=1rETxJSYLJ8b9dvIPSHnTBERaeVyqwE0a",
+            "https://drive.google.com/uc?export=view&id=1FvCgEEhwao82YMF_lVNbzx2fH-9e6I89",
+            "https://drive.google.com/uc?export=view&id=1qYo-6LdCrtd4Mo0-YNb7r_XZwtrl9jXs",
+            "https://drive.google.com/uc?export=view&id=1Ml9GKM4ZJ0j5XPInbqklzBaUHOpXaCq0",
+            "https://drive.google.com/uc?export=view&id=1y47hF232Pq91Qw3q8y6ZqeB4KSrndgFs",
+            "https://drive.google.com/uc?export=view&id=1Y1XktCO2D4tnUNKvtCtm6cAIfkdLT9zb",
+            "https://drive.google.com/uc?export=view&id=1CfquAfSW3Gw41L6Q-lCI5RS23W4MM7-g",
+            "https://drive.google.com/uc?export=view&id=1QKaz5MKfppFLCfSOAlkf_CS-HV7FbLx2",
+            "https://drive.google.com/uc?export=view&id=1J2v3zGFWZemwxekT6Qw4FOn2mx13Tzu6",
         ]
 
         data_list = [
@@ -571,7 +580,7 @@ if menu == "Departemen MIKFES":
                 "pesan": "Semangat terus kak!"
             },
             {
-                "nama": "sherena Florencia",
+                "nama": "Sherena Florencia",
                 "nim": "124450027",
                 "umur": "20",
                 "asal": "Bengkulu",
