@@ -3,6 +3,7 @@ from streamlit_option_menu import option_menu
 import requests
 from PIL import Image, ImageOps
 from io import BytesIO
+from urllib.parse import parse_qs, urlparse
 
 st.markdown("""<style>.centered-title {text-align: center;}</style>""", unsafe_allow_html=True)
 st.markdown("<h1 class='centered-title'>BUKU KATING</h1>", unsafe_allow_html=True)
@@ -49,14 +50,27 @@ def streamlit_menu():
     )
     return selected
 
-@st.cache_data
+@st.cache_data(ttl=300)
 def load_image(url):
-    response = requests.get(url)
-    if response.status_code != 200:
-        st.error(
-            f"Failed to fetch image from {url}, status code: {response.status_code}"
-        )
+    parsed_url = urlparse(url)
+    if parsed_url.netloc in {"drive.google.com", "www.drive.google.com"}:
+        file_id = parse_qs(parsed_url.query).get("id", [None])[0]
+        if file_id is None:
+            path_parts = parsed_url.path.split("/")
+            if "d" in path_parts:
+                file_id_index = path_parts.index("d") + 1
+                if file_id_index < len(path_parts):
+                    file_id = path_parts[file_id_index]
+        if file_id:
+            url = f"https://drive.google.com/uc?export=download&id={file_id}"
+
+    try:
+        response = requests.get(url, timeout=20)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        st.error(f"Failed to fetch image from {url}: {e}")
         return None
+
     try:
         img = Image.open(BytesIO(response.content))
         img = ImageOps.exif_transpose(img)
@@ -66,7 +80,7 @@ def load_image(url):
         st.error(f"Error loading image: {e}")
         return None
     
-@st.cache_data
+@st.cache_data(ttl=300)
 def display_images_with_data(gambar_urls, data_list):
     images = []
     for i, url in enumerate(gambar_urls):
