@@ -4,16 +4,21 @@ import requests
 from PIL import Image, ImageOps
 from io import BytesIO
 import base64
+import html
+import re
+import os
+from pathlib import Path
+from urllib.parse import urlparse, parse_qs
 
 st.set_page_config(layout="wide")
 
 st.markdown(
     """
     <style>
-    /* Mengubah background utama menjadi gradasi */
+    /* Mengubah background utama menjadi terang (krem/beige) seperti foto pertama */
     .stApp {
-        background: linear-gradient(to bottom right, #ff9a22, #e14627);
-        color: white; 
+        background-color: #F8F5F2;
+        color: #000000; 
     }
 
     /* Buat header transparan agar tombol sidebar tetap ada */
@@ -21,12 +26,12 @@ st.markdown(
         background-color: transparent !important;
     }
     
-    /* Pastikan warna ikon tombol penutup tab menjadi putih agar terlihat */
+    /* Pastikan warna ikon tombol penutup tab menjadi gelap agar terlihat di background terang */
     [data-testid="collapsedControl"] {
-        color: white !important;
+        color: #bd411b !important;
     }
 
-    /* Memberikan warna solid pada sidebar */
+    /* Memberikan warna solid pada sidebar (Oranye dari foto kedua) */
     [data-testid="stSidebar"] {
         background-color: #bd411b !important;
     }
@@ -36,15 +41,15 @@ st.markdown(
         color: white !important;
     }
 
-    /* Memaksa elemen teks di dalam tab menjadi putih */
+    /* Memaksa elemen teks di dalam tab menjadi gelap karena background sekarang terang */
     [data-testid="stTabs"] button, 
     [data-testid="stTabs"] button * {
-        color: white !important;
+        color: #000000 !important;
     }
     
-    /* Mengubah warna garis bawah pada tab yang sedang aktif */
+    /* Mengubah warna garis bawah pada tab yang sedang aktif menggunakan aksen oranye */
     [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
-        background-color: white !important;
+        background-color: #bd411b !important;
     }
 
     /* Animasi gambar */
@@ -177,9 +182,10 @@ def streamlit_menu():
                 "font-size": "15px",
                 "text-align": "left",
                 "margin": "0px",
+                "color": "black",
                 "--hover-color": "#eee",
             },
-            "nav-link-selected": {"background-color": "#e3651e"},
+            "nav-link-selected": {"background-color": "#e3651e", "color": "white"},
         },
     )
     return selected
@@ -187,42 +193,152 @@ def streamlit_menu():
 menu = streamlit_menu()
 
 if menu == "Home":
-
-    def layout(url):
-        col1, col2, col3 = st.columns([2, 1.5, 2])  
-        with col2:
-            st.image(load_image(url), use_container_width=True)
     def home_page():
         st.markdown(
             """<style>.centered-title {text-align: center;}</style>""",
             unsafe_allow_html=True,
         )
+        
+        # Menggunakan langsung fungsi load_image dengan URL yang sudah teruji di atas
+        foto_kelompok_url = "https://drive.google.com/uc?export=view&id=1dP4Em_9mhiLc8DxjcHDX1glRZD39y8WB"
+        img_bg = load_image(foto_kelompok_url)
+        
+        img_b64 = ""
+        if img_bg is not None:
+            buffered = BytesIO()
+            img_bg.convert("RGB").save(buffered, format="JPEG")
+            img_b64 = base64.b64encode(buffered.getvalue()).decode()
+        
+        # 1. HERO SECTION (Dengan z-index dan posisi absolut yang benar agar overlay & teks muncul)
+        parallax_html = f"""
+        <div style="
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('data:image/jpeg;base64,{img_b64}');
+            height: 550px;
+            background-size: cover;
+            background-position: 35% center;
+            background-repeat: no-repeat;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        ">
+            <h1 style="color: white; font-size: 3.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); text-align: center; padding: 20px; margin: 0;">
+                Hola, welcome to GreedyCuwiKuki!
+            </h1>
+        </div>
+        """
+        st.markdown(parallax_html, unsafe_allow_html=True)
+        
+        # Teks Visi & Misi Kelompok
         st.markdown(
-            "<h1 class='centered-title'>Hola, welcome to GreedyCuwiKuki!</h1>", unsafe_allow_html=True
-        )
-        st.markdown(
-            """<div style="text-align: justify;">Satu tim dengan satu visi: Pantang pulang sebelum selesai, pantang menyerah sebelum optimal! 
+            """<div style="text-align: center; font-size: 1.1rem; margin: 0 10%; line-height: 1.6;">
+            Satu tim dengan satu visi: Pantang pulang sebelum selesai, pantang menyerah sebelum optimal! 
             Kami anggota Greedy menganut sifat greedy yaitu selalu haus akan proses belajar dan eksplorasi. Di setiap langkah, kami selalu cari cara terbaik 
-            untuk berkembang bersama!!
-             
-            Greedy, Grab the best, Reach  the TOP!!</div>""",
+            untuk berkembang bersama!!<br><br>
+            <b style="color: #bd411b; font-size: 1.2rem;">Greedy, Grab the best, Reach the TOP!!</b>
+            </div>""",
             unsafe_allow_html=True,
         )
-        st.write(""" """)
         
-        foto_kelompok = "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"
-        layout(foto_kelompok)
+        st.markdown("<hr style='margin: 40px 0;'>", unsafe_allow_html=True)
         
-        st.markdown(
-            """<div style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
-                    laborum.</div>""",
-            unsafe_allow_html=True,
-        )
-        st.write(""" """)
+        # 2. ZIG-ZAG GALLERY SECTION (Kilas Balik Perjalanan Kami)
+        st.markdown("<h2 class='centered-title' style='margin-bottom: 40px;'>Kilas Balik Perjalanan Kami</h2>", unsafe_allow_html=True)
+        
+        def img_to_b64(img):
+            if img is None: return ""
+            buf = BytesIO()
+            img.convert("RGB").save(buf, format="JPEG")
+            return base64.b64encode(buf.getvalue()).decode()
+
+        momen_list = [
+            {
+                "judul": "Kami",
+                "deskripsi": "Satu orang bisa berjalan cepat, tapi bersama-sama kita bisa melangkah jauh. Inilah kami kumpulan satu orang yang saling mendukung.",
+                "url": "https://drive.google.com/uc?export=view&id=1Ht5eDNnenv5kNSWGOL2o72PfwaNB_cbB"
+            },
+            {
+                "judul": "First Meet Kelompok",
+                "deskripsi": "Awal mula pertemuan seru kita di mana semua cerita, canda tawa, dan kekompakan pertama kali diukir bersama.",
+                "url": "https://drive.google.com/uc?export=view&id=16DMsInK6W9uWK2Gi3u4AumUREqAwl6A_"
+            },
+            {
+                "judul": "Langkah Pertama",
+                "deskripsi": "Langkah awal penuh tantangan dan semangat baru dalam menjalani rangkaian proses kaderisasi bersama tim tercinta.",
+                "url": "https://drive.google.com/uc?export=view&id=1fSAXH0QwK2nQVcy_IGzVs7qtDW1TsYLE"
+            },
+            {
+                "judul": "Kerja Kelompok",
+                "deskripsi": "Sesi lembur produktif penuh perjuangan, diskusi panjang, dan kerja sama tim yang solid untuk hasil yang optimal.",
+                "url": "https://drive.google.com/uc?export=view&id=1EMMDL1QuIvIALCNzr6mvbwk5ZVkbUrve"
+            },
+            {
+                "judul": "Keseruan & Kebersamaan",
+                "deskripsi": "Kenangan manis di luar jam tugas yang merekatkan ikatan persahabatan kita sebagai satu keluarga besar Greedy.",
+                "url": "https://drive.google.com/uc?export=view&id=1dP4Em_9mhiLc8DxjcHDX1glRZD39y8WB"
+            },
+        ]
+
+        st.markdown("""
+        <style>
+        .wix-card-text {
+            background-color: #F3EFEA;
+            border-radius: 16px;
+            padding: 40px;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-bottom: 25px;
+        }
+        .wix-card-img {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 320px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .wix-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+        for idx, item in enumerate(momen_list):
+            img = load_image(item["url"])
+            img_b64_momen = img_to_b64(img)
+            
+            text_block = f"""
+            <div class="wix-card-text">
+                <h3 style="color: #1a1a1a; margin-bottom: 15px; font-size: 1.8rem;">{item['judul']}</h3>
+                <p style="color: #555555; font-size: 1rem; line-height: 1.6; margin: 0;">{item['deskripsi']}</p>
+            </div>
+            """
+            
+            img_block = f"""
+            <div class="wix-card-img">
+                <img src="data:image/jpeg;base64,{img_b64_momen}">
+            </div>
+            """
+            
+            col1, col2 = st.columns(2, gap="large")
+            
+            if idx % 2 == 0:
+                with col1:
+                    st.markdown(img_block, unsafe_allow_html=True)
+                with col2:
+                    st.markdown(text_block, unsafe_allow_html=True)
+            else:
+                with col1:
+                    st.markdown(text_block, unsafe_allow_html=True)
+                with col2:
+                    st.markdown(img_block, unsafe_allow_html=True)
 
     home_page()
 
