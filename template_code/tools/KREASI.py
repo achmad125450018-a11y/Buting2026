@@ -1,6 +1,5 @@
 # tools/KREASI.py
 import streamlit as st
-import streamlit.components.v1 as components
 import base64
 
 st.markdown("""
@@ -38,6 +37,9 @@ st.markdown("""
 st.markdown("<h1 class='title'>DATA CATCHER</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>✦ Bersihkan Data, Kumpulkan Skor! ✦</p>", unsafe_allow_html=True)
 
+# ============================================================
+# 🎮 HTML & JS (Menggunakan HTML Entities untuk Emoji)
+# ============================================================
 game_html = """
 <!DOCTYPE html>
 <html>
@@ -49,7 +51,7 @@ game_html = """
     
     #game-container {
         width: 100%;
-        max-width: 100%; /* Dibuat 100% agar memenuhi iframe */
+        max-width: 100%;
         height: 580px;
         background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
         border-radius: 20px;
@@ -134,28 +136,31 @@ game_html = """
 <body>
 <div id="game-container">
     <div id="hud">
-        <div class="stat">⏱️ <span id="time">30</span>s</div>
-        <div class="stat">🏆 <span id="score">0</span></div>
-        <div class="stat">❤️ <span id="lives">3</span></div>
+        <!-- Menggunakan HTML Entities agar tidak rusak saat di-encode -->
+        <div class="stat">&#9201; <span id="time">30</span>s</div>
+        <div class="stat">&#127942; <span id="score">0</span></div>
+        <div class="stat">&#10084;&#65039; <span id="lives">3</span></div>
     </div>
     <div id="play-area"></div>
     <div id="start-screen" class="screen">
         <h2>Data Catcher</h2>
-        <p>Klik <b>Data Bersih</b> (🍎, 💎, 📁) secepat mungkin.<br>Jangan klik <b>Data Sampah</b> (🗑️, 💩, 🐛)!</p>
-        <button id="btn-start" class="btn-start">🚀 MULAI GAME</button>
+        <p>Klik <b>Data Bersih</b> (&#127822;, &#128142;, &#128193;) secepat mungkin.<br>Jangan klik <b>Data Sampah</b> (&#128465;&#65039;, &#128169;, &#128027;)!</p>
+        <button id="btn-start" class="btn-start">&#128640; MULAI GAME</button>
     </div>
     <div id="gameover-screen" class="screen" style="display:none;">
         <h2>Game Over!</h2>
         <p>Skor Akhir: <br><b style="font-size:48px; color:#a8323d;" id="final-score">0</b></p>
-        <button id="btn-restart" class="btn-start">🔄 Main Lagi</button>
+        <button id="btn-restart" class="btn-start">&#128260; Main Lagi</button>
     </div>
 </div>
 
 <script>
     let score = 0, lives = 3, timeLeft = 30, isPlaying = false;
     let spawnInterval, timerInterval;
-    const cleanItems = ["🍎", "🍌", "💎", "📁", "💾"];
-    const dirtyItems = ["🗑️", "💩", "🐛", "⚠️", "🦠"];
+    
+    // Menggunakan HTML Entities untuk emoji (mencegah encoding error)
+    const cleanItems = ["&#127822;", "&#127820;", "&#128142;", "&#128193;", "&#128190;"];
+    const dirtyItems = ["&#128465;&#65039;", "&#128169;", "&#128027;", "&#9888;&#65039;", "&#129440;"];
     
     const playArea = document.getElementById("play-area");
     const startScreen = document.getElementById("start-screen");
@@ -186,7 +191,7 @@ game_html = """
         const item = document.createElement("div");
         item.className = "item";
         const isClean = Math.random() > 0.4;
-        item.innerText = isClean ? cleanItems[Math.floor(Math.random() * cleanItems.length)] : dirtyItems[Math.floor(Math.random() * dirtyItems.length)];
+        item.innerHTML = isClean ? cleanItems[Math.floor(Math.random() * cleanItems.length)] : dirtyItems[Math.floor(Math.random() * dirtyItems.length)];
         item.style.left = Math.floor(Math.random() * 85 + 5) + "%";
         item.style.animationDuration = (Math.random() * 2 + 2) + "s";
 
@@ -196,10 +201,10 @@ game_html = """
             const x = e.clientX - rect.left, y = e.clientY - rect.top;
 
             if (isClean) {
-                score += 10; showPop(x, y, "+10", "#28a745"); item.innerText = "✨"; 
+                score += 10; showPop(x, y, "+10", "#28a745"); item.innerHTML = "&#10024;"; 
             } else {
                 lives--; score = Math.max(0, score - 5);
-                showPop(x, y, "-5", "#dc3545"); item.innerText = "💥";
+                showPop(x, y, "-5", "#dc3545"); item.innerHTML = "&#128165;";
                 if (lives <= 0) endGame();
             }
             document.getElementById("score").innerText = score;
@@ -238,8 +243,8 @@ game_html = """
 </html>
 """
 
-# 💥 TRIK IFRAME MANUAL: Encode HTML ke Base64 agar bisa dirender via st.markdown
+# Encode ke Base64
 b64_html = base64.b64encode(game_html.encode('utf-8')).decode('utf-8')
 
-# Render menggunakan markdown dengan tag iframe manual (Lebar 100%!)
+# Tampilkan via iframe manual
 st.markdown(f'<iframe class="game-iframe" src="data:text/html;base64,{b64_html}"></iframe>', unsafe_allow_html=True)
