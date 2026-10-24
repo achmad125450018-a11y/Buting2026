@@ -477,22 +477,22 @@ if menu == "Departemen PSDA":
     def psda():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1cN5Q96sTeM7cxXTY8L0qXvWdvAYXi25s",
-            "https://drive.google.com/uc?export=view&id=1qSvkpChMK23IHL1aFahbAJfGmmsLaQcR",
-            "https://drive.google.com/uc?export=view&id=1Hu8sNSqXyDnjVQ8NMcn75vj7J-7_3ugw",
-            "https://drive.google.com/uc?export=view&id=1zJuSSv5E40fnuMqJryVfrruX-WckdXVE",
-            "https://drive.google.com/uc?export=view&id=1zKp0pckhLjo44r9x8Pkg4QygfDiJqHcs",
-            "https://drive.google.com/uc?export=view&id=147AFQknzFdbqn7S-DTHEMv-GLjfNXQqH",
-            "https://drive.google.com/uc?export=view&id=1kKeTZDTjLfuMfsCqsBo233Xct_HbUC8z",
-            "https://drive.google.com/uc?export=view&id=1IAd48iZguZ_OhM_i_sEkxHF9hqLvOD5Q",
-            "https://drive.google.com/uc?export=view&id=1FE_-eDOUr77SF1mbRjptm1LMv0C-egCT",
-            "https://drive.google.com/uc?export=view&id=1N1gXDGjxHw4PY9W9yHB5fepJK9IRtOX7",
-            "https://drive.google.com/uc?export=view&id=1YhJo3siYdd8w34LOhFN4CLWBnIIjJIdl",
-            "https://drive.google.com/uc?export=view&id=1z0SfBp31xJ1zwjulb0jVd3U2kvTMfZjd",
-            "https://drive.google.com/uc?export=view&id=1gHuM-oquLBYCPRX6CKeA4k2E1SjBfXi4",
-            "https://drive.google.com/uc?export=view&id=1IjJBixveNdc2bGRaQfiNZBEbgHZMYHdP",
-            "https://drive.google.com/uc?export=view&id=1q9KjcgoTf0dm2PkVffummmes8zQm_WyS",
-            "https://drive.google.com/uc?export=view&id=18dKyhT-6UsujRHTiVmy2Erio9nrYGrz1",
-            "https://drive.google.com/uc?export=view&id=1hXE1szpfaHyp3rpMtZQsquHaH40PTbTT",
+            "https://drive.google.com/uc?export=view&id=1_5WIQK_9hyd58qIKnGizdwNA1WOu3OGK",
+            "https://drive.google.com/uc?export=view&id=1F6gQrJBHc98hC8jusC9TYvUJ4B89Iwv3",
+            "https://drive.google.com/uc?export=view&id=1gnxgVEAPmrY5YgZwwjuJR4RIA4QUd9vm",
+            "https://drive.google.com/uc?export=view&id=1eiGXDBFscu3cGxeL_4Hp_7Ri5fs8I-ir",
+            "https://drive.google.com/uc?export=view&id=1jHtVAqmZjpYkbLiZ8BXBD0i4M2Tr027U",
+            "https://drive.google.com/uc?export=view&id=1WBF99Qf7GPUJsdxzFM4KBgrloK9yp_ra",
+            "https://drive.google.com/uc?export=view&id=1CpYDh5rSWvQluhk44XSvMDf3Eqj68UTT",
+            "https://drive.google.com/uc?export=view&id=1hBS5Tomew2czpO2TWViwX5c80g5G5KaP",
+            "https://drive.google.com/uc?export=view&id=1ci7Azm5p5puIGDrNt_uLzUYSGI9zLul1",
+            "https://drive.google.com/uc?export=view&id=1z_0GGjrpQ0eU1iTm0C237CDi_mlWVIUT",
+            "https://drive.google.com/uc?export=view&id=1Fu3m8adNWwEttIVxRZ3N63iKO9TYItRN",
+            "https://drive.google.com/uc?export=view&id=1JR2bjAIH615C18Q3PjyoUSCHCNrphFys",
+            "https://drive.google.com/uc?export=view&id=1OzSUYVQZd255F2lHZ6Q1etXHUQuL-5ep",
+            "https://drive.google.com/uc?export=view&id=1w3GJxSI7S4A_b2pkKQQ52pbgEDRa1lE2",
+            "https://drive.google.com/uc?export=view&id=1H__K3uK8ERuLlsAxSVpsF0pfheHV0lXN",
+            "https://drive.google.com/uc?export=view&id=1ge6WUEE-WmhnMjR2DPs7KbETtd_BuxLu",
         ]
         data_list = [
             {
@@ -503,8 +503,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Samping Kost Capo",
                 "Hobi": "Ngerjain Anak Kader",
                 "Sosmed": "@arientakhsnl_",
-                "Kesan": "Kak Arienta orangnya baik, dan juga ramahh",  
-                "Pesan":"Semoga semua keinginan kak arienta sgera tercapai"# 1
+                "Kesan": "Kak Arienta orangnya baik, dan juga ramahh, asik juga",  
+                "Pesan":"Semoga kakak sehat selalu, sukses kuliahnya, dan lancar terus tugas akhirnya"# 1
             },
             {
                 "Nama": "Vany Salsabila Putri",
@@ -514,8 +514,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Pudan Kost",
                 "Hobi": "Pacaran",
                 "Sosmed": "@vany.salsabilaa",
-                "Kesan": "Kak vany orangnya humble, dan baik juga",  
-                "Pesan":"Semoga kak vany mencapai semua keinginannya secepatnya, salam dari orang sesama palembang"# 1
+                "Kesan": "Kak vany orangnya humble, ramah, dan baik juga",  
+                "Pesan":"Semoga kak vany sukses kuliahnya dan sehat selalu"# 1
             },
             {
                 "Nama": "Nobel Nizam Fathirizki",
@@ -525,8 +525,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Bandar Lampung",
                 "Hobi": "Banyak",
                 "Sosmed": "@nobelnizam",
-                "Kesan": "Bang Nobel orangnya kerenn, Tegas,dan juga baiik",  
-                "Pesan":"Semoga bang nobel selalu diberi kelancaran dan kesehatan dalam segala hal."# 1
+                "Kesan": "Bang Nobel orangnya kerenn, Tegas,dan juga baiik, jago main kartu juga",  
+                "Pesan":"Semoga bang nobel selalu diberi kelancaran dan kesehatan"# 1
             },
             {
                 "Nama": "Afriza Azmi",
@@ -536,8 +536,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Lapangan",
                 "Hobi": "Berantem",
                 "Sosmed": "@friezazmi",
-                "Kesan": "Bang Azmi orangnya kerenn, to the point dan juga baikk",  
-                "Pesan":"Semoga semua keinginan bang azmi cepat tercapaii"
+                "Kesan": "Bang Azmi orangnya kerenn, baik, dan tegas",  
+                "Pesan":"Semoga abang sehat selalu dan lancar kuliahnya"
             },
             {
                 "Nama": "Ayake Alfatih Ramadan",
@@ -547,8 +547,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Blok D.79, Jln. Manggis 8 Pemda, Way huwi Jati Agung, Lampung Selatan, Lampung",
                 "Hobi": "Cekek Ayam",
                 "Sosmed": "@ykeall",
-                "Kesan": "Bang Ayake orangnyaa humble , kerenn, Tegas dan baikk",  
-                "Pesan":"Semoga bang ayake diberi kelancaran dalam segala hal dan semoga selalu diberi kesehatan"# 1
+                "Kesan": "Bang Ayake orangnyaa humble, baik, dan asik saat ngobrol",  
+                "Pesan":"Semoga bang ayake diberi kelancaran dalam kuliahnya, dan sehat selalu"# 1
             },
             {
                 "Nama": "Caesar Ozora Alrando",
@@ -559,7 +559,7 @@ if menu == "Departemen PSDA":
                 "Hobi": "Pulang Kampung",
                 "Sosmed": "@caesar.oriza",
                 "Kesan": "Bang Caesar orangnya kereen, Tegas dan Humble",  
-                "Pesan":"Semoga bang caesar diberi kesehatan dan kelancaran"# 1
+                "Pesan":"Semoga bang caesar diberi kesehatan dan kelancaran dalam kuliah dan segala kegiatan"# 1
             },
             {
                 "Nama": "Euodia Meiliana Fredita",
@@ -569,8 +569,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Didalam Kamar dibalik pintu",
                 "Hobi": "Surving",
                 "Sosmed": "@yudiameilianaa_",
-                "Kesan": "Kak Euodia orangnya seru, Tegas , dan juga baikk,",  
-                "Pesan":"Semoga kak euodia selalu didekatkan hal-hal baikk"# 1
+                "Kesan": "Kak Euodia orangnya seru, Tegas , dan juga baik",  
+                "Pesan":"Semoga kak kakak seallu sehat dan sukses dalam kuliahnya"# 1
             },
             {
                 "Nama": "Haikal Seventino Tamba",
@@ -580,8 +580,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Belakang Pemancingan",
                 "Hobi": "Tidur",
                 "Sosmed": "@_haikaaall",
-                "Kesan": "Bang Haikal orangnya kerenn, Tegas ,baikk, dan juga ramahh",  
-                "Pesan":"Semoga bang haikal mencapai semua hal yang bang haikal inginkan"# 1
+                "Kesan": "Bang Haikal orangnya kerenn, Tegas dan baik",  
+                "Pesan":"Semoga bang haikal mencapai target dan segala keinginannya, sehat selalu juga"# 1
             },
             {
                 "Nama": "Putri Manna Anantama Simbolon",
@@ -591,8 +591,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Oiya Cefa",
                 "Hobi": "Jalan kaki gaboleh naik gojek",
                 "Sosmed": "@putrimannaa",
-                "Kesan": "Kak Putri orangnya baikk, humble dan juga ramah",  
-                "Pesan":"Semoga semua keinginan kak putri segera terwujud"# 1
+                "Kesan": "Kak Putri orangnya baik dan ramah sekali",  
+                "Pesan":"Semoga kakak sehat selalu dan sukses selalu"# 1
             },
             {
                 "Nama": "Queenta Thifaal Nabila",
@@ -603,7 +603,7 @@ if menu == "Departemen PSDA":
                 "Hobi": "Makanin anak ayam",
                 "Sosmed": "@quenntanaabilaa",
                 "Kesan": "Kak Queenta orangnya baik, humble, dan perhatian",  
-                "Pesan":"Semoga kak queenta selalu bisa mencapai keinginannya"# 1
+                "Pesan":"Semoga kak queenta selalu sehat, dan sukses dalam perkuliahannya"# 1
             },
             {
                 "Nama": "Desman Velius Halawa",
@@ -613,8 +613,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Airan",
                 "Hobi": "Main musik",
                 "Sosmed": "@dsmanhal",
-                "Kesan": "Bang Desman orangnya kerenn, dan juga asikk, baikk",  
-                "Pesan":"Semoga bang desman selalu didekat hal-hal baikk"# 1
+                "Kesan": "Bang Desman orangnya kerenn, dan juga asikk, serta baikk",  
+                "Pesan":"Semoga bang desman selalu sehat, dan dilancarkan selalu"# 1
             },
             {
                 "Nama": "Azzelya Thianandry",
@@ -624,8 +624,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Sukarame",
                 "Hobi": "pilates",
                 "Sosmed": "@azzelytn",
-                "Kesan": "Kak Azzel orangnya humble, dan juga baikkk sekali",  
-                "Pesan":"Semoga semua keinginan kak azzel tercapai"# 1
+                "Kesan": "Kak Azzel orangnya humble, dan juga baik banget",  
+                "Pesan":"Semoga sehat selalu, dilancarkan selalu segala urusannya"# 1
             },
             {
                 "Nama": "Charrlindah",
@@ -635,8 +635,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Cendrawasih 1",
                 "Hobi": "Ngurus peternakan",
                 "Sosmed": "@charrlln",
-                "Kesan": "Kak Charrlindah orangnya baikk, dan juga ramah",  
-                "Pesan":"Semoga kak charlindah dikelilingi hal-hal baik"# 1
+                "Kesan": "Kak Charrlindah orangnya baikk, dan juga ramah banget ke kami",  
+                "Pesan":"Semoga kak charlindah sukses terus, dan dilancarkan segala urusannya"# 1
             },
             {
                 "Nama": "Jeremi Marolop P. Situmorang",
@@ -646,8 +646,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "RS airan",
                 "Hobi": "Nonton a day in my life",
                 "Sosmed": "@jemarrro",
-                "Kesan": "Bang Jemar orangnya kerenn apalagi saat damaskus",  
-                "Pesan":"Semoga bang jeremi bisa menggapai semua keinginannya"
+                "Kesan": "Bang Jemar orangnya kerenn apalagi saat lagi damaskus",  
+                "Pesan":"Semoga bang jemar sehat selalu, sukses dalam perkuliahannya"
             },
             {
                 "Nama": "Nabila Nur Azizah",
@@ -657,8 +657,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Barokah",
                 "Hobi": "Main Roblox",
                 "Sosmed": "@n.bila_a",
-                "Kesan": "Kak Nabila orangnya humble, dan juga baik, ramah jugaa",  
-                "Pesan":"Semoga kak nabila mendapatkan hal-hal yang diinginkan"
+                "Kesan": "Kak Nabila orangnya humble, dan juga baik",  
+                "Pesan":"Semoga kak nabila mendapatkan hal-hal yang diinginkan, sehat selalu, dan sukses selalu dalam urusan dan kegiatannya"
             },
             {
                 "Nama": "Rafli Al Mansyah Tambunan",
@@ -668,8 +668,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Belwis",
                 "Hobi": "Membaca peraturan rektor",
                 "Sosmed": "@dearrfkvmfl",
-                "Kesan": "Bang Rafli orangnya humble , baik, dan juga ramah",  
-                "Pesan":"Semoga bang rafli selalu bisa mencapai semua keinginannya"
+                "Kesan": "Bang Rafli orangnya humble , baik, dan juga ramah, asik juga",  
+                "Pesan":"Semoga bang rafli selalu sehat dan lancar selalu segala urusannya"
             },
             {
                 "Nama": "Salavi Naharani",
@@ -679,8 +679,8 @@ if menu == "Departemen PSDA":
                 "Alamat": "Jatimulyo",
                 "Hobi": "Minum air putih",
                 "Sosmed": "@afi.nhr",
-                "Kesan": "Kak Salavi orangnya seru, dan juga baik, ramahh",  
-                "Pesan":"Semoga kak salavi selalu didekatkan dengan hal-hal baikk"
+                "Kesan": "Kak Salavi orangnya seru, dan juga baik, ramahh banget",  
+                "Pesan":"Semoga kak salavi selalu sehat, sukses, dan lancar terus segala urusannya"
             }
         ]
         display_images_with_data(gambar_urls, data_list)
