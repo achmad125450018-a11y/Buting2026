@@ -479,18 +479,18 @@ if menu == "Senator":
 if menu == "Departemen SSD":
     def Departemen_SSD():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_", 
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_", 
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_", 
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1ObzBbXuSr4uMY0fLMg1xSvQ8XzdB3x7W",
+            "https://drive.google.com/uc?export=view&id=1tDgLRF296R9hOU9z1ightiVzItpxEvkd",
+            "https://drive.google.com/uc?export=view&id=1bIevSTkPmhB0M0WpB9AbRsLukaUB6pR6", 
+            "https://drive.google.com/uc?export=view&id=18TTVfodChJVMbhGZU4rivzwgl182JT_T",
+            "https://drive.google.com/uc?export=view&id=1NTihFBUcvW5-V83tEO6UXnieDej_8dVm",
+            "https://drive.google.com/uc?export=view&id=1vO3Qc4G9NK74UENY_a-Tta0_X3-CkXm3", 
+            "https://drive.google.com/uc?export=view&id=1mX4xQBKWmpkD5fC_l1GOkPwP2e0XpyoQ",
+            "https://drive.google.com/uc?export=view&id=1d_HcLyxaJok-xqhfK8owHyc8t2MlgmHc",
+            "https://drive.google.com/uc?export=view&id=1d_HcLyxaJok-xqhfK8owHyc8t2MlgmHc", 
+            "https://drive.google.com/uc?export=view&id=1F7iX3QxRbDSWWcEbB2l0GjP39NognBg5",
+            "https://drive.google.com/uc?export=view&id=16teJ8bqGNNZqWiUspzEw5bjd9ID0t74X",
+            "https://drive.google.com/uc?export=view&id=1CkSFWvE-0fUTvnfaL2rqe5KPgamSiEUs",
         ]
         data_list = [
             {
@@ -537,18 +537,7 @@ if menu == "Departemen SSD":
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",  
                 "pesan":"semangat terus kuliahnya kakak !!!"# 1
             },
-            {
-                "nama": "Talitha Justine",
-                "nim": "124450076",
-                "umur": "19",
-                "asal":"Jakarta",
-                "alamat": "Pemda",
-                "hobbi": "Nonton",
-                "sosmed": "-",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
-            },
-            {
+             {
                 "nama": "Layina Ropiqo",
                 "nim": "124450016",
                 "umur": "19",
@@ -571,12 +560,34 @@ if menu == "Departemen SSD":
                 "pesan":"semangat terus kuliahnya kakak !!!"# 1
             },
             {
+                "nama": "Talitha Justine",
+                "nim": "124450076",
+                "umur": "19",
+                "asal":"Jakarta",
+                "alamat": "Pemda",
+                "hobbi": "Nonton",
+                "sosmed": "-",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
+                "nama": "Anadia Carana",
+                "nim": "123450019",
+                "umur": "20",
+                "asal":"JPalembang",
+                "alamat": "Way Huwi",
+                "hobbi": "Nyari duit",
+                "sosmed": "@anadiacrn_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
+                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+            },
+            {
                 "nama": "Abdilah Fikri Alpome",
                 "nim": "123450062",
                 "umur": "21",
-                "asal":"Baturaja Sumatera Selatan ",
-                "alamat": "Airan ",
-                "hobbi": "Basket ",
+                "asal":"Baturaja, Sumatera Selatan",
+                "alamat": "Belakang PB",
+                "hobbi": "Olahraga",
                 "sosmed": "@pomest__",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",  
                 "pesan":"semangat terus kuliahnya kakak !!!"# 1
