@@ -165,7 +165,7 @@ if menu == "Kesekjenan":
                 "Pesan":"Semoga kedepannya kak Hafsa selalu diberi kelancaran dalam segala hal, dan kesehatan ,terimakasih Kak!!"# 1
             },
             {
-                "Nama": "Luthfia Laila RAmadhani",
+                "Nama": "Luthfia Laila Ramadhani",
                 "NIM": "123450004",
                 "Umur": "21",
                 "Asal":"Bengkulu",
@@ -984,7 +984,7 @@ if menu == "Departemen Eksternal":
             "https://drive.google.com/uc?export=view&id=1n2egtU3OUCTn3nrgan_D3mQmpY-p1AVr",
             "https://drive.google.com/uc?export=view&id=10NKF9wCduTHC1uj1btWv-ZL6rRkPehNC",
             "https://drive.google.com/uc?export=view&id=1DQP0Q5v6lbgt1xnGx8Fu99SVVGKmGJjX",
-            "https://drive.google.com/uc?export=view&id=1AUvMCPh-rcwAt9jmtsYt5eKpKBjmzJiq",
+            "https://drive.google.com/uc?export=view&id=1xh50OuMGjLPw4vzokm7o4KWe2O7xIC20",
         ]
         data_list = [
             {
@@ -1601,7 +1601,7 @@ if menu == "Departemen Medkraf":
             "https://drive.google.com/uc?export=view&id=1W4E5NosBriq_xIFboK--G1a--6BlDazF",
             "https://drive.google.com/uc?export=view&id=1J_m1aOLwZMPaX3Y2GlklAu3uqhG-qS2y",
             "https://drive.google.com/uc?export=view&id=1SbOdPrphk47wNP22uof8EpBzX75skNRn",
-            "https://drive.google.com/uc?export=view&id=1z16SRyrpoy3j5lpTLhMtPoj3qLUpdh0j",
+            "https://drive.google.com/uc?export=view&id=1cyze3DIkEkGQNYEGO9OFIPvEyhe6SqBG",
             "https://drive.google.com/uc?export=view&id=1Bmj4_k1_ctAdhzCs5uLkXcz9UXvzXzLr",
             "https://drive.google.com/uc?export=view&id=1BSX4_6TeaNRgN2KJO0-d6Xm4pD26TdJt",
             "https://drive.google.com/uc?export=view&id=1TAqmLKfZBi7UcnbLqf9w8WtDRQGv1ddH",
@@ -1998,7 +1998,7 @@ if menu == "Departemen Minbak":
                 "Sosmed": "@muhammdrafka_",
                 "Kesan": "Sangat disiplin dan dapat diandalkan",
                 "Pesan": "Sukses selalu buat perkuliahannya!"
-            }
+            },
         ]
         display_images_with_data(gambar_urls, data_list)
     minbak()
