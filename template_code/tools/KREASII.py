@@ -32,30 +32,30 @@ game_html = """
         font-family: 'Courier New', monospace;
         text-align: center;
         margin: 0;
-        padding: 10px;
+        padding: 5px;
         overflow-x: hidden;
     }
     .stats-panel {
         display: flex;
         justify-content: space-around;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
     }
     .stat-box {
         background: #0f172a;
         border: 1px solid #38bdf8;
-        padding: 8px 14px;
+        padding: 6px 12px;
         border-radius: 8px;
         color: #38bdf8;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: bold;
     }
     .trace-container {
         width: 100%;
-        max-width: 480px;
+        max-width: 400px;
         background: #1e293b;
-        height: 10px;
-        border-radius: 5px;
-        margin: 0 auto 15px auto;
+        height: 8px;
+        border-radius: 4px;
+        margin: 0 auto 12px auto;
         overflow: hidden;
         border: 1px solid #38bdf8;
     }
@@ -68,29 +68,29 @@ game_html = """
     .mission-box {
         background: #0f172a;
         border: 2px dashed #38bdf8;
-        padding: 12px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        font-size: 15px;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-size: 14px;
     }
     .target-highlight {
         color: #38bdf8;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 16px;
     }
     .grid-container {
         position: relative;
-        margin: 20px auto;
-        width: 480px;
-        height: 120px;
+        margin: 15px auto;
+        width: 390px;
+        height: 105px;
         max-width: 100%;
     }
     .node-box {
-        width: 105px;
-        height: 110px;
+        width: 88px;
+        height: 95px;
         background: #0f172a;
         border: 2px solid #38bdf8;
-        border-radius: 10px;
+        border-radius: 8px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -106,32 +106,32 @@ game_html = """
         box-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
     }
     .node-val {
-        font-size: 15px;
+        font-size: 13px;
         font-weight: bold;
         color: #f8fafc;
     }
     .node-type {
-        font-size: 10px;
+        font-size: 9px;
         color: #94a3b8;
         margin-top: 4px;
         text-transform: uppercase;
     }
     .terminal-msg {
-        margin-top: 20px;
-        font-size: 14px;
+        margin-top: 15px;
+        font-size: 13px;
         font-weight: bold;
-        height: 25px;
+        height: 22px;
     }
     .action-btn {
         background-color: #38bdf8;
         color: #030712;
         border: none;
-        padding: 12px 26px;
-        font-size: 15px;
+        padding: 10px 22px;
+        font-size: 14px;
         font-weight: bold;
         border-radius: 8px;
         cursor: pointer;
-        margin-top: 15px;
+        margin-top: 10px;
         font-family: 'Courier New', monospace;
         transition: background 0.2s;
     }
@@ -166,7 +166,7 @@ game_html = """
     let lives = 3;
     let level = 1;
     let nodes = [];
-    let gameState = 'idle'; // idle, reveal, shuffling, guessing, gameover
+    let gameState = 'idle';
     let targetType = '';
     let traceTimer = null;
     let traceLeft = 100;
@@ -207,7 +207,6 @@ game_html = """
         let anomVal = anomType.vals[Math.floor(Math.random() * anomType.vals.length)];
         rawNodes.push({ val: anomVal, type: anomType.name, isAnom: true });
 
-        // Shuffle initial order
         rawNodes.sort(() => Math.random() - 0.5);
 
         nodes = rawNodes.map((n, idx) => ({
@@ -229,7 +228,7 @@ game_html = """
         nodes.forEach((node, index) => {
             const el = document.createElement('div');
             el.className = 'node-box';
-            el.style.left = (node.pos * 122) + 'px';
+            el.style.left = (node.pos * 100) + 'px';
             el.onclick = () => handleNodeClick(index);
 
             if (showContent) {
@@ -239,7 +238,7 @@ game_html = """
                 `;
             } else {
                 el.innerHTML = `
-                    <div class="node-val" style="color: #38bdf8;">[SECURE]</div>
+                    <div class="node-val" style="color: #38bdf8; font-size:11px;">[SECURE]</div>
                     <div class="node-type">NODE 0${node.pos + 1}</div>
                 `;
             }
@@ -359,4 +358,4 @@ game_html = """
 </html>
 """
 
-components.html(game_html, height=460)
+components.html(game_html, height=420)
