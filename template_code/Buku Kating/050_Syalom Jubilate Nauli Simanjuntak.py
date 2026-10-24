@@ -13,8 +13,8 @@ def streamlit_menu():
         menu_title=None,
         options=[
             "Kesekjenan",
-            "Baleg",
-            "Senator",
+            "Badan Legislatif",
+            "Badan Kesenatoran",
             "Departemen PSDA",
             "Departemen MIKFES",
             "Departemen Eksternal",
@@ -179,7 +179,6 @@ if menu == "Kesekjenan":
         display_images_with_data(gambar_urls, data_list)
     kesekjenan()
 
-print("halo")
 if menu == "Badan Legislatif":
     def Baleg():
         gambar_urls = [
@@ -345,7 +344,6 @@ if menu == "Badan Legislatif":
         display_images_with_data(gambar_urls, data_list)
     Baleg()
 
-print("Halo")
 if menu == "Badan Kesenatoran":
     def senator():
         gambar_urls = [
