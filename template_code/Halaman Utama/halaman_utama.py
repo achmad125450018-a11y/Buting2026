@@ -38,12 +38,17 @@ st.markdown(
 url = "https://drive.google.com/uc?export=view&id=12cQ4T8NkVvVPVNX6zBQC4sviFcc4cDWx"   # Logo Himpunan HMSD (DI ATAS)
 url1 = "https://drive.google.com/uc?export=view&id=12RBvQdMiqqqph-Q1QqLb0zvvIPnBjCYb"  # Logo Departemen / Kegiatan (DI BAWAH)
 
-# Logo Himpunan & Logo Departemen berdampingan (ukuran kecil, rapi di tengah)
-_pad_l, logo_a, logo_b, _pad_r = st.columns([1.4, 1.3, 1.3, 1.4], gap="medium")
-with logo_a:
+# 1. Logo Himpunan di Atas (Ukuran normal, tidak terpotong, proporsional)
+col1, col2, col3 = st.columns([1.5, 2, 1.5])
+with col2:
     img_himpunan = load_image(url, fallback_name="Logo Himpunan HMSD", keep_ratio=True)
     st.image(img_himpunan, use_container_width=True)
-with logo_b:
+
+st.write("")
+
+# 2. Logo Departemen/Kegiatan di Bawah Logo Himpunan (Ukuran normal, tidak terpotong)
+col1, col2, col3 = st.columns([1.5, 2, 1.5])
+with col2:
     img_kegiatan = load_image(url1, fallback_name="Logo Departemen CEO HMSD", keep_ratio=True)
     st.image(img_kegiatan, use_container_width=True)
 
