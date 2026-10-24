@@ -71,7 +71,7 @@ menu = streamlit_menu()
 if menu == "Home":
 
   def home_page():
-    # --- GAYA TAMPILAN SEPERTI Cosval ---
+    # CSS Styling
     st.markdown(
         """
         <style>
@@ -80,79 +80,82 @@ if menu == "Home":
         .deskripsi-title {
             text-align: center;
             font-family: 'Playfair Display', serif;
-            font-size: 2em;
+            font-size: 2.2em;
             color: #2c2c2c;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-weight: 700;
         }
         
-        .photo-card {
-            position: relative;
-            border-radius: 15px;
+        /* Frame Foto Kelompok */
+        .group-photo-frame {
+            border-radius: 18px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            margin-bottom: 25px;
+            background-color: #2c3e50;
+            margin-bottom: 0px;
         }
         
-        .photo-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
-            padding: 40px 20px 25px 20px;
-            text-align: center;
+        /* Teks Overlay Foto Kelompok */
+        .photo-caption-box {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
             color: white;
+            text-align: center;
+            padding: 18px 15px;
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 18px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
         
         .badge-cosval {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(6px);
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-bottom: 8px;
             letter-spacing: 1.5px;
             font-weight: 600;
+            color: #f1c40f;
         }
         
-        .photo-text {
+        .photo-text-title {
             margin: 0;
             font-family: 'Playfair Display', serif;
-            font-size: 1.35em;
+            font-size: 1.25em;
             font-weight: 700;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
             line-height: 1.4;
+            color: #ffffff;
         }
-        
+
+        /* Kotak Deskripsi (Bingkai Emas, Judul Hijau Muda, Teks Hitam) */
         .desc-box {
-            border: 3px solid #d4af37; /* Bingkai Tepian Warna Emas */
+            border: 3px solid #d4af37; /* Bingkai Emas */
             background: #fdfbf7;
             border-radius: 15px;
-            padding: 35px;
+            padding: 30px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.08);
             margin-bottom: 30px;
         }
         
         .desc-heading {
-            color: #2ecc71; /* Judul Warna Hijau Muda */
+            color: #2ecc71; /* Judul Hijau Muda */
             font-family: 'Playfair Display', serif;
             margin-top: 0;
-            margin-bottom: 18px;
-            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-size: 1.5em;
             font-weight: 700;
         }
         
         .desc-content {
-            color: #000000; /* Tulisan di bawah judul berwarna hitam */
+            color: #000000; /* Teks Hitam */
             font-family: 'Inter', sans-serif;
             line-height: 1.8;
             font-size: 1.05em;
             margin: 0;
             text-align: justify;
         }
-        
+
         .book-cover {
             background: linear-gradient(135deg, #2c3e50, #1a252f);
             color: white;
@@ -179,31 +182,30 @@ if menu == "Home":
         unsafe_allow_html=True,
     )
 
-    # Judul Deskripsi Kelompok
+    # 1. Judul Deskripsi Kelompok
     st.markdown(
         "<div class='deskripsi-title'>✦ Deskripsi Kelompok ✦</div>",
         unsafe_allow_html=True,
     )
 
-    # Foto Kelompok dengan gaya Card Poisson & Overlay Teks Baru
-    foto_kelompok = (
+    # 2. Foto Kelompok (Pasti Muncul)
+    foto_kelompok_url = (
         "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B"
     )
+    st.image(load_image(foto_kelompok_url), use_container_width=True)
 
+    # 3. Teks Keterangan Foto Gaya Poisson
     st.markdown(
-        f"""
-        <div class="photo-card">
-            <img src="{foto_kelompok}" style="width: 100%; display: block; height: auto;">
-            <div class="photo-overlay">
-                <div class="badge-cosval">✦ KELUARGA COSVAL ✦</div>
-                <h3 class="photo-text">COSVAL kuat, COSVAL tuntas, semangat membara sampai akhir batas!</h3>
-            </div>
+        """
+        <div class="photo-caption-box">
+            <div class="badge-cosval">✦ KELUARGA COSVAL ✦</div>
+            <p class="photo-text-title">COSVAL kuat, COSVAL tuntas, semangat membara sampai akhir batas!</p>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    # Kotak Deskripsi (Bingkai Emas, Judul Hijau Muda, Teks Hitam)
+    # 4. Kotak Deskripsi (Bingkai Emas, Judul Hijau Muda, Teks Hitam)
     st.markdown(
         """
         <div class="desc-box">
@@ -367,10 +369,11 @@ elif menu == "About Us":
     )
     st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
 
+    # CSS Bingkai Foto About Us
     st.markdown(
         """
         <style>
-        [data-testid="stImage"] img {
+        .about-photo img {
             border: 8px solid #c5a059 !important;
             outline: 3px solid #8b5a2b !important;
             border-radius: 12px !important;
@@ -399,19 +402,18 @@ elif menu == "About Us":
 
     st.write("")
 
-    # 11 Anggota (1 Pak Lurah, 1 Bu Lurah, 9 Anggota)
     gambar_urls = [
-        "https://drive.google.com/uc?export=view&id=1CkTOku6mtZq-sryae2A1H_dx5moG-R1q",  # Pak Lurah (0)
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Bu Lurah (1)
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 1 (2)
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 2 (3)
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 3 (4)
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 4 (5)
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 5 (6)
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 6 (7)
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 7 (8)
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 8 (9)
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 9 (10)
+        "https://drive.google.com/uc?export=view&id=1CkTOku6mtZq-sryae2A1H_dx5moG-R1q",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
     ]
 
     data_list = [
