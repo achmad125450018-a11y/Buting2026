@@ -16,20 +16,20 @@ def load_image(url):
 
 # JANGAN DIUBAH
 
-# Pengaturan Konfigurasi Halaman & Tema Global Futuristik + Fix Sidebar Overlap
+# Pengaturan Konfigurasi Halaman & Tema Global Futuristik (Teks Terang, HD, & Sidebar Rapi)
 st.markdown(
     """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;600;700&display=swap');
 
-    /* Global Styling */
+    /* Global Styling - Teks dibuat sangat terang dan jelas */
     .stApp {
         background: radial-gradient(circle at 50% 10%, #090d16 0%, #030712 100%);
-        color: #e2e8f0;
+        color: #ffffff;
         font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* Perbaikan total sidebar agar teks tidak menumpuk/overlapping */
+    /* Perbaikan total sidebar agar tulisan terang, jelas, dan tidak menimpa */
     [data-testid="stSidebar"] {
         min-width: 330px !important;
         background-color: #060918 !important;
@@ -41,20 +41,28 @@ st.markdown(
     [data-testid="stSidebarNav"] ul {
         display: flex;
         flex-direction: column;
-        gap: 8px !important;
+        gap: 6px !important;
     }
     [data-testid="stSidebarNav"] a {
         display: block !important;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
-        padding: 8px 12px !important;
-        font-size: 0.9em !important;
-        border-radius: 6px;
-        color: #94a3b8 !important;
+        padding: 10px 14px !important;
+        font-size: 0.95em !important;
+        font-weight: 600 !important;
+        border-radius: 8px;
+        color: #ffffff !important;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(0, 243, 255, 0.1);
+        transition: all 0.2s ease;
+    }
+    [data-testid="stSidebarNav"] a span {
+        color: #ffffff !important;
     }
     [data-testid="stSidebarNav"] a:hover {
-        background-color: rgba(0, 243, 255, 0.1) !important;
+        background: rgba(0, 243, 255, 0.15) !important;
+        border-color: #00f3ff !important;
         color: #00f3ff !important;
     }
 
@@ -74,8 +82,9 @@ st.markdown(
         font-family: 'Orbitron', sans-serif;
         text-align: center;
         font-size: 1.5rem;
-        color: #94a3b8;
+        color: #ffffff;
         letter-spacing: 3px;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         margin-bottom: 30px;
     }
     </style>
@@ -119,8 +128,8 @@ def streamlit_menu():
       styles={
           "container": {
               "padding": "5px",
-              "background-color": "rgba(15, 23, 42, 0.9)",
-              "border": "1px solid rgba(0, 243, 255, 0.2)",
+              "background-color": "rgba(15, 23, 42, 0.95)",
+              "border": "1px solid rgba(0, 243, 255, 0.3)",
               "border-radius": "12px",
           },
           "icon": {"color": "#00f3ff", "font-size": "18px"},
@@ -129,13 +138,14 @@ def streamlit_menu():
               "font-family": "Space Grotesk, sans-serif",
               "text-align": "center",
               "margin": "0px 5px",
-              "color": "#cbd5e1",
-              "--hover-color": "rgba(0, 243, 255, 0.1)",
+              "color": "#ffffff",
+              "font-weight": "600",
+              "--hover-color": "rgba(0, 243, 255, 0.15)",
           },
           "nav-link-selected": {
               "background": (
-                  "linear-gradient(135deg, rgba(0,243,255,0.2),"
-                  " rgba(121,40,202,0.3))"
+                  "linear-gradient(135deg, rgba(0,243,255,0.3),"
+                  " rgba(121,40,202,0.4))"
               ),
               "border": "1px solid #00f3ff",
               "color": "#ffffff",
@@ -161,23 +171,23 @@ if menu == "Home":
             color: #00f3ff;
             margin-bottom: 25px;
             font-weight: 700;
-            text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+            text-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
         }
         
         .photo-caption-box {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
-            border: 1px solid rgba(0, 243, 255, 0.3);
+            border: 1px solid rgba(0, 243, 255, 0.4);
             color: white;
             text-align: center;
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 25px;
-            box-shadow: 0 0 25px rgba(0, 243, 255, 0.15);
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.2);
         }
         
         .badge-cosval {
             display: inline-block;
-            background: rgba(0, 243, 255, 0.15);
+            background: rgba(0, 243, 255, 0.2);
             border: 1px solid #00f3ff;
             padding: 5px 15px;
             border-radius: 20px;
@@ -186,7 +196,7 @@ if menu == "Home":
             letter-spacing: 2px;
             font-weight: 700;
             color: #00f3ff;
-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
         }
         
         .photo-text-title {
@@ -194,16 +204,16 @@ if menu == "Home":
             font-family: 'Orbitron', sans-serif;
             font-size: 1.2em;
             font-weight: 700;
-            color: #f8fafc;
+            color: #ffffff;
         }
 
         .desc-box {
-            border: 2px solid rgba(0, 243, 255, 0.4);
-            background: rgba(15, 23, 42, 0.85);
+            border: 2px solid rgba(0, 243, 255, 0.5);
+            background: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.15);
             margin-bottom: 30px;
         }
         
@@ -217,10 +227,10 @@ if menu == "Home":
         }
         
         .desc-content {
-            color: #cbd5e1;
+            color: #ffffff;
             font-family: 'Space Grotesk', sans-serif;
             line-height: 1.8;
-            font-size: 1.05em;
+            font-size: 1.1em;
             margin: 0;
             text-align: justify;
         }
@@ -232,16 +242,16 @@ if menu == "Home":
             padding: 50px 20px;
             text-align: center;
             border-radius: 15px;
-            box-shadow: 0 0 35px rgba(121, 40, 202, 0.3);
+            box-shadow: 0 0 35px rgba(121, 40, 202, 0.4);
             margin-bottom: 20px;
         }
         
         .book-spread {
-            background: rgba(15, 23, 42, 0.9);
-            border: 2px solid rgba(0, 243, 255, 0.3);
+            background: rgba(15, 23, 42, 0.95);
+            border: 2px solid rgba(0, 243, 255, 0.4);
             border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 0 25px rgba(0, 243, 255, 0.1);
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.15);
             margin-bottom: 20px;
         }
         </style>
@@ -311,8 +321,8 @@ if menu == "Home":
           """
             <div class="book-cover">
                 <h1 style="font-family: Orbitron; color: #00f3ff;">ALBUM Kelompok COSVAL</h1>
-                <p style="color: #94a3b8;">Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
-                <p style="color: #64748b; font-size: 0.9em; margin-top: 15px;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
+                <p style="color: #ffffff;">Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
+                <p style="color: #00f3ff; font-size: 0.95em; margin-top: 15px; font-weight: 600;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
             </div>
             """,
           unsafe_allow_html=True,
@@ -473,7 +483,7 @@ elif menu == "About Us":
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.group.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Safe
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
@@ -593,17 +603,17 @@ elif menu == "About Us":
                         padding: 24px; 
                         border-radius: 15px; 
                         box-shadow: 0 0 25px rgba(0, 243, 255, 0.15); 
-                        color: #e2e8f0;
+                        color: #ffffff;
                         font-family: 'Space Grotesk', sans-serif;
                         position: relative;
                         overflow: hidden;
                         margin-bottom: 20px;">
                         <div style="position: absolute; top: 0; right: 0; width: 70px; height: 70px; background: linear-gradient(135deg, transparent 50%, rgba(0,243,255,0.2) 50%); pointer-events: none;"></div>
                         <h3 style="margin-top: 0; color: #00f3ff; border-bottom: 2px solid rgba(0, 243, 255, 0.3); padding-bottom: 8px; font-family: 'Orbitron', sans-serif;">{data['nama']}</h3>
-                        <p style="margin: 8px 0; font-size: 1.05em;"><b>Sebagai:</b> {data['sebagai']}</p>
-                        <p style="margin: 8px 0; font-size: 1.05em;"><b>NIM:</b> {data['nim']}</p>
-                        <p style="margin: 8px 0; font-size: 1.05em;"><b>Fun Fact:</b> {data['fun_fact']}</p>
-                        <p style="margin: 8px 0; font-size: 1.05em;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
+                        <p style="margin: 8px 0; font-size: 1.05em; color: #ffffff;"><b>Sebagai:</b> {data['sebagai']}</p>
+                        <p style="margin: 8px 0; font-size: 1.05em; color: #ffffff;"><b>NIM:</b> {data['nim']}</p>
+                        <p style="margin: 8px 0; font-size: 1.05em; color: #ffffff;"><b>Fun Fact:</b> {data['fun_fact']}</p>
+                        <p style="margin: 8px 0; font-size: 1.05em; color: #ffffff;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
                     </div>
                     """,
               unsafe_allow_html=True,
