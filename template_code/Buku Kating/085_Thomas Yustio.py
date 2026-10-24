@@ -476,7 +476,7 @@ if menu == "Badan Kesenatoran":
 if menu == "Departemen PSDA":
     def psda():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=14XJ42fUwzVqn0ej6lWHzqGC_jwesJV5C",
+            "https://drive.google.com/uc?export=view&id=1cN5Q96sTeM7cxXTY8L0qXvWdvAYXi25s",
             "https://drive.google.com/uc?export=view&id=1qSvkpChMK23IHL1aFahbAJfGmmsLaQcR",
             "https://drive.google.com/uc?export=view&id=1Hu8sNSqXyDnjVQ8NMcn75vj7J-7_3ugw",
             "https://drive.google.com/uc?export=view&id=1zJuSSv5E40fnuMqJryVfrruX-WckdXVE",
