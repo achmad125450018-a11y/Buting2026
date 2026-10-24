@@ -13,7 +13,7 @@ def streamlit_menu():
         menu_title=None,
         options=[
             "Kesekjenan",
-            "Badan legislatif",
+            "Badan Legislatif",
             "Badan Kesenatoran",
             "Departemen PSDA",
             "Departemen MIKFES",
@@ -21,8 +21,10 @@ def streamlit_menu():
             "Departemen Internal",
             "Departemen SSD",
             "Departemen Medkraf",
+            "Departemen Minbak",
         ],
         icons=[
+            "people-fill",
             "people-fill",
             "people-fill",
             "people-fill",
@@ -94,7 +96,6 @@ def display_images_with_data(gambar_urls, data_list):
             st.write("  ")
     st.write("Semua gambar telah dimuat!")
 menu = streamlit_menu()
-
 
 if menu == "Kesekjenan":
     def kesekjenan():
@@ -179,7 +180,7 @@ if menu == "Kesekjenan":
         display_images_with_data(gambar_urls, data_list)
     kesekjenan()
 
-if menu == "Badan legislatif":
+if menu == "Badan Legislatif":
     def baleg():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1wTVxoZAa2x2mKBg4jKil6LgMiz7_EQPj",
@@ -195,7 +196,6 @@ if menu == "Badan legislatif":
             "https://drive.google.com/uc?export=view&id=11-TwKo2hQ7T6insZbO-fmBVHAdpmch_E",
             "https://drive.google.com/uc?export=view&id=1JrE8Vj6p08HGSWUs8D-sEoBjchMTh-_r", 
             "https://drive.google.com/uc?export=view&id=1E91EEOSBsAhpkn61Heu_hJa52rig89UJ",
-
         ]
         data_list = [
             {
@@ -344,7 +344,7 @@ if menu == "Badan legislatif":
             
         ]
         display_images_with_data(gambar_urls, data_list)
-    Baleg()
+    baleg()
 
 if menu == "Badan Kesenatoran":
     def senator():
