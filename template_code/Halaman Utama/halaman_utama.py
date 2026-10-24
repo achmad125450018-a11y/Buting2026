@@ -16,7 +16,7 @@ def load_image(url):
 
 # JANGAN DIUBAH
 
-# Global Theme Styling: Inter/Courier New + Futuristic Green & Black + Hide Default Sidebar Nav
+# Global Theme Styling: Inter & Courier New + Futuristic Green & Black + Sidebar Fix (No Overlap)
 st.markdown(
     """
     <style>
@@ -33,9 +33,42 @@ st.markdown(
         color: #f8fafc;
     }
 
-    /* Menyembunyikan daftar file otomatis di sidebar agar tidak ada teks "person" bertumpuk */
+    /* Perbaikan total sidebar agar teks jelas, terstruktur rapi, dan tidak menimpa */
+    [data-testid="stSidebar"] {
+        min-width: 300px !important;
+        padding-top: 1rem;
+        background-color: #060918 !important;
+    }
     [data-testid="stSidebarNav"] {
-        display: none !important;
+        width: 100%;
+    }
+    [data-testid="stSidebarNav"] ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px !important;
+    }
+    [data-testid="stSidebarNav"] li {
+        margin: 4px 0 !important;
+    }
+    [data-testid="stSidebarNav"] a {
+        display: flex !important;
+        align-items: center !important;
+        height: auto !important;
+        min-height: 48px !important;
+        padding: 10px 14px !important;
+        line-height: 1.4 !important;
+        white-space: normal !important;
+        font-size: 0.95em !important;
+        border-radius: 8px;
+        transition: background 0.2s;
+    }
+    [data-testid="stSidebarNav"] a:hover {
+        background-color: rgba(34, 197, 94, 0.15) !important;
+    }
+    [data-testid="stSidebarNav"] span {
+        display: inline-block !important;
+        white-space: normal !important;
+        line-height: 1.4 !important;
     }
     </style>
     """,
