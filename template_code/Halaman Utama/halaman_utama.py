@@ -20,7 +20,7 @@ st.markdown(
     """
     <div style='text-align: center;'>
         <h1 style='font-size: 5.5em;'>WEBSITE KATING</h1>
-        <p style='font-size: 2em;'>CEO HMSD Adyatama ITERA 2026</p>
+        <p style='font-size: 2em;'>CEO HMSD Adyatama ITERA 2024</p>
     </div>
     """,
     unsafe_allow_html=True,
@@ -71,33 +71,88 @@ menu = streamlit_menu()
 if menu == "Home":
 
   def home_page():
-    st.markdown(
-        """<style>.centered-title {text-align: center;}</style>""",
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        "<h1 class='centered-title'>Kami Cosval!</h1>", unsafe_allow_html=True
-    )
-    st.markdown(
-        """<div style="text-align: justify;">COSVAL adalah kelompok yang mengutamakan kerja sama, semangat, dan tanggung jawab dalam setiap proses belajar. Dengan visi “Cosval Kuat Semangat, Terus Sampai Tuntas,” COSVAL berkomitmen untuk terus belajar, saling membantu, dan tidak mudah menyerah saat menghadapi kesulitan. Bersama-sama, kami berusaha memberikan yang terbaik dan menyelesaikan setiap tantangan sampai tuntas.</div>""",
-        unsafe_allow_html=True,
-    )
-    st.write(""" """)
-
-    foto_kelompok = (
-        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B"
-    )
-    layout(foto_kelompok)
-    st.markdown(
-        """<div style="text-align: center; font-style: italic;">Melalui kerja sama dan tekad yang kuat.</div>""",
-        unsafe_allow_html=True,
-    )
-    st.write("---")
-
-    # --- CSS KHUSUS TAMPILAN BUKU ALBUM ---
+    # --- GAYA TAMPILAN SEPERTI Cosval ---
     st.markdown(
         """
         <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+        
+        .deskripsi-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #2c2c2c;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .photo-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            margin-bottom: 25px;
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+            padding: 40px 20px 25px 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .badge-cosval {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(6px);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+        
+        .photo-text {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35em;
+            font-weight: 700;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+            line-height: 1.4;
+        }
+        
+        .desc-box {
+            border: 3px solid #d4af37; /* Bingkai Tepian Warna Emas */
+            background: #fdfbf7;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .desc-heading {
+            color: #2ecc71; /* Judul Warna Hijau Muda */
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 18px;
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+        
+        .desc-content {
+            color: #000000; /* Tulisan di bawah judul berwarna hitam */
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            font-size: 1.05em;
+            margin: 0;
+            text-align: justify;
+        }
+        
         .book-cover {
             background: linear-gradient(135deg, #2c3e50, #1a252f);
             color: white;
@@ -108,6 +163,7 @@ if menu == "Home":
             border-left: 15px solid #111;
             margin-bottom: 20px;
         }
+        
         .book-spread {
             background: #fdfbf7;
             border: 2px solid #dcd6cd;
@@ -123,28 +179,67 @@ if menu == "Home":
         unsafe_allow_html=True,
     )
 
-    # Judul Album Tanpa Stiker Buku
+    # Judul Deskripsi Kelompok
+    st.markdown(
+        "<div class='deskripsi-title'>✦ Deskripsi Kelompok ✦</div>",
+        unsafe_allow_html=True,
+    )
+
+    # Foto Kelompok dengan gaya Card Poisson & Overlay Teks Baru
+    foto_kelompok = (
+        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B"
+    )
+
+    st.markdown(
+        f"""
+        <div class="photo-card">
+            <img src="{foto_kelompok}" style="width: 100%; display: block; height: auto;">
+            <div class="photo-overlay">
+                <div class="badge-cosval">✦ KELUARGA COSVAL ✦</div>
+                <h3 class="photo-text">COSVAL kuat, COSVAL tuntas, semangat membara sampai akhir batas!</h3>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Kotak Deskripsi (Bingkai Emas, Judul Hijau Muda, Teks Hitam)
+    st.markdown(
+        """
+        <div class="desc-box">
+            <h3 class="desc-heading">Selamat datang di portal resmi kelompok Cosval!</h3>
+            <p class="desc-content">
+                COSVAL adalah kelompok yang mengutamakan kerja sama, semangat, dan tanggung jawab dalam setiap proses belajar. 
+                Dengan visi <b>“Cosval Kuat Semangat, Terus Sampai Tuntas,”</b> COSVAL berkomitmen untuk terus belajar, saling membantu, 
+                dan tidak mudah menyerah saat menghadapi kesulitan. Bersama-sama, kami berusaha memberikan yang terbaik dan menyelesaikan 
+                setiap tantangan sampai tuntas dalam rangkaian kegiatan pengenalan kampus dan penugasan Buku Kating.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.write("---")
+
+    # --- FITUR ALBUM COSVAL ---
     st.markdown(
         "<h2 style='text-align: center;'>Album Dokumentasi Cosval</h2>",
         unsafe_allow_html=True,
     )
     st.write("")
 
-    # Inisialisasi state halaman album (0 = Tertutup, 1 = Hal 1, 2 = Hal 2, 3 = Hal 3)
     if "album_page" not in st.session_state:
       st.session_state.album_page = 0
 
-    # Daftar 6 foto untuk 3 halaman album (2 foto per halaman)
     album_photos = [
-        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",  # Foto 1 (Hal 1)
-        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",  # Foto 2 (Hal 1)
-        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",  # Foto 3 (Hal 2)
-        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",  # Foto 4 (Hal 2)
-        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",  # Foto 5 (Hal 3)
-        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",  # Foto 6 (Hal 3)
+        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",
+        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",
+        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",
+        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",
+        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",
+        "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B",
     ]
 
-    # 1. KONDISI ALBUM TERTUTUP (Cover)
     if st.session_state.album_page == 0:
       st.markdown(
           """
@@ -162,7 +257,6 @@ if menu == "Home":
           st.session_state.album_page = 1
           st.rerun()
 
-    # 2. KONDISI HALAMAN 1
     elif st.session_state.album_page == 1:
       st.markdown(
           """
@@ -171,7 +265,6 @@ if menu == "Home":
             """,
           unsafe_allow_html=True,
       )
-
       col1, col2 = st.columns(2)
       with col1:
         st.image(
@@ -185,7 +278,6 @@ if menu == "Home":
             caption="Dokumentasi 2 (Halaman Kanan)",
             use_container_width=True,
         )
-
       st.markdown("</div>", unsafe_allow_html=True)
 
       c1, c2, c3 = st.columns([1, 2, 1])
@@ -198,7 +290,6 @@ if menu == "Home":
           st.session_state.album_page = 2
           st.rerun()
 
-    # 3. KONDISI HALAMAN 2
     elif st.session_state.album_page == 2:
       st.markdown(
           """
@@ -207,7 +298,6 @@ if menu == "Home":
             """,
           unsafe_allow_html=True,
       )
-
       col1, col2 = st.columns(2)
       with col1:
         st.image(
@@ -221,7 +311,6 @@ if menu == "Home":
             caption="Dokumentasi 4 (Halaman Kanan)",
             use_container_width=True,
         )
-
       st.markdown("</div>", unsafe_allow_html=True)
 
       c1, c2, c3 = st.columns([1, 2, 1])
@@ -234,7 +323,6 @@ if menu == "Home":
           st.session_state.album_page = 3
           st.rerun()
 
-    # 4. KONDISI HALAMAN 3 (AKHIR)
     elif st.session_state.album_page == 3:
       st.markdown(
           """
@@ -243,7 +331,6 @@ if menu == "Home":
             """,
           unsafe_allow_html=True,
       )
-
       col1, col2 = st.columns(2)
       with col1:
         st.image(
@@ -257,7 +344,6 @@ if menu == "Home":
             caption="Dokumentasi 6 (Halaman Kanan)",
             use_container_width=True,
         )
-
       st.markdown("</div>", unsafe_allow_html=True)
 
       c1, c2, c3 = st.columns([1, 2, 1])
@@ -281,11 +367,9 @@ elif menu == "About Us":
     )
     st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
 
-    # CSS Khusus untuk memberi bingkai langsung ke elemen gambar Streamlit
     st.markdown(
         """
         <style>
-        /* Mengaplikasikan Bingkai Emas Langsung ke Gambar Streamlit */
         [data-testid="stImage"] img {
             border: 8px solid #c5a059 !important;
             outline: 3px solid #8b5a2b !important;
@@ -299,14 +383,12 @@ elif menu == "About Us":
         unsafe_allow_html=True,
     )
 
-    # Pilihan Filter Tampilan
     filter_pilihan = st.radio(
         "Tampilkan Profil:",
         ["Semua", "Pak Lurah", "Bu Lurah", "Anggota"],
         horizontal=True,
     )
 
-    # Judul Khusus untuk Opsi "Semua"
     if filter_pilihan == "Semua":
       st.markdown(
           "<h2 style='text-align: center; margin-top: 20px;"
@@ -317,7 +399,7 @@ elif menu == "About Us":
 
     st.write("")
 
-    # 11 URL Gambar (1 Pak Lurah, 1 Bu Lurah, 9 Anggota)
+    # 11 Anggota (1 Pak Lurah, 1 Bu Lurah, 9 Anggota)
     gambar_urls = [
         "https://drive.google.com/uc?export=view&id=1CkTOku6mtZq-sryae2A1H_dx5moG-R1q",  # Pak Lurah (0)
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Bu Lurah (1)
@@ -332,7 +414,6 @@ elif menu == "About Us":
         "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",  # Anggota 9 (10)
     ]
 
-    # Data 11 Anggota
     data_list = [
         {
             "nama": "Herfan Hidayat",
@@ -419,14 +500,13 @@ elif menu == "About Us":
         },
     ]
 
-    # Menentukan indeks berdasarkan filter
     if filter_pilihan == "Semua":
       indices = list(range(11))
     elif filter_pilihan == "Pak Lurah":
       indices = [0]
     elif filter_pilihan == "Bu Lurah":
       indices = [1]
-    else:  # 9 Anggota
+    else:
       indices = list(range(2, 11))
 
     for idx in indices:
@@ -434,15 +514,12 @@ elif menu == "About Us":
         img = load_image(gambar_urls[idx])
         data = data_list[idx]
 
-        # Tata letak: Foto di Kiri, Biodata di Kanan
         col_img, col_bio = st.columns([1, 1.4], vertical_alignment="center")
 
         with col_img:
-          # Foto langsung dirender (styling bingkai sudah dipasang via CSS di atas)
           st.image(img, use_container_width=True)
 
         with col_bio:
-          # Desain Biodata Kertas Tua (Old Paper)
           st.markdown(
               f"""
                     <div style="
