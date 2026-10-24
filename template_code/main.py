@@ -1,38 +1,16 @@
 import streamlit as st
+from utils import setup_common
 
 st.set_page_config(page_title="Buku Kating", layout="wide")
 
-# ============================================================
-# 🎨 CSS GLOBAL (HANYA UNTUK SIDEBAR)
-# ============================================================
-st.markdown("""
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #701c23 0%, #4e1318 100%) !important;
-}
-[data-testid="stSidebar"] *,
-[data-testid="stSidebar"] span,
-[data-testid="stSidebar"] p,
-[data-testid="stSidebar"] div,
-[data-testid="stSidebar"] svg {
-    color: #ffffff !important;
-    fill: #ffffff !important;
-    font-family: 'Inter', sans-serif !important;
-}
-[data-testid="stSidebar"] h1,
-[data-testid="stSidebar"] h2,
-[data-testid="stSidebar"] h3,
-[data-testid="stSidebar"] [data-testid="stSidebarNav"] strong {
-    font-family: 'Playfair Display', serif !important;
-}
-</style>
-""", unsafe_allow_html=True)
+# 💥 Panggil fungsi Sidebar dari utils.py (Agar tidak bentrok)
+setup_common()
 
 # ============================================================
-# 🧭 NAVIGASI
+# 🧭 NAVIGASI HALAMAN
 # ============================================================
+st.session_state.pindah = True
+
 Homepage = st.Page("Halaman Utama/halaman_utama.py", title="07 - POISSON", default=True)
 
 Mahasiswa1  = st.Page("Buku Kating/116_Yobel Imanuel Pasaribu.py", title="116 - Yobel Imanuel Pasaribu", icon=":material/person:")
@@ -50,10 +28,17 @@ Mahasiswa11 = st.Page("Buku Kating/037_Nailatun Inayah.py", title="037 - Nailatu
 KREASI  = st.Page("tools/KREASI.py", title="KREASI", icon=":material/search:")
 KREASII = st.Page("tools/KREASII.py", title="KREASII", icon=":material/search:")
 
-pg = st.navigation({
-    "Halaman Utama": [Homepage],
-    "Buku Kating": [Mahasiswa1, Mahasiswa2, Mahasiswa3, Mahasiswa4, Mahasiswa5, Mahasiswa6, Mahasiswa7, Mahasiswa8, Mahasiswa9, Mahasiswa10, Mahasiswa11],
-    "Try Me !!": [KREASI, KREASII],
-})
+# ============================================================
+# 🚀 JALANKAN APLIKASI
+# ============================================================
+if st.session_state.pindah:
+    pg = st.navigation({
+        "Halaman Utama": [Homepage],
+        "Buku Kating": [Mahasiswa1, Mahasiswa2, Mahasiswa3, Mahasiswa4, Mahasiswa5,
+                        Mahasiswa6, Mahasiswa7, Mahasiswa8, Mahasiswa9, Mahasiswa10, Mahasiswa11],
+        "Try Me !!": [KREASI, KREASII],
+    })
+else:
+    st.write("Maaf Anda kurang beruntung :(")
 
 pg.run()
