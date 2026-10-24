@@ -1,257 +1,325 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-# ============================================================
-# 🎨 UI STREAMLIT UNTUK GAME OUTLIER HUNTER
-# ============================================================
+st.set_page_config(page_title="Math Matrix: Sum Cracker", layout="wide")
+
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-.title-outlier {
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: 2.8em !important;
-    margin-bottom: 6px;
-    background: linear-gradient(135deg, #701c23 0%, #a8323d 45%, #701c23 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.stApp {
+    background-color: #09090b;
+    color: #ffffff;
 }
-.subtitle-outlier {
+h1 {
+    color: #f97316 !important;
+    font-family: 'Courier New', monospace;
     text-align: center;
-    color: #6b5a52;
-    font-weight: 500;
     letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
 }
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<h1 class='title-outlier'>OUTLIER HUNTER</h1>", unsafe_allow_html=True)
-st.markdown("<p class='subtitle-outlier'>✦ Temukan & Klik Data Anomali yang Menyimpang! ✦</p>", unsafe_allow_html=True)
+st.title("MATH MATRIX: SUM CRACKER")
+st.markdown("<p style='text-align: center; color: #fdba74;'>Uji skill berhitung cepat! Pilih kombinasi angka di dalam matriks 4x4 yang jumlah totalnya pas dengan target.</p>", unsafe_allow_html=True)
 
-# ============================================================
-# 🎮 HTML & JS MINI-GAME OUTLIER HUNTER
-# ============================================================
-outlier_game_html = """
+game_html = """
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-    * { box-sizing: border-box; }
     body {
-        margin: 0; padding: 0;
-        font-family: 'Inter', sans-serif;
-        background-color: transparent;
-        display: flex;
-        justify-content: center;
-        height: 100vh;
-    }
-    
-    #game-container {
-        width: 100%;
-        max-width: 900px;
-        height: 520px;
-        background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(112,28,35,0.15);
-        border: 1px solid rgba(217,195,163,0.55);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    #hud {
-        position: absolute;
-        top: 15px; left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        z-index: 10;
-    }
-    .stat {
-        background: rgba(255,255,255,0.9);
-        border: 1px solid rgba(217,195,163,0.8);
-        padding: 6px 20px;
-        border-radius: 12px;
-        font-weight: 700;
-        color: #701c23;
-        font-size: 16px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-
-    #grid-area {
-        position: absolute;
-        top: 70px; left: 20px; right: 20px; bottom: 20px;
-        display: none;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        gap: 12px;
+        background-color: #09090b;
+        color: #ffffff;
+        font-family: 'Courier New', monospace;
+        text-align: center;
+        margin: 0;
         padding: 10px;
+        overflow-x: hidden;
     }
-
-    .data-point {
-        background: #f4f0eb;
-        border: 2px solid #d9c3a3;
-        border-radius: 14px;
+    .stats-panel {
         display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    .stat-box {
+        background: #18181b;
+        border: 1px solid #f97316;
+        padding: 8px 16px;
+        border-radius: 8px;
+        color: #f97316;
+        font-size: 13px;
+        font-weight: bold;
+        box-shadow: 0 0 10px rgba(249, 115, 22, 0.2);
+    }
+    .timer-container {
+        width: 100%;
+        max-width: 500px;
+        background: #18181b;
+        height: 10px;
+        border-radius: 5px;
+        margin: 0 auto 15px auto;
+        overflow: hidden;
+        border: 1px solid #f97316;
+    }
+    .timer-bar {
+        width: 100%;
+        height: 100%;
+        background: #f97316;
+        transition: width 0.1s linear;
+    }
+    .mission-box {
+        background: #18181b;
+        border: 2px dashed #f97316;
+        padding: 12px;
+        border-radius: 8px;
+        margin: 0 auto 15px auto;
+        max-width: 500px;
+        font-size: 15px;
+        color: #fdba74;
+    }
+    .target-highlight {
+        color: #ffffff;
+        background: #c2410c;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .current-sum {
+        color: #4ade80;
+        font-weight: bold;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin: 15px auto;
+        width: 100%;
+        max-width: 500px;
+    }
+    .node-box {
+        background: #18181b;
+        border: 2px solid #f97316;
+        border-radius: 8px;
+        height: 80px;
+        display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        font-size: 28px;
         cursor: pointer;
-        transition: all 0.1s ease;
-        user-select: none;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        transition: transform 0.2s ease, background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 0 8px rgba(249, 115, 22, 0.15);
     }
-    .data-point:hover {
+    .node-box.selected {
+        background: #c2410c;
+        border-color: #ffffff;
+        box-shadow: 0 0 15px rgba(249, 115, 22, 0.8);
+    }
+    .node-box:hover {
+        background: #27272a;
+        border-color: #fb923c;
         transform: scale(1.03);
-        border-color: #701c23;
     }
-    .data-point:active {
-        transform: scale(0.95);
+    .node-val {
+        font-size: 20px;
+        font-weight: bold;
+        color: #ffffff;
     }
-
-    .screen {
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        z-index: 20;
-        width: 90%;
-        max-width: 450px;
-        padding: 40px;
-        background: rgba(255,255,255,0.98);
-        border-radius: 20px;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        border: 1px solid rgba(217,195,163,0.8);
+    .terminal-msg {
+        margin-top: 15px;
+        font-size: 14px;
+        font-weight: bold;
+        height: 24px;
+        color: #fdba74;
     }
-    h2 { color: #701c23; font-family: 'Playfair Display', serif; font-size: 30px; margin: 0 0 10px 0; }
-    p { color: #4e1318; font-size: 15px; margin-bottom: 25px; line-height: 1.5; }
-    
-    .btn-start {
-        background: linear-gradient(135deg, #701c23 0%, #a8323d 100%);
-        color: white; border: none; border-radius: 12px;
-        padding: 14px 30px; font-weight: 700; font-size: 16px;
-        cursor: pointer; box-shadow: 0 6px 18px rgba(112,28,35,0.35);
-        transition: transform 0.15s; width: 100%;
+    .action-btn {
+        background-color: #f97316;
+        color: #09090b;
+        border: none;
+        padding: 12px 28px;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 12px;
+        font-family: 'Courier New', monospace;
+        transition: background 0.2s, transform 0.1s;
+        box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
     }
-    .btn-start:hover { transform: translateY(-2px); }
+    .action-btn:hover {
+        background-color: #fb923c;
+        transform: translateY(-2px);
+    }
 </style>
 </head>
 <body>
-<div id="game-container">
-    <div id="hud">
-        <div class="stat">⏱️ <span id="time">20</span>s</div>
-        <div class="stat">🏆 Skor: <span id="score">0</span></div>
-    </div>
-    
-    <div id="grid-area"></div>
 
-    <div id="start-screen" class="screen">
-        <h2>Outlier Hunter</h2>
-        <p>Di antara data normal, ada satu <b>Data Anomali (Outlier)</b> yang berbeda simbol/ikonnya!<br>Temukan dan klik secepat mungkin sebelum waktu habis.</p>
-        <button id="btn-start" class="btn-start">🔍 MULAI BERBURU</button>
-    </div>
-
-    <div id="gameover-screen" class="screen" style="display:none;">
-        <h2>Waktu Habis!</h2>
-        <p>Total Outlier yang Ditemukan: <br><b style="font-size:42px; color:#a8323d;" id="final-score">0</b></p>
-        <button id="btn-restart" class="btn-start">🔄 Main Lagi</button>
-    </div>
+<div class="stats-panel">
+    <div class="stat-box">SKOR: <span id="score">0</span></div>
+    <div class="stat-box">NYAWA: <span id="lives">3</span></div>
+    <div class="stat-box">LEVEL: <span id="level">1</span></div>
 </div>
 
+<div class="timer-container">
+    <div class="timer-bar" id="timer-bar"></div>
+</div>
+
+<div class="mission-box" id="mission-text">
+    Tekan tombol di bawah untuk mulai menghitung!
+</div>
+
+<div class="grid-container" id="grid-container"></div>
+
+<div class="terminal-msg" id="terminal-msg"></div>
+<button class="action-btn" id="main-btn" onclick="startMathGame()">MULAI BERHITUNG</button>
+
 <script>
-    let score = 0, timeLeft = 20, isPlaying = false;
-    let timerInterval;
-    
-    // Kumpulan tema data (Normal vs Outlier)
-    const themes = [
-        { normal: "📊", outlier: "📈" },
-        { normal: "🔵", outlier: "🔴" },
-        { normal: "📁", outlier: "🗑️" },
-        { normal: "💻", outlier: "🔥" },
-        { normal: "📦", outlier: "⚠️" }
-    ];
+    let score = 0;
+    let lives = 3;
+    let level = 1;
+    let nodes = [];
+    let targetSum = 0;
+    let currentSelectedSum = 0;
+    let gameActive = false;
+    let timerInterval = null;
+    let timeLeft = 100;
 
-    const gridArea = document.getElementById("grid-area");
-    const startScreen = document.getElementById("start-screen");
-    const gameoverScreen = document.getElementById("gameover-screen");
-    const btnStart = document.getElementById("btn-start");
-    const btnRestart = document.getElementById("btn-restart");
-
-    function startGame() {
-        clearInterval(timerInterval);
-        score = 0; timeLeft = 20; isPlaying = true;
-        document.getElementById("score").innerText = score;
-        document.getElementById("time").innerText = timeLeft;
-        startScreen.style.display = "none"; 
-        gameoverScreen.style.display = "none";
-        gridArea.style.display = "grid"; 
-
-        nextRound();
-
-        timerInterval = setInterval(() => {
-            if (!isPlaying) return;
-            timeLeft--; 
-            document.getElementById("time").innerText = timeLeft;
-            if (timeLeft <= 0) endGame();
-        }, 1000);
+    function startMathGame() {
+        score = 0;
+        lives = 3;
+        level = 1;
+        document.getElementById('main-btn').style.display = 'none';
+        gameActive = true;
+        initRound();
     }
 
-    function nextRound() {
-        if (!isPlaying) return;
-        gridArea.innerHTML = "";
+    function initRound() {
+        currentSelectedSum = 0;
+        document.getElementById('terminal-msg').innerText = "";
 
-        // Pilih tema acak
-        const theme = themes[Math.floor(Math.random() * themes.length)];
+        // Buat 16 angka acak (1 s.d 25)
+        nodes = [];
+        for (let i = 0; i < 16; i++) {
+            let val = Math.floor(Math.random() * (12 + level * 3)) + 2;
+            nodes.push({ val: val, selected: false, id: i });
+        }
+
+        // Pilih 2 sampai 4 angka secara acak dari matriks untuk dijadikan target pasti
+        let countToPick = Math.random() < 0.5 ? 2 : (Math.random() < 0.8 ? 3 : 4);
+        let shuffledIndices = [...Array(16).keys()].sort(() => Math.random() - 0.5);
         
-        // Tentukan jumlah kotak (mulai dari 16 kotak / 4x4)
-        const totalBoxes = 16;
-        const outlierIndex = Math.floor(Math.random() * totalBoxes);
+        targetSum = 0;
+        let solutionIndices = shuffledIndices.slice(0, countToPick);
+        solutionIndices.forEach(idx => {
+            targetSum += nodes[idx].val;
+        });
 
-        for (let i = 0; i < totalBoxes; i++) {
-            const box = document.createElement("div");
-            box.className = "data-point";
-            
-            if (i === outlierIndex) {
-                box.innerText = theme.outlier;
-                box.onclick = () => {
-                    if (!isPlaying) return;
-                    score += 1;
-                    document.getElementById("score").innerText = score;
-                    nextRound(); // Lanjut ke ronde berikutnya secara instan
-                };
+        updateMissionText();
+        renderGrid();
+        startTimer();
+    }
+
+    function updateMissionText() {
+        document.getElementById('mission-text').innerHTML = `TARGET: <span class="target-highlight">${targetSum}</span> | PILIHAN ANDA: <span class="current-sum" id="sum-display">${currentSelectedSum}</span>`;
+    }
+
+    function renderGrid() {
+        const container = document.getElementById('grid-container');
+        container.innerHTML = '';
+        
+        nodes.forEach((node, index) => {
+            const el = document.createElement('div');
+            el.className = 'node-box' + (node.selected ? ' selected' : '');
+            el.onclick = () => handleNodeClick(index);
+
+            el.innerHTML = `<div class="node-val">${node.val}</div>`;
+            container.appendChild(el);
+        });
+    }
+
+    function handleNodeClick(index) {
+        if (!gameActive) return;
+
+        nodes[index].selected = !nodes[index].selected;
+        
+        // Hitung ulang total pilihan
+        currentSelectedSum = nodes.reduce((sum, n) => sum + (n.selected ? n.val : 0), 0);
+        updateMissionText();
+        renderGrid();
+
+        if (currentSelectedSum === targetSum) {
+            clearInterval(timerInterval);
+            score += 250 * level;
+            level += 1;
+            document.getElementById('terminal-msg').style.color = "#4ade80";
+            document.getElementById('terminal-msg').innerText = "BENAR! Kalkulasi tepat.";
+            gameActive = false;
+            setTimeout(initRound, 1500);
+        } else if (currentSelectedSum > targetSum) {
+            clearInterval(timerInterval);
+            lives -= 1;
+            document.getElementById('terminal-msg').style.color = "#dc2626";
+            document.getElementById('terminal-msg').innerText = "OVERLOAD! Jumlah melebihi target.";
+            updateStats();
+            gameActive = false;
+
+            if (lives <= 0) {
+                document.getElementById('mission-text').innerHTML = `<span style="color: #dc2626; font-weight: bold;">SYSTEM LOCKED: GAME OVER</span>`;
+                document.getElementById('main-btn').style.display = 'inline-block';
+                document.getElementById('main-btn').innerText = "COBA LAGI";
+                document.getElementById('main-btn').onclick = startMathGame;
             } else {
-                box.innerText = theme.normal;
-                box.onclick = () => {
-                    if (!isPlaying) return;
-                    // Penalti waktu jika salah klik data normal (-1 detik)
-                    timeLeft = Math.max(0, timeLeft - 1);
-                    document.getElementById("time").innerText = timeLeft;
-                    if (timeLeft <= 0) endGame();
-                };
+                setTimeout(initRound, 2000);
             }
-            gridArea.appendChild(box);
         }
     }
 
-    function endGame() {
-        isPlaying = false; 
+    function startTimer() {
+        timeLeft = 100;
+        let maxTime = Math.max(4000, 12000 - (level * 600));
+        let intervalTime = 50;
+        let decrement = (intervalTime / maxTime) * 100;
+
+        const bar = document.getElementById('timer-bar');
+        bar.style.background = "#f97316";
+
         clearInterval(timerInterval);
-        gridArea.style.display = "none"; 
-        gridArea.innerHTML = "";
-        document.getElementById("final-score").innerText = score;
-        gameoverScreen.style.display = "block";
+        timerInterval = setInterval(() => {
+            if (!gameActive) return;
+            timeLeft -= decrement;
+            bar.style.width = timeLeft + '%';
+            
+            if (timeLeft < 40) bar.style.background = "#ea580c";
+            if (timeLeft < 20) bar.style.background = "#dc2626";
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                gameActive = false;
+                lives -= 1;
+                document.getElementById('terminal-msg').style.color = "#dc2626";
+                document.getElementById('terminal-msg').innerText = "WAKTU HABIS! Kalkulasi terlambat.";
+                updateStats();
+
+                if (lives <= 0) {
+                    document.getElementById('mission-text').innerHTML = `<span style="color: #dc2626; font-weight: bold;">SYSTEM LOCKED: GAME OVER</span>`;
+                    document.getElementById('main-btn').style.display = 'inline-block';
+                    document.getElementById('main-btn').innerText = "COBA LAGI";
+                    document.getElementById('main-btn').onclick = startMathGame;
+                } else {
+                    setTimeout(initRound, 2000);
+                }
+            }
+        }, intervalTime);
     }
 
-    if(btnStart) btnStart.addEventListener("click", startGame);
-    if(btnRestart) btnRestart.addEventListener("click", startGame);
+    function updateStats() {
+        document.getElementById('score').innerText = score;
+        document.getElementById('lives').innerText = lives;
+        document.getElementById('level').innerText = level;
+    }
 </script>
 </body>
 </html>
 """
 
-components.html(outlier_game_html, height=540, scrolling=False)
+components.html(game_html, height=580)
