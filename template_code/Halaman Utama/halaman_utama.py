@@ -16,11 +16,30 @@ def load_image(url):
 
 # JANGAN DIUBAH
 
+# Global Blackpink Theme Styling
 st.markdown(
     """
-    <div style='text-align: center;'>
-        <h1 style='font-size: 5.5em;'>WEBSITE KATING</h1>
-        <p style='font-size: 2em;'>CEO HMSD Adyatama ITERA 2026</p>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+    
+    html, body, [class*="st"] {
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .stApp {
+        background-color: #0b0b0b;
+        color: #ffffff;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+    <div style='text-align: center; padding: 15px 0;'>
+        <h1 style='font-size: 4.5em; font-weight: 800; color: #ff1493; text-shadow: 0 0 25px rgba(255, 20, 147, 0.4); letter-spacing: 2px; margin-bottom: 0;'>WEBSITE KATING</h1>
+        <p style='font-size: 1.6em; font-weight: 600; color: #ffffff; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px;'>CEO HMSD Adyatama ITERA 2026</p>
     </div>
     """,
     unsafe_allow_html=True,
@@ -52,15 +71,25 @@ def streamlit_menu():
       default_index=0,
       orientation="horizontal",
       styles={
-          "container": {"padding": "0!important", "background-color": "#fafafa"},
-          "icon": {"color": "black", "font-size": "19px"},
+          "container": {
+              "padding": "0!important",
+              "background-color": "#121212",
+              "border-radius": "12px",
+              "border": "1px solid #ff1493",
+          },
+          "icon": {"color": "#ff1493", "font-size": "19px"},
           "nav-link": {
               "font-size": "15px",
-              "text-align": "left",
+              "text-align": "center",
               "margin": "0px",
-              "--hover-color": "#eee",
+              "color": "#ffffff",
+              "--hover-color": "#ff149333",
           },
-          "nav-link-selected": {"background-color": "#FCF0DA"},
+          "nav-link-selected": {
+              "background-color": "#ff1493",
+              "color": "#ffffff",
+              "font-weight": "bold",
+          },
       },
   )
   return selected
@@ -71,85 +100,78 @@ menu = streamlit_menu()
 if menu == "Home":
 
   def home_page():
-    # CSS Styling
+    # Blackpink & Modern Dark CSS Styling
     st.markdown(
         """
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap');
-        
         .deskripsi-title {
             text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2em;
-            color: #2c2c2c;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: #ff1493;
             margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        /* Frame Foto Kelompok */
-        .group-photo-frame {
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            background-color: #2c3e50;
-            margin-bottom: 0px;
+            font-weight: 800;
+            text-shadow: 0 0 15px rgba(255, 20, 147, 0.3);
         }
         
         /* Teks Overlay Foto Kelompok */
         .photo-caption-box {
-            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            background: linear-gradient(135deg, #18181b, #000000);
             color: white;
             text-align: center;
-            padding: 18px 15px;
-            border-bottom-left-radius: 18px;
-            border-bottom-right-radius: 18px;
+            padding: 20px 15px;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
             margin-bottom: 25px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            border: 1px solid #ff1493;
+            border-top: none;
         }
         
         .badge-cosval {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            margin-bottom: 8px;
-            letter-spacing: 1.5px;
-            font-weight: 600;
-            color: #f1c40f;
+            background: #ff1493;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(255,20,147,0.5);
         }
         
         .photo-text-title {
             margin: 0;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25em;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3em;
             font-weight: 700;
             line-height: 1.4;
             color: #ffffff;
         }
 
-        /* Kotak Deskripsi (Bingkai Emas, Judul Hijau Muda, Teks Hitam) */
+        /* Kotak Deskripsi (Tema Hitam-Pink) */
         .desc-box {
-            border: 3px solid #d4af37; /* Bingkai Emas */
-            background: #fdfbf7;
-            border-radius: 15px;
+            border: 2px solid #ff1493;
+            background: #121212;
+            border-radius: 16px;
             padding: 30px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.15);
             margin-bottom: 30px;
         }
         
         .desc-heading {
-            color: #2ecc71; /* Judul Hijau Muda */
-            font-family: 'Playfair Display', serif;
+            color: #ff69b4;
+            font-family: 'Montserrat', sans-serif;
             margin-top: 0;
             margin-bottom: 15px;
-            font-size: 1.5em;
+            font-size: 1.6em;
             font-weight: 700;
         }
         
         .desc-content {
-            color: #000000; /* Teks Hitam */
-            font-family: 'Inter', sans-serif;
+            color: #e0e0e0;
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.8;
             font-size: 1.05em;
             margin: 0;
@@ -157,24 +179,22 @@ if menu == "Home":
         }
 
         .book-cover {
-            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            background: linear-gradient(135deg, #121212, #000000);
             color: white;
             padding: 50px 20px;
             text-align: center;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            border-left: 15px solid #111;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            border: 2px solid #ff1493;
             margin-bottom: 20px;
         }
         
         .book-spread {
-            background: #fdfbf7;
-            border: 2px solid #dcd6cd;
-            border-radius: 8px;
+            background: #121212;
+            border: 2px solid #ff1493;
+            border-radius: 16px;
             padding: 30px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            border-left: 8px solid #d4c5b9;
-            border-right: 8px solid #d4c5b9;
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.2);
             margin-bottom: 20px;
         }
         </style>
@@ -194,7 +214,7 @@ if menu == "Home":
     )
     st.image(load_image(foto_kelompok_url), use_container_width=True)
 
-    # 3. Teks Keterangan Foto Gaya Poisson
+    # 3. Teks Keterangan Foto
     st.markdown(
         """
         <div class="photo-caption-box">
@@ -205,7 +225,7 @@ if menu == "Home":
         unsafe_allow_html=True,
     )
 
-    # 4. Kotak Deskripsi (Bingkai Emas, Judul Hijau Muda, Teks Hitam)
+    # 4. Kotak Deskripsi
     st.markdown(
         """
         <div class="desc-box">
@@ -225,7 +245,7 @@ if menu == "Home":
 
     # --- FITUR ALBUM COSVAL ---
     st.markdown(
-        "<h2 style='text-align: center;'>Album Dokumentasi Cosval</h2>",
+        "<h2 style='text-align: center; color: #ff1493; font-weight: 800;'>Album Dokumentasi Cosval</h2>",
         unsafe_allow_html=True,
     )
     st.write("")
@@ -246,9 +266,9 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-cover">
-                <h1>ALBUM Kelompok COSVAL</h1>
-                <p>Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
-                <p style="color: #bbb; font-size: 0.9em; margin-top: 15px;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
+                <h1 style="color: #ff1493; font-weight: 800;">ALBUM Kelompok COSVAL</h1>
+                <p style="color: #cccccc;">Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
+                <p style="color: #ff69b4; font-size: 0.9em; margin-top: 15px; font-weight: 600;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
             </div>
             """,
           unsafe_allow_html=True,
@@ -263,7 +283,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #7f8c8d; margin-top: 0;'>— Halaman 1 dari 3 —</h4>
+                <h4 style='text-align: center; color: #ff69b4; margin-top: 0;'>— Halaman 1 dari 3 —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -296,7 +316,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #7f8c8d; margin-top: 0;'>— Halaman 2 dari 3 —</h4>
+                <h4 style='text-align: center; color: #ff69b4; margin-top: 0;'>— Halaman 2 dari 3 —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -329,7 +349,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #7f8c8d; margin-top: 0;'>— Halaman 3 dari 3 (Akhir) —</h4>
+                <h4 style='text-align: center; color: #ff69b4; margin-top: 0;'>— Halaman 3 dari 3 (Akhir) —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -364,22 +384,22 @@ elif menu == "About Us":
 
   def about_page():
     st.markdown(
-        """<style>.centered-title {text-align: center;}</style>""",
+        """<style>.centered-title {text-align: center; color: #ff1493; font-weight: 800;}</style>""",
         unsafe_allow_html=True,
     )
     st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
 
-    # CSS Bingkai Foto About Us
+    # CSS Bingkai Foto About Us (Blackpink Edition)
     st.markdown(
         """
         <style>
         .about-photo img {
-            border: 8px solid #c5a059 !important;
-            outline: 3px solid #8b5a2b !important;
+            border: 4px solid #ff1493 !important;
+            outline: 2px solid #000000 !important;
             border-radius: 12px !important;
-            padding: 6px !important;
-            background-color: #ffffff !important;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.25) !important;
+            padding: 4px !important;
+            background-color: #121212 !important;
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.3) !important;
         }
         </style>
         """,
@@ -395,8 +415,8 @@ elif menu == "About Us":
     if filter_pilihan == "Semua":
       st.markdown(
           "<h2 style='text-align: center; margin-top: 20px;"
-          " margin-bottom: 20px; color: #5c3a21;'>Kenalan Yuk Sama"
-          " Cosval!</h2>",
+          " margin-bottom: 20px; color: #ff69b4; font-weight: 700;'>Kenalan"
+          " Yuk Sama Cosval!</h2>",
           unsafe_allow_html=True,
       )
 
@@ -525,16 +545,15 @@ elif menu == "About Us":
           st.markdown(
               f"""
                     <div style="
-                        background-color: #f4ecd8; 
-                        background-image: linear-gradient(to bottom, #f4ecd8, #e9dcbe);
-                        border: 2px solid #b39b77; 
+                        background-color: #121212; 
+                        border: 2px solid #ff1493; 
                         padding: 22px; 
-                        border-radius: 8px; 
-                        box-shadow: inset 0 0 15px rgba(139, 69, 19, 0.15), 0 4px 8px rgba(0,0,0,0.1); 
-                        color: #3e2723;
-                        font-family: serif;
+                        border-radius: 12px; 
+                        box-shadow: 0 4px 15px rgba(255, 20, 147, 0.2); 
+                        color: #ffffff;
+                        font-family: 'Montserrat', sans-serif;
                         margin-bottom: 20px;">
-                        <h3 style="margin-top: 0; color: #5c3a21; border-bottom: 2px solid #b39b77; padding-bottom: 8px;">{data['nama']}</h3>
+                        <h3 style="margin-top: 0; color: #ff1493; border-bottom: 2px solid #ff1493; padding-bottom: 8px;">{data['nama']}</h3>
                         <p style="margin: 8px 0; font-size: 1.05em;"><b>Sebagai:</b> {data['sebagai']}</p>
                         <p style="margin: 8px 0; font-size: 1.05em;"><b>NIM:</b> {data['nim']}</p>
                         <p style="margin: 8px 0; font-size: 1.05em;"><b>Fun Fact:</b> {data['fun_fact']}</p>
