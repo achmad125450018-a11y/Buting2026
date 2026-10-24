@@ -3,6 +3,18 @@
     "pemilik": "Astrit",
     "data": [
       {
+        "nama_kating": "Gustin Haleluya Tampubolon",
+        "foto_massal_gdrive_id": "1a_EL3Cym3ePOo84Td4Ul-qWQmNowf_bw",
+        "kesan": "Kakaknya baik dan pendiam",
+        "pesan": "Semoga semua rencana kakak berjalan sesuai harapan."
+      },
+      {
+        "nama_kating": "Ahmad Farhan Ghani",
+        "foto_massal_gdrive_id": "1f_TkWhmwolJlEsGvn2W8QjPOlSrvJz71",
+        "kesan": "Abangnya terlihat asik dan juga humoris",
+        "pesan": "Semoga selalu diberikan kemudahan dalam segala hal."
+      },
+      {
         "nama_kating": "Teresa Christiani Purba",
         "foto_massal_gdrive_id": "1Eq88Y4J9OHm15JTZev6nLdzBXZ9nQA0f",
         "kesan": "Kakaknya baik dan telihat pendiam",
@@ -35,20 +47,14 @@
       {
         "nama_kating": "Muhammad Hanif Dzaky Arifin",
         "foto_massal_gdrive_id": "1VcJo78vOaQ_jJhlTXxHmY9iLeoFDdqFp",
-        "kesan": "",
-        "pesan": ""
+        "kesan": "Abangnya baik dan juga pendiam",
+        "pesan": "Semoga selalu sehat, bahagia, dan sukses ke depannya."
       },
       {
         "nama_kating": "Hanna Gresia Sinaga",
         "foto_massal_gdrive_id": "1IB-JKtue4WLOw0utrDKumXtqPftcuTaP",
         "kesan": "Super chill dan ramah banget",
         "pesan": "Selalu bahagia di tengah kesibukan kak"
-      },
-      {
-        "nama_kating": "A Farhan Ghani",
-        "foto_massal_gdrive_id": "1f_TkWhmwolJlEsGvn2W8QjPOlSrvJz71",
-        "kesan": "",
-        "pesan": ""
       },
       {
         "nama_kating": "Aisyah Khairun Nisa",
@@ -87,16 +93,16 @@
         "pesan": "Sukses terus ya, Kak, semoga selalu jadi kebanggaan orang-orang sekitar."
       },
       {
-        "nama_kating": "Gustin H",
-        "foto_massal_gdrive_id": "1a_EL3Cym3ePOo84Td4Ul-qWQmNowf_bw",
-        "kesan": "",
-        "pesan": ""
-      },
-      {
         "nama_kating": "Najla Nursyifa",
         "foto_massal_gdrive_id": "1dapz79hflHCyT4h9z730ML7vAuCzN_fd",
         "kesan": "Kakaknya baik dan juga humoris",
         "pesan": "Tetap jadi pribadi yang baik dan menyenangkan ya, Kak!"
+      },
+      {
+        "nama_kating": "Danil Nur Fadillah",
+        "foto_massal_gdrive_id": "1xQcWnZ6_BOj6cAbS7uxUbanLLH3KFeue",
+        "kesan": "Kakaknya baik dan juga asik",
+        "pesan": "Semoga selalu diberikan kemudahan dalam segala hal."
       },
       {
         "nama_kating": "Yollanda Agustina",
@@ -207,12 +213,6 @@
         "pesan": "Semoga sukses selalu dan semua urusannya dilancarkan ya bang"
       },
       {
-        "nama_kating": "Danil N Fadillah",
-        "foto_massal_gdrive_id": "1xQcWnZ6_BOj6cAbS7uxUbanLLH3KFeue",
-        "kesan": "Kakaknya baik dan juga asik",
-        "pesan": "Semoga selalu diberikan kemudahan dalam segala hal."
-      },
-      {
         "nama_kating": "Ashila Islamisahfa Vanisha",
         "foto_massal_gdrive_id": "1oEses6iFr2CxNy-dqPXOau4gQRJNYtCy",
         "kesan": "Kakaknya terlihat pendiam",
@@ -231,16 +231,16 @@
         "pesan": "Tetap semangat, semoga semua impian kakak bisa tercapai!"
       },
       {
+        "nama_kating": "Gusti Putu Ferazka Dhiyamika",
+        "foto_massal_gdrive_id": "1K07wvFfSo4k3uwiNpKsXgw6HisvlHXUt",
+        "kesan": "Kakaknya asik dan open banget untuk cerita apapun termasuk drakor",
+        "pesan": "Semangat terus ya kak dan selalu di kelilingi orang baik"
+      },
+      {
         "nama_kating": "Juwita Sari",
         "foto_massal_gdrive_id": "1PLl0GRvXDL2lmzFd4oMQfLsdJMCLIX3X",
         "kesan": "Kakaknya baik dan ramah",
         "pesan": "Semoga semua urusannya dilancarkan dan apa yang dicita-citakan bisa tercapai."
-      },
-      {
-        "nama_kating": "Gusti Putu Ferazka D.",
-        "foto_massal_gdrive_id": "1K07wvFfSo4k3uwiNpKsXgw6HisvlHXUt",
-        "kesan": "",
-        "pesan": ""
       },
       {
         "nama_kating": "Indah Julia Mawar Pratiwi",
@@ -603,10 +603,22 @@
         "pesan": "Semoga setiap perjuangan berakhir dengan hasil yang membanggakan."
       },
       {
+        "nama_kating": "Muhammad Alsi Syahrulloh",
+        "foto_massal_gdrive_id": "1RnFBhwDrPUXebE5PIr2XBICyIqbsq1fr",
+        "kesan": "Abangnya awalnya keliatan pendiam dan juga baik",
+        "pesan": "Semangat terus bang, selalu di keliling dengan orang orang baik dan apapun yang diinginkan terceppai"
+      },
+      {
+        "nama_kating": "Fadil Prasetyo Alfarizzi",
+        "foto_massal_gdrive_id": "1dkc5gfdbhL9r_Cb8NRNStjbn8RD7Y0Vu",
+        "kesan": "Bang fadil itu orangnya serius dan juga baik",
+        "pesan": "Terimakasih kisah inspiratifnya, Semoga kebaikan itu menjadi penolong bang, dan semoga Allah memberikan kedamaian serta tempat terbaik di surga-Nya"
+      },
+      {
         "nama_kating": "Akeyla Fairuz Shafi",
         "foto_massal_gdrive_id": "1qZWSyt-E5y5c8Zqkar9mqicqrQirC9PK",
-        "kesan": "Bang akel itu awalnya keliatan pendiem tapi aslinya asik",
-        "pesan": "Sukses selalu bang dan apa yang di inginkan tercapai"
+        "kesan": "Bang akel itu awalnya keliatan pendiem tapi aslinya asik dan juga baik",
+        "pesan": "Sukses selalu bang, apapun yang di inginkan tercapai dan semangat terus kuliahnya"
       },
       {
         "nama_kating": "Melva Shaprina Febrianti",
@@ -631,12 +643,6 @@
         "foto_massal_gdrive_id": "1PrvIezzD-sz-5cWQA0GCey_xxTezAUMa",
         "kesan": "Abangnya baik dan ramah",
         "pesan": "Tetap semangat bang dalam ngejalanin apapun"
-      },
-      {
-        "nama_kating": "M",
-        "foto_massal_gdrive_id": "1RnFBhwDrPUXebE5PIr2XBICyIqbsq1fr",
-        "kesan": "",
-        "pesan": ""
       },
       {
         "nama_kating": "Hafidz Wahdiansyah",
@@ -677,20 +683,20 @@
       {
         "nama_kating": "Fadya Izzatul 'Aini",
         "foto_massal_gdrive_id": "10CCCVsnxedineIni6v0QC9LNUnkGH5IM",
-        "kesan": "Kakaknya baik dan keliatan pendiam",
-        "pesan": "Semangat terus ya kak, sukses terus dan selalu di kelilingi orang orang baik"
+        "kesan": "Kakaknya baik dan keliatan pendiam tapi aslinya engga juga",
+        "pesan": "Semangat terus ya kak, sukses terus dan selalu di kelilingi orang orang baik dan apapun yang diinginkan tercapai"
       },
       {
         "nama_kating": "Elsa Sitorus",
         "foto_massal_gdrive_id": "14hlpw4b6Ft_mWR6z_XJDaIKEfsEcj_Ih",
         "kesan": "Kebanyak yang bilang kakaknya galak tapi aslinya baik dan juga asik",
-        "pesan": "Semangat kak dan apa yang di cita citakan terkabul"
+        "pesan": "Semangat kak kuliahnya dan apapun yang di cita citakan segera terkabul"
       },
       {
         "nama_kating": "Lovianora Saragih",
         "foto_massal_gdrive_id": "1_pN9njU9GoRu_NXmIRYpO7xPWZwQ32TO",
-        "kesan": "Baik dan jago banget MCnya",
-        "pesan": "Semangat terus kedepannya kak dan sehat selalu"
+        "kesan": "Baik dan keren banget kakak MC, seru pokoknya",
+        "pesan": "Semangat terus kedepannya kak dan sehat selalu dan selalu di kelilingi orang orang baik"
       },
       {
         "nama_kating": "Manuel Frederika",
@@ -719,14 +725,8 @@
       {
         "nama_kating": "Sherena Florencia",
         "foto_massal_gdrive_id": "1kkpGFUMhMsW8Yxb66uYytLVpvIsmibo6",
-        "kesan": "Kakaknya asik dan juga imut",
-        "pesan": "Suskes terus kak dan urusannya selalu lancar"
-      },
-      {
-        "nama_kating": "Fadil Prasetyo",
-        "foto_massal_gdrive_id": "1dkc5gfdbhL9r_Cb8NRNStjbn8RD7Y0Vu",
-        "kesan": "",
-        "pesan": ""
+        "kesan": "Kakaknya asik, imut dan juga bauik",
+        "pesan": "Suskes terus kak, urusannya selalu lancar, semangat kuliahnya dan apapun yang dinginkan segera tercapai"
       },
       {
         "nama_kating": "Faiza Try Anjani",
@@ -735,10 +735,10 @@
         "pesan": "Semangat terus ya kak dan selalu di kelilingi orang baik"
       },
       {
-        "nama_kating": "Moch",
+        "nama_kating": "Mochammad Iqbal Az-Zahir",
         "foto_massal_gdrive_id": "1WKyHBfLhHYD8674_aAEL2C23Wwxc_d-L",
-        "kesan": "",
-        "pesan": ""
+        "kesan": "Abangnya terlihat sedikit pendiam",
+        "pesan": "abang selalu di beri kemudahan menjalankan apapun"
       },
       {
         "nama_kating": "Afdhal Rahmad Setiawan",
@@ -807,16 +807,22 @@
         "pesan": "Tetap semangat kak dalam ngejalanin apapun"
       },
       {
-        "nama_kating": "Salavi Naharani",
-        "foto_massal_gdrive_id": "1NRdezh_cfZcZ1qYbBYpB8-M6ZP9lMvf5",
-        "kesan": "",
-        "pesan": ""
+        "nama_kating": "Jeremi Marolop Partogi Situmorang",
+        "foto_massal_gdrive_id": "1pB48l3rdQDqqGziL_Pg59wstxpoR3A-Y",
+        "kesan": "Abangnya baik dan santai",
+        "pesan": "Semoga ke depannya abang makin banyak ketemu hal-hal baik dan selalu dikelilingi orang-orang baik"
       },
       {
-        "nama_kating": "Jeremi Marolop P",
-        "foto_massal_gdrive_id": "1pB48l3rdQDqqGziL_Pg59wstxpoR3A-Y",
-        "kesan": "",
-        "pesan": ""
+        "nama_kating": "Nobel Nizam Fathirizki",
+        "foto_massal_gdrive_id": "1LIikmKChDfi7ehN8Sq0CJbVQoALo4jSc",
+        "kesan": "Bang nobel punya aura yang kuat walaupun saat diam",
+        "pesan": "Semoga abang selalu di limphakan keberkahan dan urusannya lacar"
+      },
+      {
+        "nama_kating": "Salavi Naharani",
+        "foto_massal_gdrive_id": "1NRdezh_cfZcZ1qYbBYpB8-M6ZP9lMvf5",
+        "kesan": "Kakaknya baik dan imut",
+        "pesan": "Semangat terus ya kak, sukses terus dan semua urusan kakak dilancarkan"
       },
       {
         "nama_kating": "Euodia Meiliana Friedita",
@@ -885,12 +891,6 @@
         "pesan": "Semoga jalan Kakak ke depannya selalu dimudahkan"
       },
       {
-        "nama_kating": "Nobel Nizam F",
-        "foto_massal_gdrive_id": "1LIikmKChDfi7ehN8Sq0CJbVQoALo4jSc",
-        "kesan": "",
-        "pesan": ""
-      },
-      {
         "nama_kating": "Queenta Thifaal Nabila",
         "foto_massal_gdrive_id": "1BSjPrZNdGEWdoSUQJ9H6Q_TBAhnjvpnJ",
         "kesan": "Kakaknya baik dan ramah",
@@ -909,75 +909,15 @@
         "pesan": "Semoga abang selalu sehat, bahagia, dan sukses terus ke depannya"
       },
       {
-        "nama_kating": "Fadil Prasetyo Alfarizzi",
-        "foto_massal_gdrive_id": "",
-        "kesan": "Bang fadil itu orangnya serius",
-        "pesan": "Semangat terus kedepannya bang dan selalu di beri kesehatan"
-      },
-      {
-        "nama_kating": "M. Alsi Syahrulloh",
-        "foto_massal_gdrive_id": "",
-        "kesan": "Abangnya keliatan pendiam dan juga baik",
-        "pesan": "Semangat terus bang, selalu di keliling dengan orang orang baik"
-      },
-      {
         "nama_kating": "Ahmad Bimo Akbar Arkan Putra",
         "foto_massal_gdrive_id": "",
         "kesan": "Abangnya baik dan juga ramah",
         "pesan": "Semoga langkah abang selalu dimudahkan menuju hal-hal baik."
       },
       {
-        "nama_kating": "Ahmad Farhan Ghani",
-        "foto_massal_gdrive_id": "",
-        "kesan": "Abangnya terlihat asik dan juga humoris",
-        "pesan": "Semoga selalu diberikan kemudahan dalam segala hal."
-      },
-      {
-        "nama_kating": "Muhammad Hanid Dzaky Arifin",
-        "foto_massal_gdrive_id": "",
-        "kesan": "Abangnya baik dan juga pendiam",
-        "pesan": "Semoga selalu sehat, bahagia, dan sukses ke depannya."
-      },
-      {
-        "nama_kating": "Gustin Haleluya Tampubolon",
-        "foto_massal_gdrive_id": "",
-        "kesan": "Kakaknya baik dan pendiam",
-        "pesan": "Semoga semua rencana kakak berjalan sesuai harapan."
-      },
-      {
-        "nama_kating": "Gusti Putu Ferazka Dhiyamika",
-        "foto_massal_gdrive_id": "",
-        "kesan": "Kakaknya asik dan open banget untuk cerita apapun termasuk drakor",
-        "pesan": "Semangat terus ya kak dan selalu di kelilingi orang baik"
-      },
-      {
         "nama_kating": "Ari Aristo Muthahari Parisi",
         "foto_massal_gdrive_id": "",
         "kesan": "Abangnya baik dan asik",
-        "pesan": "abang selalu di beri kemudahan menjalankan apapun"
-      },
-      {
-        "nama_kating": "Nobel Nizam Fathirizki",
-        "foto_massal_gdrive_id": "",
-        "kesan": "Bang nobel punya aura yang kuat walaupun saat diam",
-        "pesan": "Semoga abang selalu di limphakan keberkahan dan urusannya lacar"
-      },
-      {
-        "nama_kating": "Jeremi Marolop P. Situmorang",
-        "foto_massal_gdrive_id": "",
-        "kesan": "Abangnya baik dan santai",
-        "pesan": "Semoga ke depannya abang makin banyak ketemu hal-hal baik dan selalu dikelilingi orang-orang baik"
-      },
-      {
-        "nama_kating": "Salavia Naharani",
-        "foto_massal_gdrive_id": "",
-        "kesan": "Kakaknya baik dan imut",
-        "pesan": "Semangat terus ya kak, sukses terus dan semua urusan kakak dilancarkan"
-      },
-      {
-        "nama_kating": "Mochammad Iqbal Az-Zahir",
-        "foto_massal_gdrive_id": "",
-        "kesan": "Abangnya terlihat sedikit pendiam",
         "pesan": "abang selalu di beri kemudahan menjalankan apapun"
       }
     ]
