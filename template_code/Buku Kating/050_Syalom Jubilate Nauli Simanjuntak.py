@@ -348,8 +348,15 @@ if menu == "Badan Kesenatoran":
     def senator():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1BiNk5M6Ci6N4ieWtwpg7HIcHNecztF_L",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1PFbWmbXemip08GdLYQXBgtSdlsz4Ohdi",
+            "https://drive.google.com/uc?export=view&id=19ziY6jn9BuqaRz-5uLXNI5FcPuVCpIFL",
+            "https://drive.google.com/uc?export=view&id=1Hg7JdAHRoXRbQa3_Mf-VqNGCqlVrKmJt",
+            "https://drive.google.com/uc?export=view&id=1u-35So1IGuhboLrdhxjRaQajM7tpBMs9",
+            "https://drive.google.com/uc?export=view&id=1Zv_yaDB0BGbAxggwQem6sin_Okx2m-Ae",
+            "https://drive.google.com/uc?export=view&id=1ywi71_eg5aJyQDmitS-sp_n7Lz5oB4PF",
+            "https://drive.google.com/uc?export=view&id=1EGc91St9QmGoQAW98O7rRth2NQYLc67c",
+            "https://drive.google.com/uc?export=view&id=1phyGNH6m_o0gjmiOUtTzM8-RcjCV6Fc1",
+            "https://drive.google.com/uc?export=view&id=1Lzp48GWSe0HtBxscC2NbSq9uRsjYlUE4",
         ]
         data_list = [
             {
@@ -369,9 +376,9 @@ if menu == "Badan Kesenatoran":
                 "umur": "21",
                 "asal":"Bandar Lampung",
                 "alamat": "Sukarame",
-                "hobbi": "Danger lagu",
+                "hobbi": "Denger lagu",
                 "sosmed": "@nadyaanjaani",
-                "kesan": "Bang Aqil juga ga kalah keren! baik jugaa",  
+                "kesan": "",  
                 "pesan":"semangat terus kuliahnya kakak !!!"# 2
             },
             {
