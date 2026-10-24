@@ -1,7 +1,7 @@
 import streamlit as st
-import random
+import streamlit.components.v1 as components
 
-st.set_page_config(page_title="Data Bros Memory Shuffle", layout="centered")
+st.set_page_config(page_title="Data Bros Moving Shuffle", layout="centered")
 
 st.markdown("""
 <style>
@@ -9,161 +9,284 @@ st.markdown("""
     background-color: #1e1b4b;
     color: #ffffff;
 }
-h1, h2, h3 {
+h1 {
     color: #facc15 !important;
     font-family: 'Courier New', monospace;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-label, p, span, div {
-    color: #f8fafc !important;
-}
-.stMetric {
-    background-color: #312e81;
-    border: 2px solid #facc15;
-    padding: 15px;
-    border-radius: 12px;
-}
-[data-testid="stMetricValue"] {
-    color: #facc15 !important;
-}
-.stButton>button {
-    background-color: #312e81 !important;
-    color: #facc15 !important;
-    border: 2px solid #facc15 !important;
-    font-family: 'Courier New', monospace !important;
-    font-weight: bold !important;
-    font-size: 16px !important;
-    width: 100%;
-    padding: 20px;
-    border-radius: 12px;
-}
-.stButton>button:hover {
-    background-color: #4338ca !important;
-    border-color: #38bdf8 !important;
-    color: #38bdf8 !important;
+    text-align: center;
 }
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Data Bros: Memory Shuffle Quest")
-st.markdown("Perhatikan isi kotak pada tahap awal, lalu lacak posisinya setelah kotak ditutup dan diacak!")
+st.title("DATA BROS: MOVING SHUFFLE QUEST")
+st.markdown("<p style='text-align: center; color: #f8fafc;'>Perhatikan isi data pada kotak, lalu ikuti pergerakan kotak saat bergeser dan bertukar posisi!</p>", unsafe_allow_html=True)
 
-if "score" not in st.session_state:
-    st.session_state.score = 0
-if "coins" not in st.session_state:
-    st.session_state.coins = 0
-if "lives" not in st.session_state:
-    st.session_state.lives = 3
-if "world" not in st.session_state:
-    st.session_state.world = 1
-if "stage" not in st.session_state:
-    st.session_state.stage = 1
-if "game_phase" not in st.session_state:
-    st.session_state.game_phase = "reveal"
+game_html = """
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        background-color: #1e1b4b;
+        color: white;
+        font-family: 'Courier New', monospace;
+        text-align: center;
+        margin: 0;
+        padding: 10px;
+    }
+    .stats {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 15px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .stat-box {
+        background: #312e81;
+        border: 2px solid #facc15;
+        padding: 8px 15px;
+        border-radius: 8px;
+        color: #facc15;
+    }
+    .instruction {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #38bdf8;
+        font-weight: bold;
+        min-height: 24px;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 140px;
+        position: relative;
+        margin: 20px auto;
+        width: 520px;
+    }
+    .box {
+        width: 110px;
+        height: 120px;
+        background: #312e81;
+        border: 3px solid #facc15;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        transition: left 0.4s ease-in-out;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    .box:hover {
+        border-color: #38bdf8;
+    }
+    .box-val {
+        font-size: 18px;
+        font-weight: bold;
+        color: #facc15;
+    }
+    .box-type {
+        font-size: 11px;
+        color: #38bdf8;
+        margin-top: 5px;
+    }
+    .message {
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        height: 30px;
+    }
+    .btn {
+        background-color: #facc15;
+        color: #1e1b4b;
+        border: none;
+        padding: 12px 24px;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 15px;
+        font-family: 'Courier New', monospace;
+    }
+    .btn:hover {
+        background-color: #38bdf8;
+    }
+</style>
+</head>
+<body>
 
-def generate_puzzle():
-    types_pool = [
-        ("Integer", [str(random.randint(1, 99)) for _ in range(3)]),
-        ("Float", [str(round(random.uniform(1.0, 9.9), 2)) for _ in range(3)]),
-        ("String", ["Koopa", "Goomba", "Peach", "Luigi", "Toad"]),
-        ("Boolean", ["True", "False"])
-    ]
-    dom_idx = random.randint(0, len(types_pool) - 1)
-    dom_name, dom_vals = types_pool[dom_idx]
-    anom_pool = [t for i, t in enumerate(types_pool) if i != dom_idx]
-    anom_name, anom_vals = random.choice(anom_pool)
-    
-    blocks = []
-    for _ in range(3):
-        blocks.append({"val": random.choice(dom_vals), "type": dom_name, "is_anom": False})
-    blocks.append({"val": random.choice(anom_vals), "type": anom_name, "is_anom": True})
-    random.shuffle(blocks)
-    return dom_name, anom_name, blocks
+<div class="stats">
+    <div class="stat-box">SKOR: <span id="score">0</span></div>
+    <div class="stat-box">NYAWA: <span id="lives">3</span></div>
+    <div class="stat-box">RONDE: <span id="round">1</span></div>
+</div>
 
-if "blocks" not in st.session_state:
-    d, a, b = generate_puzzle()
-    st.session_state.dom_name = d
-    st.session_state.anom_name = a
-    st.session_state.blocks = b
+<div class="instruction" id="instruction">Perhatikan isi kotak di bawah ini!</div>
 
-col1, col2, col3, col4 = st.columns(4)
-col1.metric("World", f"{st.session_state.world}-{st.session_state.stage}")
-col2.metric("Coins", st.session_state.coins)
-col3.metric("Score", st.session_state.score)
-col4.metric("Lives", st.session_state.lives)
+<div class="container" id="box-container">
+</div>
 
-st.markdown("---")
+<div class="message" id="message"></div>
+<button class="btn" id="action-btn" onclick="startShuffle()">Mulai Acak Posisi</button>
 
-if st.session_state.lives > 0:
-    if st.session_state.game_phase == "reveal":
-        st.markdown(f"### FASE 1: Perhatikan isi kotak! Ingat letak anomali tipe <span style='color: #38bdf8;'>{st.session_state.anom_name}</span> di antara tipe <span style='color: #facc15;'>{st.session_state.dom_name}</span>!", unsafe_allow_html=True)
+<script>
+    let score = 0;
+    let lives = 3;
+    let round = 1;
+    let boxes = [];
+    let gameState = 'reveal'; 
+    let targetType = '';
+
+    const typesPool = [
+        { name: "Integer", vals: ["42", "108", "512", "999", "12"] },
+        { name: "Float", vals: ["3.14", "9.81", "0.55", "7.25", "4.19"] },
+        { name: "String", vals: ["Koopa", "Goomba", "Peach", "Luigi", "Toad"] },
+        { name: "Boolean", vals: ["True", "False"] }
+    ];
+
+    function initRound() {
+        gameState = 'reveal';
+        document.getElementById('message').innerText = "";
+        document.getElementById('action-btn').style.display = 'inline-block';
+        document.getElementById('action-btn').innerText = "Mulai Acak Posisi";
+
+        let domIdx = Math.floor(Math.random() * typesPool.length);
+        let domType = typesPool[domIdx];
         
-        cols = st.columns(4)
-        for idx, block in enumerate(st.session_state.blocks):
-            with cols[idx]:
-                st.markdown(f"""
-                <div style="background-color: #312e81; border: 2px solid #facc15; padding: 15px; border-radius: 12px; text-align: center;">
-                    <h3 style="color: #facc15; margin: 0;">{block['val']}</h3>
-                    <p style="color: #38bdf8; margin: 5px 0 0 0; font-size: 14px;">{block['type']}</p>
-                </div>
-                """, unsafe_allow_html=True)
-        
-        st.markdown("<br>", unsafe_allow_html=True)
-        if st.button("Mulai Acak Posisi Kotak"):
-            st.session_state.game_phase = "guess"
-            random.shuffle(st.session_state.blocks)
-            st.rerun()
+        let anomPool = typesPool.filter((_, idx) => idx !== domIdx);
+        let anomType = anomPool[Math.floor(Math.random() * anomPool.length)];
 
-    elif st.session_state.game_phase == "guess":
-        st.markdown(f"### FASE 2: Kotak telah diacak! Pilih kotak yang menyembunyikan tipe data <span style='color: #38bdf8;'>{st.session_state.anom_name}</span>!", unsafe_allow_html=True)
-        
-        cols = st.columns(4)
-        for idx, block in enumerate(st.session_state.blocks):
-            with cols[idx]:
-                if st.button(f"[ ? ]\nKotak {idx+1}", key=f"guess_block_{idx}_{st.session_state.world}_{st.session_state.stage}"):
-                    if block["is_anom"]:
-                        st.session_state.score += 150
-                        st.session_state.coins += 1
-                        st.success(f"Tepat sekali! Kotak berisi {block['val']} ({block['type']}). Mario maju ke stage berikutnya!")
-                        st.session_state.stage += 1
-                        if st.session_state.stage > 3:
-                            st.session_state.stage = 1
-                            st.session_state.world += 1
-                        d, a, b = generate_puzzle()
-                        st.session_state.dom_name = d
-                        st.session_state.anom_name = a
-                        st.session_state.blocks = b
-                        st.session_state.game_phase = "reveal"
-                        st.rerun()
-                    else:
-                        st.session_state.lives -= 1
-                        st.session_state.score = max(0, st.session_state.score - 50)
-                        if st.session_state.lives <= 0:
-                            st.error("Game Over! Mario kehabisan nyawa.")
-                            st.session_state.game_phase = "reveal"
-                            st.rerun()
-                        else:
-                            st.error(f"Salah! Kotak tersebut berisi data normal {block['val']} ({block['type']}). Mario kehilangan 1 nyawa!")
-                            st.session_state.game_phase = "reveal"
-                            d, a, b = generate_puzzle()
-                            st.session_state.dom_name = d
-                            st.session_state.anom_name = a
-                            st.session_state.blocks = b
-                            st.rerun()
-else:
-    st.error("Permainan Berakhir. Tekan tombol reset di bawah untuk memulai ulang petualangan Mario.")
+        targetType = anomType.name;
+        document.getElementById('instruction').innerHTML = `Cari kotak tipe data: <span style="color: #facc15;">${targetType}</span>`;
 
-st.markdown("---")
-if st.button("Reset Permainan Mario"):
-    st.session_state.score = 0
-    st.session_state.coins = 0
-    st.session_state.lives = 3
-    st.session_state.world = 1
-    st.session_state.stage = 1
-    st.session_state.game_phase = "reveal"
-    d, a, b = generate_puzzle()
-    st.session_state.dom_name = d
-    st.session_state.anom_name = a
-    st.session_state.blocks = b
-    st.rerun()
+        boxes = [];
+        for(let i=0; i<3; i++) {
+            let val = domType.vals[Math.floor(Math.random() * domType.vals.length)];
+            boxes.push({ val: val, type: domType.name, isAnom: false });
+        }
+        let anomVal = anomType.vals[Math.floor(Math.random() * anomType.vals.length)];
+        boxes.push({ val: anomVal, type: anomType.name, isAnom: true });
+
+        shuffleArray(boxes);
+        renderBoxes(true);
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    function renderBoxes(showContent) {
+        const container = document.getElementById('box-container');
+        container.innerHTML = '';
+        
+        boxes.forEach((box, index) => {
+            const el = document.createElement('div');
+            el.className = 'box';
+            el.style.left = (index * 130) + 'px';
+            el.onclick = () => handleBoxClick(index);
+
+            if (showContent) {
+                el.innerHTML = `
+                    <div class="box-val">${box.val}</div>
+                    <div class="box-type">${box.type}</div>
+                `;
+            } else {
+                el.innerHTML = `
+                    <div class="box-val" style="font-size: 26px;">[ ? ]</div>
+                    <div class="box-type">Kotak ${index + 1}</div>
+                `;
+            }
+            container.appendChild(el);
+        });
+    }
+
+    async function startShuffle() {
+        if (gameState !== 'reveal') return;
+        gameState = 'shuffling';
+        document.getElementById('action-btn').style.display = 'none';
+        document.getElementById('instruction').innerText = "Kotak sedang bergeser dan bertukar posisi...";
+
+        renderBoxes(false);
+        await sleep(700);
+
+        let swaps = 5 + round;
+        for(let s = 0; s < swaps; s++) {
+            let idx1 = Math.floor(Math.random() * 4);
+            let idx2;
+            do {
+                idx2 = Math.floor(Math.random() * 4);
+            } while(idx1 === idx2);
+
+            let temp = boxes[idx1];
+            boxes[idx1] = boxes[idx2];
+            boxes[idx2] = temp;
+
+            renderBoxes(false);
+            await sleep(400);
+        }
+
+        gameState = 'guessing';
+        document.getElementById('instruction').innerHTML = `Pilih kotak yang berisi tipe data: <span style="color: #facc15;">${targetType}</span>!`;
+    }
+
+    function handleBoxClick(index) {
+        if (gameState !== 'guessing') return;
+        gameState = 'result';
+
+        renderBoxes(true);
+
+        const clickedBox = boxes[index];
+        const msgEl = document.getElementById('message');
+
+        if (clickedBox.isAnom) {
+            score += 150;
+            round += 1;
+            msgEl.style.color = "#4ade80";
+            msgEl.innerText = "Benar! Anomali berhasil ditemukan!";
+        } else {
+            lives -= 1;
+            msgEl.style.color = "#f87171";
+            msgEl.innerText = `Salah! Itu adalah ${clickedBox.type} (${clickedBox.val}).`;
+            if (lives <= 0) {
+                document.getElementById('instruction').innerText = "GAME OVER! Nyawa Habis.";
+                document.getElementById('action-btn').style.display = 'inline-block';
+                document.getElementById('action-btn').innerText = "Main Lagi";
+                document.getElementById('action-btn').onclick = resetGame;
+                updateStats();
+                return;
+            }
+        }
+
+        updateStats();
+        setTimeout(initRound, 2500);
+    }
+
+    function updateStats() {
+        document.getElementById('score').innerText = score;
+        document.getElementById('lives').innerText = lives;
+        document.getElementById('round').innerText = round;
+    }
+
+    function resetGame() {
+        score = 0;
+        lives = 3;
+        round = 1;
+        document.getElementById('action-btn').onclick = startShuffle;
+        initRound();
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    initRound();
+</script>
+</body>
+</html>
+"""
+
+components.html(game_html, height=480)
