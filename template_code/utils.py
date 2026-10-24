@@ -492,18 +492,37 @@ def streamlit_menu(default_index=0):
     )
 
 
-# 1. Variabel CSS Sidebar
+# ============================================================
+# 🎨 SETUP SIDEBAR & HALAMAN UTAMA
+# ============================================================
 SIDEBAR_CSS = """
 <style>
-[data-testid="stSidebar"] { background: linear-gradient(180deg, #701c23 0%, #4e1318 100%) !important; }
-/* ... (css sidebar lainnya) ... */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #701c23 0%, #4e1318 100%) !important;
+}
+[data-testid="stSidebar"] *,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] div,
+[data-testid="stSidebar"] svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f4f0eb; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #701c23, #a8323d);
+    border-radius: 10px;
+    border: 2px solid #f4f0eb;
+}
 </style>
 """
 
-# 2. Fungsi yang dipanggil oleh halaman_utama.py
 def setup_common():
+    """Inject Sidebar CSS di semua halaman."""
     st.markdown(SIDEBAR_CSS, unsafe_allow_html=True)
 
 def setup_halaman_utama_css(custom_css: str):
+    """Inject Sidebar CSS + Custom CSS Halaman Utama."""
     setup_common()
     st.markdown(custom_css, unsafe_allow_html=True)
