@@ -474,23 +474,23 @@ if menu == "Senator":
 if menu == "Departemen PSDA":
     def PSDA():
         gambar_urls = [
-            "https://drive.google.com/uc?export=15bGfYVoiqTkyGIoMFODDmq_7ee86AllF",
-            "https://drive.google.com/uc?export=1wO05b9uvAsLIlSWs8dbwJ81__pFEKG2s",
-            "https://drive.google.com/uc?export=1vdhGc5xb-gpvsAhAJd_i4KekmDEz8ekG",
-            "https://drive.google.com/uc?export=1uZiq2JZhlSoEuxap498rpwUUvqQJYVRa",
-            "https://drive.google.com/uc?export=1mHMY8LoWjXATbpsl-iPWLuNxdhhE3kO0",
-            "https://drive.google.com/uc?export=1oQX-KuDyYFzU_me1x-a941wk26ysVbIT",
-            "https://drive.google.com/uc?export=1_X3sgHjKvC7stBiQ2OFP0uBTLqw3Jpl0",
-            "https://drive.google.com/uc?export=10IcvDkUL4bpDfa-0O0TTuaWw0nRTDPUP",
-            "https://drive.google.com/uc?export=1q9XtvSbuiZWLb4Opzr-1lJ7u8qoOoY0p",
-            "https://drive.google.com/uc?export=1p1TKGd8FNwBwwZAsJmh3EcozCYZjqBUx",
-            "https://drive.google.com/uc?export=1DXDxXW7BQhrLdTexVII67Y2UW9vvChTy",
-            "https://drive.google.com/uc?export=1OaLPUeF7Ub-TKOEjHasVSZdu55MyoNia",
-            "https://drive.google.com/uc?export=1q2TCdcQEXFWMLyZKfs0eqzYsBYPJfi4Y",
-            "https://drive.google.com/uc?export=1OPjbd9fsouyIZAKdU3oV4FHPOb3fsj5C",
-            "https://drive.google.com/uc?export=1A5gqa__vCQzrYXhF8ETqvGiqMDXLcYQt",
-            "https://drive.google.com/uc?export=1DheYcOlDSOM66lq9fMSgbURJJxfVc7So",
-            "https://drive.google.com/uc?export=1aKhDJYIQsEYhcLYCXOA2WFZrykL9mBIf",
+            "https://drive.google.com/uc?export=15bGfYVoiqTkyGIoMFODDmq_7ee86AllF", #kak arienta
+            "https://drive.google.com/uc?export=1wO05b9uvAsLIlSWs8dbwJ81__pFEKG2s", #kak vany
+            "https://drive.google.com/uc?export=1vdhGc5xb-gpvsAhAJd_i4KekmDEz8ekG", #bg nobel
+            "https://drive.google.com/uc?export=1uZiq2JZhlSoEuxap498rpwUUvqQJYVRa", #bg azmi
+            "https://drive.google.com/uc?export=15bGfYVoiqTkyGIoMFODDmq_7ee86AllF", #bg ayake
+            "https://drive.google.com/uc?export=1oQX-KuDyYFzU_me1x-a941wk26ysVbIT", #bg caesar
+            "https://drive.google.com/uc?export=1_X3sgHjKvC7stBiQ2OFP0uBTLqw3Jpl0", #ka eudia
+            "https://drive.google.com/uc?export=10IcvDkUL4bpDfa-0O0TTuaWw0nRTDPUP", #bg haikal
+            "https://drive.google.com/uc?export=1q9XtvSbuiZWLb4Opzr-1lJ7u8qoOoY0p", #ka putri
+            "https://drive.google.com/uc?export=1p1TKGd8FNwBwwZAsJmh3EcozCYZjqBUx", #ka queenta
+            "https://drive.google.com/uc?export=1DXDxXW7BQhrLdTexVII67Y2UW9vvChTy", #bg desman
+            "https://drive.google.com/uc?export=1OaLPUeF7Ub-TKOEjHasVSZdu55MyoNia", #ka azzelya
+            "https://drive.google.com/uc?export=1q2TCdcQEXFWMLyZKfs0eqzYsBYPJfi4Y", #ka charlindah
+            "https://drive.google.com/uc?export=1OPjbd9fsouyIZAKdU3oV4FHPOb3fsj5C", #bg jeremy
+            "https://drive.google.com/uc?export=1A5gqa__vCQzrYXhF8ETqvGiqMDXLcYQt", #ka nabila
+            "https://drive.google.com/uc?export=1DheYcOlDSOM66lq9fMSgbURJJxfVc7So", #bg rafli
+            "https://drive.google.com/uc?export=1aKhDJYIQsEYhcLYCXOA2WFZrykL9mBIf", #ka salavi
         ]
         data_list = [
             {
@@ -683,3 +683,195 @@ if menu == "Departemen PSDA":
             ]
         display_images_with_data(gambar_urls, data_list)
     PSDA()
+
+if menu == "Minbak": 
+    def minbak():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=1AROZ1ZksKOlTJOIb-wrIeT_kLwakBQ9Y",  # Bang Kevin
+            "https://drive.google.com/uc?export=view&id=1Jbn7SV3XcCg_nDfNR6xxAcAvWgR2Z9Co",  # Kak Gusti
+            "https://drive.google.com/uc?export=view&id=1rqthI7tWNH-w5ZWL_NwyyHcWXR2SLqOr",  # Bang Ali
+            "https://drive.google.com/uc?export=view&id=1yEK3Vur-DrP5cwMuvnfLQKY1mBzyFf2X",  # Kak Ayu
+            "https://drive.google.com/uc?export=view&id=1XWFr94HpzeX-EW59CKoDB3tTU7KeJiAH",  # Bang Dafa
+            "https://drive.google.com/uc?export=view&id=1Ot_OU6yfsx3yaBf6Zch7PDodxDP_Kgac",  # Kak Salsabila
+            "https://drive.google.com/uc?export=view&id=1Z-yvjqn8xAPQFxgO10nJd7h-_zo_HQbi",  # Bang Afdal
+            "https://drive.google.com/uc?export=view&id=1uLu_5BA8b_smKxuN4qzuaHMzB1BEmcUF",  # Kak Juwita
+            "https://drive.google.com/uc?export=view&id=1NyRHbUsr1hQtDZvpb_Qbqse1T4MyN3yU",  # Bang Ridwan
+            "https://drive.google.com/uc?export=view&id=1l85jOa_F-0xbfWfC5onPuD9ywWlwYR85",  # Bang Andra
+            "https://drive.google.com/uc?export=view&id=1yKojXNHZk73sCU-61eq-tLVUkqqjHXuY",  # Bang Bryan
+            "https://drive.google.com/uc?export=view&id=1B1T25IhCGs1q1zx88EYZ0uGE3KRP1aQw",  # Bang Ghiyats
+            "https://drive.google.com/uc?export=view&id=1mRjdtvYnLcZnw3IFfuSQOoRTfIU8Pgbn",  # Kak Indah
+            "https://drive.google.com/uc?export=view&id=1yfoBOXzwGgv-1SlhEI0dEqyXVWfweDb9",  # Kak Jacinda
+            "https://drive.google.com/uc?export=view&id=1lDvqd8ftwBLQXgCaNkXwJFe_u-Z3GFqH",  # Bang Rafka
+        ]
+        data_list = [
+            {
+                "nama": "Kevin Antonio Junior",
+                "nim": "123450109",
+                "umur": "20",
+                "asal": "Maluku",
+                "alamat": "Panjang",
+                "hobbi": "Menari",
+                "sosmed": "@kevinaj__",
+                "kesan": "Abangnya keren, asik dan cool banget.",  
+                "pesan":"Semangat kuliahnya bang, jangan kasih kendor."# 1
+            },
+            {
+                "nama": "Gusti Putu Ferazka Dhiyamika",
+                "nim": "123450046",
+                "umur": "21",
+                "asal": "Lampung Utara",
+                "alamat": "Way Halim",
+                "hobbi": "Mendaki",
+                "sosmed": "@ferazkaa",
+                "kesan": "Kakaknya stylish banget dan cantikk",  
+                "pesan":"Semangat jalann kuliahnya kakk, kayak semnagat mendaki."# 1
+            },
+            {
+                "nama": "Ali Aristo Muthahhari Parisi",
+                "nim": "123450088",
+                "umur": "21",
+                "asal":"Lampung Timur",
+                "alamat": "Gang Sakum Belwis",
+                "hobbi": "Bawa makanan dari Luar",
+                "sosmed": "ali_parisi3",
+                "kesan": "Abangnya keren dan komuikasinya bagus banget.",  
+                "pesan":"Tips komunikasi yang bagus bang."# 1
+            },
+            {
+                "nama": "Ayu Andriani Parlina Wati",
+                "nim": "123450025",
+                "umur": "20",
+                "asal":"Jombang",
+                "alamat": "Jatiagung",
+                "hobbi": "Jalan-jalan nyari mangsa",
+                "sosmed": "@me._kael",
+                "kesan": "Kakaknya ramah dan baik banget.",  
+                "pesan":"Tetap jadi orang yang ramah dan bai hati ya kak."
+            },
+            {
+                "nama": "Dafa Elpriza",
+                "nim": "124450131",
+                "umur": "21",
+                "asal":"Bekasi",
+                "alamat": "Way Kandis",
+                "hobbi": "Mancing",
+                "sosmed": "@dafaelpriza_",
+                "kesan": "Kelihatan pendiem tapi lama kelamaan asik.",  
+                "pesan":"Suka mancing di mana bang?"# 1
+            },
+            {
+                "nama": "Salsabila Nazwa Putri",
+                "nim": "124450002",
+                "umur": "20",
+                "asal":"Metro",
+                "alamat": "Korpri",
+                "hobbi": "Pulang Kampung",
+                "sosmed": "@slbnzw_",
+                "kesan": "Kakaknya softspoken banget dan ramah ke kami.",  
+                "pesan":"Tetap semangat dan jangan menyerah kak."# 1
+            },
+            {
+                "nama": "Muhammad Afdal Lutfi",
+                "nim": "124450047",
+                "umur": "19",
+                "asal":"Lampung Tengah",
+                "alamat": "Jln. Pulau Damar",
+                "hobbi": "Surving",
+                "sosmed": "@afdall.03",
+                "kesan": "Pendiem dan kayaknya suka jajan ya.",  
+                "pesan":"Pernah surving di mana bang? Tipsnya sonhg."# 1
+            },
+            {
+                "nama": "Juwita Sari",
+                "nim": "124450066",
+                "umur": "19",
+                "asal":"Lampung Barat",
+                "alamat": "Pemda",
+                "hobbi": "Liat Bila nulis",
+                "sosmed": "@ju.juwitaaa_",
+                "kesan": "Kakaknya asik, ramah tapi kayak mirip sama seseorang di minbak.",  
+                "pesan":"Tips jago main basket dong kak biar jago kayak kakak."# 1
+            },
+            {
+                "nama": "Muhammad Ridwan",
+                "nim": "123450091",
+                "umur": "21",
+                "asal":"Lampung Tengah",
+                "alamat": "Belwis",
+                "hobbi": "Nontonin Fadyl Badminton",
+                "sosmed": "@mridwaan_22",
+                "kesan": "Abangnya keren dan kayaknya santai banget.",  
+                "pesan":"Ajakin nonton Fadyl Badminton juga."# 1
+            },
+            {
+                "nama": "Andra Ilham Bintang",
+                "nim": "124450060",
+                "umur": "18",
+                "asal":"Sumatera Selatan",
+                "alamat": "Kota Baru",
+                "hobbi": "Nonton Drama Korea",
+                "sosmed": "@andra.lhm",
+                "kesan": "Abangnya lucu, mau aja diajak pose imut.",  
+                "pesan":"Semangat terus bang jalanin  perkuliahannya bang."# 1
+            },
+            {
+                "nama": "Bryan Paskah Telaumbanua",
+                "nim": "124450003",
+                "umur": "20",
+                "asal":"Nias",
+                "alamat": "Belwis",
+                "hobbi": "Yoga",
+                "sosmed": "@bryantel_",
+                "kesan": "Abangnya pendiem banget sihh.",  
+                "pesan":"Tips biar bisa tetap diem dan tenang di situasi yang gedebak-gedebuk."# 1
+            },
+            {
+                "nama": "Ghiyats Thabularasa Meardhy",
+                "nim": "124....",
+                "umur": "..",
+                "asal":"...",
+                "alamat": "B...",
+                "hobbi": "....",
+                "sosmed": "@...",
+                "kesan": "Abangnya kayak pendiem auranya, tapi ternyata asik parah.",
+                "pesan":"Semangat terus bang, jangan main game mulu."# 1  
+            },
+            
+            {
+                "nama": "Indah Julia Mawar Pratiwi",
+                "nim": "124450055",
+                "umur": "20",
+                "asal":"Pringsewu",
+                "alamat": "Airan",
+                "hobbi": "...",
+                "sosmed": "@...",
+                "kesan": "Kakaknya cantik dan kayaknya anak olharaga banget.",  
+                "pesan":"Tips semangat berolahraga."# 1
+            },
+            {
+                "nama": "Jacinda Kesya Alvara",
+                "nim": "....",
+                "umur": "..",
+                "asal":"...",
+                "alamat": "....",
+                "hobbi": "...",
+                "sosmed": "@....",
+                "kesan": "Kakaknya asik, ramah dan murah senyum banget.",  
+                "pesan":"Nggak capek ramah terus kak?"# 1
+            },
+            {
+                "nama": "Muhammad Rafka Fatih Al Ghathfaan",
+                "nim": "124450089",
+                "umur": "20",
+                "asal":"Padang",
+                "alamat": "Kota Baru",
+                "hobbi": "Bangun Pagi",
+                "sosmed": "@muhammdrafka_",
+                "kesan": "Abangnya pendiem dan pemalu ya.",  
+                "pesan":"Semangat berolahraga bang. Salam olahraga!"# 1
+            }
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    minbak()
+
+    
