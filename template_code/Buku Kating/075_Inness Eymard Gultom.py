@@ -27,7 +27,20 @@ if menu == "Kesekjenan":
     display_images_with_data(gambar_urls, data_list, key="kesekjenan")
 
 elif menu == "Baleg":
-    gambar_urls = ["https://drive.google.com/uc?export=view&id=1HKsNmHfGze7dIj7T48qIRyfOtRWXhIaZ"]
+    gambar_urls = ["https://drive.google.com/uc?export=view&id=1HKsNmHfGze7dIj7T48qIRyfOtRWXhIaZ",
+                   "https://drive.google.com/uc?export=view&id=1ixPG42J7k632zIwYADoO36NcNEMtY7il",
+                   "https://drive.google.com/uc?export=view&id=1IBv3QdnuBtGSv7j9_A9iGMt_cPRcK3KD",
+                   "https://drive.google.com/uc?export=view&id=1XqIZomFZJxrFf6WmhCyDKXW5OJtjtfjw",
+                   "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                   "https://drive.google.com/uc?export=view&id=1lWnX4wENmGrdKNF3t2xUJnSVk1slRArO",
+                   "https://drive.google.com/uc?export=view&id=1L1l1zpB1ojTzgGm_n2y338jTnk7A7b06",
+                   "https://drive.google.com/uc?export=view&id=1aIwFMlSNlh58verZVqV-4-yU-q4MUlMT",
+                   "https://drive.google.com/uc?export=view&id=1hvzTrF73R4pwPxhFR6DGPU5vKo3lVqNz",
+                   "https://drive.google.com/uc?export=view&id=1WUhzhJTMKvZ3aMGL6d59B0VGVlN3a5Pn",
+                   "https://drive.google.com/uc?export=view&id=1aGe6QzbSDP6tcnjcRs6TMrV_4peG5ETf",
+                   "https://drive.google.com/uc?export=view&id=1P8MaxGiJ4kwet55oHITTkFwOJ6fU1uYx",
+                   "https://drive.google.com/uc?export=view&id=1VhQe5WxjiT05EKrnBTVFJtOoeiE7LEV6",
+    ]
     data_list = [
         {"nama": "Ridho Benedictus Togi Manik", "jabatan": "Ketua Badan Legislatif", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
         {"nama": "Juesi Apridelia Saragih", "jabatan": "Sekretaris Badan Legislatif", "nim": "12245001", "umur": "20", "asal": "B. Lampung", "alamat": "Way Halim", "hobbi": "Organisasi", "sosmed": "@baleg", "kesan": "Mantap", "pesan": "Jaya selalu!"},
