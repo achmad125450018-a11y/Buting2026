@@ -3,7 +3,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 # ============================================================
-# 🎨 UI STREAMLIT & CSS 
+# 🎨 UI STREAMLIT 
 # ============================================================
 st.markdown("""
 <style>
@@ -40,16 +40,6 @@ html, body, [class*="css"] {
     text-transform: uppercase;
     margin-bottom: 20px;
 }
-
-/* 💥 HANCURKAN BATAS 700PX IFRAME STREAMLIT 💥 */
-iframe[title="streamlit_component"] {
-    width: 100% !important;
-    max-width: 100% !important;
-}
-div[data-testid="stHtml"] {
-    width: 100% !important;
-    max-width: 100% !important;
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -77,7 +67,7 @@ game_html = """
     
     #game-container {
         width: 100%;
-        max-width: 900px; 
+        max-width: 900px; /* Lebar maksimal di laptop */
         height: 500px;
         background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
         border-radius: 20px;
@@ -274,6 +264,5 @@ game_html = """
 </html>
 """
 
-# Tampilkan menggunakan st.components.v1.html agar JS jalan, 
-# tapi di dalam container yang lebarnya sudah dipaksa 100% oleh CSS di atas.
+# Render komponen tanpa kolom agar lebar maksimal
 components.html(game_html, height=520, scrolling=False)
