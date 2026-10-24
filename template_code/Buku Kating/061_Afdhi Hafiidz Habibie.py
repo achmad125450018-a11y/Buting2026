@@ -182,19 +182,19 @@ if menu == "Kesekjenan":
 if menu == "Badan Legislatif":
     def baleg():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=14Vd8Co6TUXkMB5OrtO32ln7Llcn9ehnd",
-            "https://drive.google.com/uc?export=view&id=11LbyqgvvmYcSqeALYIpD8XASQ99apdTe",
-            "https://drive.google.com/uc?export=view&id=1zcPzLFdeGCDaps_427IyVSRyADggDTPZ",
-            "https://drive.google.com/uc?export=view&id=118nlpm_U_jIMpE859bTGeqWjivIA9AiU",
-            "https://drive.google.com/uc?export=view&id=1Kp9Xu7pGRDZ0c2axmbGMoRGdh0YAqzdB",
-            "https://drive.google.com/uc?export=view&id=1Y_tCuB9n0PNpex6mCtz-ch-LZTThztwv",
-            "https://drive.google.com/uc?export=view&id=1LGswmCklrK7HX9zU9M6Zl5md2Ey_9hwX",
-            "https://drive.google.com/uc?export=view&id=1nOK8jsMSc0PiA0uvsygY1BkW6zBqbzI3",
-            "https://drive.google.com/uc?export=view&id=1Y_tCuB9n0PNpex6mCtz-ch-LZTThztwv",
-            "https://drive.google.com/uc?export=view&id=1c5Jj08jOsxN802D1ReNDAy9AoV0Rzx4D",
-            "https://drive.google.com/uc?export=view&id=1dgnm1zLNHAlxNq8e6GOHiD8dK_5YwC6F",
-            "https://drive.google.com/uc?export=view&id=1Y_tCuB9n0PNpex6mCtz-ch-LZTThztwv",
-            "https://drive.google.com/uc?export=view&id=1Y_tCuB9n0PNpex6mCtz-ch-LZTThztwv",
+            "https://drive.google.com/uc?export=view&id=14Vd8Co6TUXkMB5OrtO32ln7Llcn9ehnd", #ridho
+            "https://drive.google.com/uc?export=view&id=11LbyqgvvmYcSqeALYIpD8XASQ99apdTe", #jue
+            "https://drive.google.com/uc?export=view&id=1zcPzLFdeGCDaps_427IyVSRyADggDTPZ", #dharu
+            "https://drive.google.com/uc?export=view&id=118nlpm_U_jIMpE859bTGeqWjivIA9AiU", #niko
+            "https://drive.google.com/uc?export=view&id=1Kp9Xu7pGRDZ0c2axmbGMoRGdh0YAqzdB", #siti
+            "https://drive.google.com/uc?export=view&id=1FT1UZ3KvQ7zFQ0clZhV_XRym6jRlJVOv", #givaro
+            "https://drive.google.com/uc?export=view&id=1LGswmCklrK7HX9zU9M6Zl5md2Ey_9hwX", #afganis
+            "https://drive.google.com/uc?export=view&id=1nOK8jsMSc0PiA0uvsygY1BkW6zBqbzI3", #hani
+            "https://drive.google.com/uc?export=view&id=1azA91mJuheeltUyYTSDpIR9i3iEoXXhi", #jeremi
+            "https://drive.google.com/uc?export=view&id=1c5Jj08jOsxN802D1ReNDAy9AoV0Rzx4D", #monica
+            "https://drive.google.com/uc?export=view&id=1dgnm1zLNHAlxNq8e6GOHiD8dK_5YwC6F", #sekar
+            "https://drive.google.com/uc?export=view&id=1gf4-B7GesdwTOpYvtHQPGKGonvfozHL0", #jhona
+            "https://drive.google.com/uc?export=view&id=1ReLF7lfV_Ez9_p552FCS_75IuJrF0j_j", #wan
         ]
 
         data_list = [
