@@ -24,15 +24,37 @@ st.markdown(
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap');
 
     /* Menyamakan font, warna, dan gaya sidebar persis seperti halaman utama */
-    [data-testid="stSidebar"] {
+     [data-testid="stSidebar"] {
         background-color: #f0e8d5 !important;
         border-right: 2px solid rgba(181, 142, 75, 0.4);
-        font-family: 'Inter', sans-serif !important;
     }
-    [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div, [data-testid="stSidebar"] label, [data-testid="stSidebar"] a {
+    [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div, [data-testid="stSidebar"] label {
         color: #1e1b18 !important;
         font-weight: 500;
-        font-family: 'Inter', sans-serif !important;
+    }
+
+    /* Judul Utama dengan Grafis Modern Gradient */
+    .main-title {
+        font-family: 'Outfit', sans-serif;
+        text-align: center;
+        font-size: 3.5rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #5c4033 0%, #b58e4b 50%, #3d2817 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 4px 20px rgba(181, 142, 75, 0.25);
+        margin-bottom: 0px;
+    }
+
+    .sub-title {
+        font-family: 'Outfit', sans-serif;
+        text-align: center;
+        font-size: 1.4rem;
+        color: #705335;
+        letter-spacing: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 30px;
     }
     </style>
     """,
