@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title="Cyber Hack: Terminal Override", layout="centered")
+st.set_page_config(page_title="Cyber Hack: Terminal Override 4x4", layout="centered")
 
 st.markdown("""
 <style>
@@ -19,7 +19,7 @@ h1 {
 """, unsafe_allow_html=True)
 
 st.title("CYBER HACK: TERMINAL OVERRIDE")
-st.markdown("<p style='text-align: center; color: #94a3b8;'>Matriks node diperluas menjadi 6 kotak! Ikuti pergerakannya dan lacak anomali target sebelum waktu habis.</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #94a3b8;'>Matriks node diperluas menjadi 16 kotak (4x4)! Lacak pergerakan anomali target sebelum waktu habis.</p>", unsafe_allow_html=True)
 
 game_html = """
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ game_html = """
     .stats-panel {
         display: flex;
         justify-content: space-around;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
     }
     .stat-box {
         background: #0f172a;
@@ -51,11 +51,11 @@ game_html = """
     }
     .trace-container {
         width: 100%;
-        max-width: 460px;
+        max-width: 360px;
         background: #1e293b;
         height: 8px;
         border-radius: 4px;
-        margin: 0 auto 12px auto;
+        margin: 0 auto 10px auto;
         overflow: hidden;
         border: 1px solid #38bdf8;
     }
@@ -68,42 +68,40 @@ game_html = """
     .mission-box {
         background: #0f172a;
         border: 2px dashed #38bdf8;
-        padding: 10px;
+        padding: 8px;
         border-radius: 8px;
-        margin-bottom: 15px;
-        font-size: 14px;
+        margin-bottom: 12px;
+        font-size: 13px;
     }
     .target-highlight {
         color: #38bdf8;
         font-weight: bold;
-        font-size: 16px;
+        font-size: 15px;
     }
     .grid-container {
         position: relative;
-        margin: 15px auto;
-        width: 460px;
-        height: 95px;
-        max-width: 100%;
+        margin: 10px auto;
+        width: 340px;
+        height: 310px;
     }
     .node-box {
-        width: 70px;
-        height: 85px;
+        width: 75px;
+        height: 68px;
         background: #0f172a;
         border: 2px solid #38bdf8;
-        border-radius: 8px;
+        border-radius: 6px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         position: absolute;
-        top: 0;
-        transition: left 0.35s ease-in-out, border-color 0.2s;
+        transition: left 0.3s ease-in-out, top 0.3s ease-in-out, border-color 0.2s;
         cursor: pointer;
-        box-shadow: 0 0 10px rgba(56, 189, 248, 0.15);
+        box-shadow: 0 0 8px rgba(56, 189, 248, 0.15);
     }
     .node-box:hover {
         border-color: #4ade80;
-        box-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
+        box-shadow: 0 0 12px rgba(74, 222, 128, 0.4);
     }
     .node-val {
         font-size: 11px;
@@ -117,10 +115,10 @@ game_html = """
         text-transform: uppercase;
     }
     .terminal-msg {
-        margin-top: 15px;
-        font-size: 13px;
+        margin-top: 10px;
+        font-size: 12px;
         font-weight: bold;
-        height: 22px;
+        height: 20px;
     }
     .action-btn {
         background-color: #38bdf8;
@@ -131,7 +129,7 @@ game_html = """
         font-weight: bold;
         border-radius: 8px;
         cursor: pointer;
-        margin-top: 10px;
+        margin-top: 8px;
         font-family: 'Courier New', monospace;
         transition: background 0.2s;
     }
@@ -153,7 +151,7 @@ game_html = """
 </div>
 
 <div class="mission-box" id="mission-text">
-    Inisialisasi sistem... Tekan tombol di bawah untuk mulai.
+    Inisialisasi matriks... Tekan tombol di bawah untuk mulai.
 </div>
 
 <div class="grid-container" id="grid-container"></div>
@@ -172,12 +170,13 @@ game_html = """
     let traceLeft = 100;
     let shuffleInterval = null;
 
-    const totalNodes = 6;
+    const totalNodes = 16;
+    const colsCount = 4;
 
     const pool = [
-        { name: "Integer", vals: ["42", "108", "512", "999", "12", "7", "256"] },
-        { name: "Float", vals: ["3.14", "9.81", "0.55", "7.25", "4.19", "1.61"] },
-        { name: "String", vals: ["Alpha", "Beta", "Core", "Nexus", "Vector", "Stream"] },
+        { name: "Integer", vals: ["42", "108", "512", "999", "12", "7", "256", "88"] },
+        { name: "Float", vals: ["3.14", "9.81", "0.55", "7.25", "4.19", "1.61", "0.25"] },
+        { name: "String", vals: ["Alpha", "Beta", "Core", "Nexus", "Vector", "Stream", "Node"] },
         { name: "Boolean", vals: ["True", "False"] }
     ];
 
@@ -220,7 +219,7 @@ game_html = """
 
         setTimeout(() => {
             startShufflingPhase();
-        }, 2200);
+        }, 2500);
     }
 
     function renderNodes() {
@@ -230,7 +229,12 @@ game_html = """
         nodes.forEach((node, index) => {
             const el = document.createElement('div');
             el.className = 'node-box';
-            el.style.left = (node.pos * 77) + 'px';
+            
+            let col = node.pos % colsCount;
+            let row = Math.floor(node.pos / colsCount);
+            
+            el.style.left = (col * 85) + 'px';
+            el.style.top = (row * 76) + 'px';
             el.onclick = () => handleNodeClick(index);
 
             el.innerHTML = `
@@ -243,11 +247,11 @@ game_html = """
 
     async function startShufflingPhase() {
         gameState = 'shuffling';
-        document.getElementById('terminal-msg').innerText = "Ikuti pergerakan kotak...";
+        document.getElementById('terminal-msg').innerText = "Matriks 4x4 mengacak posisi node...";
 
-        let totalSwaps = 5 + (level * 2);
+        let totalSwaps = 6 + (level * 2);
         let currentSwap = 0;
-        let speed = Math.max(220, 420 - (level * 25));
+        let speed = Math.max(180, 350 - (level * 20));
 
         shuffleInterval = setInterval(() => {
             let p1 = Math.floor(Math.random() * totalNodes);
@@ -275,10 +279,10 @@ game_html = """
 
     function startGuessingPhase() {
         gameState = 'guessing';
-        document.getElementById('terminal-msg').innerHTML = `<span style="color: #4ade80;">Pilih kotak dengan tipe ${targetType}!</span>`;
+        document.getElementById('terminal-msg').innerHTML = `<span style="color: #4ade80;">Pilih node dengan tipe ${targetType}!</span>`;
         
         traceLeft = 100;
-        let maxTime = Math.max(3500, 9000 - (level * 400));
+        let maxTime = Math.max(4000, 10000 - (level * 400));
         let intervalTime = 50;
         let decrement = (intervalTime / maxTime) * 100;
 
@@ -310,7 +314,7 @@ game_html = """
         const msgEl = document.getElementById('terminal-msg');
 
         if (clickedNode.isAnom) {
-            score += 200 * level;
+            score += 300 * level;
             level += 1;
             msgEl.style.color = "#4ade80";
             msgEl.innerText = "BERHASIL MELACAK ANOMALI!";
@@ -352,4 +356,4 @@ game_html = """
 </html>
 """
 
-components.html(game_html, height=420)
+components.html(game_html, height=520)
