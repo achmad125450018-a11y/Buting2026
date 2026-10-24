@@ -3,7 +3,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 # ============================================================
-# 🎨 UI STREAMLIT & CSS HACK (Memaksa Lebar Penuh)
+# 🎨 UI STREAMLIT 
 # ============================================================
 st.markdown("""
 <style>
@@ -56,20 +56,6 @@ html, body, [class*="css"] {
     margin-bottom: 20px;
     margin-top: 8px;
 }
-
-/* 💥 CSS HACK: Menghancurkan batas lebar bawaan Streamlit */
-[data-testid="stAppViewBlockContainer"] {
-    max-width: 100% !important;
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
-}
-iframe[title="streamlit_component"] {
-    width: 100% !important;
-    max-width: 100% !important;
-}
-.stHtml {
-    width: 100% !important;
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -77,7 +63,7 @@ st.markdown("<h1 class='title'>DATA CATCHER</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>✦ Bersihkan Data, Kumpulkan Skor! ✦</p>", unsafe_allow_html=True)
 
 # ============================================================
-# 🎮 HTML/JS GAME (Lebar Maksimal & Waktu Normal)
+# 🎮 HTML/JS GAME (Desain Vertikal / Portrait)
 # ============================================================
 game_html = """
 <!DOCTYPE html>
@@ -92,16 +78,18 @@ game_html = """
         background-color: transparent;
         display: flex;
         justify-content: center;
+        align-items: center;
         height: 100vh;
     }
     
+    /* Desain Game Vertikal (Tinggi) */
     #game-container {
         width: 100%;
-        max-width: 100%;
-        height: 550px;
+        max-width: 400px;
+        height: 500px;
         background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
         border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(112,28,35,0.08);
+        box-shadow: 0 10px 30px rgba(112,28,35,0.15);
         border: 1px solid rgba(217,195,163,0.55);
         position: relative;
         overflow: hidden;
@@ -113,21 +101,17 @@ game_html = """
     #hud {
         width: 100%;
         display: flex;
-        justify-content: center;
-        gap: 15px;
-        padding-top: 20px;
+        justify-content: space-between;
+        padding: 15px;
         z-index: 10;
+        background: rgba(255,255,255,0.8);
+        backdrop-filter: blur(5px);
     }
     .stat {
-        background: rgba(217,195,163,0.15);
-        border: 1px solid rgba(217,195,163,0.5);
-        padding: 8px 25px;
-        border-radius: 12px;
         font-weight: 700;
         color: #701c23;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
-        min-width: 110px;
     }
 
     #play-area {
@@ -140,7 +124,7 @@ game_html = """
 
     .item {
         position: absolute;
-        font-size: 60px;
+        font-size: 55px;
         cursor: pointer;
         user-select: none;
         transition: transform 0.1s;
@@ -155,38 +139,37 @@ game_html = """
 
     .screen {
         position: absolute;
-        top: 55%; left: 50%;
+        top: 50%; left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
         z-index: 20;
         width: 90%;
-        max-width: 450px;
-        padding: 40px 30px;
+        padding: 30px 20px;
         background: rgba(255,255,255,0.98);
         border-radius: 20px;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         border: 1px solid rgba(217,195,163,0.8);
     }
     h2 {
         color: #701c23;
         font-family: 'Playfair Display', serif;
-        font-size: 32px;
+        font-size: 28px;
         margin-top: 0; margin-bottom: 15px;
     }
     p {
         color: #4e1318;
-        font-size: 15px;
+        font-size: 14px;
         margin-bottom: 25px;
-        line-height: 1.6;
+        line-height: 1.5;
     }
     button {
         background: linear-gradient(135deg, #701c23 0%, #a8323d 100%);
         color: white;
         border: none;
         border-radius: 12px;
-        padding: 14px 30px;
+        padding: 12px 20px;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 15px;
         cursor: pointer;
         box-shadow: 0 6px 18px rgba(112,28,35,0.35);
         transition: transform 0.15s;
@@ -194,13 +177,12 @@ game_html = """
     }
     button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 10px 24px rgba(112,28,35,0.5);
     }
     
     .score-pop {
         position: absolute;
         font-weight: 800;
-        font-size: 24px;
+        font-size: 22px;
         pointer-events: none;
         animation: popUp 0.6s ease-out forwards;
         text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
@@ -215,22 +197,22 @@ game_html = """
 
 <div id="game-container">
     <div id="hud">
-        <div class="stat">⏱️ Waktu: <span id="time">30</span>s</div>
-        <div class="stat">🏆 Skor: <span id="score">0</span></div>
-        <div class="stat">❤️ Nyawa: <span id="lives">3</span></div>
+        <div class="stat">⏱️ <span id="time">30</span>s</div>
+        <div class="stat">🏆 <span id="score">0</span></div>
+        <div class="stat">❤️ <span id="lives">3</span></div>
     </div>
 
     <div id="play-area"></div>
 
     <div id="start-screen" class="screen">
-        <h2>Selamat Datang!</h2>
+        <h2>Data Catcher</h2>
         <p>Klik <b>Data Bersih</b> (🍎, 💎, 📁) secepat mungkin.<br>Jangan klik <b>Data Sampah</b> (🗑️, 💩, 🐛)!</p>
         <button onclick="startGame()">🚀 MULAI GAME</button>
     </div>
 
     <div id="gameover-screen" class="screen" style="display:none;">
         <h2>Game Over!</h2>
-        <p>Skor Akhir Kamu: <br><b style="font-size:48px; color:#a8323d;" id="final-score">0</b></p>
+        <p>Skor Akhir: <br><b style="font-size:40px; color:#a8323d;" id="final-score">0</b></p>
         <button onclick="startGame()">🔄 Main Lagi</button>
     </div>
 </div>
@@ -250,7 +232,6 @@ game_html = """
     const gameoverScreen = document.getElementById("gameover-screen");
 
     function startGame() {
-        // Bersihkan semua timer yang mungkin nyangkut
         clearInterval(timerInterval);
         clearInterval(spawnInterval);
         
@@ -268,7 +249,6 @@ game_html = """
         playArea.style.display = "block";
         playArea.innerHTML = ""; 
 
-        // Timer normal (1 detik = 1 detik)
         timerInterval = setInterval(() => {
             if (!isPlaying) return;
             timeLeft--;
@@ -276,7 +256,6 @@ game_html = """
             if (timeLeft <= 0) endGame();
         }, 1000);
 
-        // Spawn emoji
         spawnInterval = setInterval(spawnItem, 600);
     }
 
@@ -289,7 +268,7 @@ game_html = """
         const isClean = Math.random() > 0.4;
         item.innerText = isClean ? cleanItems[Math.floor(Math.random() * cleanItems.length)] : dirtyItems[Math.floor(Math.random() * dirtyItems.length)];
         
-        item.style.left = Math.floor(Math.random() * 85 + 5) + "%";
+        item.style.left = Math.floor(Math.random() * 75 + 5) + "%";
         
         const duration = Math.random() * 2 + 2;
         item.style.animationDuration = duration + "s";
@@ -357,7 +336,7 @@ game_html = """
 </html>
 """
 
-# Bungkus dengan kolom agar proporsional di layar lebar
-col1, col2, col3 = st.columns([1, 8, 1])
+# Render menggunakan column tengah agar rapi
+col1, col2, col3 = st.columns([1, 1.2, 1])
 with col2:
-    components.html(game_html, height=600, scrolling=False)
+    components.html(game_html, height=520, scrolling=False)
