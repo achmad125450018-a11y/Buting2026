@@ -1456,3 +1456,156 @@ if menu == "Departemen Internal":
         display_images_with_data(gambar_urls, data_list)
     internal()
 
+
+if menu == "Departemen SSD":
+    def ssd():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=1IImn-bwzrj7vV70MBmk_zh6cfpvGEqXv",
+            "https://drive.google.com/uc?export=view&id=1B7DXOKpYlOmg_7N4AGQEDxdxffx3Maw2",
+            "https://drive.google.com/uc?export=view&id=13Z5TFq5waedLDBwSLRkw3M7FzuKqxCCg",
+            "https://drive.google.com/uc?export=view&id=18mXzlMsfCtWW7w_ZYHSAlJneXV7CnQZh",
+            "https://drive.google.com/uc?export=view&id=133EBWrKSlcaiymXnXeJF3RpziWVOO9PH",
+            "https://drive.google.com/uc?export=view&id=13ZR7K_g__ndBZCUkk7-7FOl0_2Tr1Wo7",
+            "https://drive.google.com/uc?export=view&id=1fd-vmxtK8J29UC16G7bnQECuIW-yXC3t",
+            "https://drive.google.com/uc?export=view&id=1Sh5npJ-ecdhCo5QZR5WMIOUC-suHK_4B",
+            "https://drive.google.com/uc?export=view&id=1lsexSMeqP_3EZwoJ3zQmZFhfDpbuAdjr",
+            "https://drive.google.com/uc?export=view&id=19sWSqL7TWP4kHwDVTcmyuNEZpmkNq_Rb",
+            "https://drive.google.com/uc?export=view&id=18bm_0khZDjIvfhsje-VogTBVqVQNGdvQ",
+            "https://drive.google.com/uc?export=view&id=1CMfrmUJIe9Ivf2uqs7sz2lut0KPCB_4U",
+        ]
+        data_list = [
+            {
+                "nama": "Ihsan Maulana Yusuf",
+                "nim": "123450110",
+                "umur": "21 Tahun",
+                "asal":"Sumbar",
+                "alamat": "Belwis",
+                "hobi": "Membaca, Mencari Jurnal, berdagang, dan traktir staff SSD",
+                "sosmed": "@ihsan.myusuf",
+                "kesan": "abangnya asik banget, baik, dan ramah",  
+                "pesan":"semangat terus kuliahnya bang!"# 1
+            },
+            {
+                "nama": "Hanifah Inaya Sari",
+                "nim": "123450123",
+                "umur": "21",
+                "asal":"Balam",
+                "alamat": "Balam",
+                "hobi": "Masak",
+                "sosmed": "@_inayasani",
+                "kesan": "Kakak nya cantik banget dan kalem",  
+                "pesan":"semangat terus kuliahnya kakak" # 1
+            },
+            {
+                "nama": "Afifah Fauziah",
+                "nim": "123450002",
+                "umur": "19",
+                "asal":"Padang",
+                "alamat": "Hasan 4",
+                "hobi": "Nonton Marvel, Tidur",
+                "sosmed": "@fifah.zy",
+                "kesan": "Kakaknya seru waktu wawancara, ramah, dan baik banget",  
+                "pesan":"semangat terus kuliahnya ya kakk"# 1
+            },
+            {
+                "nama": "Hasan Nur Ramadhan",
+                "nim": "124450012",
+                "umur": "21",
+                "asal":"lampung",
+                "alamat": "Pemda",
+                "hobi": "Main game",
+                "sosmed": "@hasan.ramadhan08",
+                "kesan": "abangnya baik, humble, asik",  
+                "pesan":"semoga kuliahnya lancar bang!"# 1
+            },
+            {
+                "nama": "Layina Ropiqo",
+                "nim": "124450016",
+                "umur": "19 tahun",
+                "asal":"Semarang",
+                "alamat": "Balam",
+                "hobi": "Nonton Drakor",
+                "sosmed": "@lay.inr_",
+                "kesan": "Kakak ini asik dan baik juga",  
+                "pesan":"semangat terus kuliahnya kakak"# 1
+            },
+            {
+                "nama": "Moch. Iqbal Az-Zahir",
+                "nim": "124450052",
+                "umur": "20",
+                "asal":"Bekasi",
+                "alamat": "Natar",
+                "hobi": "Mancing",
+                "sosmed": "@iqbalazzahir_",
+                "kesan": "abangnya asik banget, baik juga, pas jadi asprak sabar banget ngajarin satu satu",  
+                "pesan":"semangat terus kuliahnya bang semoga sukses selalu"# 1
+            },
+            {
+                "nama": "Talitha Justine",
+                "nim": "124450076",
+                "umur": "19",
+                "asal":"Sumbar",
+                "alamat": "Kelengkeng 5",
+                "hobi": "Tidur",
+                "sosmed": "@talithaaajtine",
+                "kesan": "Kakak nya baik dan asik juga",  
+                "pesan":"semangat terus kuliahnya ya kak"# 1
+            },
+            {
+                "nama": "Anadia Carana",
+                "nim": "123450019",
+                "umur": "19",
+                "asal":"Palembang",
+                "alamat": "Wayhui",
+                "hobi": "Nyari Duit",
+                "sosmed": "@anadiacrn_",
+                "kesan": "Kakak ini baik, lucu juga pas jawab jawab pertanyaan pas wwc",  
+                "pesan":"semangat terus kuliahnya kakak"# 1
+            },
+            {
+                "nama": "Abdillah Fikri Al pome",
+                "nim": "123450062",
+                "umur": "21",
+                "asal":"Sumsel",
+                "alamat": "Airan",
+                "hobi": "Basket",
+                "sosmed": "@pomest_",
+                "kesan": "abangnya humoris banget dan asbun nya lucu banget bikin ketawa",  
+                "pesan":"semangat terus kuliahnya ya bang"# 1
+            },
+            {
+                "nama": "Afdhal Rahmad Setiawan",
+                "nim": "124450008",
+                "umur": "20",
+                "asal":"Sumbar",
+                "alamat": "Samping kost rafli",
+                "hobi": "Fishing",
+                "sosmed": "@dhal_setiawan",
+                "kesan": "abang ini humble, seru, dan baik",  
+                "pesan":"semoga sukses selalu bang" # 1
+            },
+            {
+                "nama": "Anggun Nita",
+                "nim": "124450009",
+                "umur": "20",
+                "asal":"Lampung Utara",
+                "alamat": "Belwis",
+                "hobi": "Masak",
+                "sosmed": "@anggunnitaaa_",
+                "kesan": "Kakak ini asik, baik, dan cantik",  
+                "pesan":"semangat terus kuliahnya kakak"# 1
+            },
+            {
+                "nama": "Della Anisa Fitri",
+                "nim": "124450095",
+                "umur": "20",
+                "asal":"Lampung Timur",
+                "alamat": "Nargo Lestari",
+                "hobi": "Olahraga, Makan makanan manis",
+                "sosmed": "@dellaansaftr",
+                "kesan": "kakaknya seru, baik, humble juga",  
+                "pesan":"semoga lancar selalu kuliahnya kak, semangat!"# 1
+            },
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    ssd()
