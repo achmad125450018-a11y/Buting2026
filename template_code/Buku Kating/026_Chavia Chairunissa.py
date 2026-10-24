@@ -472,11 +472,11 @@ if menu == "Badan Kesenatoran":
                 "sosmed": "@barus.fernando",
                 "kesan": "Kakaknya baik banget!!",
                 "pesan": "Semangat terus kak!"
-            },
-            
+            }, 
         ]
         display_images_with_data(gambar_urls, data_list)
     senator()
+    
     # PSDA
 if menu == "Departemen PSDA":
     def psda():
