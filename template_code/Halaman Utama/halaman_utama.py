@@ -245,7 +245,9 @@ if menu == "Home":
 
     # --- FITUR ALBUM COSVAL ---
     st.markdown(
-        "<h2 style='text-align: center; color: #4ade80; font-family: \"Courier New\", monospace; font-weight: 700;'>Album Dokumentasi Cosval</h2>",
+        "<h2 style='text-align: center; color: #4ade80; font-family:"
+        " \"Courier New\", monospace; font-weight: 700;'>Album Dokumentasi"
+        " Cosval</h2>",
         unsafe_allow_html=True,
     )
     st.write("")
@@ -384,7 +386,7 @@ elif menu == "About Us":
 
   def about_page():
     st.markdown(
-        """<style>.centered-title {text-align: center; color: #4ade80; font-family: 'Courier New', monospace; font-weight: 700;}</style>""",
+        """<style>.centered-title {text-align: center; color: #4ade80; font-family:"Courier New", monospace; font-weight: 700;}</style>""",
         unsafe_allow_html=True,
     )
     st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
@@ -459,102 +461,4 @@ elif menu == "About Us":
         },
         {
             "nama": "Nama Anggota 1",
-            "sebagai": "Anggota",
-            "nim": "122450083",
-            "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-        {
-            "nama": "Nama Anggota 2",
-            "sebagai": "Anggota",
-            "nim": "122450000",
-            "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-        {
-            "nama": "Nama Anggota 3",
-            "sebagai": "Anggota",
-            "nim": "122450100",
-            "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-        {
-            "nama": "Nama Anggota 4",
-            "sebagai": "Anggota",
-            "nim": "122450000",
-            "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-        {
-            "nama": "Nama Anggota 5",
-            "sebagai": "Anggota",
-            "nim": "122450000",
-            "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-        {
-            "nama": "Nama Anggota 6",
-            "sebagai": "Anggota",
-            "nim": "122450000",
-            "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-        {
-            "nama": "Nama Anggota 7",
-            "sebagai": "Anggota",
-            "nim": "122450000",
-            "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-        {
-            "nama": "Nama Anggota 8",
-            "sebagai": "Anggota",
-            "nim": "122450000",
-            "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-        {
-            "nama": "Nama Anggota 9",
-            "sebagai": "Anggota",
-            "nim": "122450000",
-            "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-    ]
-
-    if filter_pilihan == "Semua":
-      indices = list(range(11))
-    elif filter_pilihan == "Pak Lurah":
-      indices = [0]
-    elif filter_pilihan == "Bu Lurah":
-      indices = [1]
-    else:
-      indices = list(range(2, 11))
-
-    for idx in indices:
-      if idx < len(data_list) and idx < len(gambar_urls):
-        img = load_image(gambar_urls[idx])
-        data = data_list[idx]
-
-        col_img, col_bio = st.columns([1, 1.4], vertical_alignment="center")
-
-        with col_img:
-          st.image(img, use_container_width=True)
-
-        with col_bio:
-          st.markdown(
-              f"""
-                    <div style="
-                        background-color: #0f172a; 
-                        border: 2px solid #22c55e; 
-                        padding: 22px; 
-                        border-radius: 12px; 
-                        box-shadow: 0 4px 15px rgba(34, 197, 94, 0.2); 
-                        color: #f8fafc;
-                        font-family: 'Inter', sans-serif;
-                        margin-bottom: 20px;">
-                        <h3 style="margin-top: 0; color: #4ade80; border-bottom: 2px solid #22c55e; padding-bottom: 8px;">{data['nama']}</h3>
-                        <p style="margin: 8px 0; font-size: 1.05em;"><b>Sebagai:</b> {data['sebagai']}</p>
-                        <p style="margin: 8px 0; font-size: 1.05em;"><b>NIM:</b> {data['nim']}</p>
-                        <p style="margin: 8px 0; font-size: 1.05em;"><b>Fun Fact:</b> {data['fun_fact']}</p>
-                        <p style="margin: 8px
+            "sebagai
