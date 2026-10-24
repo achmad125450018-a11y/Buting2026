@@ -211,14 +211,18 @@ game_html = """
         lives = 3;
         level = 1;
         document.getElementById('main-btn').style.display = 'none';
+        updateStats();
         initRound();
     }
 
     function initRound() {
-        gameActive = true; // Diaktifkan kembali di setiap awal ronde baru
+        gameActive = true;
         currentExpression = [];
         document.getElementById('terminal-msg').innerText = "";
         document.getElementById('expr-display').innerText = "Pilih ubin untuk merakit rumus...";
+        
+        // Memulihkan struktur kotak misi jika sebelumnya tertimpa status Game Over
+        document.getElementById('mission-text').innerHTML = `TARGET ANGKA: <span class="target-highlight" id="target-display">0</span>`;
 
         let n1, n2, n3, op1, op2, valid = false;
 
