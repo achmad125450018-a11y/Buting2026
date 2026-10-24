@@ -228,7 +228,23 @@ elif menu == "Departemen Eksternal":
     display_images_with_data(gambar_urls, data_list, key="eksternal")
 
 elif menu == "Departemen Internal":
-    gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"]
+    gambar_urls = ["https://drive.google.com/uc?export=view&id=1eyEq2i1K-5zHOuDZTku2ZmuUvOLVqA39",
+                   "https://drive.google.com/uc?export=view&id=1IO5VmRR1zmkI0VlVXbEVeIChXDlA-ajS",
+                   "https://drive.google.com/uc?export=view&id=1bpEkbl47K2N2Dp09NxGjcZSkhDE4w9o_",
+                   "https://drive.google.com/uc?export=view&id=1AD-hSjaKlGiVNz3EHemcpzhChv66sHV8",
+                   "https://drive.google.com/uc?export=view&id=1k97cNHFdCcJD5l_oEEf0eKTrIjSOhcft",
+                   "https://drive.google.com/uc?export=view&id=1oMj9-110iZ-hCEdQGL544k8PVH4O6MaW",
+                   "https://drive.google.com/uc?export=view&id=1hNPSkMYC15KMneoBWTMen6agAYiFCEWr",
+                   "https://drive.google.com/uc?export=view&id=1hNPSkMYC15KMneoBWTMen6agAYiFCEWr",
+                   "https://drive.google.com/uc?export=view&id=1clZ_QQNZQousMUe4Glbd33X1fKSF8Kob",
+                   "https://drive.google.com/uc?export=view&id=16Be-N8A0X68n-VAUEzwplT3Y_u0f28Xo",
+                   "https://drive.google.com/uc?export=view&id=1NakM6Vn6KTmJdycbrz1j9137IxJRnxKF",
+                   "https://drive.google.com/uc?export=view&id=1UM2S-buMlcOspDX7yzY5Uw64ww4K56RX",
+                   "https://drive.google.com/uc?export=view&id=1pSD85RA2UUz4PteWuF7nRE93yLZau80i",
+                   "https://drive.google.com/uc?export=view&id=1amPeK5x9aW09HeLEt0P3Dx4xvc5Xg-_t",
+                   "https://drive.google.com/uc?export=view&id=17x8KA1eURlVaIAQz5n7vb4XwWCzwpROq",
+                   "https://drive.google.com/uc?export=view&id=1aVtXDrojjgVln1mmayaXRrGHnf6VxAZk",
+    ]
     data_list = [
         {"nama": "Anggota Internal", "jabatan": "Staf Internal", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
     ]
