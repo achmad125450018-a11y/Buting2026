@@ -347,15 +347,15 @@ if menu == "Badan Legislatif":
 if menu == "Badan Kesenatoran":
     def senator():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1gv4XflB8QYJzK0zWRJEIY7uA9VPSPhkI",
-            "https://drive.google.com/uc?export=view&id=1lywiJCx-TDSMUwE6EepcYSUZoBAmzvnk",
-            "https://drive.google.com/uc?export=view&id=1Li-ErDRJIYJFgyT4p2C1BdA37ncklBvz",
-            "https://drive.google.com/uc?export=view&id=1EccUlLrzWDpsrPCWZjUOTnqbpXBGYR16",
-            "https://drive.google.com/uc?export=view&id=135J4MiaT7cyIgQjmoUUvgfZt6Qnb-ykF",
-            "https://drive.google.com/uc?export=view&id=1JjByNCqRP2Gfg8BbogtePV1rggp6VHhd",
-            "https://drive.google.com/uc?export=view&id=1IL0Zq5vcZm2zPXdINdRm5GLKX9GI07xs",
-            "https://drive.google.com/uc?export=view&id=1YNx_0mQfzdVWZu0SQujrqkI6JkwrRe4V",
-            "https://drive.google.com/uc?export=view&id=1DXy4MCZCWPOYZsA-5d8VAqTeBub-GJQe",
+            "https://drive.google.com/uc?export=view&id=1x4l3t9Gy6FthWiwPjvwWW47gxpDY15mt",
+            "https://drive.google.com/uc?export=view&id=1yAiY2HZ3zlPqp0VkdYlY1QC5SRLj9qdN",
+            "https://drive.google.com/uc?export=view&id=1Li-ErDRJIYJFgyT4p2C1BdA37ncklBvz",#
+            "https://drive.google.com/uc?export=view&id=1OWRzNvT7GuMOzOYiOidkYKphG0W3zWNp",
+            "https://drive.google.com/uc?export=view&id=1FertBY6EDHYxU5gcSz9VKHTerUj8IFgd",
+            "https://drive.google.com/uc?export=view&id=1JjByNCqRP2Gfg8BbogtePV1rggp6VHhd",#
+            "https://drive.google.com/uc?export=view&id=1p5tFSULhp7qpbivXe3tg3TEuVFBQwux3",
+            "https://drive.google.com/uc?export=view&id=1DRSrgbsdTL_eDM-Frl-11nQa7UT_T1hC",
+            "https://drive.google.com/uc?export=view&id=1SsIxjXzxT-8oLUpWW0Ghxz-H1KHzwiha",
             "https://drive.google.com/uc?export=view&id=1AMT-zQObGWJzpk4G558GCm8ZKbwmrfnq",
         ]
         data_list = [
