@@ -194,12 +194,12 @@ elif menu == "Departemen Eksternal":
         "https://drive.google.com/uc?export=view&id=1YoLCZA_w9h2t6Lr9w0KKRplgHh0pKvZK",
         "https://drive.google.com/uc?export=view&id=12kzNFYkrUgfPBuOh88dmhgnzrcO0Tp2s",
         "https://drive.google.com/uc?export=view&id=1h5w-XXVSVMOw6lA-RQWOW5ZAXAcy8p8I",
+        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         "https://drive.google.com/uc?export=view&id=1rZMYltF9fVjeEfLvNq2SJeV4XROlMKmx",
         "https://drive.google.com/uc?export=view&id=1SwIXsRxz10A6iuWGPVwb3TxVgha77dhV",
         "https://drive.google.com/uc?export=view&id=1YshCV-3Y01ZA_VkMKjQ55NuAta6ssuuz",
         "https://drive.google.com/uc?export=view&id=1Aaoq3XxCWHAZ1CENfeDTHaZ9Hvo-rFMa",
         "https://drive.google.com/uc?export=view&id=1JIlO5g2WvnVKUWfjhtUeHQXKa2pJLc_5",
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
     ]
     data_list = [
         {"nama": "Arini Puteri Elandra", "jabatan": "Staf Eksternal", "nim": "123450069", "umur": "21", "asal": "Lampung", "alamat": "Teluk Betung Selatan", "hobbi": "Nonton Kartun", "sosmed": "@elandraa_", "kesan": "Murah Senyum", "pesan": "Selalu jadi orang baik ya kak"},
