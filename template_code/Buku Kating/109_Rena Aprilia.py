@@ -229,9 +229,42 @@ elif menu == "Departemen Eksternal":
     display_images_with_data(gambar_urls, data_list, key="eksternal")
 
 elif menu == "Departemen Internal":
-    gambar_urls = ["https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_"]
+    gambar_urls = ["https://drive.google.com/uc?export=view&id=1n_PnSsF4BaBwk5Yubcr4YwrtwgvVQ_AP",
+                   "https://drive.google.com/uc?export=view&id=1rbUfBqtkcx4V1IQPR707FbJDdt77F4qn",
+                   "https://drive.google.com/uc?export=view&id=1YTazUOb799jV1jQly5ObYpoPf15q_30O",
+                   "https://drive.google.com/uc?export=view&id=13X3TF2z2678-CLp0XWBtazaEnYxZ-GZB",
+                   "https://drive.google.com/uc?export=view&id=1ZCQ4X4xE16OcrZThORC6JltKcFNvDSr8",
+                   "https://drive.google.com/uc?export=view&id=1PzRzluaM14nkCFUBK3ZP5sza2I0-IUb8",
+                   "https://drive.google.com/uc?export=view&id=1DIkWCmeTsXJYGjmMNIGqpBb6FIZJ7L9e",
+                   "https://drive.google.com/uc?export=view&id=1xkS7pAsoSmEMPQUN66EPzP7zKJY_avDK",
+                   "https://drive.google.com/uc?export=view&id=10RG54r4iIUd6fjjqE849eXMg9wCgn5Sq",
+                   "https://drive.google.com/uc?export=view&id=1RtsPaV6uz7GMNpzRqwXkTtH2yvv91Hiy",
+                   "https://drive.google.com/uc?export=view&id=1elAIy2diXFK-zbd37iF24CFi28ChxWPl",
+                   "https://drive.google.com/uc?export=view&id=1ueR_DPLcWwgJjn5-kKOzUsyCznVvGdpB",
+                   "https://drive.google.com/uc?export=view&id=1UvN0gTDwkEEQzJc9rHy8Eg5fGw9q6EVf",
+                   "https://drive.google.com/uc?export=view&id=1ROAG3lly5nA6qQSKIeAQeaZTn5wnztB9",
+                   "https://drive.google.com/uc?export=view&id=194BrrFTusOJnJLdX0kfgPqR0kFGXvykh",
+                   "https://drive.google.com/uc?export=view&id=18VwyRlmM3U6Qn0-6sSJDPfG4av9W6VKw",
+    ]
     data_list = [
-        {"nama": "Anggota Internal", "jabatan": "Staf Internal", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Haikal Fransisko Simbolon", "jabatan": "Kepala Departemen Internal", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Kharisma Mustika Sari", "jabatan": "Sekretaris Departemen Internal", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Hanna Gresia Sinaga", "jabatan": "Kepala Divisi Keharmonisasian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "A Farhan Ghani", "jabatan": "Staf Ahli Keharmonisasian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Aisyah Khairun Nisa", "jabatan": "Staf Keharmonisasian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Cerine Sihotang", "jabatan": "Staf Keharmonisasian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Jaya Saputra Tamba", "jabatan": "Staf Keharmonisasian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Najla Nursyifa", "jabatan": "Staf Keharmonisasian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Rozak Ramdani", "jabatan": "Staf Keharmonisasian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Teresa Christiani Purba", "jabatan": "Staf Keharmonisasian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Muhammad Hanif Dzaky Arifin", "jabatan": "Kepala Divisi Kerohanian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Audina Fitria", "jabatan": "Staf Kerohanian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Cika Adelia Br Marbun", "jabatan": "Staf Kerohanian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Gustin H. Tampubolon", "jabatan": "Staf Kerohanian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Muhammad Harvinsyah", "jabatan": "Staf Kerohanian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+        {"nama": "Rafa Sabina Fahimah", "jabatan": "Staf Kerohanian", "nim": "122450066", "umur": "20", "asal": "Tangerang", "alamat": "Sukarame", "hobbi": "Design", "sosmed": "@internal", "kesan": "Keluarga baru", "pesan": "Harmonis selalu!"},
+    
+    
     ]
     display_images_with_data(gambar_urls, data_list, key="internal")
 
