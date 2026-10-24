@@ -402,16 +402,17 @@ elif menu == "Departemen Minbak":
 elif menu == "Departemen SSD":
     def Departemen_SSD():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1KGNhbecJJbvZr65wajrzMgkyEvFRewTU",
-            "https://drive.google.com/uc?export=view&id=1yWdWMPOKHaihUeg-wBKRe3hYTEmkYPfn",
-            "https://drive.google.com/uc?export=view&id=10NctbY2MrUvJ-TDYguVCMaDsDYOzokFc",
-            "https://drive.google.com/uc?export=view&id=1lonoBPJYVxWpDdPv8IH3FQUWtC-xLRCr",
-            "https://drive.google.com/uc?export=view&id=1brlAstkmLBb26_RptHuq4WFcooc77OAs",
-            "https://drive.google.com/uc?export=view&id=13LZNR2UKs5-CkVm_8d1YZOU9Rv90Vvfu",
-            "https://drive.google.com/uc?export=view&id=13NoUA9gdgZ5CCcfgR1lia-UMgDpj0zKf",
-            "https://drive.google.com/uc?export=view&id=1AoKUIoXm_0Me7gwEyMPBgSZFFcYhMvJW",
-            "https://drive.google.com/uc?export=view&id=1ER_mNf7HXv__3jkIIkPnHjIx0allpGwA",
-            "https://drive.google.com/uc?export=view&id=1IiZlidIX4sOhH0iAr5QFaSb6IHVuq3ia"
+            "https://drive.google.com/uc?export=view&id=1P4ruEk7NETFmFwSpA5IasehjcCj_sTyC",
+            "https://drive.google.com/uc?export=view&id=15isF6NFx2_fp9zXGRDcHM0HEGulMmCdM",
+            "https://drive.google.com/uc?export=view&id=1s5GvbYr-xmxzzzr7nDjm63DSaSYOQq7y",
+            "https://drive.google.com/uc?export=view&id=1bSOCPQwxcSPGQ_JXWL-4Zwm1OCuweCu4",
+            "https://drive.google.com/uc?export=view&id=1bphBvECJmybGOcAzcVyxL4_gzMWo3ANg",
+            "https://drive.google.com/uc?export=view&id=15YH0V3v18gLUxLPvYazTOvqzIDN1r7fT",
+            "https://drive.google.com/uc?export=view&id=1oMnwYJapXVrMkpQ2psowMlFNltWy4kH2",
+            "https://drive.google.com/uc?export=view&id=1fq9orydmm-d4Tc6RRS8OLl4CuyoZLDkS",
+            "https://drive.google.com/uc?export=view&id=1LX00iLQB690SPQW2hoJ1kOriump8LWJB",
+            "https://drive.google.com/uc?export=view&id=1sECCXB4H_nPKyJX9riNihBRwmSb0imxx",
+            "https://drive.google.com/uc?export=view&id=1H926uCv7ZYVnnb3-rL7HJgxDg4ryehiP",
         ]
         data_list = [
             # Pimpinan & Sekretaris
