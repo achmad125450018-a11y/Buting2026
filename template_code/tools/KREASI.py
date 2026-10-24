@@ -3,7 +3,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 # ============================================================
-# 🎨 UI STREAMLIT (Memaksa Lebar Penuh)
+# 🎨 UI STREAMLIT & CSS HACK (Memaksa Lebar Penuh)
 # ============================================================
 st.markdown("""
 <style>
@@ -57,7 +57,12 @@ html, body, [class*="css"] {
     margin-top: 8px;
 }
 
-/* 💡 KUNCI PEMBEBAS LEBAR: Memaksa iframe Streamlit jadi 100% */
+/* 💥 CSS HACK: Menghancurkan batas lebar bawaan Streamlit */
+[data-testid="stAppViewBlockContainer"] {
+    max-width: 100% !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
 iframe[title="streamlit_component"] {
     width: 100% !important;
     max-width: 100% !important;
@@ -72,7 +77,7 @@ st.markdown("<h1 class='title'>DATA CATCHER</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>✦ Bersihkan Data, Kumpulkan Skor! ✦</p>", unsafe_allow_html=True)
 
 # ============================================================
-# 🎮 HTML/JS GAME (Bebas Bug & Responsive)
+# 🎮 HTML/JS GAME (Lebar Maksimal & Waktu Normal)
 # ============================================================
 game_html = """
 <!DOCTYPE html>
@@ -92,6 +97,7 @@ game_html = """
     
     #game-container {
         width: 100%;
+        max-width: 100%;
         height: 550px;
         background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
         border-radius: 20px;
@@ -147,7 +153,6 @@ game_html = """
         100% { top: 100%; }
     }
 
-    /* Di tengah secara sempurna, tidak menutupi HUD */
     .screen {
         position: absolute;
         top: 55%; left: 50%;
@@ -263,7 +268,7 @@ game_html = """
         playArea.style.display = "block";
         playArea.innerHTML = ""; 
 
-        // Timer normal
+        // Timer normal (1 detik = 1 detik)
         timerInterval = setInterval(() => {
             if (!isPlaying) return;
             timeLeft--;
@@ -352,7 +357,7 @@ game_html = """
 </html>
 """
 
-# Gunakan st.empty() sebagai trik agar iframe Streamlit mau melebar 100%
-placeholder = st.empty()
-with placeholder.container():
-    components.html(game_html, height=560, scrolling=False)
+# Bungkus dengan kolom agar proporsional di layar lebar
+col1, col2, col3 = st.columns([1, 8, 1])
+with col2:
+    components.html(game_html, height=600, scrolling=False)
