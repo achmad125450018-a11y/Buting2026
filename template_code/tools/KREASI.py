@@ -5,6 +5,15 @@ import streamlit.components.v1 as components
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* 💥 PAKSA IFRAME JADI LEBAR PENUH */
+.stHtml, 
+div[data-testid="stHtml"],
+iframe[title="streamlit_component"] {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
 .title {
     text-align: center;
     font-family: 'Playfair Display', serif;
@@ -38,10 +47,10 @@ game_html = """
     * { box-sizing: border-box; }
     body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background-color: transparent; display: flex; justify-content: center; }
     
-    /* KANVAS GAME FULL LEBAR */
+    /* Lebar game di laptop */
     #game-container {
         width: 100%;
-        max-width: 1000px; /* Lebar maksimal di laptop */
+        max-width: 900px; 
         height: 500px;
         background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
         border-radius: 20px;
@@ -125,7 +134,6 @@ game_html = """
     /* 📱 Tampilan HP: Game otomatis mengecil jadi vertikal */
     @media (max-width: 768px) {
         #game-container { height: 550px; border-radius: 0; border: none; }
-        #hud { gap: 10px; top: 15px; }
         .stat { padding: 6px 12px; font-size: 14px; }
         .screen { padding: 30px 20px; }
         h2 { font-size: 26px; }
@@ -233,5 +241,5 @@ game_html = """
 </html>
 """
 
-# Tinggal panggil langsung tanpa kolom, karena iframe sudah dipaksa lebar oleh main.py
+# Render tanpa kolom
 components.html(game_html, height=520, scrolling=False)
