@@ -16,47 +16,45 @@ def load_image(url):
 
 # JANGAN DIUBAH
 
-# Pengaturan Konfigurasi Tema Global & Warna Sidebar agar Tampil Jelas
+# Pengaturan Konfigurasi Tema Global Krim & Emas (Elegan & Bergrafik)
 st.markdown(
     """
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Inter:wght@400;600;700&display=swap');
 
-    /* Global Styling */
+    /* Global Styling - Tema Krim & Elegan */
     .stApp {
-        background: radial-gradient(circle at 50% 10%, #090d16 0%, #030712 100%);
-        color: #ffffff;
-        font-family: 'Space Grotesk', sans-serif;
+        background: linear-gradient(135deg, #fcf8f2 0%, #f0e6d2 100%);
+        color: #2c221e;
+        font-family: 'Inter', sans-serif;
     }
 
-    /* Sidebar dikembalikan seperti awal, hanya menyesuaikan warna teks agar terang & terbaca */
+    /* Sidebar hanya diubah warnanya menjadi krim hangat */
     [data-testid="stSidebar"] {
-        background-color: #060918 !important;
-        border-right: 1px solid rgba(0, 243, 255, 0.2);
+        background-color: #f5ede0 !important;
+        border-right: 1px solid #d4af37;
     }
-    [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div {
-        color: #ffffff !important;
+    [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div, [data-testid="stSidebar"] label {
+        color: #2c221e !important;
     }
 
     .main-title {
-        font-family: 'Orbitron', sans-serif;
+        font-family: 'Playfair Display', serif;
         text-align: center;
         font-size: 3.5rem;
         font-weight: 900;
-        background: linear-gradient(135deg, #00f3ff 0%, #7928ca 50%, #ff007f 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 30px rgba(0, 243, 255, 0.4);
+        color: #5c3a21;
+        text-shadow: 2px 2px 15px rgba(197, 160, 89, 0.3);
         margin-bottom: 0px;
     }
 
     .sub-title {
-        font-family: 'Orbitron', sans-serif;
+        font-family: 'Playfair Display', serif;
         text-align: center;
         font-size: 1.5rem;
-        color: #ffffff;
+        color: #8b5a2b;
         letter-spacing: 3px;
-        text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        font-weight: 600;
         margin-bottom: 30px;
     }
     </style>
@@ -100,26 +98,25 @@ def streamlit_menu():
       styles={
           "container": {
               "padding": "5px",
-              "background-color": "rgba(15, 23, 42, 0.95)",
-              "border": "1px solid rgba(0, 243, 255, 0.3)",
+              "background-color": "#f4ecd8",
+              "border": "1px solid #c5a059",
               "border-radius": "12px",
           },
-          "icon": {"color": "#00f3ff", "font-size": "18px"},
+          "icon": {"color": "#8b5a2b", "font-size": "18px"},
           "nav-link": {
               "font-size": "15px",
-              "font-family": "Space Grotesk, sans-serif",
+              "font-family": "Inter, sans-serif",
               "text-align": "center",
               "margin": "0px 5px",
-              "color": "#ffffff",
+              "color": "#3e2723",
               "font-weight": "600",
-              "--hover-color": "rgba(0, 243, 255, 0.15)",
+              "--hover-color": "rgba(197, 160, 89, 0.2)",
           },
           "nav-link-selected": {
               "background": (
-                  "linear-gradient(135deg, rgba(0,243,255,0.3),"
-                  " rgba(121,40,202,0.4))"
+                  "linear-gradient(135deg, #c5a059 0%, #d4af37 100%)"
               ),
-              "border": "1px solid #00f3ff",
+              "border": "1px solid #8b5a2b",
               "color": "#ffffff",
               "font-weight": "700",
           },
@@ -138,92 +135,91 @@ if menu == "Home":
         <style>
         .deskripsi-title {
             text-align: center;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 2.2em;
-            color: #00f3ff;
+            color: #5c3a21;
             margin-bottom: 25px;
             font-weight: 700;
-            text-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+            text-shadow: 1px 1px 10px rgba(197, 160, 89, 0.3);
         }
         
         .photo-caption-box {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
-            border: 1px solid rgba(0, 243, 255, 0.4);
-            color: white;
+            background: linear-gradient(135deg, #fdfbf7 0%, #f4ecd8 100%);
+            border: 1px solid #c5a059;
+            color: #3e2723;
             text-align: center;
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 25px;
-            box-shadow: 0 0 25px rgba(0, 243, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(139, 90, 43, 0.15);
         }
         
         .badge-cosval {
             display: inline-block;
-            background: rgba(0, 243, 255, 0.2);
-            border: 1px solid #00f3ff;
+            background: rgba(197, 160, 89, 0.2);
+            border: 1px solid #c5a059;
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.8em;
             margin-bottom: 10px;
             letter-spacing: 2px;
             font-weight: 700;
-            color: #00f3ff;
-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+            color: #8b5a2b;
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
         }
         
         .photo-text-title {
             margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2em;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25em;
             font-weight: 700;
-            color: #ffffff;
+            color: #2c221e;
         }
 
         .desc-box {
-            border: 2px solid rgba(0, 243, 255, 0.5);
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(10px);
+            border: 2px solid #c5a059;
+            background: #fdfbf7;
             border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 0 30px rgba(0, 243, 255, 0.15);
+            box-shadow: 0 6px 25px rgba(139, 90, 43, 0.12);
             margin-bottom: 30px;
         }
         
         .desc-heading {
-            color: #00f3ff;
-            font-family: 'Orbitron', sans-serif;
+            color: #5c3a21;
+            font-family: 'Playfair Display', serif;
             margin-top: 0;
             margin-bottom: 15px;
-            font-size: 1.4em;
+            font-size: 1.5em;
             font-weight: 700;
         }
         
         .desc-content {
-            color: #ffffff;
-            font-family: 'Space Grotesk', sans-serif;
+            color: #2c221e;
+            font-family: 'Inter', sans-serif;
             line-height: 1.8;
-            font-size: 1.1em;
+            font-size: 1.05em;
             margin: 0;
             text-align: justify;
         }
 
         .book-cover {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
-            border: 2px solid #7928ca;
-            color: white;
+            background: linear-gradient(135deg, #fdfbf7 0%, #e9dcbe 100%);
+            border: 2px solid #8b5a2b;
+            color: #3e2723;
             padding: 50px 20px;
             text-align: center;
             border-radius: 15px;
-            box-shadow: 0 0 35px rgba(121, 40, 202, 0.4);
+            box-shadow: 0 8px 30px rgba(139, 90, 43, 0.2);
             margin-bottom: 20px;
         }
         
         .book-spread {
-            background: rgba(15, 23, 42, 0.95);
-            border: 2px solid rgba(0, 243, 255, 0.4);
+            background: #fdfbf7;
+            border: 2px solid #c5a059;
             border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 0 25px rgba(0, 243, 255, 0.15);
+            box-shadow: 0 6px 20px rgba(139, 90, 43, 0.12);
             margin-bottom: 20px;
         }
         </style>
@@ -270,8 +266,8 @@ if menu == "Home":
 
     st.markdown(
         "<h2"
-        " style='text-align: center; font-family: Orbitron; color:"
-        " #00f3ff;'>Album Dokumentasi Cosval</h2>",
+        " style='text-align: center; font-family: Playfair Display; color:"
+        " #5c3a21; font-weight: 700;'>Album Dokumentasi Cosval</h2>",
         unsafe_allow_html=True,
     )
     st.write("")
@@ -292,9 +288,9 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-cover">
-                <h1 style="font-family: Orbitron; color: #00f3ff;">ALBUM Kelompok COSVAL</h1>
-                <p style="color: #ffffff;">Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
-                <p style="color: #00f3ff; font-size: 0.95em; margin-top: 15px; font-weight: 600;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
+                <h1 style="font-family: Playfair Display; color: #5c3a21; font-weight: 700;">ALBUM Kelompok COSVAL</h1>
+                <p style="color: #3e2723;">Album kenangan dan dokumentasi kegiatan kelompok kami.</p>
+                <p style="color: #8b5a2b; font-size: 0.95em; margin-top: 15px; font-weight: 600;">Klik tombol di bawah untuk membuka lembaran buku album.</p>
             </div>
             """,
           unsafe_allow_html=True,
@@ -309,7 +305,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #00f3ff; margin-top: 0; font-family: Orbitron;'>— Halaman 1 dari 3 —</h4>
+                <h4 style='text-align: center; color: #5c3a21; margin-top: 0; font-family: Playfair Display;'>— Halaman 1 dari 3 —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -342,7 +338,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #00f3ff; margin-top: 0; font-family: Orbitron;'>— Halaman 2 dari 3 —</h4>
+                <h4 style='text-align: center; color: #5c3a21; margin-top: 0; font-family: Playfair Display;'>— Halaman 2 dari 3 —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -375,7 +371,7 @@ if menu == "Home":
       st.markdown(
           """
             <div class="book-spread">
-                <h4 style='text-align: center; color: #00f3ff; margin-top: 0; font-family: Orbitron;'>— Halaman 3 dari 3 (Akhir) —</h4>
+                <h4 style='text-align: center; color: #5c3a21; margin-top: 0; font-family: Playfair Display;'>— Halaman 3 dari 3 (Akhir) —</h4>
             """,
           unsafe_allow_html=True,
       )
@@ -410,7 +406,7 @@ elif menu == "About Us":
 
   def about_page():
     st.markdown(
-        """<style>.centered-title {text-align: center; color: #00f3ff; font-family:'Orbitron', sans-serif; font-weight: 700;}</style>""",
+        """<style>.centered-title {text-align: center; color: #5c3a21; font-family:'Playfair Display', serif; font-weight: 700;}</style>""",
         unsafe_allow_html=True,
     )
     st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
@@ -419,12 +415,12 @@ elif menu == "About Us":
         """
         <style>
         .about-photo img {
-            border: 4px solid #00f3ff !important;
-            outline: 2px solid #030712 !important;
+            border: 4px solid #c5a059 !important;
+            outline: 2px solid #8b5a2b !important;
             border-radius: 12px !important;
             padding: 4px !important;
-            background-color: #0f172a !important;
-            box-shadow: 0 8px 20px rgba(0, 243, 255, 0.3) !important;
+            background-color: #fdfbf7 !important;
+            box-shadow: 0 8px 20px rgba(139, 90, 43, 0.25) !important;
         }
         </style>
         """,
@@ -440,8 +436,8 @@ elif menu == "About Us":
     if filter_pilihan == "Semua":
       st.markdown(
           "<h2 style='text-align: center; margin-top: 20px;"
-          " margin-bottom: 20px; color: #00f3ff; font-family: \"Orbitron\","
-          " sans-serif; font-weight: 700;'>Kenalan Yuk Sama Cosval!</h2>",
+          " margin-bottom: 20px; color: #5c3a21; font-family: \"Playfair"
+          " Display\", serif; font-weight: 700;'>Kenalan Yuk Sama Cosval!</h2>",
           unsafe_allow_html=True,
       )
 
@@ -570,22 +566,22 @@ elif menu == "About Us":
           st.markdown(
               f"""
                     <div style="
-                        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95)); 
-                        border: 2px solid rgba(0, 243, 255, 0.4); 
+                        background: linear-gradient(135deg, #fdfbf7 0%, #f4ecd8 100%); 
+                        border: 2px solid #c5a059; 
                         padding: 24px; 
                         border-radius: 15px; 
-                        box-shadow: 0 0 25px rgba(0, 243, 255, 0.15); 
-                        color: #ffffff;
-                        font-family: 'Space Grotesk', sans-serif;
+                        box-shadow: 0 6px 20px rgba(139, 90, 43, 0.15); 
+                        color: #2c221e;
+                        font-family: 'Inter', sans-serif;
                         position: relative;
                         overflow: hidden;
                         margin-bottom: 20px;">
-                        <div style="position: absolute; top: 0; right: 0; width: 70px; height: 70px; background: linear-gradient(135deg, transparent 50%, rgba(0,243,255,0.2) 50%); pointer-events: none;"></div>
-                        <h3 style="margin-top: 0; color: #00f3ff; border-bottom: 2px solid rgba(0, 243, 255, 0.3); padding-bottom: 8px; font-family: 'Orbitron', sans-serif;">{data['nama']}</h3>
-                        <p style="margin: 8px 0; font-size: 1.05em; color: #ffffff;"><b>Sebagai:</b> {data['sebagai']}</p>
-                        <p style="margin: 8px 0; font-size: 1.05em; color: #ffffff;"><b>NIM:</b> {data['nim']}</p>
-                        <p style="margin: 8px 0; font-size: 1.05em; color: #ffffff;"><b>Fun Fact:</b> {data['fun_fact']}</p>
-                        <p style="margin: 8px 0; font-size: 1.05em; color: #ffffff;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
+                        <div style="position: absolute; top: 0; right: 0; width: 70px; height: 70px; background: linear-gradient(135deg, transparent 50%, rgba(197,160,89,0.25) 50%); pointer-events: none;"></div>
+                        <h3 style="margin-top: 0; color: #5c3a21; border-bottom: 2px solid #c5a059; padding-bottom: 8px; font-family: 'Playfair Display', serif;">{data['nama']}</h3>
+                        <p style="margin: 8px 0; font-size: 1.05em; color: #2c221e;"><b>Sebagai:</b> {data['sebagai']}</p>
+                        <p style="margin: 8px 0; font-size: 1.05em; color: #2c221e;"><b>NIM:</b> {data['nim']}</p>
+                        <p style="margin: 8px 0; font-size: 1.05em; color: #2c221e;"><b>Fun Fact:</b> {data['fun_fact']}</p>
+                        <p style="margin: 8px 0; font-size: 1.05em; color: #2c221e;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
                     </div>
                     """,
               unsafe_allow_html=True,
