@@ -10,6 +10,29 @@ st.set_page_config(layout="wide")
 st.markdown(
     """
     <style>
+    /* Sembunyikan header bawaan Streamlit untuk tampilan full-screen yang bersih */
+    [data-testid="stHeader"] {
+        visibility: hidden;
+    }
+
+    /* Mengubah background utama menjadi oranye pekat solid */
+    .stApp {
+        background: #d85226; /* Warna oranye utama */
+        color: white; /* Mengubah teks umum menjadi putih */
+    }
+
+    /* Membuat sidebar sedikit lebih gelap dari warna utama */
+    [data-testid="stSidebar"] {
+        background-color: #bd411b !important; 
+        border-right: none; /* Menghilangkan garis batas bawaan */
+    }
+    
+    /* Memastikan teks di dalam sidebar berwarna putih */
+    [data-testid="stSidebar"] * {
+        color: white !important;
+    }
+
+    /* Animasi gambar bawaan Anda */
     .gambar-timbul {
         width: 100%;
         border-radius: 8px;
@@ -24,6 +47,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 def image_to_html_link(img, url_ig, img_width="100%"):
     buffered = BytesIO()
     img = img.convert("RGB")
@@ -44,7 +68,6 @@ def image_to_html_link(img, url_ig, img_width="100%"):
 def load_image(url):
     try:
         response = requests.get(url)
-        # Pastikan response adalah file gambar, bukan HTML
         if 'text/html' in response.headers.get('Content-Type', ''):
             return None
         
@@ -145,7 +168,7 @@ def streamlit_menu():
                 "margin": "0px",
                 "--hover-color": "#eee",
             },
-            "nav-link-selected": {"background-color": "#3FBAD8"},
+            "nav-link-selected": {"background-color": "#e3651e"},
         },
     )
     return selected
@@ -196,15 +219,15 @@ elif menu == "About Us":
         st.markdown("<h1 class='centered-title'>About Us</h1>", unsafe_allow_html=True)
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1rbivE1TuHa3baKFVMcQ2MV0AVto2Or-a",
-            "https://drive.google.com/uc?export=view&id=1dzJTYgV_KVWQIsgJakqeBx-s5ntf0tSq",
+            "https://drive.google.com/uc?export=view&id=1VHIRvPCdaDsop3n_T_J7gVKBQbhSKt5O",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1C6pkVy5sjsffTqdeOSv1M5zff_1zZL8f",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1jflu-Tr_51LeSApGIa6cLeiSVWIrpQ6d",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1bVrnE6ZDK6nTWkiKGjUeGw-BfMLG-s81",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
@@ -217,7 +240,7 @@ elif menu == "About Us":
                 "nim": "124450060",
                 "fun_fact": "...",
                 "motto_hidup": "...",
-                "ig": "https://instagram.com/instagram" 
+                "ig": "https://www.instagram.com/andra.lhm?utm_source=ig_web_button_share_sheet&obrf=ZDNlZDc0MzIxNw==" 
             },
             {
                 "nama": "Andrew Chayadi",
@@ -225,7 +248,7 @@ elif menu == "About Us":
                 "nim": "125450067",
                 "fun_fact": "...",
                 "motto_hidup": "...",
-                "ig": "https://instagram.com/instagram"
+                "ig": "https://www.instagram.com/drewwszz?utm_source=ig_web_button_share_sheet&dlrf=ZDNlZDc0MzIxNw=="
             },
             {
                 "nama": "Wardah Aliya Lubis",
@@ -233,7 +256,7 @@ elif menu == "About Us":
                 "nim": "1254500121",
                 "fun_fact": "nyemilin es bata",
                 "motto_hidup": "Ya apa ya",
-                "ig": "https://instagram.com/instagram"
+                "ig": "https://www.instagram.com/aliyaaalbs?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw=="
             },
             {
                 "nama": "Faiz Hikmawan",
@@ -241,7 +264,7 @@ elif menu == "About Us":
                 "nim": "125450013",
                 "fun_fact": "nyemilin es bata",
                 "motto_hidup": "mantap",
-                "ig": "https://instagram.com/instagram"
+                "ig": "https://www.instagram.com/izhik__/"
             },
             {
                 "nama": "Valen Uswatun Fauziyah Putri",
@@ -249,7 +272,7 @@ elif menu == "About Us":
                 "nim": "125450014",
                 "fun_fact": "nyemilin",
                 "motto_hidup": "jalanin dulu aja",
-                "ig": "https://instagram.com/instagram"
+                "ig": "https://www.instagram.com/_vlntz02_?utm_source=ig_web_button_share_sheet&dlrf=ZDNlZDc0MzIxNw=="
             },
             {
                 "nama": "Zharifa Azizah Yudistira",
@@ -257,7 +280,7 @@ elif menu == "About Us":
                 "nim": "12545044",
                 "fun_fact": "nyemilin es bata, kiko",
                 "motto_hidup": "jalanin dulu keles",
-                "ig": "https://instagram.com/instagram"
+                "ig": "https://www.instagram.com/zhrfazia/"
             },
             {
                 "nama": "Theofani Saragih",
@@ -265,7 +288,7 @@ elif menu == "About Us":
                 "nim": "125450046",
                 "fun_fact": "nyemilin es bata, kiko",
                 "motto_hidup": "jalanin dulu keles",
-                "ig": "https://instagram.com/instagram"
+                "ig": "https://www.instagram.com/fanii.ly_?utm_source=ig_web_button_share_sheet&dlrf=ZDNlZDc0MzIxNw=="
             },
             {
                 "nama": "Muchamad Fahrell",
@@ -273,7 +296,7 @@ elif menu == "About Us":
                 "nim": "125450077",
                 "fun_fact": "nyemilin es bata, kiko",
                 "motto_hidup": "jalanin dulu keles",
-                "ig": "https://instagram.com/instagram"
+                "ig": "https://www.instagram.com/mmuchaell/"
             },
             {
                 "nama": "Nickolas Filbert Kartika",
@@ -281,7 +304,7 @@ elif menu == "About Us":
                 "nim": "125450081",
                 "fun_fact": "nyemilin es bata, kiko",
                 "motto_hidup": "jalanin dulu keles",
-                "ig": "https://instagram.com/instagram"
+                "ig": "https://www.instagram.com/nickolas_303/"
             },
             {
                 "nama": "Muhammad Ayyas Haidar Farros",
@@ -289,7 +312,7 @@ elif menu == "About Us":
                 "nim": "125450105",
                 "fun_fact": "nyemilin es bata, kiko",
                 "motto_hidup": "jalanin dulu keles",
-                "ig": "https://instagram.com/instagram"
+                "ig": "https://www.instagram.com/yyassst/"
             },
             {
                 "nama": "Rasya Zahira Umardi",
@@ -297,7 +320,7 @@ elif menu == "About Us":
                 "nim": "125450110",
                 "fun_fact": "nyemilin es bata, kiko",
                 "motto_hidup": "jalanin dulu keles",
-                "ig": "https://instagram.com/instagram"
+                "ig": "https://www.instagram.com/citydoyxl?utm_source=ig_web_button_share_sheet&exln=ZDNlZDc0MzIxNw=="
             },
             {
                 "nama": "Nadia Callysta Putri",
@@ -305,7 +328,7 @@ elif menu == "About Us":
                 "nim": "125450111",
                 "fun_fact": "nyemilin es bata, kiko",
                 "motto_hidup": "jalanin dulu keles",
-                "ig": "https://instagram.com/instagram"
+                "ig": "https://www.instagram.com/nadiaclyst/"
             },
             {
                 "nama": "Muhammad Alifatih Freedom Haq",
@@ -313,7 +336,7 @@ elif menu == "About Us":
                 "nim": "125450120",
                 "fun_fact": "nyemilin es bata, kiko",
                 "motto_hidup": "jalanin dulu kele",
-                "ig": "https://instagram.com/instagram"
+                "ig": "https://www.instagram.com/thefreedomhaq/"
             },
         ]
         display_images_with_data(gambar_urls, data_list)
