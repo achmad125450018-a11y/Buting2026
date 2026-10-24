@@ -6,11 +6,6 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* Memastikan Sidebar tetap konsisten */
-[data-testid="stSidebar"] {
-    background-color: #701c23 !important;
-}
-
 .title {
     text-align: center;
     font-family: 'Playfair Display', serif;
@@ -30,26 +25,25 @@ st.markdown("""
     margin-bottom: 20px;
 }
 
-/* 💥 TRIK CSS: Melebarkan iframe tanpa merusak halaman lain */
+/* 💥 TRIK CSS: Iframe Responsive Tanpa Scrollbar */
 .game-iframe {
     width: calc(100% + 20vw) !important;
-    max-width: 1000px !important; /* Batas maksimal di laptop */
+    max-width: 1000px !important;
     height: 600px;
     border: none;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(112,28,35,0.15);
-    
-    /* Menarik iframe ke kiri agar seimbang di tengah */
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    overflow: hidden;
 }
 
 /* Responsive di HP */
 @media (max-width: 768px) {
     .game-iframe {
         width: 100% !important;
-        height: 550px;
+        height: 550px; /* Disesuaikan agar pas di layar HP */
         left: 0;
         transform: none;
         border-radius: 0;
@@ -61,20 +55,19 @@ st.markdown("""
 st.markdown("<h1 class='title'>DATA CATCHER</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>✦ Bersihkan Data, Kumpulkan Skor! ✦</p>", unsafe_allow_html=True)
 
-# HTML Game (Hanya ada satu di sini)
 game_html = """
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <style>
     * { box-sizing: border-box; }
-    body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background-color: transparent; display: flex; justify-content: center; }
+    body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background-color: transparent; display: flex; justify-content: center; overflow: hidden; }
     
     #game-container {
         width: 100%;
         max-width: 100%;
-        height: 580px;
+        height: 100vh;
         background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
         border-radius: 20px;
         border: 1px solid rgba(217,195,163,0.55);
@@ -90,15 +83,16 @@ game_html = """
         justify-content: center;
         gap: 20px;
         z-index: 10;
+        padding: 0 10px;
     }
     .stat {
         background: rgba(255,255,255,0.9);
         border: 1px solid rgba(217,195,163,0.8);
-        padding: 8px 25px;
+        padding: 8px 20px;
         border-radius: 12px;
         font-weight: 700;
         color: #701c23;
-        font-size: 18px;
+        font-size: 16px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
 
@@ -112,7 +106,7 @@ game_html = """
 
     .item {
         position: absolute;
-        font-size: 60px;
+        font-size: 55px;
         cursor: pointer;
         user-select: none;
         transition: transform 0.1s;
@@ -127,28 +121,28 @@ game_html = """
         transform: translate(-50%, -50%);
         text-align: center;
         z-index: 20;
-        width: 90%;
-        max-width: 450px;
-        padding: 40px;
+        width: 85%;
+        max-width: 400px;
+        padding: 30px;
         background: rgba(255,255,255,0.98);
         border-radius: 20px;
         box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         border: 1px solid rgba(217,195,163,0.8);
     }
-    h2 { color: #701c23; font-family: 'Playfair Display', serif; font-size: 32px; margin: 0 0 15px 0; }
-    p { color: #4e1318; font-size: 16px; margin-bottom: 25px; line-height: 1.6; }
+    h2 { color: #701c23; font-family: 'Playfair Display', serif; font-size: 28px; margin: 0 0 15px 0; }
+    p { color: #4e1318; font-size: 14px; margin-bottom: 20px; line-height: 1.5; }
     
     .btn-start {
         background: linear-gradient(135deg, #701c23 0%, #a8323d 100%);
         color: white; border: none; border-radius: 12px;
-        padding: 15px 30px; font-weight: 700; font-size: 16px;
+        padding: 12px 20px; font-weight: 700; font-size: 15px;
         cursor: pointer; box-shadow: 0 6px 18px rgba(112,28,35,0.35);
         transition: transform 0.15s; width: 100%;
     }
     .btn-start:hover { transform: translateY(-2px); }
     
     .score-pop {
-        position: absolute; font-weight: 800; font-size: 24px;
+        position: absolute; font-weight: 800; font-size: 22px;
         pointer-events: none; animation: popUp 0.6s ease-out forwards;
         text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
     }
@@ -170,7 +164,7 @@ game_html = """
     </div>
     <div id="gameover-screen" class="screen" style="display:none;">
         <h2>Game Over!</h2>
-        <p>Skor Akhir: <br><b style="font-size:48px; color:#a8323d;" id="final-score">0</b></p>
+        <p>Skor Akhir: <br><b style="font-size:40px; color:#a8323d;" id="final-score">0</b></p>
         <button id="btn-restart" class="btn-start">&#128260; Main Lagi</button>
     </div>
 </div>
@@ -212,7 +206,7 @@ game_html = """
         item.className = "item";
         const isClean = Math.random() > 0.4;
         item.innerHTML = isClean ? cleanItems[Math.floor(Math.random() * cleanItems.length)] : dirtyItems[Math.floor(Math.random() * dirtyItems.length)];
-        item.style.left = Math.floor(Math.random() * 85 + 5) + "%";
+        item.style.left = Math.floor(Math.random() * 80 + 5) + "%";
         item.style.animationDuration = (Math.random() * 2 + 2) + "s";
 
         item.onclick = (e) => {
@@ -263,8 +257,8 @@ game_html = """
 </html>
 """
 
-# Encode ke Base64 (Hanya dilakukan sekali)
+# Encode ke Base64
 b64_html = base64.b64encode(game_html.encode('utf-8')).decode('utf-8')
 
-# Tampilkan via iframe manual (Hanya dipanggil sekali)
+# Tampilkan via iframe
 st.markdown(f'<iframe class="game-iframe" src="data:text/html;base64,{b64_html}"></iframe>', unsafe_allow_html=True)
