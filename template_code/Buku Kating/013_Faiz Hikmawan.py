@@ -1140,7 +1140,7 @@ elif menu == "Departemen SSD":
             "hobbi": "",
             "sosmed": "",
             "kesan": "",  
-            "pesan": ""
+            "pesan": "a"
             },
             ]
             display_images_with_data(gambar_urls_Kadep_ssd, data_list_Kadep_ssd)
