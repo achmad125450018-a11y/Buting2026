@@ -965,7 +965,8 @@ if menu == "Departemen MIKFES":
 
         display_images_with_data(gambar_urls, data_list)
     mikfes()
-        if menu == "Departemen Eksternal":
+    
+if menu == "Departemen Eksternal":
     def eksternal():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1_sljO0hUkuvsTc_1YFJMxqkSnIWwcfDb",
