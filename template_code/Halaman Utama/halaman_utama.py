@@ -16,6 +16,16 @@ st.markdown(
         color: white; 
     }
 
+    /* Buat header transparan agar tombol sidebar tetap ada */
+    [data-testid="stHeader"] {
+        background-color: transparent !important;
+    }
+    
+    /* Pastikan warna ikon tombol penutup tab menjadi putih agar terlihat */
+    [data-testid="collapsedControl"] {
+        color: white !important;
+    }
+
     /* Memberikan warna solid pada sidebar */
     [data-testid="stSidebar"] {
         background-color: #bd411b !important;
