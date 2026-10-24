@@ -48,7 +48,7 @@ label, p, span, div {
 """, unsafe_allow_html=True)
 
 st.title("CyberAnomaly: Time-Attack Matrix")
-st.markdown("Isolasi anomali data dalam matriks 4x4 yang kompleks sebelum batas waktu habis.")
+st.markdown("Isolasi anomali data dalam matriks 4x4 sebelum batas waktu habis.")
 
 if "score" not in st.session_state:
     st.session_state.score = 0
@@ -84,20 +84,13 @@ def generate_matrix_puzzle():
     random.shuffle(items)
     return dom_name, anom_name, items
 
-if "puzzle_data" not in st.session_state or not isinstance(st.session_state.puzzle_data, tuple):
+if "puzzle_data" not in st.session_state or not isinstance(st.session_state.puzzle_data, tuple) or "puzzle_items" not in st.session_state:
     st.session_state.dom_name, st.session_state.anom_name, st.session_state.puzzle_items = generate_matrix_puzzle()
     st.session_state.start_time = time.time()
+    st.session_state.puzzle_data = True
 
-elapsed = time.time() - st.session_state.start_time
-time_left = max(0, TIME_LIMIT - int(elapsed))
-
-if time_left == 0:
-    st.session_state.streak = 0
-    st.session_state.score = max(0, st.session_state.score - 20)
-    st.error("Waktu habis! Sanksi penalti waktu diberlakukan.")
-    st.session_state.dom_name, st.session_state.anom_name, st.session_state.puzzle_items = generate_matrix_puzzle()
-    st.session_state.start_time = time.time()
-    st.rerun()
+elapsed = int(time.time() - st.session_state.start_time)
+time_left = max(0, TIME_LIMIT - elapsed)
 
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("Skor Total", st.session_state.score)
@@ -129,6 +122,18 @@ for row in range(4):
                         st.session_state.streak = 0
                         st.session_state.score = max(0, st.session_state.score - 15)
                         st.error(f"Salah! Unit tersebut adalah data normal {item['type']}.")
+
+if time_left == 0:
+    st.session_state.streak = 0
+    st.session_state.score = max(0, st.session_state.score - 20)
+    st.error("Waktu habis! Sanksi penalti waktu diberlakukan dan soal diperbarui.")
+    st.session_state.dom_name, st.session_state.anom_name, st.session_state.puzzle_items = generate_matrix_puzzle()
+    st.session_state.start_time = time.time()
+    time.sleep(1)
+    st.rerun()
+else:
+    time.sleep(1)
+    st.rerun()
 
 st.markdown("---")
 if st.button("Reset Sistem Matrix", key="reset_time_btn"):
