@@ -1,525 +1,994 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
-import requests
-from PIL import Image, ImageOps
-from io import BytesIO
+from sakura_ui import (
+    render_buku_kating_header,
+    render_kating_cards,
+    sakura_dept_menu,
+    display_kating,
+)
 
-st.markdown("""<style>.centered-title {text-align: center;}</style>""",unsafe_allow_html=True)
-st.markdown("<h1 class='centered-title'>BUKU KATING</h1>", unsafe_allow_html=True)
+render_buku_kating_header("130 - Rahman Syapei")
 
-# bagian sini jangan diubah
+# Navigasi Kategori Departemen (Sakura Theme)
 def streamlit_menu():
-    selected = option_menu(
-        menu_title=None,
-        options=[
-            "Kesekjenan",
-            "Baleg",
-            "Senator",
-            "Departemen PSDA",
-            "Departemen MIKFES",
-            "Departemen Eksternal",
-            "Departemen Internal",
-            "Departemen SSD",
-            "Departemen Medkraf",
-            "Departemen Minbak",
-        ],
-        icons=[
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-        ],
-        default_index=0,
-        orientation="horizontal",
-        styles={
-            "container": {"padding": "0!important", "background-color": "#fafafa"},
-            "icon": {"color": "black", "font-size": "19px"},
-            "nav-link": {
-                "font-size": "15px",
-                "text-align": "left",
-                "margin": "0px",
-                "--hover-color": "#eee",
-            },
-            "nav-link-selected": {"background-color": "#9C6AC0"},
-        },
-    )
-    return selected
+    return sakura_dept_menu()
 
-@st.cache_data
-def load_image(url):
-    response = requests.get(url)
-    if response.status_code != 200:
-        st.error(
-            f"Failed to fetch image from {url}, status code: {response.status_code}"
-        )
-        return None
-    try:
-        img = Image.open(BytesIO(response.content))
-        img = ImageOps.exif_transpose(img)
-        img = img.resize((300, 400))
-        return img
-    except Exception as e:
-        st.error(f"Error loading image: {e}")
-        return None
-    
-@st.cache_data
-def display_images_with_data(gambar_urls, data_list):
-    images = []
-    for i, url in enumerate(gambar_urls):
-        with st.spinner(f"Memuat gambar {i + 1} dari {len(gambar_urls)}"):
-            img = load_image(url)
-            if img is not None:
-                images.append(img)
-
-    for i, img in enumerate(images):
-        # Menggunakan Streamlit untuk menampilkan gambar di tengah kolom
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
-            st.image(img, use_container_width=True)
-
-        if i < len(data_list):
-            st.write(f"Nama: {data_list[i]['nama']}")
-            st.write(f"NIM: {data_list[i]['nim']}")
-            st.write(f"Umur: {data_list[i]['umur']}")
-            st.write(f"Asal: {data_list[i]['asal']}")
-            st.write(f"Alamat: {data_list[i]['alamat']}")
-            st.write(f"Hobbi: {data_list[i]['hobbi']}")
-            st.write(f"Sosial Media: {data_list[i]['sosmed']}")
-            st.write(f"Kesan: {data_list[i]['kesan']}")
-            st.write(f"Pesan: {data_list[i]['pesan']}")
-            st.write("  ")
-    st.write("Semua gambar telah dimuat!")
 menu = streamlit_menu()
 
-# BAGIAN SINI YANG HANYA BOLEH DIUABAH
+def display_images_with_data(kating_data):
+    display_kating(kating_data, departemen=menu)
+
 if menu == "Kesekjenan":
     def kesekjenan():
-        gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1xGPANYdh1va2y4_fUP0WdBnA1xDfB2Xb",
-            "https://drive.google.com/uc?export=view&id=1CZuWR8cgBUVwATr1WrMIpsUfXDrh3N4b",
-            "https://drive.google.com/uc?export=view&id=1rGKMfosDCQltl41Sz2ehjEUQV3LAaw8K",
-            "https://drive.google.com/uc?export=view&id=1A9_GD_ng31Z0eTg1uvrwEUQFq-K-b4dL",
-            "https://drive.google.com/uc?export=view&id=1fTovPjdfQCSGBXSg_viryFMm8yWEVGvc",
-            "https://drive.google.com/uc?export=view&id=1bDcokqXsfus5IqecUG12RU9PS4ISZn4F",
-        ]
-        data_list = [
+        kating_data = [
             {
                 "nama": "Ginda Fajar Riadi Marpaung",
-                "nim": "123450103",
-                "umur": "22",
-                "asal":"Batam",
-                "alamat": "Kesektariatan HMSD",
-                "hobbi": "Push IMO",
-                "sosmed": "@jars_mrp",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1xGPANYdh1va2y4_fUP0WdBnA1xDfB2Xb",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang",
             },
             {
-                "nama": "Muhammmad Aqil Ramadhan",
-                "nim": "1233450066",
-                "umur": "22",
-                "asal":"Bekasi",
-                "alamat": "Gg.sakum",
-                "hobbi": "Dzikie",
-                "sosmed": "@muhammadaqil1111",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "nama": "Muhammad Aqil Ramadhan",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1CZuWR8cgBUVwATr1WrMIpsUfXDrh3N4b",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Efi Defiyati",
-                "nim": "123450005",
-                "umur": "21",
-                "asal":"Lampung Timur",
-                "alamat": "Airan",
-                "hobbi": "Membaca",
-                "sosmed": "@eeffiidefi",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1rGKMfosDCQltl41Sz2ehjEUQV3LAaw8K",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Qois Olifio",
-                "nim": "123450067",
-                "umur": "22",
-                "asal":"Batam",
-                "alamat": "Kota Baru",
-                "hobbi": "Mainin Surat",
-                "sosmed": "@qoisolifio",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl"
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1A9_GD_ng31Z0eTg1uvrwEUQFq-K-b4dL",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl",
             },
             {
                 "nama": "Hafsa Fazila Arradhi",
-                "nim": "123450079",
-                "umur": "21",
-                "asal":"Bandar Lampung",
-                "alamat": "Bandar Lampung",
-                "hobbi": "Berkuda",
-                "sosmed": "@Hafsafazilaa",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1fTovPjdfQCSGBXSg_viryFMm8yWEVGvc",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang",
             },
             {
-                "nama": "Luthfia Laila RAmadhani",
-                "nim": "123450004",
-                "umur": "21",
-                "asal":"Bengkulu",
-                "alamat": "Airan",
-                "hobbi": "Bermain ke kost Efi",
-                "sosmed": "@luthfiaarmdhni",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang"# 1
+                "nama": "Luthfia Laila Ramadhani",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1bDcokqXsfus5IqecUG12RU9PS4ISZn4F",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang",
             },
         ]
-        display_images_with_data(gambar_urls, data_list)
+        display_kating(kating_data, departemen=menu)
     kesekjenan()
 
 elif menu == "Baleg":
     def baleg():
-        gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-
-        ]
-        data_list = [
+        kating_data = [
             {
                 "nama": "Ridho Benedictus Togi Manik",
-                "nim": "123450060",
-                "umur": "20",
-                "asal": "Kuala lumpur",
-                "alamat": "GH",
-                "hobbi": "Bernyanyi",
-                "sosmed": "@iamridhomanik",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang",
             },
             {
                 "nama": "Juesi Apridelia Saragih",
-                "nim": "123450085",
-                "umur": "19",
-                "asal": "Singkawang",
-                "alamat": "Pelangi",
-                "hobbi": "ngerepeat lagu lover dari taylor swiff",
-                "sosmed": "@j__eesie",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Dharu Cahyoaji Sasongko",
-                "nim": "123450023",
-                "umur": "19",
-                "asal":"Lampung",
-                "alamat": "Bandar Lampung",
-                "hobbi": "Suka nonton AGZ",
-                "sosmed": "@ddharu_",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
-            },
-            {
-                "nama": "GH. Mikael Niko Antoni Setiadi",
-                "nim": "123450025",
-                "umur": "20",
-                "asal":"Jombang",
-                "alamat": "Jatiagung",
-                "hobbi": "Jalan-jalan nyari mangsa",
-                "sosmed": "@me._kael",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl"
-            },
-            {
-                "nama": "Siti Sarifah Sumamahsa",
-                "nim": "124450015",
-                "umur": "18",
-                "asal":"Palembang",
-                "alamat": "Kedaton",
-                "hobbi": "Bikin Pempek",
-                "sosmed": "@syt.sarifa",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Givaro Ananta",
-                "nim": "123450078",
-                "umur": "20",
-                "asal":"Gunung Pesagi",
-                "alamat": "Sukabumi",
-                "hobbi": "Minum Kopi",
-                "sosmed": "@givarooo",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang",
+            },
+            {
+                "nama": "Gh Mikael Niko A S",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl",
+            },
+            {
+                "nama": "Siti Sarifah Sumamah",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang",
             },
             {
                 "nama": "Afghanis Nursholehatunnisa",
-                "nim": "124450042",
-                "umur": "20",
-                "asal":"Krui",
-                "alamat": "Jatimulyo",
-                "hobbi": "Memancing",
-                "sosmed": "@afghanisnt_",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang",
             },
             {
                 "nama": "Hani Qurrota Aini",
-                "nim": "124450020",
-                "umur": "19",
-                "asal":"City Eart",
-                "alamat": "Sukarame",
-                "hobbi": "Baca Au",
-                "sosmed": "@haniquratuain_",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang",
             },
             {
                 "nama": "Jeremia Halim",
-                "nim": "124450101",
-                "umur": "20",
-                "asal":"Beijing",
-                "alamat": "Teluk",
-                "hobbi": "Olahraga",
-                "sosmed": "@jeremia_hm",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Monica Patricia Tanjung",
-                "nim": "123450073",
-                "umur": "21",
-                "asal":"Sumatera Utara",
-                "alamat": "Kota Baru",
-                "hobbi": "Tidur",
-                "sosmed": "@monica_tjg",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Jona Timothy Ogatse Panjaitan",
-                "nim": "123450121",
-                "umur": "20",
-                "asal":"Depok",
-                "alamat": "Pemda Raya",
-                "hobbi": "Ngegym dan Koleksi Figure",
-                "sosmed": "@nagatseee",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Sekar Dini Widya Putri",
-                "nim": "124450082",
-                "umur": "20",
-                "asal":"Metro",
-                "alamat": "Pemda",
-                "hobbi": "Main",
-                "sosmed": "@sekardnwp",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Wan Nashwa Alhasni Yuska",
-                "nim": "123450077",
-                "umur": "20",
-                "asal":"Pasay",
-                "alamat": "Belwis",
-                "hobbi": "Nyapa",
-                "sosmed": "@nshaysk",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
-            }
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
+            },
         ]
-        display_images_with_data(gambar_urls, data_list)
+        display_kating(kating_data, departemen=menu)
     baleg()
 
-elif menu == "Departemen Minbak":
-    def DepartemenMinbak():
-        gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-
+elif menu == "Senator":
+    def senator():
+        kating_data = [
+            {
+                "nama": "Fathinah Nur Azizah",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Helmy Surya Pratama",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Lia Hana Ichisasmita",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Nadya Ratu Anjani",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Fernando Dimetrius Barus",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Suci Aulia",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Wielman Itolo Halawa",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Aqila Zayyan Salsabil",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Hazel Mahesa Handhaka",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Dwi Rahma Fitriani",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
         ]
-        data_list = [
+        display_kating(kating_data, departemen=menu)
+    senator()
+
+elif menu == "Departemen PSDA":
+    def departemen_psda():
+        kating_data = [
+            {
+                "nama": "Arienta Khusnul Ananda",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Vany Salsabila Putri",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Nobel Nizam Fathirizki",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Desman Velius Halawa",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Afriza Azmi",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Ayake Alfatih Ramadan",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Caesar Ozora Alrando",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Euodia Meiliana Friedita",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Haikal Seventino Tamba",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Putri Manna Anantama Simbolon",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Queenta Thifaal Nabila",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Azzelya Thianandry",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Charrlindah",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Jeremi Marolop P. Situmorang",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Nabila Nur Azizah",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Rafli Al Mansyah Tambunan",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Salavia Naharani",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+        ]
+        display_kating(kating_data, departemen=menu)
+    departemen_psda()
+
+elif menu == "Departemen MIKFES":
+    def departemen_mikfes():
+        kating_data = [
+            {
+                "nama": "Fabio Banyu Cyto",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Tanty Widiyastuti",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Fadil Prasetyo Alfarizzi",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Akeyla Fairuz Shafi",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Razin Hafid Hamdi",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Manuel Frederika",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Ni Made Okta Viola Darma Putri",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Risa Romadona",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Vannisa Ramadhani",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Yulia Kristine Malau",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Elsa Sitorus",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Fadya Izzatul 'Aini",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Lovianora Saragih",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "M. Alsi Syahrulloh",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Sherena Florencia",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Faiza Try Anjani",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Gathfan Nadif Ali",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Hafidz Wahdiansyah",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Kaleb Filbert Istel",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Melva Shaprina Febrianti",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Muhammad Syafiqul Falakh",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Rifky Henry Ferdianto",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+        ]
+        display_kating(kating_data, departemen=menu)
+    departemen_mikfes()
+
+elif menu == "Departemen Eksternal":
+    def departemen_eksternal():
+        kating_data = [
+            {
+                "nama": "Arini Puteri Elandra",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Nabyla Sharfina",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Khoirul Muttoharoh",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Aditya Taufiqurrohman",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Indah Khairunnisa",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Bima Ekayasa",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Ahmad Bimo Akbar Arkana",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Adinda Deswita Maharani",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Yollanda Agustina",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Riska Erlis Dayu Tiara",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Alfaya Abiyyi",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Asri Meilani",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Ahmad Rizky",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Selma Siti Aisyah",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Ashila Islamisahfa Vanisha",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Fathya Intami Gusda",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Tarisya Hidayatul Rahmi",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Danil N Fadillah",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Favian Arkaanda",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Muhammad Fathiy Zumar Yazid",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Muhammad Rizaldi",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Saskia Nova Magdalena",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+        ]
+        display_kating(kating_data, departemen=menu)
+    departemen_eksternal()
+
+elif menu == "Departemen Internal":
+    def departemen_internal():
+        kating_data = [
+            {
+                "nama": "Haikal Fransisko Simbolon",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Kharisma Mustika Sari",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Hanna Gresia Sinaga",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Muhammad Hanif Dzaky Arifin",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Ahmad Farhan Ghani",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Aisyah Khairun Nisa",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Cerine Sihotang",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Jaya Saputra Tamba",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Najla Nursyifa",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Rozak Ramdani",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Teresa Christiani Purba",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Audina Fitria",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Cika Adelia Br Marbun",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Gustin Haleluya Tampubolon",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Muhammad Harvinsyah",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Rafa Sabina Fahimah",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+        ]
+        display_kating(kating_data, departemen=menu)
+    departemen_internal()
+
+elif menu == "Departemen SSD":
+    def departemen_ssd():
+        kating_data = [
+            {
+                "nama": "Ihsan Maulana Yusuf",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Hanifah Inaya Sani",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Afifah Fauziah",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Anadia Carana",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Hasan Nur Ramadhan",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Layina Ropiqo",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Mochammad Iqbal Az-Zahir",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Talitha Justine",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Abdillah Fikri Al Pome",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Afdhal Rahmad Setiawan",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Anggun Nita",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Della Anisa Fitri",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+        ]
+        display_kating(kating_data, departemen=menu)
+    departemen_ssd()
+
+elif menu == "Departemen Medkraf":
+    def departemen_medkraf():
+        kating_data = [
+            {
+                "nama": "Nayla Salsabila Fathianisa",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Donna Maya Puspita",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Labo John Noel Napitupulu",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Sania Dwi Ayu Lestari",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Raihana Adelia Putri",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Anash Tasya Ausyaqila",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Felisya Nabila Putri Nugroho",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Muhammad Razan Maulana Pratama",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Allisha",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Alya Ramadhanti",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Bunga Clarisa Sefa",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Difanya Husakina",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Nazlah Auliya",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Daffa Kharisma Adzana",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Edsel Adya Pradipta",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Lucia Advencia Rachel Nainggolan",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Shafa Delaila Azzahra",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
+                "nama": "Zannuba Arifah Ilman",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+        ]
+        display_kating(kating_data, departemen=menu)
+    departemen_medkraf()
+
+elif menu == "Departemen MINBAK":
+    def departemen_minbak():
+        kating_data = [
             {
                 "nama": "Kevin Antonio Junior",
-                "nim": "123450109",
-                "umur": "20",
-                "asal": "Maluku",
-                "alamat": "Panjang",
-                "hobbi": "Menari",
-                "sosmed": "@kevinaj__",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang",
             },
             {
                 "nama": "Gusti Putu Ferazka Dhiyamika",
-                "nim": "123450046",
-                "umur": "21",
-                "asal": "Lampung Utara",
-                "alamat": "Way Halim",
-                "hobbi": "Mendaki",
-                "sosmed": "@ferazkaa",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Ali Aristo Muthahhari Parisi",
-                "nim": "123450088",
-                "umur": "21",
-                "asal":"Lampung Timur",
-                "alamat": "Gang Sakum Belwis",
-                "hobbi": "Bawa makanan dari Luar",
-                "sosmed": "ali_parisi3",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
-            },
-            {
-                "nama": "Ayu Andriani Parlina Wati",
-                "nim": "123450025",
-                "umur": "20",
-                "asal":"Jombang",
-                "alamat": "Jatiagung",
-                "hobbi": "Jalan-jalan nyari mangsa",
-                "sosmed": "@me._kael",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl"
-            },
-            {
-                "nama": "Dafa Elpriza",
-                "nim": "124450131",
-                "umur": "21",
-                "asal":"Bekasi",
-                "alamat": "Way Kandis",
-                "hobbi": "Mancing",
-                "sosmed": "@dafaelpriza_",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang"# 1
-            },
-            {
-                "nama": "Salsabila Nazwa Putri",
-                "nim": "124450002",
-                "umur": "20",
-                "asal":"Metro",
-                "alamat": "Korpri",
-                "hobbi": "Pulang Kampung",
-                "sosmed": "@slbnzw_",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang"# 1
-            },
-            {
-                "nama": "Muhammad Afdal Lutfi",
-                "nim": "124450047",
-                "umur": "19",
-                "asal":"Lampung Tengah",
-                "alamat": "Jln. Pulau Damar",
-                "hobbi": "Surving",
-                "sosmed": "@afdall.03",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang"# 1
-            },
-            {
-                "nama": "Juwita Sari",
-                "nim": "124450066",
-                "umur": "19",
-                "asal":"Lampung Barat",
-                "alamat": "Pemda",
-                "hobbi": "Liat Bila nulis",
-                "sosmed": "@ju.juwitaaa_",
-                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",  
-                "pesan":"Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Muhammad Ridwan",
-                "nim": "123450091",
-                "umur": "21",
-                "asal":"Lampung Tengah",
-                "alamat": "Belwis",
-                "hobbi": "Nontonin Fadyl Badminton",
-                "sosmed": "@mridwaan_22",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
+            },
+            {
+                "nama": "Ayu Andriani Parlina Wati",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl",
+            },
+            {
+                "nama": "Dafa Elpriza",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang",
+            },
+            {
+                "nama": "Salsabila Nazwa Putri",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang",
+            },
+            {
+                "nama": "Muhammad Afdal Lutfi",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang",
+            },
+            {
+                "nama": "Juwita Sari",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Bang Fajar orangnya sangat humble, baik, dan juga sangat menginspirasi bagi saya.",
+                "pesan": "Semoga kedepannya fadyl bisa tumbuh seperti bang fajar, terimakasih bang",
             },
             {
                 "nama": "Andra Ilham Bintang",
-                "nim": "124450060",
-                "umur": "18",
-                "asal":"Sumatera Selatan",
-                "alamat": "Kota Baru",
-                "hobbi": "Nonton Drama Korea",
-                "sosmed": "@andra.lhm",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Bryan Paskah Telaumbanua",
-                "nim": "124450003",
-                "umur": "20",
-                "asal":"Nias",
-                "alamat": "Belwis",
-                "hobbi": "Yoga",
-                "sosmed": "@bryantel_",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!",
+            },
+            {
+                "nama": "Ghiyats Thabularasa Meardhy",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!!!!",
             },
             {
                 "nama": "Indah Julia Mawar Pratiwi",
-                "nim": "124450055",
-                "umur": "20",
-                "asal":"Pringsewu",
-                "alamat": "Airan",
-                "hobbi": "Main",
-                "sosmed": "@sekardnwp",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!!!!"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Jacinda Kesya Alvara",
-                "nim": "....",
-                "umur": "..",
-                "asal":"...",
-                "alamat": "....",
-                "hobbi": "...",
-                "sosmed": "@....",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Muhammad Rafka Fatih Al Ghathfaan",
-                "nim": "124450089",
-                "umur": "20",
-                "asal":"Padang",
-                "alamat": "Kota Baru",
-                "hobbi": "Bangun Pagi",
-                "sosmed": "@muhammdrafka_",
-                "kesan": "Kakak ini asik saya suka belajar dengan dia",  
-                "pesan":"semangat terus kuliahnya kakak !!!"# 1
-            }
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
         ]
-        display_images_with_data(gambar_urls, data_list)
-    DepartemenMinbak()
-
-# Tambahkan menu lainnya sesuai kebutuhan
+        display_kating(kating_data, departemen=menu)
+    departemen_minbak()
