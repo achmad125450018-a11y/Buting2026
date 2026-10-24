@@ -285,7 +285,7 @@ elif menu == "About Us":
             "https://drive.google.com/uc?export=view&id=1SKBh8OuBiB2OKT4M_sBlXcxT9fqwMaZz",  # 4. Aqila Chika Aurelia
             "https://drive.google.com/uc?export=view&id=1SKBh8OuBiB2OKT4M_sBlXcxT9fqwMaZz",  # 5. Sefina Amanda Putri
             "https://drive.google.com/uc?export=view&id=1SKBh8OuBiB2OKT4M_sBlXcxT9fqwMaZz",  # 6. Aura Putri Ghefira
-            "https://drive.google.com/uc?export=view&id=1CujP2CCoALKsnuzSl9F5-iYB6GNj-SA0",  # 7. Ezra Hamizan
+            "https://drive.google.com/uc?export=view&id=1SaqIKBazfbklZ87SPixrd5eO0PfvydN3",  # 7. Ezra Hamizan
             "https://drive.google.com/uc?export=view&id=1OPEq99LUbLHfdDUTj95ueH52KCoFkKXo",  # 8. Afdhi Hafiidz Habibie
             "https://drive.google.com/uc?export=view&id=1SKBh8OuBiB2OKT4M_sBlXcxT9fqwMaZz",  # 9. Rizqy Ramadhan
             "https://drive.google.com/uc?export=view&id=1SKBh8OuBiB2OKT4M_sBlXcxT9fqwMaZz",  # 10. Alan Garcia Sinaga
