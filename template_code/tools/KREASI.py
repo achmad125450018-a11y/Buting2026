@@ -2,7 +2,7 @@
 import streamlit as st
 
 # ============================================================
-# 🎨 UI STREAMLIT & CSS (Memaksa Lebar Penuh)
+# 🎨 UI STREAMLIT & CSS 
 # ============================================================
 st.markdown("""
 <style>
@@ -140,7 +140,7 @@ st.markdown("<h1 class='title'>DATA CATCHER</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>✦ Bersihkan Data, Kumpulkan Skor! ✦</p>", unsafe_allow_html=True)
 
 # ============================================================
-# 🎮 SUNTIKKAN HTML & JS LANGSUNG (TANPA IFRAME)
+# 🎮 HTML & JS (Tanpa Iframe, Pakai Event Listener)
 # ============================================================
 game_html = """
 <div class="game-wrapper" id="game-container">
@@ -150,31 +150,37 @@ game_html = """
         <div class="stat">❤️ <span id="lives">3</span></div>
     </div>
     <div id="play-area"></div>
+    
+    <!-- Tombol tidak pakai onclick, kita sambungkan via JS -->
     <div id="start-screen" class="screen">
         <h2>Data Catcher</h2>
         <p>Klik <b>Data Bersih</b> (🍎, 💎, 📁) secepat mungkin.<br>Jangan klik <b>Data Sampah</b> (🗑️, 💩, 🐛)!</p>
-        <button class="btn-start" onclick="startGame()">🚀 MULAI GAME</button>
+        <button id="btn-start" class="btn-start">🚀 MULAI GAME</button>
     </div>
+    
     <div id="gameover-screen" class="screen" style="display:none;">
         <h2>Game Over!</h2>
         <p>Skor Akhir: <br><b style="font-size:48px; color:#a8323d;" id="final-score">0</b></p>
-        <button class="btn-start" onclick="startGame()">🔄 Main Lagi</button>
+        <button id="btn-restart" class="btn-start">🔄 Main Lagi</button>
     </div>
 </div>
 
 <script>
-    let score = 0, lives = 3, timeLeft = 30, isPlaying = false;
-    let spawnInterval, timerInterval;
-    const cleanItems = ["🍎", "🍌", "💎", "📁", "💾"];
-    const dirtyItems = ["🗑️", "💩", "🐛", "⚠️", "🦠"];
-    
-    // Gunakan setTimeout untuk memastikan DOM sudah ter-render
+    // Kita bungkus dalam setTimeout agar Streamlit selesai me-render HTML
     setTimeout(() => {
+        let score = 0, lives = 3, timeLeft = 30, isPlaying = false;
+        let spawnInterval, timerInterval;
+        const cleanItems = ["🍎", "🍌", "💎", "📁", "💾"];
+        const dirtyItems = ["🗑️", "💩", "🐛", "⚠️", "🦠"];
+        
         const playArea = document.getElementById("play-area");
         const startScreen = document.getElementById("start-screen");
         const gameoverScreen = document.getElementById("gameover-screen");
+        const btnStart = document.getElementById("btn-start");
+        const btnRestart = document.getElementById("btn-restart");
 
-        window.startGame = function() {
+        // --- FUNGSI UTAMA GAME ---
+        function startGame() {
             clearInterval(timerInterval); clearInterval(spawnInterval);
             score = 0; lives = 3; timeLeft = 30; isPlaying = true;
             document.getElementById("score").innerText = score;
@@ -241,9 +247,14 @@ game_html = """
             document.getElementById("final-score").innerText = score;
             gameoverScreen.style.display = "block";
         }
-    }, 100);
+
+        // --- SAMBUNGKAN TOMBOL DENGAN FUNGSI ---
+        if(btnStart) btnStart.addEventListener("click", startGame);
+        if(btnRestart) btnRestart.addEventListener("click", startGame);
+
+    }, 200); // Beri waktu 200ms untuk render
 </script>
 """
 
-# Render HTML menggunakan markdown (tanpa iframe!)
+# Tampilkan game
 st.markdown(game_html, unsafe_allow_html=True)
