@@ -107,15 +107,9 @@ game_html = """
         box-shadow: 0 0 12px rgba(74, 222, 128, 0.4);
     }
     .node-val {
-        font-size: 14px;
+        font-size: 16px;
         font-weight: bold;
         color: #f8fafc;
-    }
-    .node-type {
-        font-size: 10px;
-        color: #94a3b8;
-        margin-top: 4px;
-        text-transform: uppercase;
     }
     .terminal-msg {
         margin-top: 15px;
@@ -235,7 +229,6 @@ game_html = """
 
             el.innerHTML = `
                 <div class="node-val">${node.val}</div>
-                <div class="node-type">${node.type}</div>
             `;
             container.appendChild(el);
         });
@@ -272,7 +265,7 @@ game_html = """
 
     function startGuessingPhase() {
         gameState = 'guessing';
-        document.getElementById('terminal-msg').innerHTML = `<span style="color: #4ade80;">Pilih node dengan tipe ${targetType}!</span>`;
+        document.getElementById('terminal-msg').innerHTML = `<span style="color: #4ade80;">Pilih node yang sesuai dengan target!</span>`;
         
         traceLeft = 100;
         let maxTime = Math.max(4000, 10000 - (level * 400));
