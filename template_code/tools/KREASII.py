@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title="Data Bros Moving Shuffle", layout="centered")
+st.set_page_config(page_title="Data Pipeline Sorter", layout="centered")
 
 st.markdown("""
 <style>
@@ -17,8 +17,8 @@ h1 {
 </style>
 """, unsafe_allow_html=True)
 
-st.title("DATA BROS: MOVING SHUFFLE QUEST")
-st.markdown("<p style='text-align: center; color: #f8fafc;'>Perhatikan isi data pada kotak, lalu ikuti pergerakan kotak saat bergeser dan bertukar posisi!</p>", unsafe_allow_html=True)
+st.title("DATA PIPELINE: TYPE SORTER")
+st.markdown("<p style='text-align: center; color: #f8fafc;'>Sortir aliran data yang masuk ke dalam wadah tipe data yang sesuai secepat mungkin!</p>", unsafe_allow_html=True)
 
 game_html = """
 <!DOCTYPE html>
@@ -37,59 +37,69 @@ game_html = """
     .stats {
         display: flex;
         justify-content: space-around;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         font-size: 14px;
         font-weight: bold;
     }
     .stat-box {
         background: #312e81;
         border: 2px solid #facc15;
-        padding: 6px 12px;
+        padding: 6px 14px;
         border-radius: 8px;
         color: #facc15;
     }
-    .instruction {
-        font-size: 15px;
-        margin-bottom: 15px;
-        color: #38bdf8;
-        font-weight: bold;
-        min-height: 24px;
-    }
-    .container {
-        position: relative;
-        margin: 10px auto;
-        width: 460px;
-        height: 105px;
-        max-width: 100%;
-    }
-    .box {
-        width: 100px;
-        height: 100px;
-        background: #312e81;
-        border: 3px solid #facc15;
-        border-radius: 10px;
+    .conveyor {
+        width: 100%;
+        max-width: 480px;
+        height: 110px;
+        background: #0f172a;
+        border: 3px dashed #38bdf8;
+        border-radius: 12px;
+        margin: 15px auto;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        position: absolute;
-        top: 0;
-        transition: left 0.4s ease-in-out;
-        cursor: pointer;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        position: relative;
+        box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.2);
     }
-    .box:hover {
-        border-color: #38bdf8;
-    }
-    .box-val {
-        font-size: 15px;
+    .data-packet {
+        background: #312e81;
+        border: 3px solid #facc15;
+        padding: 15px 25px;
+        border-radius: 10px;
+        font-size: 22px;
         font-weight: bold;
         color: #facc15;
+        animation: pulse 1s infinite alternate;
     }
-    .box-type {
-        font-size: 10px;
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.05); }
+    }
+    .bins-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        max-width: 480px;
+        margin: 15px auto;
+    }
+    .bin-btn {
+        background-color: #312e81;
+        color: #facc15;
+        border: 2px solid #facc15;
+        padding: 15px;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: 'Courier New', monospace;
+        transition: background-color 0.2s, transform 0.1s;
+    }
+    .bin-btn:hover {
+        background-color: #4338ca;
+        border-color: #38bdf8;
         color: #38bdf8;
-        margin-top: 4px;
+        transform: translateY(-2px);
     }
     .message {
         margin-top: 15px;
@@ -97,19 +107,19 @@ game_html = """
         font-weight: bold;
         height: 25px;
     }
-    .btn {
+    .start-btn {
         background-color: #facc15;
         color: #1e1b4b;
         border: none;
-        padding: 10px 20px;
-        font-size: 14px;
+        padding: 12px 28px;
+        font-size: 16px;
         font-weight: bold;
         border-radius: 8px;
         cursor: pointer;
         margin-top: 10px;
         font-family: 'Courier New', monospace;
     }
-    .btn:hover {
+    .start-btn:hover {
         background-color: #38bdf8;
     }
 </style>
@@ -119,183 +129,99 @@ game_html = """
 <div class="stats">
     <div class="stat-box">SKOR: <span id="score">0</span></div>
     <div class="stat-box">NYAWA: <span id="lives">3</span></div>
-    <div class="stat-box">RONDE: <span id="round">1</span></div>
+    <div class="stat-box">LEVEL: <span id="level">1</span></div>
 </div>
 
-<div class="instruction" id="instruction">Perhatikan isi kotak di bawah ini!</div>
+<div class="conveyor" id="conveyor-area">
+    <div id="packet-display" class="data-packet">Tekan Mulai</div>
+</div>
 
-<div class="container" id="box-container">
+<div class="bins-container" id="bins-area" style="display: none;">
+    <button class="bin-btn" onclick="checkSort('Integer')">INTEGER</button>
+    <button class="bin-btn" onclick="checkSort('Float')">FLOAT</button>
+    <button class="bin-btn" onclick="checkSort('String')">STRING</button>
+    <button class="bin-btn" onclick="checkSort('Boolean')">BOOLEAN</button>
 </div>
 
 <div class="message" id="message"></div>
-<button class="btn" id="action-btn" onclick="startShuffle()">Mulai Acak Posisi</button>
+<button class="start-btn" id="action-btn" onclick="startGame()">Mulai Pipeline</button>
 
 <script>
     let score = 0;
     let lives = 3;
-    let round = 1;
-    let boxes = [];
-    let gameState = 'reveal'; 
-    let targetType = '';
+    let level = 1;
+    let currentPacket = null;
+    let gameActive = false;
 
-    const typesPool = [
-        { name: "Integer", vals: ["42", "108", "512", "999", "12"] },
-        { name: "Float", vals: ["3.14", "9.81", "0.55", "7.25", "4.19"] },
-        { name: "String", vals: ["Koopa", "Goomba", "Peach", "Luigi", "Toad"] },
-        { name: "Boolean", vals: ["True", "False"] }
+    const dataPool = [
+        { type: "Integer", vals: ["42", "108", "512", "999", "12", "7"] },
+        { type: "Float", vals: ["3.14", "9.81", "0.55", "7.25", "4.19", "0.0"] },
+        { type: "String", vals: ["NodeA", "Alpha", "Beta", "Core", "Stream", "Matrix"] },
+        { type: "Boolean", vals: ["True", "False"] }
     ];
 
-    function initRound() {
-        gameState = 'reveal';
-        document.getElementById('message').innerText = "";
-        document.getElementById('action-btn').style.display = 'inline-block';
-        document.getElementById('action-btn').innerText = "Mulai Acak Posisi";
-
-        let domIdx = Math.floor(Math.random() * typesPool.length);
-        let domType = typesPool[domIdx];
-        
-        let anomPool = typesPool.filter((_, idx) => idx !== domIdx);
-        let anomType = anomPool[Math.floor(Math.random() * anomPool.length)];
-
-        targetType = anomType.name;
-        document.getElementById('instruction').innerHTML = `Cari kotak tipe data: <span style="color: #facc15;">${targetType}</span>`;
-
-        let rawBoxes = [];
-        for(let i=0; i<3; i++) {
-            let val = domType.vals[Math.floor(Math.random() * domType.vals.length)];
-            rawBoxes.push({ val: val, type: domType.name, isAnom: false });
-        }
-        let anomVal = anomType.vals[Math.floor(Math.random() * anomType.vals.length)];
-        rawBoxes.push({ val: anomVal, type: anomType.name, isAnom: true });
-
-        shuffleArray(rawBoxes);
-        
-        boxes = rawBoxes.map((b, idx) => ({
-            ...b,
-            currentPos: idx
-        }));
-
-        renderBoxes(true);
-    }
-
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-    }
-
-    function renderBoxes(showContent) {
-        const container = document.getElementById('box-container');
-        container.innerHTML = '';
-        
-        boxes.forEach((box, index) => {
-            const el = document.createElement('div');
-            el.className = 'box';
-            el.style.left = (box.currentPos * 120) + 'px';
-            el.onclick = () => handleBoxClick(index);
-
-            if (showContent) {
-                el.innerHTML = `
-                    <div class="box-val">${box.val}</div>
-                    <div class="box-type">${box.type}</div>
-                `;
-            } else {
-                el.innerHTML = `
-                    <div class="box-val" style="font-size: 22px;">[ ? ]</div>
-                    <div class="box-type">Kotak ${box.currentPos + 1}</div>
-                `;
-            }
-            container.appendChild(el);
-        });
-    }
-
-    async function startShuffle() {
-        if (gameState !== 'reveal') return;
-        gameState = 'shuffling';
+    function startGame() {
+        score = 0;
+        lives = 3;
+        level = 1;
+        gameActive = true;
         document.getElementById('action-btn').style.display = 'none';
-        document.getElementById('instruction').innerText = "Kotak sedang bergeser dan bertukar posisi...";
-
-        renderBoxes(false);
-        await sleep(500);
-
-        let swaps = 5 + round;
-        for(let s = 0; s < swaps; s++) {
-            let pos1 = Math.floor(Math.random() * 4);
-            let pos2;
-            do {
-                pos2 = Math.floor(Math.random() * 4);
-            } while(pos1 === pos2);
-
-            let box1 = boxes.find(b => b.currentPos === pos1);
-            let box2 = boxes.find(b => b.currentPos === pos2);
-
-            let temp = box1.currentPos;
-            box1.currentPos = box2.currentPos;
-            box2.currentPos = temp;
-
-            renderBoxes(false);
-            await sleep(400);
-        }
-
-        gameState = 'guessing';
-        document.getElementById('instruction').innerHTML = `Pilih kotak yang berisi tipe data: <span style="color: #facc15;">${targetType}</span>!`;
+        document.getElementById('bins-area').style.display = 'grid';
+        nextPacket();
+        updateStats();
     }
 
-    function handleBoxClick(index) {
-        if (gameState !== 'guessing') return;
-        gameState = 'result';
+    function nextPacket() {
+        if (!gameActive) return;
+        let randomCategory = dataPool[Math.floor(Math.random() * dataPool.length)];
+        let randomVal = randomCategory.vals[Math.floor(Math.random() * randomCategory.vals.length)];
+        
+        currentPacket = {
+            val: randomVal,
+            type: randomCategory.type
+        };
 
-        renderBoxes(true);
+        document.getElementById('packet-display').innerText = currentPacket.val;
+        document.getElementById('message').innerText = "";
+    }
 
-        const clickedBox = boxes[index];
-        const msgEl = document.getElementById('message');
+    function checkSort(selectedType) {
+        if (!gameActive) return;
 
-        if (clickedBox.isAnom) {
-            score += 150;
-            round += 1;
-            msgEl.style.color = "#4ade80";
-            msgEl.innerText = "Benar! Anomali berhasil ditemukan!";
+        if (selectedType === currentPacket.type) {
+            score += 50 * level;
+            if (score % 200 === 0) level += 1;
+            document.getElementById('message').style.color = "#4ade80";
+            document.getElementById('message').innerText = "Berhasil Disortir!";
+            updateStats();
+            setTimeout(nextPacket, 400);
         } else {
             lives -= 1;
-            msgEl.style.color = "#f87171";
-            msgEl.innerText = `Salah! Itu adalah ${clickedBox.type} (${clickedBox.val}).`;
+            document.getElementById('message').style.color = "#f87171";
+            document.getElementById('message').innerText = `Salah! Ini adalah tipe ${currentPacket.type}.`;
+            updateStats();
+
             if (lives <= 0) {
-                document.getElementById('instruction').innerText = "GAME OVER! Nyawa Habis.";
+                gameActive = false;
+                document.getElementById('bins-area').style.display = 'none';
+                document.getElementById('packet-display').innerText = "PIPELINE GAGAL";
+                document.getElementById('message').innerText = "Sistem mengalami overflow!";
                 document.getElementById('action-btn').style.display = 'inline-block';
                 document.getElementById('action-btn').innerText = "Main Lagi";
-                document.getElementById('action-btn').onclick = resetGame;
-                updateStats();
-                return;
+            } else {
+                setTimeout(nextPacket, 800);
             }
         }
-
-        updateStats();
-        setTimeout(initRound, 2500);
     }
 
     function updateStats() {
         document.getElementById('score').innerText = score;
         document.getElementById('lives').innerText = lives;
-        document.getElementById('round').innerText = round;
+        document.getElementById('level').innerText = level;
     }
-
-    function resetGame() {
-        score = 0;
-        lives = 3;
-        round = 1;
-        document.getElementById('action-btn').onclick = startShuffle;
-        initRound();
-    }
-
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    initRound();
 </script>
 </body>
 </html>
 """
 
-components.html(game_html, height=440)
+components.html(game_html, height=450)
