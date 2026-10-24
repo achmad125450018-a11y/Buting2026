@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(page_title="Buku Kating", layout="wide")
 
 # ============================================================
-# 🎨 CSS GLOBAL (Sidebar + Hack Lebar Penuh)
+# 🎨 CSS GLOBAL & JAVASCRIPT HACK
 # ============================================================
 st.markdown("""
 <style>
@@ -11,31 +11,45 @@ st.markdown("""
     [data-testid="stSidebar"] {
         background-color: #701c23 !important;
     }
-    [data-testid="stSidebar"] *,
-    [data-testid="stSidebar"] span,
-    [data-testid="stSidebar"] p,
-    [data-testid="stSidebar"] div,
-    [data-testid="stSidebar"] svg {
+    [data-testid="stSidebar"] * {
         color: #ffffff !important;
         fill: #ffffff !important;
     }
 
-    /* 2. 💥 HANCURKAN BATAS LEBAR STREAMLIT (Agar Game Lebar) 💥 */
+    /* 2. 💥 HANCURKAN BATAS LEBAR STREAMLIT 💥 */
     [data-testid="stAppViewBlockContainer"], .block-container {
         max-width: 100% !important;
-        padding-left: 2rem !important;
-        padding-right: 2rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
     }
     iframe[title="streamlit_component"] {
         width: 100% !important;
         max-width: 100% !important;
     }
-    div[data-testid="stHtml"] {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
 </style>
 """, unsafe_allow_html=True)
+
+# 3. 💥 JAVASCRIPT HACK (Ini yang wajib biar game lebar) 💥
+st.components.v1.html("""
+<script>
+    const observer = new MutationObserver(() => {
+        const iframes = window.parent.document.querySelectorAll('iframe[title="streamlit_component"]');
+        iframes.forEach(iframe => {
+            iframe.style.width = '100%';
+            iframe.style.maxWidth = '100%';
+            iframe.style.height = '600px'; 
+            
+            let parent = iframe.parentElement;
+            while (parent) {
+                parent.style.maxWidth = '100%';
+                parent.style.width = '100%';
+                parent = parent.parentElement;
+            }
+        });
+    });
+    observer.observe(window.parent.document.body, { childList: true, subtree: true });
+</script>
+""", height=0, width=0)
 
 # ============================================================
 # 🧭 NAVIGASI HALAMAN
@@ -43,7 +57,6 @@ st.markdown("""
 st.session_state.pindah = True
 
 Homepage = st.Page("Halaman Utama/halaman_utama.py", title="07 - POISSON", default=True)
-
 Mahasiswa1  = st.Page("Buku Kating/116_Yobel Imanuel Pasaribu.py", title="116 - Yobel Imanuel Pasaribu", icon=":material/person:")
 Mahasiswa2  = st.Page("Buku Kating/109_Rena Aprilia.py", title="109 - Rena Aprilia", icon=":material/person:")
 Mahasiswa3  = st.Page("Buku Kating/020_Fadhilah Adelyia Putri.py", title="020 - Fadhilah Adelyia Putri", icon=":material/person:")
