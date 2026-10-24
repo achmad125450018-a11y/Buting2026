@@ -101,12 +101,12 @@ menu = streamlit_menu()
 if menu == "Kesekjenan":
     def kesekjenan():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=129sLrNkwocy-TWad2v30ElQ2wLnUJVld", # fajar
-            "https://drive.google.com/uc?export=view&id=1g1ds2keXijPbW0-LgWHmhUsquKLaBgyS", # aqil
-            "https://drive.google.com/uc?export=view&id=1NULBvdisNF5qOJu2_-YmdFI_nVO-N5th", # efi
-            "https://drive.google.com/uc?export=view&id=1DWcMya75dsgt-zLeWuBgle7JfihPpovS", # qois
-            "https://drive.google.com/uc?export=view&id=13S1AbQ5l8oz4NT8Qq8qF4RS2HAOBLXkF", # hafsa
-            "https://drive.google.com/uc?export=view&id=1Nd9fsmdb2oj6mTY0KkXRu9sjDdfRqzh7", # luthfia
+            "https://drive.google.com/uc?export=view&id=1xsPXI2fhQjeLsRS-w-45sGIcV05IrSHB", # fajar
+            "https://drive.google.com/uc?export=view&id=16-8EutSEIHVLuoxbcqpoh4dmPpIc_N5L", # aqil
+            "https://drive.google.com/uc?export=view&id=1VppIOE5acHpEb4uGU-5zMOE6ucTigchg", # efi
+            "https://drive.google.com/uc?export=view&id=1EdjKu09QB_Z1SbR0D9XEQdZMettVnFnZ", # qois
+            "https://drive.google.com/uc?export=view&id=1mPC9ZSdw6bZhOXTJXaEfnf0Yw-u8ngK6", # hafsa
+            "https://drive.google.com/uc?export=view&id=1EQsCgvaLbIxed31vz10R76rRnyFOHGEr", # luthfia
         ]
         data_list = [
             {
