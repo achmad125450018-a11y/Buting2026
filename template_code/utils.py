@@ -1,4 +1,6 @@
+# utils.py
 import streamlit as st
+from streamlit_option_menu import option_menu
 import requests
 from PIL import Image, ImageOps
 from io import BytesIO
@@ -6,34 +8,58 @@ from urllib.parse import urlparse, parse_qs
 import base64
 import html as html_lib
 
+# ============================================================
+# 🎨 PREMIUM CSS — BUKU KATING
+# ============================================================
+PREMIUM_CSS = """
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+html, body, [class*="css"] { font-family: 'Inter', sans-serif; color: #222222; }
+.stApp {
+    background: radial-gradient(circle at 15% 10%, rgba(112,28,35,0.06) 0%, transparent 45%),
+                radial-gradient(circle at 85% 90%, rgba(217,195,163,0.18) 0%, transparent 50%),
+                linear-gradient(180deg, #f4f0eb 0%, #efe8df 100%);
+    background-attachment: fixed;
+}
+.centered-title {
+    text-align: center; font-family: 'Playfair Display', serif; font-weight: 800;
+    font-size: 3em !important; letter-spacing: 1px; margin-bottom: 8px;
+    background: linear-gradient(135deg, #701c23 0%, #a8323d 45%, #701c23 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    display: block;
+}
+.profile-card {
+    background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
+    padding: 28px 32px; border-radius: 20px; border: 1px solid rgba(217,195,163,0.55);
+    box-shadow: 0 10px 30px rgba(112,28,35,0.08); margin-bottom: 22px; position: relative; overflow: hidden;
+}
+.profile-header { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #701c23; margin-bottom: 6px; }
+.profile-subheader { display: inline-block; padding: 4px 14px; font-size: 10px; font-weight: 700; border-radius: 999px; background: #701c23; color: #fff; margin-bottom: 16px; }
+.profile-subheader.leader { background: #b8912e; color: #4e1318; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; }
+.info-item { font-size: 13px; padding: 8px 12px; border-radius: 10px; background: rgba(217,195,163,0.10); border-left: 2px solid #d9c3a3; }
+.info-item.full { grid-column: 1 / -1; }
+.info-label { display: block; font-weight: 700; color: #701c23; font-size: 9.5px; margin-bottom: 2px; text-transform: uppercase; }
+.info-value { color: #2b2320; font-weight: 500; }
+.quote-box { margin-top: 14px; padding: 14px 18px 14px 22px; border-radius: 12px; background: rgba(217,195,163,0.10); border: 1px solid rgba(217,195,163,0.45); }
+.quote-label { font-size: 9.5px; font-weight: 700; color: #701c23; margin-bottom: 4px; text-transform: uppercase; }
+.quote-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 13.5px; color: #4e1318; }
+.photo-wrapper { padding: 6px; border-radius: 18px; background: linear-gradient(135deg, #701c23 0%, #d9c3a3 50%, #701c23 100%); margin-bottom: 12px; }
+.photo-wrapper img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 13px; }
+</style>
+"""
+
+# ============================================================
+# ⚙️ SETUP PAGE
+# ============================================================
 def setup_buku_kating_page():
-    """Inject CSS + title. Panggil di awal setiap file Buku Kating."""
-    PREMIUM_CSS = """
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
-    html, body, [class*="css"] { font-family: 'Inter', sans-serif; color: #222222; }
-    .stApp {
-        background: radial-gradient(circle at 15% 10%, rgba(112,28,35,0.06) 0%, transparent 45%),
-                    radial-gradient(circle at 85% 90%, rgba(217,195,163,0.18) 0%, transparent 50%),
-                    linear-gradient(180deg, #f4f0eb 0%, #efe8df 100%);
-        background-attachment: fixed;
-    }
-    .centered-title {
-        text-align: center; font-family: 'Playfair Display', serif; font-weight: 800;
-        font-size: 3em !important; margin-bottom: 8px;
-        background: linear-gradient(135deg, #701c23 0%, #a8323d 45%, #701c23 100%);
-        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .profile-card {
-        background: linear-gradient(135deg, #ffffff 0%, #fdfbf8 100%);
-        padding: 28px 32px; border-radius: 20px; border: 1px solid rgba(217,195,163,0.55);
-        box-shadow: 0 10px 30px rgba(112,28,35,0.08); margin-bottom: 22px;
-    }
-    </style>
-    """
     st.markdown(PREMIUM_CSS, unsafe_allow_html=True)
     st.markdown("<h1 class='centered-title'>BUKU KATING</h1>", unsafe_allow_html=True)
 
+# ============================================================
+# 🔧 UTILITY FUNCTIONS
+# ============================================================
 def get_drive_file_id(url):
     try:
         parsed = urlparse(url); query = parse_qs(parsed.query)
@@ -81,27 +107,89 @@ def render_photo(img_src, alt="Foto"):
     if not img_src:
         st.markdown('<div style="width:100%;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;background:#eee;border-radius:13px;">Foto tidak tersedia</div>', unsafe_allow_html=True)
         return
-    st.markdown(f'<div class="photo-wrapper"><img src="{img_src}" alt="{html_lib.escape(alt, quote=True)}" style="width:100%;border-radius:13px;"></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="photo-wrapper"><img src="{img_src}" alt="{html_lib.escape(alt, quote=True)}"></div>', unsafe_allow_html=True)
 
 def render_profile_card(m):
-    # (Fungsi render_profile_card tetap sama seperti sebelumnya)
     nama = html_lib.escape(str(m.get("nama", "-")))
-    jabatan = html_lib.escape(str(m.get("jabatan", "-")))
-    html_block = f'<div class="profile-card"><h3>{nama}</h3><p>{jabatan}</p></div>'
+    jabatan_raw = str(m.get("jabatan", "")).strip()
+    jabatan = html_lib.escape(jabatan_raw) if jabatan_raw else "—"
+    nim = html_lib.escape(str(m.get("nim", "-")))
+    umur = html_lib.escape(str(m.get("umur", "-")))
+    asal = html_lib.escape(str(m.get("asal", "-")))
+    alamat = html_lib.escape(str(m.get("alamat", "-")))
+    hobbi = html_lib.escape(str(m.get("hobbi", "-")))
+    sosmed = html_lib.escape(str(m.get("sosmed", "-")))
+    kesan = html_lib.escape(str(m.get("kesan", "-")))
+    pesan = html_lib.escape(str(m.get("pesan", "-")))
+
+    gold_keywords = ["ketua", "sekretaris", "senator", "kepala", "bendahara"]
+    is_leader = any(k in jabatan_raw.lower() for k in gold_keywords)
+    subheader_class = "profile-subheader leader" if is_leader else "profile-subheader"
+
+    html_block = f"""<div class="profile-card">
+<div class="profile-header">{nama}</div>
+<div class="{subheader_class}">{jabatan}</div>
+<div class="info-grid">
+<div class="info-item"><span class="info-label">NIM</span><span class="info-value">{nim}</span></div>
+<div class="info-item"><span class="info-label">Umur</span><span class="info-value">{umur} Tahun</span></div>
+<div class="info-item"><span class="info-label">Asal</span><span class="info-value">{asal}</span></div>
+<div class="info-item"><span class="info-label">Alamat</span><span class="info-value">{alamat}</span></div>
+<div class="info-item full"><span class="info-label">Hobi</span><span class="info-value">{hobbi}</span></div>
+<div class="info-item full"><span class="info-label">Sosial Media</span><span class="info-value">{sosmed}</span></div>
+</div>
+<div class="quote-box"><span class="quote-label">Kesan</span><div class="quote-text">{kesan}</div></div>
+<div class="quote-box" style="margin-top:10px;"><span class="quote-label">Pesan</span><div class="quote-text">{pesan}</div></div>
+</div>"""
     st.markdown(html_block, unsafe_allow_html=True)
 
 def display_images_with_data(gambar_urls, data_list, batch_size=5, key="default"):
-    # (Fungsi display_images_with_data tetap sama seperti sebelumnya)
     total_items = min(len(gambar_urls), len(data_list))
-    for i in range(min(batch_size, total_items)):
-        col1, col2 = st.columns([1, 2])
-        with col1: render_photo(image_data_uri(gambar_urls[i]), data_list[i].get("nama"))
+    if total_items == 0: return
+    state_key = f"loaded_count_{key}"
+    if state_key not in st.session_state: st.session_state[state_key] = batch_size
+    if st.session_state[state_key] > total_items: st.session_state[state_key] = total_items
+    load_until = min(st.session_state[state_key], total_items)
+    for i in range(load_until):
+        with st.spinner(f"Memuat gambar {i+1} dari {total_items}..."):
+            img_src = image_data_uri(gambar_urls[i])
+        col1, col2 = st.columns([1, 2], gap="medium")
+        with col1: render_photo(img_src, data_list[i].get("nama", "Foto"))
         with col2: render_profile_card(data_list[i])
+        st.markdown("<div style='margin-bottom: 30px;'></div>", unsafe_allow_html=True)
+    if load_until < total_items:
+        next_batch = min(batch_size, total_items - load_until)
+        if st.button(f"📸 Muat {next_batch} Foto Lagi", use_container_width=True, type="primary"):
+            st.session_state[state_key] += batch_size
+            st.rerun()
 
 def streamlit_menu(default_index=0):
-    from streamlit_option_menu import option_menu
     return option_menu(
-        menu_title=None, options=["Kesekjenan", "Baleg", "Senator", "Departemen PSDA", "Departemen MIKFES", "Departemen Eksternal", "Departemen Internal", "Departemen SSD", "Departemen Medkraf", "Departemen MINBAK"],
+        menu_title=None, 
+        options=["Kesekjenan", "Baleg", "Senator", "Departemen PSDA", "Departemen MIKFES", "Departemen Eksternal", "Departemen Internal", "Departemen SSD", "Departemen Medkraf", "Departemen MINBAK"],
         icons=["people-fill"] * 10, default_index=default_index, orientation="horizontal",
-        styles={"container": {"padding": "5px!important", "background-color": "rgba(255,255,255,0.85)", "border-radius": "14px", "border": "1px solid rgba(217,195,163,0.6)"}, "nav-link-selected": {"background": "linear-gradient(135deg, #701c23 0%, #a8323d 100%)", "color": "#ffffff"}}
+        styles={
+            "container": {"padding": "5px!important", "background-color": "rgba(255,255,255,0.85)", "border-radius": "14px", "border": "1px solid rgba(217,195,163,0.6)"}, 
+            "nav-link-selected": {"background": "linear-gradient(135deg, #701c23 0%, #a8323d 100%)", "color": "#ffffff"}
+        }
     )
+
+# ============================================================
+# 🎨 SETUP SIDEBAR (KHUSUS MAIN.PY)
+# ============================================================
+SIDEBAR_CSS = """
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+[data-testid="stSidebar"] { background: linear-gradient(180deg, #701c23 0%, #4e1318 100%) !important; }
+[data-testid="stSidebar"] *, [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div, [data-testid="stSidebar"] svg {
+    color: #ffffff !important; fill: #ffffff !important; font-family: 'Inter', sans-serif !important;
+}
+[data-testid="stSidebar"] [data-testid="stSidebarNav"] strong { font-family: 'Playfair Display', serif !important; }
+</style>
+"""
+
+def setup_common():
+    st.markdown(SIDEBAR_CSS, unsafe_allow_html=True)
+
+def setup_halaman_utama_css(custom_css: str):
+    setup_common()
+    st.markdown(custom_css, unsafe_allow_html=True)
