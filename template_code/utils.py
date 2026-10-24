@@ -179,11 +179,24 @@ def streamlit_menu(default_index=0):
 SIDEBAR_CSS = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
-[data-testid="stSidebar"] { background: linear-gradient(180deg, #701c23 0%, #4e1318 100%) !important; }
-[data-testid="stSidebar"] *, [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div, [data-testid="stSidebar"] svg {
-    color: #ffffff !important; fill: #ffffff !important; font-family: 'Inter', sans-serif !important;
+[data-testid="stSidebar"] { 
+    background: linear-gradient(180deg, #701c23 0%, #4e1318 100%) !important; 
 }
-[data-testid="stSidebar"] [data-testid="stSidebarNav"] strong { font-family: 'Playfair Display', serif !important; }
+[data-testid="stSidebar"] *, 
+[data-testid="stSidebar"] span, 
+[data-testid="stSidebar"] p, 
+[data-testid="stSidebar"] div, 
+[data-testid="stSidebar"] svg {
+    color: #ffffff !important; 
+    fill: #ffffff !important; 
+    font-family: 'Inter', sans-serif !important;
+}
+[data-testid="stSidebar"] [data-testid="stSidebarNav"] strong { 
+    font-family: 'Playfair Display', serif !important; 
+}
+/* Menyembunyikan teks aneh di pojok kanan atas */
+#MainMenu { visibility: hidden; }
+header { visibility: hidden; }
 </style>
 """
 
