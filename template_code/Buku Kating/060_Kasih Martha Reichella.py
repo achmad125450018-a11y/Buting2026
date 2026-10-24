@@ -14,6 +14,7 @@ from tools.ui_helper import (
     load_image,
     render_kating_cards,
     get_menu_styles,
+    dept_menu,
 )
 
 # Injeksi tema estetis global
@@ -33,9 +34,8 @@ st.markdown(
 
 
 def streamlit_menu():
-    selected = option_menu(
-        menu_title=None,
-        options=[
+    return dept_menu(
+        [
             "Kesekjenan",
             "Baleg",
             "Senator",
@@ -46,24 +46,8 @@ def streamlit_menu():
             "Departemen SSD",
             "Departemen Medkraf",
             "Departemen Minbak",
-        ],
-        icons=[
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-            "people-fill",
-        ],
-        default_index=0,
-        orientation="horizontal",
-        styles=get_menu_styles(),
+        ]
     )
-    return selected
 
 
 def display_images_with_data(gambar_urls, data_list):
@@ -930,7 +914,7 @@ elif menu == "Departemen PSDA":
         display_images_with_data(gambar_urls, data_list)
     DepartemenPSDA()
 
-    elif menu == "Senator":
+elif menu == "Senator":
     def DepartemenSenator():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1CLViWe4r6l6emrCXK15RYzeoK7iw2wLG",
@@ -1333,7 +1317,7 @@ elif menu == "Departemen Eksternal":
         display_images_with_data(gambar_urls, data_list)
     DepartemenEksternal()
 
-   elif menu == "Departemen MIKFES":
+elif menu == "Departemen MIKFES":
     def DepartemenMIKFES():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1rjv6opjEN77uleywdpteJ3tzaTRx7Tis",
@@ -1608,7 +1592,7 @@ elif menu == "Departemen Eksternal":
         display_images_with_data(gambar_urls, data_list)
     DepartemenMIKFES()
 
-    elif menu == "Departemen SSD":
+elif menu == "Departemen SSD":
     def DepartemenSSD():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1XPp3MgzYGEu1tallFkKG1Mkoizu9DtI2",
