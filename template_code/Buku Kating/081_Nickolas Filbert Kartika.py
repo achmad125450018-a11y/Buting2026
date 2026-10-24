@@ -672,15 +672,18 @@ elif menu == "Departemen SSD":
     def Departemen_SSD():
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1aMv9qlfsOuyoPiS2R8NTcgAxozaNZqou",
+            "https://drive.google.com/uc?export=view&id=1PT6ipJ2f-hCrUjXJeNx4DjWaudZuIVvx",
             "https://drive.google.com/uc?export=view&id=1UqjrZcNLpl09Tz_nF4TAHmhMpYAhXKtz",
             "https://drive.google.com/uc?export=view&id=1hn4PgTaL24skiwubJiRXN8FMc_9vrKno",
             "https://drive.google.com/uc?export=view&id=17d-nP_G08HsSbs60e_Z7fwzLlsQ38dA2",
             "https://drive.google.com/uc?export=view&id=1k2DniopsMXjCT6-kWZOVtWyeb2l9drGn",
+            "https://drive.google.com/uc?export=view&id=1gJOc_kFxHewv61AhgdEjwXIm4ZWeYS5W",
             "https://drive.google.com/uc?export=view&id=18r-fmfLgTw20T_3VrkT5S81c57TBtZy3",
             "https://drive.google.com/uc?export=view&id=1X1f9zdjDGzs8bxpmaAyerdTKjY3fQN7g",
             "https://drive.google.com/uc?export=view&id=1idD0yxRZ26xBhd2WjUYvs9moCSU0yEAj",
             "https://drive.google.com/uc?export=view&id=1z6mzgHPVOaHUuHgn2NFf5QtgvIhdqmfk",
             "https://drive.google.com/uc?export=view&id=1Zl7FrDBs1q_1u5ETnETkn5J25Ra5Lrdq",
+            
         ]
 
         data_list = [
@@ -698,7 +701,7 @@ elif menu == "Departemen SSD":
             },
             {
                 "nama": "Hanifah Inaya Sani",
-                "nim": "123450000",
+                "nim": "123450009",
                 "umur": "21",
                 "asal": "Balam",
                 "alamat": "Korpri",
