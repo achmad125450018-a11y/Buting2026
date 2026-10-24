@@ -4,6 +4,101 @@ import requests
 from PIL import Image, ImageOps
 from io import BytesIO
 
+st.markdown(
+    """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+    /* Global Styling dengan Pola Grid Hologram */
+    .stApp {
+        background: radial-gradient(circle at 50% 10%, #0a0f1d 0%, #030712 100%);
+        color: #f1f5f9;
+        font-family: 'Space Grotesk', sans-serif;
+        background-image: 
+            radial-gradient(circle at 50% 10%, rgba(0, 243, 255, 0.05) 0%, transparent 60%),
+            linear-gradient(rgba(0, 243, 255, 0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 243, 255, 0.025) 1px, transparent 1px);
+        background-size: 100% 100%, 40px 40px, 40px 40px;
+    }
+
+    /* Sidebar dengan Efek Glassmorphism & Neon Border */
+    [data-testid="stSidebar"] {
+        background: rgba(6, 9, 24, 0.85) !important;
+        backdrop-filter: blur(12px);
+        border-right: 1px solid rgba(0, 243, 255, 0.25);
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.6);
+    }
+    [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div, [data-testid="stSidebar"] label {
+        color: #e2e8f0 !important;
+    }
+
+    /* Judul Utama dengan Gradasi High-Tech */
+    .main-title {
+        font-family: 'Orbitron', sans-serif;
+        text-align: center;
+        font-size: 3.5rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #00f3ff 0%, #7928ca 50%, #ff007f 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 40px rgba(0, 243, 255, 0.4);
+        margin-bottom: 5px;
+        letter-spacing: 2px;
+    }
+
+    /* Subtitle Bergaya Cyberpunk */
+    .sub-title {
+        font-family: 'Orbitron', sans-serif;
+        text-align: center;
+        font-size: 1.3rem;
+        color: #00f3ff;
+        letter-spacing: 6px;
+        text-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+        margin-bottom: 35px;
+        text-transform: uppercase;
+    }
+
+    /* Kartu Kontainer Khusus (Opsional untuk Widget/Metrik) */
+    .cyber-card {
+        background: rgba(13, 20, 38, 0.7);
+        border: 1px solid rgba(0, 243, 255, 0.3);
+        border-radius: 12px;
+        padding: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        transition: all 0.3s ease;
+    }
+    .cyber-card:hover {
+        border-color: rgba(0, 243, 255, 0.8);
+        box-shadow: 0 0 25px rgba(0, 243, 255, 0.3);
+        transform: translateY(-2px);
+    }
+
+    /* Tombol Interaktif Ala Sistem Sci-Fi */
+    .stButton>button {
+        font-family: 'Orbitron', sans-serif;
+        background: linear-gradient(135dev, #00f3ff 0%, #7928ca 100%);
+        background: linear-gradient(135deg, #00f3ff 0%, #7928ca 100%);
+        color: #ffffff;
+        border: 1px solid rgba(0, 243, 255, 0.4);
+        border-radius: 8px;
+        padding: 0.6rem 1.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+        transition: all 0.3s ease;
+    }
+    .stButton>button:hover {
+        background: linear-gradient(135deg, #ff007f 0%, #7928ca 100%);
+        border-color: rgba(255, 0, 127, 0.8);
+        box-shadow: 0 0 25px rgba(255, 0, 127, 0.6);
+        transform: scale(1.02);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.markdown("""<style>.centered-title {text-align: center;}</style>""", unsafe_allow_html=True)
 st.markdown("<h1 class='centered-title'>BUKU KATING</h1>", unsafe_allow_html=True)
 
