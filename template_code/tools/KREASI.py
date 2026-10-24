@@ -1,6 +1,62 @@
 import streamlit as st
 import pandas as pd
 
+st.markdown(
+    """
+    <style>
+    /* Mengubah background utama menjadi terang (krem/beige) seperti foto pertama */
+    .stApp {
+        background-color: #F8F5F2;
+        color: #000000; 
+    }
+
+    /* Buat header transparan agar tombol sidebar tetap ada */
+    [data-testid="stHeader"] {
+        background-color: transparent !important;
+    }
+    
+    /* Pastikan warna ikon tombol penutup tab menjadi gelap agar terlihat di background terang */
+    [data-testid="collapsedControl"] {
+        color: #bd411b !important;
+    }
+
+    /* Memberikan warna solid pada sidebar (Oranye dari foto kedua) */
+    [data-testid="stSidebar"] {
+        background-color: #bd411b !important;
+    }
+    
+    /* Memastikan teks di dalam sidebar berwarna putih */
+    [data-testid="stSidebar"] * {
+        color: white !important;
+    }
+
+    /* Memaksa elemen teks di dalam tab menjadi gelap karena background sekarang terang */
+    [data-testid="stTabs"] button, 
+    [data-testid="stTabs"] button * {
+        color: #000000 !important;
+    }
+    
+    /* Mengubah warna garis bawah pada tab yang sedang aktif menggunakan aksen oranye */
+    [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
+        background-color: #bd411b !important;
+    }
+
+    /* Animasi gambar */
+    .gambar-timbul {
+        width: 100%;
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        cursor: pointer;
+    }
+    .gambar-timbul:hover {
+        transform: translateY(-8px) scale(1.03); 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 def greedy_knapsack(items, capacity):
     for item in items:
         item['rasio'] = item['nilai'] / item['berat']
