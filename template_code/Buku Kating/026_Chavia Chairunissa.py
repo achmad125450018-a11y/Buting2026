@@ -344,21 +344,21 @@ if menu == "Badan Legislatif":
             
         ]
         display_images_with_data(gambar_urls, data_list)
-    Badan Legislatif()
+    Baleg()
     
     if menu == "Badan Kesenatoran":
-    def senator():
-        gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1NNyH3s5-ZgN1MtU5W_DPqlPwYrJK6gGr",
-            "https://drive.google.com/uc?export=view&id=1FK9mia17rzt0TYToZz1621UQiHXykaKz",
-            "https://drive.google.com/uc?export=view&id=1wkLdr85KLet_qIGhUj74GT6YRtF1fmSj",
-            "https://drive.google.com/uc?export=view&id=1WYy-bAC5gReQoFA4xhiOSFOTprjphmkq",
-            "https://drive.google.com/uc?export=view&id=1Lu4H8nOTZiExCSSv7tXdy0dCe-UAwlbM",
-            "https://drive.google.com/uc?export=view&id=1KXWrm_ldT6-xK_MLAZ3xeJ1TAksgj1Jp",
-            "https://drive.google.com/uc?export=view&id=1kQ2GC1UH7xFZPRR6Rzbf8_Nqc5Gelnon",
-            "https://drive.google.com/uc?export=view&id=14wIKTYzQVMJEBam8tbqoDunopqo_xXAq",
-            "https://drive.google.com/uc?export=view&id=1WdUXIqfbGNSldeDmIFkUmQWfMqR56Fen",
-            "https://drive.google.com/uc?export=view&id=1KQAZVUce4lupdlfED8Zj253VlANNF_LE",
+        def senator():
+            gambar_urls = [
+                "https://drive.google.com/uc?export=view&id=1NNyH3s5-ZgN1MtU5W_DPqlPwYrJK6gGr",
+                "https://drive.google.com/uc?export=view&id=1FK9mia17rzt0TYToZz1621UQiHXykaKz",
+                "https://drive.google.com/uc?export=view&id=1wkLdr85KLet_qIGhUj74GT6YRtF1fmSj",
+                "https://drive.google.com/uc?export=view&id=1WYy-bAC5gReQoFA4xhiOSFOTprjphmkq",
+                "https://drive.google.com/uc?export=view&id=1Lu4H8nOTZiExCSSv7tXdy0dCe-UAwlbM",
+                "https://drive.google.com/uc?export=view&id=1KXWrm_ldT6-xK_MLAZ3xeJ1TAksgj1Jp",
+                "https://drive.google.com/uc?export=view&id=1kQ2GC1UH7xFZPRR6Rzbf8_Nqc5Gelnon",
+                "https://drive.google.com/uc?export=view&id=14wIKTYzQVMJEBam8tbqoDunopqo_xXAq",
+                "https://drive.google.com/uc?export=view&id=1WdUXIqfbGNSldeDmIFkUmQWfMqR56Fen",
+                "https://drive.google.com/uc?export=view&id=1KQAZVUce4lupdlfED8Zj253VlANNF_LE",
         ]
         data_list = [
             {
@@ -473,4 +473,4 @@ if menu == "Badan Legislatif":
             },  
         ]
         display_images_with_data(gambar_urls, data_list)
-    Badan Kesenatoran()
+    Kesenatoran()
