@@ -16,19 +16,22 @@ def load_image(url):
 
 # JANGAN DIUBAH
 
-# Pengaturan Tema Global: Background Krim dengan Grafik Pola Modern Dot-Grid
+# Pengaturan Tema Global: Background & Kotak dengan Grafik Ramai, Modern, & Elegan
 st.markdown(
     """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap');
 
-    /* Global Styling - Background Krim dengan Grafik Dot Pattern Modern */
+    /* Global Styling - Background Krim dengan Grafik Multi-Layer Bertumpuk (Dot & Diagonal Grid) */
     .stApp {
         background-color: #fbf9f5;
-        background-image: radial-gradient(rgba(181, 142, 75, 0.22) 1.2px, transparent 1.2px), 
-                          radial-gradient(rgba(92, 64, 51, 0.12) 1.2px, #fbf9f5 1.2px);
-        background-size: 32px 32px;
-        background-position: 0 0, 16px 16px;
+        background-image: 
+            radial-gradient(rgba(181, 142, 75, 0.28) 1.5px, transparent 1.5px), 
+            radial-gradient(rgba(92, 64, 51, 0.15) 1.5px, #fbf9f5 1.5px),
+            linear-gradient(45deg, rgba(181, 142, 75, 0.05) 25%, transparent 25%),
+            linear-gradient(-45deg, rgba(181, 142, 75, 0.05) 25%, transparent 25%);
+        background-size: 36px 36px, 36px 36px, 60px 60px, 60px 60px;
+        background-position: 0 0, 18px 18px, 0 0, 30px 30px;
         background-attachment: fixed;
         color: #1e1b18;
         font-family: 'Inter', sans-serif;
@@ -37,7 +40,7 @@ st.markdown(
     /* Sidebar disesuaikan warnanya agar senada dan tetap rapi */
     [data-testid="stSidebar"] {
         background-color: #f0e8d5 !important;
-        border-right: 2px solid rgba(181, 142, 75, 0.35);
+        border-right: 2px solid rgba(181, 142, 75, 0.4);
     }
     [data-testid="stSidebar"] span, [data-testid="stSidebar"] p, [data-testid="stSidebar"] div, [data-testid="stSidebar"] label {
         color: #1e1b18 !important;
@@ -111,7 +114,7 @@ def streamlit_menu():
               "background-color": "rgba(240, 232, 213, 0.95)",
               "border": "2px solid #b58e4b",
               "border-radius": "16px",
-              "box-shadow": "0 8px 25px rgba(181, 142, 75, 0.2)",
+              "box-shadow": "0 8px 25px rgba(181, 142, 75, 0.25)",
           },
           "icon": {"color": "#8c672b", "font-size": "19px"},
           "nav-link": {
@@ -155,24 +158,27 @@ if menu == "Home":
             text-shadow: 0 2px 10px rgba(181, 142, 75, 0.2);
         }
         
+        /* Kotak dengan bingkai ganda dan aksen grafis modern yang ramai */
         .photo-caption-box {
-            background: rgba(255, 255, 255, 0.92);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(246, 240, 226, 0.96) 100%);
             backdrop-filter: blur(8px);
             border: 2px solid #b58e4b;
+            outline: 2px dashed rgba(181, 142, 75, 0.4);
+            outline-offset: -6px;
             color: #1e1b18;
             text-align: center;
-            padding: 24px;
+            padding: 26px;
             border-radius: 20px;
             margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(181, 142, 75, 0.15);
+            box-shadow: 0 12px 35px rgba(181, 142, 75, 0.2);
             position: relative;
             overflow: hidden;
         }
         .photo-caption-box::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 5px;
-            background: linear-gradient(90deg, #5c4033, #b58e4b, #d4af37);
+            top: 0; left: 0; width: 100%; height: 6px;
+            background: linear-gradient(90deg, #5c4033, #b58e4b, #d4af37, #b58e4b, #5c4033);
         }
         
         .badge-cosval {
@@ -199,11 +205,13 @@ if menu == "Home":
 
         .desc-box {
             border: 2px solid #b58e4b;
-            background: rgba(255, 255, 255, 0.92);
+            outline: 2px dashed rgba(181, 142, 75, 0.4);
+            outline-offset: -6px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 244, 234, 0.96) 100%);
             backdrop-filter: blur(8px);
             border-radius: 20px;
             padding: 35px;
-            box-shadow: 0 12px 35px rgba(181, 142, 75, 0.12);
+            box-shadow: 0 15px 40px rgba(181, 142, 75, 0.18);
             margin-bottom: 30px;
             position: relative;
         }
@@ -228,24 +236,28 @@ if menu == "Home":
         }
 
         .book-cover {
-            background: rgba(255, 255, 255, 0.92);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(236, 226, 205, 0.96) 100%);
             backdrop-filter: blur(8px);
             border: 2px solid #8c672b;
+            outline: 2px dashed rgba(140, 103, 43, 0.4);
+            outline-offset: -6px;
             color: #1e1b18;
             padding: 55px 25px;
             text-align: center;
             border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(140, 103, 43, 0.2);
+            box-shadow: 0 15px 40px rgba(140, 103, 43, 0.25);
             margin-bottom: 20px;
         }
         
         .book-spread {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(8px);
             border: 2px solid #b58e4b;
+            outline: 2px dashed rgba(181, 142, 75, 0.4);
+            outline-offset: -6px;
             border-radius: 20px;
             padding: 35px;
-            box-shadow: 0 10px 30px rgba(181, 142, 75, 0.15);
+            box-shadow: 0 12px 35px rgba(181, 142, 75, 0.2);
             margin-bottom: 20px;
         }
         </style>
@@ -537,83 +549,4 @@ elif menu == "About Us":
             "sebagai": "Anggota",
             "nim": "122450000",
             "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-        {
-            "nama": "Nama Anggota 6",
-            "sebagai": "Anggota",
-            "nim": "122450000",
-            "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-        {
-            "nama": "Nama Anggota 7",
-            "sebagai": "Anggota",
-            "nim": "122450000",
-            "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-        {
-            "nama": "Nama Anggota 8",
-            "sebagai": "Anggota",
-            "nim": "122450000",
-            "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-        {
-            "nama": "Nama Anggota 9",
-            "sebagai": "Anggota",
-            "nim": "122450000",
-            "fun_fact": "Isi fun fact",
-            "motto_hidup": "Isi motto hidup",
-        },
-    ]
-
-    if filter_pilihan == "Semua":
-      indices = list(range(11))
-    elif filter_pilihan == "Pak Lurah":
-      indices = [0]
-    elif filter_pilihan == "Bu Lurah":
-      indices = [1]
-    else:
-      indices = list(range(2, 11))
-
-    for idx in indices:
-      if idx < len(data_list) and idx < len(gambar_urls):
-        img = load_image(gambar_urls[idx])
-        data = data_list[idx]
-
-        col_img, col_bio = st.columns([1, 1.4], vertical_alignment="center")
-
-        with col_img:
-          st.image(img, use_container_width=True)
-
-        with col_bio:
-          st.markdown(
-              f"""
-                    <div style="
-                        background: rgba(255, 255, 255, 0.92); 
-                        backdrop-filter: blur(8px);
-                        border: 2px solid #b58e4b; 
-                        padding: 26px; 
-                        border-radius: 20px; 
-                        box-shadow: 0 10px 30px rgba(181, 142, 75, 0.15); 
-                        color: #1e1b18;
-                        font-family: 'Inter', sans-serif;
-                        position: relative;
-                        overflow: hidden;
-                        margin-bottom: 20px;">
-                        <div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(135deg, transparent 50%, rgba(181,142,75,0.2) 50%); pointer-events: none;"></div>
-                        <h3 style="margin-top: 0; color: #4a3324; border-bottom: 2px solid #b58e4b; padding-bottom: 10px; font-family: 'Outfit', sans-serif; font-weight: 800;">{data['nama']}</h3>
-                        <p style="margin: 10px 0; font-size: 1.05em; color: #1e1b18; font-weight: 500;"><b>Sebagai:</b> {data['sebagai']}</p>
-                        <p style="margin: 10px 0; font-size: 1.05em; color: #1e1b18; font-weight: 500;"><b>NIM:</b> {data['nim']}</p>
-                        <p style="margin: 10px 0; font-size: 1.05em; color: #1e1b18; font-weight: 500;"><b>Fun Fact:</b> {data['fun_fact']}</p>
-                        <p style="margin: 10px 0; font-size: 1.05em; color: #1e1b18; font-weight: 500;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
-                    </div>
-                    """,
-              unsafe_allow_html=True,
-          )
-
-        st.write("---")
-
-  about_page()
+            "motto_
