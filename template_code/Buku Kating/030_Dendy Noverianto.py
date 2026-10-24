@@ -5,53 +5,7 @@ from PIL import Image, ImageOps
 from io import BytesIO
 import streamlit as st
 
-# CSS Tema Global Futuristik & Teks Terang (Tempel di setiap file halaman lain)
-st.markdown(
-    """
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;600;700&display=swap');
 
-    /* Global Styling - Teks dibuat sangat terang dan jelas */
-    .stApp {
-        background: radial-gradient(circle at 50% 10%, #090d16 0%, #030712 100%);
-        color: #ffffff;
-        font-family: 'Space Grotesk', sans-serif;
-    }
-
-    /* Perbaikan sidebar agar tulisan terang, jelas, dan tidak menimpa */
-    [data-testid="stSidebar"] {
-        min-width: 330px !important;
-        background-color: #060918 !important;
-        border-right: 1px solid rgba(0, 243, 255, 0.2);
-    }
-    [data-testid="stSidebarNav"] {
-        width: 100%;
-    }
-    [data-testid="stSidebarNav"] ul {
-        display: flex;
-        flex-direction: column;
-        gap: 6px !important;
-    }
-    [data-testid="stSidebarNav"] a {
-        display: block !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        padding: 10px 14px !important;
-        font-size: 0.95em !important;
-        font-weight: 600 !important;
-        border-radius: 8px;
-        color: #ffffff !important;
-        background: rgba(15, 23, 42, 0.6);
-        border: 1px solid rgba(0, 243, 255, 0.1);
-    }
-    [data-testid="stSidebarNav"] a span {
-        color: #ffffff !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 st.markdown("""<style>.centered-title {text-align: center;}</style>""",unsafe_allow_html=True)
 st.markdown("<h1 class='centered-title'>BUKU KATING</h1>", unsafe_allow_html=True)
 
