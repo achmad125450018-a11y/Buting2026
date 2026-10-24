@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title="Math Matrix: Sum Cracker", layout="wide")
+st.set_page_config(page_title="Math Matrix: Equation Chain", layout="wide")
 
 st.markdown("""
 <style>
@@ -18,8 +18,8 @@ h1 {
 </style>
 """, unsafe_allow_html=True)
 
-st.title("MATH MATRIX: SUM CRACKER")
-st.markdown("<p style='text-align: center; color: #fdba74;'>Uji skill berhitung cepat! Pilih kombinasi angka di dalam matriks 4x4 yang jumlah totalnya pas dengan target.</p>", unsafe_allow_html=True)
+st.title("MATH MATRIX: EQUATION CHAIN")
+st.markdown("<p style='text-align: center; color: #fdba74;'>Pilih urutan angka dan operator dari matriks 4x4 untuk merakit persamaan yang hasilnya pas dengan Angka Target!</p>", unsafe_allow_html=True)
 
 game_html = """
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ game_html = """
         display: flex;
         justify-content: center;
         gap: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
     }
     .stat-box {
         background: #18181b;
@@ -57,7 +57,7 @@ game_html = """
         background: #18181b;
         height: 10px;
         border-radius: 5px;
-        margin: 0 auto 15px auto;
+        margin: 0 auto 12px auto;
         overflow: hidden;
         border: 1px solid #f97316;
     }
@@ -70,30 +70,39 @@ game_html = """
     .mission-box {
         background: #18181b;
         border: 2px dashed #f97316;
-        padding: 12px;
+        padding: 10px;
         border-radius: 8px;
-        margin: 0 auto 15px auto;
+        margin: 0 auto 12px auto;
         max-width: 500px;
-        font-size: 15px;
+        font-size: 14px;
         color: #fdba74;
     }
     .target-highlight {
         color: #ffffff;
         background: #c2410c;
-        padding: 4px 10px;
+        padding: 3px 8px;
         border-radius: 4px;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 16px;
     }
-    .current-sum {
-        color: #4ade80;
+    .expression-screen {
+        background: #09090b;
+        border: 2px solid #f97316;
+        padding: 10px;
+        border-radius: 6px;
+        margin: 0 auto 12px auto;
+        max-width: 500px;
+        font-size: 18px;
         font-weight: bold;
+        color: #4ade80;
+        min-height: 25px;
+        letter-spacing: 2px;
     }
     .grid-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
-        margin: 15px auto;
+        margin: 10px auto;
         width: 100%;
         max-width: 500px;
     }
@@ -101,19 +110,18 @@ game_html = """
         background: #18181b;
         border: 2px solid #f97316;
         border-radius: 8px;
-        height: 80px;
+        height: 75px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: transform 0.2s ease, background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+        transition: transform 0.2s ease, background-color 0.2s, border-color 0.2s;
         box-shadow: 0 0 8px rgba(249, 115, 22, 0.15);
     }
     .node-box.selected {
         background: #c2410c;
         border-color: #ffffff;
-        box-shadow: 0 0 15px rgba(249, 115, 22, 0.8);
     }
     .node-box:hover {
         background: #27272a;
@@ -126,22 +134,22 @@ game_html = """
         color: #ffffff;
     }
     .terminal-msg {
-        margin-top: 15px;
-        font-size: 14px;
+        margin-top: 10px;
+        font-size: 13px;
         font-weight: bold;
-        height: 24px;
+        height: 22px;
         color: #fdba74;
     }
     .action-btn {
         background-color: #f97316;
         color: #09090b;
         border: none;
-        padding: 12px 28px;
-        font-size: 15px;
+        padding: 10px 22px;
+        font-size: 14px;
         font-weight: bold;
         border-radius: 8px;
         cursor: pointer;
-        margin-top: 12px;
+        margin-top: 8px;
         font-family: 'Courier New', monospace;
         transition: background 0.2s, transform 0.1s;
         box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
@@ -149,6 +157,11 @@ game_html = """
     .action-btn:hover {
         background-color: #fb923c;
         transform: translateY(-2px);
+    }
+    .btn-group {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
     }
 </style>
 </head>
@@ -165,24 +178,33 @@ game_html = """
 </div>
 
 <div class="mission-box" id="mission-text">
-    Tekan tombol di bawah untuk mulai menghitung!
+    TARGET ANGKA: <span class="target-highlight" id="target-display">0</span>
 </div>
+
+<div class="expression-screen" id="expr-display">Pilih ubin untuk merakit rumus...</div>
 
 <div class="grid-container" id="grid-container"></div>
 
+<div class="btn-group">
+    <button class="action-btn" style="background-color: #27272a; color: #ffffff;" onclick="resetSelection()">RESET</button>
+    <button class="action-btn" onclick="submitEquation()">EKsekusi</button>
+</div>
+
 <div class="terminal-msg" id="terminal-msg"></div>
-<button class="action-btn" id="main-btn" onclick="startMathGame()">MULAI BERHITUNG</button>
+<button class="action-btn" id="main-btn" onclick="startMathGame()" style="display:block; margin: 15px auto;">MULAI TANTANGAN</button>
 
 <script>
     let score = 0;
     let lives = 3;
     let level = 1;
-    let nodes = [];
-    let targetSum = 0;
-    let currentSelectedSum = 0;
+    let gridTiles = [];
+    let targetNum = 0;
+    let currentExpression = [];
     let gameActive = false;
     let timerInterval = null;
     let timeLeft = 100;
+
+    const operators = ['+', '-', '*'];
 
     function startMathGame() {
         score = 0;
@@ -194,89 +216,143 @@ game_html = """
     }
 
     function initRound() {
-        currentSelectedSum = 0;
+        currentExpression = [];
         document.getElementById('terminal-msg').innerText = "";
+        document.getElementById('expr-display').innerText = "Pilih ubin untuk merakit rumus...";
 
-        // Buat 16 angka acak (1 s.d 25)
-        nodes = [];
-        for (let i = 0; i < 16; i++) {
-            let val = Math.floor(Math.random() * (12 + level * 3)) + 2;
-            nodes.push({ val: val, selected: false, id: i });
+        // Buat target yang valid dari operasi acak sederhana (misal: a op b op c)
+        let n1 = Math.floor(Math.random() * 8) + 2;
+        let n2 = Math.floor(Math.random() * 8) + 2;
+        let n3 = Math.floor(Math.random() * 6) + 1;
+        let op1 = operators[Math.floor(Math.random() * operators.length)];
+        let op2 = operators[Math.floor(Math.random() * operators.length)];
+        
+        // Hitung target riil
+        let subExpr = `${n1} ${op1} ${n2} ${op2} ${n3}`;
+        targetNum = Math.round(eval(subExpr));
+
+        // Jika target negatif atau terlalu besar, buat ulang
+        if (targetNum < 2 || targetNum > 60) {
+            return initRound();
         }
 
-        // Pilih 2 sampai 4 angka secara acak dari matriks untuk dijadikan target pasti
-        let countToPick = Math.random() < 0.5 ? 2 : (Math.random() < 0.8 ? 3 : 4);
-        let shuffledIndices = [...Array(16).keys()].sort(() => Math.random() - 0.5);
-        
-        targetSum = 0;
-        let solutionIndices = shuffledIndices.slice(0, countToPick);
-        solutionIndices.forEach(idx => {
-            targetSum += nodes[idx].val;
-        });
+        document.getElementById('target-display').innerText = targetNum;
 
-        updateMissionText();
+        // Siapkan ubin matriks 4x4 (masukkan n1, n2, n3, op1, op2 + angka/operator pengecoh)
+        let tileValues = [n1.toString(), n2.toString(), n3.toString(), op1, op2];
+        while(tileValues.length < 16) {
+            if (Math.random() < 0.3) {
+                tileValues.push(operators[Math.floor(Math.random() * operators.length)]);
+            } else {
+                tileValues.push((Math.floor(Math.random() * 12) + 1).toString());
+            }
+        }
+
+        // Acak ubin
+        tileValues.sort(() => Math.random() - 0.5);
+
+        gridTiles = tileValues.map((val, idx) => ({
+            val: val,
+            selected: false,
+            id: idx
+        }));
+
         renderGrid();
         startTimer();
-    }
-
-    function updateMissionText() {
-        document.getElementById('mission-text').innerHTML = `TARGET: <span class="target-highlight">${targetSum}</span> | PILIHAN ANDA: <span class="current-sum" id="sum-display">${currentSelectedSum}</span>`;
     }
 
     function renderGrid() {
         const container = document.getElementById('grid-container');
         container.innerHTML = '';
         
-        nodes.forEach((node, index) => {
+        gridTiles.forEach((tile, index) => {
             const el = document.createElement('div');
-            el.className = 'node-box' + (node.selected ? ' selected' : '');
-            el.onclick = () => handleNodeClick(index);
+            el.className = 'node-box' + (tile.selected ? ' selected' : '');
+            el.onclick = () => handleTileClick(index);
 
-            el.innerHTML = `<div class="node-val">${node.val}</div>`;
+            el.innerHTML = `<div class="node-val">${tile.val}</div>`;
             container.appendChild(el);
         });
     }
 
-    function handleNodeClick(index) {
+    function handleTileClick(index) {
         if (!gameActive) return;
+        let tile = gridTiles[index];
 
-        nodes[index].selected = !nodes[index].selected;
-        
-        // Hitung ulang total pilihan
-        currentSelectedSum = nodes.reduce((sum, n) => sum + (n.selected ? n.val : 0), 0);
-        updateMissionText();
+        if (!tile.selected) {
+            tile.selected = true;
+            currentExpression.push({val: tile.val, index: index});
+        } else {
+            tile.selected = false;
+            currentExpression = currentExpression.filter(item => item.index !== index);
+        }
+
+        updateExprDisplay();
         renderGrid();
+    }
 
-        if (currentSelectedSum === targetSum) {
-            clearInterval(timerInterval);
-            score += 250 * level;
-            level += 1;
-            document.getElementById('terminal-msg').style.color = "#4ade80";
-            document.getElementById('terminal-msg').innerText = "BENAR! Kalkulasi tepat.";
-            gameActive = false;
-            setTimeout(initRound, 1500);
-        } else if (currentSelectedSum > targetSum) {
-            clearInterval(timerInterval);
-            lives -= 1;
-            document.getElementById('terminal-msg').style.color = "#dc2626";
-            document.getElementById('terminal-msg').innerText = "OVERLOAD! Jumlah melebihi target.";
-            updateStats();
-            gameActive = false;
+    function updateExprDisplay() {
+        let text = currentExpression.map(item => item.val).join(' ');
+        document.getElementById('expr-display').innerText = text || "Pilih ubin untuk merakit rumus...";
+    }
 
-            if (lives <= 0) {
-                document.getElementById('mission-text').innerHTML = `<span style="color: #dc2626; font-weight: bold;">SYSTEM LOCKED: GAME OVER</span>`;
-                document.getElementById('main-btn').style.display = 'inline-block';
-                document.getElementById('main-btn').innerText = "COBA LAGI";
-                document.getElementById('main-btn').onclick = startMathGame;
-            } else {
+    function resetSelection() {
+        if (!gameActive) return;
+        gridTiles.forEach(t => t.selected = false);
+        currentExpression = [];
+        updateExprDisplay();
+        renderGrid();
+    }
+
+    function submitEquation() {
+        if (!gameActive || currentExpression.length === 0) return;
+        clearInterval(timerInterval);
+        gameActive = false;
+
+        let exprString = currentExpression.map(item => item.val).join(' ');
+
+        try {
+            let result = eval(exprString);
+            const msgEl = document.getElementById('terminal-msg');
+
+            if (result === targetNum) {
+                score += 300 * level;
+                level += 1;
+                msgEl.style.color = "#4ade80";
+                msgEl.innerText = `BERHASIL! ${exprString} = ${result}`;
+                updateStats();
                 setTimeout(initRound, 2000);
+            } else {
+                handleFailure(`SALAH! ${exprString} = ${result} (Target: ${targetNum})`);
             }
+        } catch (e) {
+            handleFailure("PERSAMAAN TIDAK VALID!");
+        }
+    }
+
+    function handleFailure(reason) {
+        clearInterval(timerInterval);
+        lives -= 1;
+        gameActive = false;
+        
+        const msgEl = document.getElementById('terminal-msg');
+        msgEl.style.color = "#dc2626";
+        msgEl.innerText = reason;
+        updateStats();
+
+        if (lives <= 0) {
+            document.getElementById('mission-text').innerHTML = `<span style="color: #dc2626; font-weight: bold;">SYSTEM LOCKED: GAME OVER</span>`;
+            document.getElementById('main-btn').style.display = 'block';
+            document.getElementById('main-btn').innerText = "COBA LAGI";
+            document.getElementById('main-btn').onclick = startMathGame;
+        } else {
+            setTimeout(initRound, 2500);
         }
     }
 
     function startTimer() {
         timeLeft = 100;
-        let maxTime = Math.max(4000, 12000 - (level * 600));
+        let maxTime = Math.max(5000, 14000 - (level * 600));
         let intervalTime = 50;
         let decrement = (intervalTime / maxTime) * 100;
 
@@ -297,16 +373,16 @@ game_html = """
                 gameActive = false;
                 lives -= 1;
                 document.getElementById('terminal-msg').style.color = "#dc2626";
-                document.getElementById('terminal-msg').innerText = "WAKTU HABIS! Kalkulasi terlambat.";
+                document.getElementById('terminal-msg').innerText = "WAKTU HABIS!";
                 updateStats();
 
                 if (lives <= 0) {
                     document.getElementById('mission-text').innerHTML = `<span style="color: #dc2626; font-weight: bold;">SYSTEM LOCKED: GAME OVER</span>`;
-                    document.getElementById('main-btn').style.display = 'inline-block';
+                    document.getElementById('main-btn').style.display = 'block';
                     document.getElementById('main-btn').innerText = "COBA LAGI";
                     document.getElementById('main-btn').onclick = startMathGame;
                 } else {
-                    setTimeout(initRound, 2000);
+                    setTimeout(initRound, 2500);
                 }
             }
         }, intervalTime);
@@ -322,4 +398,4 @@ game_html = """
 </html>
 """
 
-components.html(game_html, height=580)
+components.html(game_html, height=620)
