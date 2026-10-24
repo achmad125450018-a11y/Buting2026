@@ -1,24 +1,25 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title="Data Pipeline Sorter", layout="centered")
+st.set_page_config(page_title="Cyber Hack: Terminal Override", layout="centered")
 
 st.markdown("""
 <style>
 .stApp {
-    background-color: #1e1b4b;
+    background-color: #030712;
     color: #ffffff;
 }
 h1 {
-    color: #facc15 !important;
+    color: #38bdf8 !important;
     font-family: 'Courier New', monospace;
     text-align: center;
+    letter-spacing: 2px;
 }
 </style>
 """, unsafe_allow_html=True)
 
-st.title("DATA PIPELINE: TYPE SORTER")
-st.markdown("<p style='text-align: center; color: #f8fafc;'>Sortir aliran data yang masuk ke dalam wadah tipe data yang sesuai secepat mungkin!</p>", unsafe_allow_html=True)
+st.title("CYBER HACK: TERMINAL OVERRIDE")
+st.markdown("<p style='text-align: center; color: #94a3b8;'>Ikuti pergerakan kotak data, lacak anomali target, dan bypass firewall sebelum sistem trace mendeteksi Anda!</p>", unsafe_allow_html=True)
 
 game_html = """
 <!DOCTYPE html>
@@ -26,191 +27,325 @@ game_html = """
 <head>
 <style>
     body {
-        background-color: #1e1b4b;
-        color: white;
+        background-color: #030712;
+        color: #f8fafc;
         font-family: 'Courier New', monospace;
         text-align: center;
         margin: 0;
-        padding: 5px;
+        padding: 10px;
         overflow-x: hidden;
     }
-    .stats {
+    .stats-panel {
         display: flex;
         justify-content: space-around;
-        margin-bottom: 12px;
-        font-size: 14px;
-        font-weight: bold;
+        margin-bottom: 15px;
     }
     .stat-box {
-        background: #312e81;
-        border: 2px solid #facc15;
-        padding: 6px 14px;
+        background: #0f172a;
+        border: 1px solid #38bdf8;
+        padding: 8px 14px;
         border-radius: 8px;
-        color: #facc15;
+        color: #38bdf8;
+        font-size: 13px;
+        font-weight: bold;
     }
-    .conveyor {
+    .trace-container {
         width: 100%;
         max-width: 480px;
+        background: #1e293b;
+        height: 10px;
+        border-radius: 5px;
+        margin: 0 auto 15px auto;
+        overflow: hidden;
+        border: 1px solid #38bdf8;
+    }
+    .trace-bar {
+        width: 100%;
+        height: 100%;
+        background: #4ade80;
+        transition: width 0.1s linear;
+    }
+    .mission-box {
+        background: #0f172a;
+        border: 2px dashed #38bdf8;
+        padding: 12px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        font-size: 15px;
+    }
+    .target-highlight {
+        color: #38bdf8;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .grid-container {
+        position: relative;
+        margin: 20px auto;
+        width: 480px;
+        height: 120px;
+        max-width: 100%;
+    }
+    .node-box {
+        width: 105px;
         height: 110px;
         background: #0f172a;
-        border: 3px dashed #38bdf8;
-        border-radius: 12px;
-        margin: 15px auto;
+        border: 2px solid #38bdf8;
+        border-radius: 10px;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        position: relative;
-        box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.2);
-    }
-    .data-packet {
-        background: #312e81;
-        border: 3px solid #facc15;
-        padding: 15px 25px;
-        border-radius: 10px;
-        font-size: 22px;
-        font-weight: bold;
-        color: #facc15;
-        animation: pulse 1s infinite alternate;
-    }
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        100% { transform: scale(1.05); }
-    }
-    .bins-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        max-width: 480px;
-        margin: 15px auto;
-    }
-    .bin-btn {
-        background-color: #312e81;
-        color: #facc15;
-        border: 2px solid #facc15;
-        padding: 15px;
-        font-size: 15px;
-        font-weight: bold;
-        border-radius: 10px;
+        position: absolute;
+        top: 0;
+        transition: left 0.35s ease-in-out, border-color 0.2s;
         cursor: pointer;
-        font-family: 'Courier New', monospace;
-        transition: background-color 0.2s, transform 0.1s;
+        box-shadow: 0 0 10px rgba(56, 189, 248, 0.15);
     }
-    .bin-btn:hover {
-        background-color: #4338ca;
-        border-color: #38bdf8;
-        color: #38bdf8;
-        transform: translateY(-2px);
+    .node-box:hover {
+        border-color: #4ade80;
+        box-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
     }
-    .message {
-        margin-top: 15px;
+    .node-val {
         font-size: 15px;
+        font-weight: bold;
+        color: #f8fafc;
+    }
+    .node-type {
+        font-size: 10px;
+        color: #94a3b8;
+        margin-top: 4px;
+        text-transform: uppercase;
+    }
+    .terminal-msg {
+        margin-top: 20px;
+        font-size: 14px;
         font-weight: bold;
         height: 25px;
     }
-    .start-btn {
-        background-color: #facc15;
-        color: #1e1b4b;
+    .action-btn {
+        background-color: #38bdf8;
+        color: #030712;
         border: none;
-        padding: 12px 28px;
-        font-size: 16px;
+        padding: 12px 26px;
+        font-size: 15px;
         font-weight: bold;
         border-radius: 8px;
         cursor: pointer;
-        margin-top: 10px;
+        margin-top: 15px;
         font-family: 'Courier New', monospace;
+        transition: background 0.2s;
     }
-    .start-btn:hover {
-        background-color: #38bdf8;
+    .action-btn:hover {
+        background-color: #4ade80;
     }
 </style>
 </head>
 <body>
 
-<div class="stats">
-    <div class="stat-box">SKOR: <span id="score">0</span></div>
-    <div class="stat-box">NYAWA: <span id="lives">3</span></div>
+<div class="stats-panel">
+    <div class="stat-box">SCORE: <span id="score">0</span></div>
+    <div class="stat-box">LIVES: <span id="lives">3</span></div>
     <div class="stat-box">LEVEL: <span id="level">1</span></div>
 </div>
 
-<div class="conveyor" id="conveyor-area">
-    <div id="packet-display" class="data-packet">Tekan Mulai</div>
+<div class="trace-container">
+    <div class="trace-bar" id="trace-bar"></div>
 </div>
 
-<div class="bins-container" id="bins-area" style="display: none;">
-    <button class="bin-btn" onclick="checkSort('Integer')">INTEGER</button>
-    <button class="bin-btn" onclick="checkSort('Float')">FLOAT</button>
-    <button class="bin-btn" onclick="checkSort('String')">STRING</button>
-    <button class="bin-btn" onclick="checkSort('Boolean')">BOOLEAN</button>
+<div class="mission-box" id="mission-text">
+    Inisialisasi sistem... Tekan tombol di bawah untuk mulai.
 </div>
 
-<div class="message" id="message"></div>
-<button class="start-btn" id="action-btn" onclick="startGame()">Mulai Pipeline</button>
+<div class="grid-container" id="grid-container"></div>
+
+<div class="terminal-msg" id="terminal-msg"></div>
+<button class="action-btn" id="main-btn" onclick="startHack()">MULAI OVERRIDE</button>
 
 <script>
     let score = 0;
     let lives = 3;
     let level = 1;
-    let currentPacket = null;
-    let gameActive = false;
+    let nodes = [];
+    let gameState = 'idle'; // idle, reveal, shuffling, guessing, gameover
+    let targetType = '';
+    let traceTimer = null;
+    let traceLeft = 100;
+    let shuffleInterval = null;
 
-    const dataPool = [
-        { type: "Integer", vals: ["42", "108", "512", "999", "12", "7"] },
-        { type: "Float", vals: ["3.14", "9.81", "0.55", "7.25", "4.19", "0.0"] },
-        { type: "String", vals: ["NodeA", "Alpha", "Beta", "Core", "Stream", "Matrix"] },
-        { type: "Boolean", vals: ["True", "False"] }
+    const pool = [
+        { name: "Integer", vals: ["42", "108", "512", "999", "12", "7", "256"] },
+        { name: "Float", vals: ["3.14", "9.81", "0.55", "7.25", "4.19", "1.61"] },
+        { name: "String", vals: ["Alpha", "Beta", "Core", "Nexus", "Vector", "Stream"] },
+        { name: "Boolean", vals: ["True", "False"] }
     ];
 
-    function startGame() {
+    function startHack() {
         score = 0;
         lives = 3;
         level = 1;
-        gameActive = true;
-        document.getElementById('action-btn').style.display = 'none';
-        document.getElementById('bins-area').style.display = 'grid';
-        nextPacket();
-        updateStats();
+        document.getElementById('main-btn').style.display = 'none';
+        initRound();
     }
 
-    function nextPacket() {
-        if (!gameActive) return;
-        let randomCategory = dataPool[Math.floor(Math.random() * dataPool.length)];
-        let randomVal = randomCategory.vals[Math.floor(Math.random() * randomCategory.vals.length)];
+    function initRound() {
+        gameState = 'reveal';
+        document.getElementById('terminal-msg').innerText = "";
         
-        currentPacket = {
-            val: randomVal,
-            type: randomCategory.type
-        };
+        let domIdx = Math.floor(Math.random() * pool.length);
+        let domType = pool[domIdx];
+        let anomPool = pool.filter((_, i) => i !== domIdx);
+        let anomType = anomPool[Math.floor(Math.random() * anomPool.length)];
 
-        document.getElementById('packet-display').innerText = currentPacket.val;
-        document.getElementById('message').innerText = "";
+        targetType = anomType.name;
+        document.getElementById('mission-text').innerHTML = `TARGET PROTOKOL: Cari tipe data <span class="target-highlight">${targetType}</span>`;
+
+        let rawNodes = [];
+        for(let i=0; i<3; i++) {
+            let val = domType.vals[Math.floor(Math.random() * domType.vals.length)];
+            rawNodes.push({ val: val, type: domType.name, isAnom: false });
+        }
+        let anomVal = anomType.vals[Math.floor(Math.random() * anomType.vals.length)];
+        rawNodes.push({ val: anomVal, type: anomType.name, isAnom: true });
+
+        // Shuffle initial order
+        rawNodes.sort(() => Math.random() - 0.5);
+
+        nodes = rawNodes.map((n, idx) => ({
+            ...n,
+            pos: idx
+        }));
+
+        renderNodes(true);
+
+        setTimeout(() => {
+            startShufflingPhase();
+        }, 2200);
     }
 
-    function checkSort(selectedType) {
-        if (!gameActive) return;
+    function renderNodes(showContent) {
+        const container = document.getElementById('grid-container');
+        container.innerHTML = '';
+        
+        nodes.forEach((node, index) => {
+            const el = document.createElement('div');
+            el.className = 'node-box';
+            el.style.left = (node.pos * 122) + 'px';
+            el.onclick = () => handleNodeClick(index);
 
-        if (selectedType === currentPacket.type) {
-            score += 50 * level;
-            if (score % 200 === 0) level += 1;
-            document.getElementById('message').style.color = "#4ade80";
-            document.getElementById('message').innerText = "Berhasil Disortir!";
-            updateStats();
-            setTimeout(nextPacket, 400);
-        } else {
-            lives -= 1;
-            document.getElementById('message').style.color = "#f87171";
-            document.getElementById('message').innerText = `Salah! Ini adalah tipe ${currentPacket.type}.`;
-            updateStats();
-
-            if (lives <= 0) {
-                gameActive = false;
-                document.getElementById('bins-area').style.display = 'none';
-                document.getElementById('packet-display').innerText = "PIPELINE GAGAL";
-                document.getElementById('message').innerText = "Sistem mengalami overflow!";
-                document.getElementById('action-btn').style.display = 'inline-block';
-                document.getElementById('action-btn').innerText = "Main Lagi";
+            if (showContent) {
+                el.innerHTML = `
+                    <div class="node-val">${node.val}</div>
+                    <div class="node-type">${node.type}</div>
+                `;
             } else {
-                setTimeout(nextPacket, 800);
+                el.innerHTML = `
+                    <div class="node-val" style="color: #38bdf8;">[SECURE]</div>
+                    <div class="node-type">NODE 0${node.pos + 1}</div>
+                `;
             }
+            container.appendChild(el);
+        });
+    }
+
+    async function startShufflingPhase() {
+        gameState = 'shuffling';
+        renderNodes(false);
+        document.getElementById('terminal-msg').innerText = "Firewall mengacak posisi node...";
+
+        let totalSwaps = 4 + (level * 2);
+        let currentSwap = 0;
+        let speed = Math.max(200, 400 - (level * 30));
+
+        shuffleInterval = setInterval(() => {
+            let p1 = Math.floor(Math.random() * 4);
+            let p2;
+            do {
+                p2 = Math.floor(Math.random() * 4);
+            } while(p1 === p2);
+
+            let node1 = nodes.find(n => n.pos === p1);
+            let node2 = nodes.find(n => n.pos === p2);
+
+            let temp = node1.pos;
+            node1.pos = node2.pos;
+            node2.pos = temp;
+
+            renderNodes(false);
+            currentSwap++;
+
+            if (currentSwap >= totalSwaps) {
+                clearInterval(shuffleInterval);
+                startGuessingPhase();
+            }
+        }, speed);
+    }
+
+    function startGuessingPhase() {
+        gameState = 'guessing';
+        document.getElementById('terminal-msg').innerHTML = `<span style="color: #4ade80;">Pilih node yang menyembunyikan tipe ${targetType}!</span>`;
+        
+        traceLeft = 100;
+        let maxTime = Math.max(3000, 8000 - (level * 500));
+        let intervalTime = 50;
+        let decrement = (intervalTime / maxTime) * 100;
+
+        const bar = document.getElementById('trace-bar');
+        bar.style.background = "#4ade80";
+
+        clearInterval(traceTimer);
+        traceTimer = setInterval(() => {
+            traceLeft -= decrement;
+            bar.style.width = traceLeft + '%';
+            
+            if (traceLeft < 40) bar.style.background = "#eab308";
+            if (traceLeft < 20) bar.style.background = "#ef4444";
+
+            if (traceLeft <= 0) {
+                clearInterval(traceTimer);
+                handleFailure("Waktu trace habis! Firewall mendeteksi akses Anda.");
+            }
+        }, intervalTime);
+    }
+
+    function handleNodeClick(index) {
+        if (gameState !== 'guessing') return;
+        clearInterval(traceTimer);
+        gameState = 'result';
+
+        renderNodes(true);
+        const clickedNode = nodes[index];
+        const msgEl = document.getElementById('terminal-msg');
+
+        if (clickedNode.isAnom) {
+            score += 200 * level;
+            level += 1;
+            msgEl.style.color = "#4ade80";
+            msgEl.innerText = "BYPASS BERHASIL! Akses diberikan.";
+            updateStats();
+            setTimeout(initRound, 2000);
+        } else {
+            handleFailure(`Akses Ditolak! Node berisi ${clickedNode.type} (${clickedNode.val}).`);
+        }
+    }
+
+    function handleFailure(reason) {
+        clearInterval(traceTimer);
+        lives -= 1;
+        gameState = 'gameover';
+        renderNodes(true);
+        
+        const msgEl = document.getElementById('terminal-msg');
+        msgEl.style.color = "#ef4444";
+        msgEl.innerText = reason;
+        updateStats();
+
+        if (lives <= 0) {
+            document.getElementById('mission-text').innerHTML = `<span style="color: #ef4444; font-weight: bold;">SISTEM TERKUNCI PERMANEN (GAME OVER)</span>`;
+            document.getElementById('main-btn').style.display = 'inline-block';
+            document.getElementById('main-btn').innerText = "COBA LAGI";
+            document.getElementById('main-btn').onclick = startHack;
+        } else {
+            setTimeout(initRound, 2500);
         }
     }
 
@@ -224,4 +359,4 @@ game_html = """
 </html>
 """
 
-components.html(game_html, height=450)
+components.html(game_html, height=460)
