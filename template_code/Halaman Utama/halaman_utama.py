@@ -297,8 +297,8 @@ elif menu == "About Us":
                 "nama": "Thomas Yustio",
                 "sebagai": "Pak Lurah",
                 "nim": "125450085",
-                "fun_fact": "--",
-                "motto_hidup": "--",
+                "fun_fact": "Saya pernah patah gigi 4x dan saya karbitan",
+                "motto_hidup": "Hidup cuma sekali, maka lakukan apa yang kamu mau, misal mancing",
             },
             {
                 "nama": "Syalom Nauli Jubilate",
