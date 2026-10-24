@@ -221,7 +221,6 @@ game_html = """
         document.getElementById('terminal-msg').innerText = "";
         document.getElementById('expr-display').innerText = "Pilih ubin untuk merakit rumus...";
         
-        // Memulihkan struktur kotak misi jika sebelumnya tertimpa status Game Over
         document.getElementById('mission-text').innerHTML = `TARGET ANGKA: <span class="target-highlight" id="target-display">0</span>`;
 
         let n1, n2, n3, op1, op2, valid = false;
@@ -348,9 +347,10 @@ game_html = """
 
         if (lives <= 0) {
             document.getElementById('mission-text').innerHTML = `<span style="color: #dc2626; font-weight: bold;">SYSTEM LOCKED: GAME OVER</span>`;
-            document.getElementById('main-btn').style.display = 'block';
-            document.getElementById('main-btn').innerText = "COBA LAGI";
-            document.getElementById('main-btn').onclick = startMathGame;
+            let mainBtn = document.getElementById('main-btn');
+            mainBtn.style.display = 'block';
+            mainBtn.innerText = "COBA LAGI";
+            mainBtn.onclick = startMathGame;
         } else {
             setTimeout(initRound, 2500);
         }
@@ -384,9 +384,10 @@ game_html = """
 
                 if (lives <= 0) {
                     document.getElementById('mission-text').innerHTML = `<span style="color: #dc2626; font-weight: bold;">SYSTEM LOCKED: GAME OVER</span>`;
-                    document.getElementById('main-btn').style.display = 'block';
-                    document.getElementById('main-btn').innerText = "COBA LAGI";
-                    document.getElementById('main-btn').onclick = startMathGame;
+                    let mainBtn = document.getElementById('main-btn');
+                    mainBtn.style.display = 'block';
+                    mainBtn.innerText = "COBA LAGI";
+                    mainBtn.onclick = startMathGame;
                 } else {
                     setTimeout(initRound, 2500);
                 }
@@ -404,4 +405,4 @@ game_html = """
 </html>
 """
 
-components.html(game_html, height=540)
+components.html(game_html, height=640)
