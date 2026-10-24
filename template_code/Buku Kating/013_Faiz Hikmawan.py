@@ -13,20 +13,25 @@ st.markdown("<h1 class='centered-title'>BUKU KATING</h1>", unsafe_allow_html=Tru
 st.markdown(
     """
     <style>
-    /* Sembunyikan header bawaan Streamlit untuk tampilan full-screen yang bersih */
-    [data-testid="stHeader"] {
-        visibility: hidden;
-    }
-
-    /* Mengubah background utama menjadi gradasi (terang di kiri atas, gelap di kanan bawah) */
+    /* Mengubah background utama menjadi gradasi */
     .stApp {
         background: linear-gradient(to bottom right, #ff9a22, #e14627);
         color: white; 
     }
 
-    /* Memberikan warna solid pada sidebar agar terpisah dari background gradasi */
+    /* Buat header transparan agar tombol sidebar tetap ada */
+    [data-testid="stHeader"] {
+        background-color: transparent !important;
+    }
+    
+    /* Pastikan warna ikon tombol penutup tab menjadi putih agar terlihat */
+    [data-testid="collapsedControl"] {
+        color: white !important;
+    }
+
+    /* Memberikan warna solid pada sidebar */
     [data-testid="stSidebar"] {
-        background-color: #bd411b !important; /* Warna oranye gelap */
+        background-color: #bd411b !important;
     }
     
     /* Memastikan teks di dalam sidebar berwarna putih */
@@ -34,20 +39,23 @@ st.markdown(
         color: white !important;
     }
 
-    /* Memaksa SEMUA elemen teks di dalam tab menjadi putih */
+    /* Memaksa elemen teks di dalam tab menjadi putih */
     [data-testid="stTabs"] button, 
     [data-testid="stTabs"] button * {
         color: white !important;
     }
     
-    /* Mengubah warna garis bawah pada tab yang sedang aktif agar senada */
+    /* Mengubah warna garis bawah pada tab yang sedang aktif */
     [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
         background-color: white !important;
     }
 
-    /* Animasi gambar bawaan Anda */
+    /* Animasi gambar */
     .gambar-timbul {
-        width: 100%;
+        width: 50%; /* Ubah persentase ini atau gunakan nilai pasti seperti 300px */
+        max-width: 400px; /* Batas maksimal ukuran gambar */
+        display: block;
+        margin: 0 auto; /* Membuat gambar berada di tengah */
         border-radius: 8px;
         transition: transform 0.3s ease, box-shadow 0.3s ease; 
         cursor: pointer;
@@ -55,21 +63,11 @@ st.markdown(
     .gambar-timbul:hover {
         transform: translateY(-8px) scale(1.03); 
         box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
-    /* KODE UNTUK TAB STREAMLIT */
-    /* Mengubah warna teks tab menjadi putih */
-    [data-testid="stTabs"] button p {
-        color: white !important;
-    }
-    
-    /* Mengubah warna garis bawah tab yang aktif menjadi putih (menggantikan warna biru bawaan) */
-    [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
-        background-color: white !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 # bagian sini jangan diubah
 def streamlit_menu():
     selected = option_menu(
@@ -156,9 +154,11 @@ def display_images_with_data(gambar_urls, data_list):
                 images.append(img)
 
     for i, img in enumerate(images):
-        col1, col2, col3 = st.columns([1, 2, 1])
+        # 1. Ubah rasio st.columns menjadi [2, 1, 2] agar kolom tengah (tempat foto) lebih sempit
+        col1, col2, col3 = st.columns([3, 2, 3]) 
         with col2:
-            st.image(img, use_container_width=True)
+            # 2. Matikan use_container_width agar gambar tidak dipaksa melar
+            st.image(img, use_container_width=False)
 
         if i < len(data_list):
             st.write(f"Nama: {data_list[i]['nama']}")

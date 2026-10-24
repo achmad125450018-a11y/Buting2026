@@ -148,24 +148,20 @@ st.markdown(
 url = "https://drive.google.com/uc?export=view&id=12cQ4T8NkVvVPVNX6zBQC4sviFcc4cDWx"
 url1 = "https://drive.google.com/uc?export=view&id=12RBvQdMiqqqph-Q1QqLb0zvvIPnBjCYb"
 
-def layout(url):
-    col1, col2, col3 = st.columns([2, 1.5, 2])  
-    with col1:
-        st.write("")  
-    with col2:
-        st.image(load_image(url), use_container_width=True)
-    with col3:
-        st.write("")  
-
-def layout_logos_bersebelahan(url_1, url_2):
-    c1, c2, c3, c4 = st.columns([2, 1.2, 1.2, 2])
+# Fungsi baru untuk logo atas dan bawah
+def layout_logos_atas_bawah(url_1, url_2):
+    # Membagi menjadi 3 kolom: kiri (kosong), tengah (untuk logo), kanan (kosong)
+    # Anda bisa mengatur rasio [2, 1.5, 2] untuk memperbesar/memperkecil ukuran logonya
+    c1, c2, c3 = st.columns([1.5, 1, 1.5]) 
+    
     with c2:
+        # Menampilkan logo pertama di atas
         st.image(load_image(url_1), use_container_width=True)
-    with c3:
+        # Menampilkan logo kedua tepat di bawahnya
         st.image(load_image(url_2), use_container_width=True)
 
-layout_logos_bersebelahan(url, url1)
-
+# Memanggil fungsi
+layout_logos_atas_bawah(url, url1)
 
 def streamlit_menu():
     selected = option_menu(
@@ -191,6 +187,11 @@ def streamlit_menu():
 menu = streamlit_menu()
 
 if menu == "Home":
+
+    def layout(url):
+        col1, col2, col3 = st.columns([2, 1.5, 2])  
+        with col2:
+            st.image(load_image(url), use_container_width=True)
     def home_page():
         st.markdown(
             """<style>.centered-title {text-align: center;}</style>""",
@@ -242,8 +243,8 @@ elif menu == "About Us":
             "https://drive.google.com/uc?export=view&id=1jflu-Tr_51LeSApGIa6cLeiSVWIrpQ6d",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1fbOElyLKDLJD5L7sY0Kit8OGqp-jXOiK",
-            "https://drive.google.com/uc?export=view&id=1bVrnE6ZDK6nTWkiKGjUeGw-BfMLG-s81",
+            "https://drive.google.com/uc?export=view&id=1rJgFY2x3IdAR-Ps-qmX_hyi2exeAHOi8",
+            "https://drive.google.com/uc?export=view&id=1TeIvYb5pBbI8m4rFIAlKZ7ZZwZT4nZ8Q",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         ]
@@ -253,15 +254,15 @@ elif menu == "About Us":
                 "nama": "Andra Ilham Bintang",
                 "sebagai": "Mentor",
                 "nim": "124450060",
-                "fun_fact": "...",
-                "motto_hidup": "...",
+                "fun_fact": "Mau tidur jam berapapu tetep bangun jam 7 pagi",
+                "motto_hidup": "Tidak ada penyesalan, hanya ada pelajaran",
                 "ig": "https://www.instagram.com/andra.lhm?utm_source=ig_web_button_share_sheet&obrf=ZDNlZDc0MzIxNw==" 
             },
             {
                 "nama": "Andrew Chayadi",
                 "sebagai": "Pak Lurah",
                 "nim": "125450067",
-                "fun_fact": "...",
+                "fun_fact": "Kalo cape suka ngehalu",
                 "motto_hidup": "...",
                 "ig": "https://www.instagram.com/drewwszz?utm_source=ig_web_button_share_sheet&dlrf=ZDNlZDc0MzIxNw=="
             },
@@ -269,24 +270,24 @@ elif menu == "About Us":
                 "nama": "Wardah Aliya Lubis",
                 "sebagai": "Bu Lurah",
                 "nim": "1254500121",
-                "fun_fact": "nyemilin es bata",
-                "motto_hidup": "Ya apa ya",
+                "fun_fact": "Ska ngajak ngobrol benda mati",
+                "motto_hidup": "Tetap jadikan dunia di tanganmu, akhirat di tangan mu",
                 "ig": "https://www.instagram.com/aliyaaalbs?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw=="
             },
             {
                 "nama": "Faiz Hikmawan",
                 "sebagai": "Anggota",
                 "nim": "125450013",
-                "fun_fact": "nyemilin es bata",
-                "motto_hidup": "mantap",
+                "fun_fact": "Gap year karna lupa pencet finalisasi data",
+                "motto_hidup": "Coba semuanya dulu, kalo ga ccocok baru skip",
                 "ig": "https://www.instagram.com/izhik__/"
             },
             {
                 "nama": "Valen Uswatun Fauziyah Putri",
                 "sebagai": "Anggotaa",
                 "nim": "125450014",
-                "fun_fact": "nyemilin",
-                "motto_hidup": "jalanin dulu aja",
+                "fun_fact": "",
+                "motto_hidup": "Majulah dengan persiapan agar turun dengan penghormatan",
                 "ig": "https://www.instagram.com/_vlntz02_?utm_source=ig_web_button_share_sheet&dlrf=ZDNlZDc0MzIxNw=="
             },
             {
