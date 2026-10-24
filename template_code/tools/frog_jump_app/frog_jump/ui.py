@@ -114,9 +114,6 @@ def render():
         "P": P.tolist(), "start": start, "traj": traj, "fly": fly, "trap": trap,
         "absorbing": bool(s.fj_absorb), "theory": info["stationary"], "note": info["note"],
     })
-    # Paksa iframe memakai seluruh lebar kolom utama Streamlit.
-    # Streamlit versi baru mendukung width="stretch"; versi lama memakai
-    # components.html dengan lebar eksplisit agar panel tidak menyempit.
     if hasattr(st, "iframe"):
         try:
             st.iframe(html, height=1400, width="stretch")
@@ -159,3 +156,70 @@ def render():
             "(2) ambil baris matriks untuk daun itu, (3) \"putar dadu\" sesuai peluangnya, "
             "(4) pindah ke daun hasilnya. Lalu ulangi."
         )
+    with t2:
+        a, b = st.columns(2)
+        with a:
+            st.markdown(
+                f'<div class="kartu"><b>1. Current state</b><br>Daun tempat kodok berdiri '
+                f'sekarang. Misalnya kodok di <b>Daun {n}</b>: itulah state saat ini, dan '
+                f'hanya itu yang perlu diketahui untuk menebak lompatan berikutnya.</div>',
+                unsafe_allow_html=True)
+        with b:
+            st.markdown(
+                f'<div class="kartu"><b>2. Transition probability</b><br>Peluang pindah dari '
+                f'satu daun ke daun lain dalam sekali lompat. Dari Daun {n}: ke kiri '
+                f'<b>{_persen(kiri)}</b>, ke kanan <b>{_persen(kanan)}</b>, diam '
+                f'<b>{_persen(diam)}</b>.</div>', unsafe_allow_html=True)
+        st.write("")
+        a, b = st.columns(2)
+        with a:
+            st.markdown(
+                '<div class="kartu"><b>3. Transition matrix</b><br>Tabel semua peluang '
+                'transisi. Baris = daun sekarang, kolom = daun berikutnya, dan tiap baris '
+                'berjumlah 100%. Di Daun 1 kiri mustahil, dan di Daun 5 kanan mustahil, '
+                'jadi peluang itu digabung ke "diam".</div>', unsafe_allow_html=True)
+        with b:
+            st.markdown(
+                f'<div class="kartu"><b>4. Markov property</b><br>Lompatan berikutnya hanya '
+                f'bergantung pada daun sekarang, bukan riwayatnya. Kodok di Daun {n} punya '
+                f'peluang kanan {_persen(kanan)} entah ia tadi datang dari kiri, dari kanan, '
+                f'atau sudah lama diam di situ. Sifat ini disebut <i>memoryless</i>.</div>',
+                unsafe_allow_html=True)
+        st.write("")
+        st.latex(r"P(S_{t+1}=j \mid S_t=i,\,S_{t-1},\,\dots,\,S_0)\;=\;P(S_{t+1}=j \mid S_t=i)")
+
+    with t3:
+        st.markdown("**Matriks transisi saat ini**")
+        st.dataframe(_tabel_matriks(P), **LEBAR)
+        valid = bool(np.allclose(P.sum(axis=1), 1.0))
+        st.markdown(
+            f"Validasi: setiap baris berjumlah 100% "
+            f"<span class='{'ok' if valid else 'no'}'>{'terpenuhi' if valid else 'gagal'}</span>.",
+            unsafe_allow_html=True)
+
+        st.markdown("**Distribusi setelah banyak langkah**")
+        st.latex(r"\pi_{t+1}=\pi_t P \qquad\text{dan distribusi stasioner:}\qquad \pi = \pi P,\;\; \sum_i \pi_i = 1")
+        cek = lambda ok: "✓" if ok else "✗"
+        st.markdown(
+            f"- Irreducible (tiap daun bisa dicapai dari daun mana pun): **{cek(info['irreducible'])}**\n"
+            f"- Aperiodic (ada peluang diam): **{cek(info['aperiodic'])}**\n"
+            f"- Ergodik, syarat membandingkan simulasi dengan teori: **{cek(info['ergodic'])}**"
+        )
+        if info["ergodic"]:
+            dfp = pd.DataFrame({"Daun": NAMA, "Peluang jangka panjang (π)": [_persen(x) for x in info["stationary"]]})
+            st.dataframe(dfp, hide_index=True, **LEBAR)
+            st.markdown(
+                "Pada rantai ergodik, proporsi waktu kodok di tiap daun akan mendekati π "
+                "seberapa pun daun awalnya. Itu yang kamu lihat pada panel frekuensi kunjungan "
+                "ketika langkah makin banyak (coba tombol +100 langkah instan)."
+            )
+        else:
+            st.info(info["note"])
+        if info["absorbing"]:
+            nama = ", ".join(f"Daun {a + 1}" for a in info["absorbing"])
+            st.markdown(f"**Absorbing state:** {nama}. Sekali masuk, kodok tidak pernah keluar.")
+            if info["absorb_probs"]:
+                rinci = "; ".join(f"{NAMA[a]}: {_persen(p)}" for a, p in zip(info["absorbing"], info["absorb_probs"]))
+                st.markdown(f"Peluang akhirnya terserap (dari Daun {n}): {rinci}.")
+            if info["expected_steps"] is not None:
+                st.markdown(f"Rata-rata langkah sampai terserap: **{info['expected_steps']:.1f} langkah**.")
