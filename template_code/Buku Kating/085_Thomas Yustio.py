@@ -249,7 +249,7 @@ if menu == "Badan Legislatif":
                 "Alamat": "Belwis",
                 "Hobi": "Nyapa angin",
                 "Sosmed": "@nshaysk",
-                "Kesan": "Kak Hafsa orangnya baik, ramah, dan keren banget",  
+                "Kesan": "Kak Nazwa orangnya baik, ramah, dan keren banget",  
                 "Pesan":"Semoga kakak sehat selalu, sukses kuliah dan himpunannyaa"# 1   
             },    
             {
@@ -304,7 +304,7 @@ if menu == "Badan Legislatif":
                 "Alamat": "Sukarame",
                 "Hobi": "",
                 "Sosmed": "@syt.rifah",
-                "Kesan": "Kak Siti kerenn, aku mau seperti kak sitii",  
+                "Kesan": "Kak Hani kerenn, aku mau seperti kak Hani",  
                 "Pesan":"Semangat terus kak, semoga sukses kuliahnya, sehat selalu, dan ya semangat terus kakk"# 1   
             },
             {
@@ -315,7 +315,7 @@ if menu == "Badan Legislatif":
                 "Alamat": "Pemda Raya",
                 "Hobi": "Gym dan koleksi figur",
                 "Sosmed": "@nagatse",
-                "Kesan": "Bang Jona orangnya keren, kece, absolute cinemaaa pokoknyaa",  
+                "Kesan": "Bang Jona orangnya Monica, kece, Gacor pokoknyaa",  
                 "Pesan":"Semoga sehat terus bang, semangat kuliahnya, gym nya jugaa"# 1   
             },    
             {
@@ -326,8 +326,8 @@ if menu == "Badan Legislatif":
                 "Alamat": "Pemda",
                 "Hobi": "Nginep di kos Putri",
                 "Sosmed": "@sekardnwt",
-                "Kesan": "Bang Niko keren banget, kayak adeknya ezra",  
-                "Pesan":"Semangat terus bang semoga sukses di baleg terus sampai tahun selanjutnya"# 1   
+                "Kesan": "Kak Sekar keren banget, baik dan ramah",  
+                "Pesan":"Semangat terus kak semoga sukses di baleg terus sampai tahun selanjutnya"# 1   
             },    
             {
                 "Nama": "Afghanis Nursholehatunnisa",
@@ -337,7 +337,7 @@ if menu == "Badan Legislatif":
                 "Alamat": "Sukarame",
                 "Hobi": "",
                 "Sosmed": "@syt.rifah",
-                "Kesan": "Kak Siti kerenn, aku mau seperti kak sitii",  
+                "Kesan": "Kak Nisa keren banget, my tutor Metnum juga",  
                 "Pesan":"Semangat terus kak, semoga sukses kuliahnya, sehat selalu, dan ya semangat terus kakk"# 1   
             },
         ]
@@ -349,14 +349,14 @@ if menu == "Badan Kesenatoran":
         gambar_urls = [
             "https://drive.google.com/uc?export=view&id=1x4l3t9Gy6FthWiwPjvwWW47gxpDY15mt",
             "https://drive.google.com/uc?export=view&id=1yAiY2HZ3zlPqp0VkdYlY1QC5SRLj9qdN",
-            "https://drive.google.com/uc?export=view&id=1Li-ErDRJIYJFgyT4p2C1BdA37ncklBvz",
+            "https://drive.google.com/uc?export=view&id=1Li-ErDRJIYJFgyT4p2C1BdA37ncklBvz", #bang nando
             "https://drive.google.com/uc?export=view&id=1OWRzNvT7GuMOzOYiOidkYKphG0W3zWNp",
             "https://drive.google.com/uc?export=view&id=1FertBY6EDHYxU5gcSz9VKHTerUj8IFgd",
-            "https://drive.google.com/uc?export=view&id=1JjByNCqRP2Gfg8BbogtePV1rggp6VHhd",
+            "https://drive.google.com/uc?export=view&id=1JjByNCqRP2Gfg8BbogtePV1rggp6VHhd", #kak lia hanna
             "https://drive.google.com/uc?export=view&id=1p5tFSULhp7qpbivXe3tg3TEuVFBQwux3",
             "https://drive.google.com/uc?export=view&id=1DRSrgbsdTL_eDM-Frl-11nQa7UT_T1hC",
             "https://drive.google.com/uc?export=view&id=1SsIxjXzxT-8oLUpWW0Ghxz-H1KHzwiha",
-            "https://drive.google.com/uc?export=view&id=1AMT-zQObGWJzpk4G558GCm8ZKbwmrfnq",
+            "https://drive.google.com/uc?export=view&id=1AMT-zQObGWJzpk4G558GCm8ZKbwmrfnq", #kak dwi rahma
         ]
         data_list = [
             {
@@ -368,7 +368,7 @@ if menu == "Badan Kesenatoran":
                 "Hobi": "Nulis di medium",
                 "Sosmed": "@fathinahnazzh",
                 "Kesan": "Kakaknya cantik, baik, kalem, keren",
-                "Pesan": "Sehat selalu kak, semoga lancar skripsinya"
+                "Pesan": "Sehat selalu kak, semoga lancar jadi senator dan semangat tugas akhirnya"
             },
             {
                 "Nama": "Helmy Surya Pratama",
@@ -378,8 +378,8 @@ if menu == "Badan Kesenatoran":
                 "Alamat": "Tanya Bapas",
                 "Hobi": "Ngesen kiri",
                 "Sosmed": "@helmy_inst",
-                "Kesan": "Abangnya seru, asik, lucu",
-                "Pesan": "Semangat terus bang"
+                "Kesan": "Abangnya seru, asik, lucu, ramah banget asli",
+                "Pesan": "Semangat terus bang, sukses kuliahnya"
             },
             {
                 "Nama": "Fernando Dimetrius Barus",
@@ -390,7 +390,7 @@ if menu == "Badan Kesenatoran":
                 "Hobi": "Badminton",
                 "Sosmed": "@barus.fernando",
                 "Kesan": "Abangnya baik, asik, kalem",
-                "Pesan": "Semoga selalu dimudahkan bang"
+                "Pesan": "Semoga selalu dimudahkan bang, seamngat kuliahnya"
             },
             {
                 "Nama": "Suci Aulia",
@@ -401,7 +401,7 @@ if menu == "Badan Kesenatoran":
                 "Hobi": "Mancing",
                 "Sosmed": "@sciia_",
                 "Kesan": "Kakaknya kalem dan baik",
-                "Pesan": "Sehat selalu kak"
+                "Pesan": "Sehat selalu kak, semangat kuliahnya"
             },
             {
                 "Nama": "Wielman Itolo Halawa",
@@ -433,8 +433,8 @@ if menu == "Badan Kesenatoran":
                 "Alamat": "Sukarame",
                 "Hobi": "Mendokumentasi Bayes",
                 "Sosmed": "@aqilazayyaan",
-                "Kesan": "Kakaknya lucu, keren juga",
-                "Pesan": "Semoga kelompoknya nambah gacor kak"
+                "Kesan": "Kakaknya lucu, baik, ramah banget, keren juga, suka bunga matahari",
+                "Pesan": "Semoga sehat selalu, sukses kuliahnya, lancar selalu jadi mentor kami, jangan lupa tersenyum"
             },
             {
                 "Nama": "Hazel Mahesa Handhaka",
