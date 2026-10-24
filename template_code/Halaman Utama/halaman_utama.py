@@ -346,8 +346,8 @@ elif menu == "About Us":
                 "nama": "Afdhi Hafiidz Habibie",
                 "sebagai": "Anggota 06",
                 "nim": "125450061",
-                "fun_fact": "--",
-                "motto_hidup": "--",
+                "fun_fact": "Waktu belajar sepeda pernah nyemplung ke bekas adukan semen",
+                "motto_hidup": "Hidup di dunia ini kayak plat Jakarta B aja",
             },
             {
                 "nama": "Rizqy Ramadhan",
