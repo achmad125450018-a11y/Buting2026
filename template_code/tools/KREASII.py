@@ -58,14 +58,15 @@ game_html = """
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 140px;
-        position: relative;
+        gap: 12px;
         margin: 20px auto;
-        width: 520px;
+        width: 100%;
+        max-width: 550px;
+        height: 130px;
     }
     .box {
-        width: 110px;
-        height: 120px;
+        flex: 1;
+        height: 110px;
         background: #312e81;
         border: 3px solid #facc15;
         border-radius: 12px;
@@ -73,16 +74,16 @@ game_html = """
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        position: absolute;
-        transition: left 0.4s ease-in-out;
+        transition: transform 0.3s ease, border-color 0.2s;
         cursor: pointer;
         box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
     .box:hover {
         border-color: #38bdf8;
+        transform: translateY(-4px);
     }
     .box-val {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
         color: #facc15;
     }
@@ -186,7 +187,6 @@ game_html = """
         boxes.forEach((box, index) => {
             const el = document.createElement('div');
             el.className = 'box';
-            el.style.left = (index * 130) + 'px';
             el.onclick = () => handleBoxClick(index);
 
             if (showContent) {
@@ -196,7 +196,7 @@ game_html = """
                 `;
             } else {
                 el.innerHTML = `
-                    <div class="box-val" style="font-size: 26px;">[ ? ]</div>
+                    <div class="box-val" style="font-size: 24px;">[ ? ]</div>
                     <div class="box-type">Kotak ${index + 1}</div>
                 `;
             }
@@ -211,9 +211,9 @@ game_html = """
         document.getElementById('instruction').innerText = "Kotak sedang bergeser dan bertukar posisi...";
 
         renderBoxes(false);
-        await sleep(700);
+        await sleep(600);
 
-        let swaps = 5 + round;
+        let swaps = 4 + round;
         for(let s = 0; s < swaps; s++) {
             let idx1 = Math.floor(Math.random() * 4);
             let idx2;
@@ -226,7 +226,7 @@ game_html = """
             boxes[idx2] = temp;
 
             renderBoxes(false);
-            await sleep(400);
+            await sleep(350);
         }
 
         gameState = 'guessing';
