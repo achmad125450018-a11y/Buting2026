@@ -2,9 +2,12 @@ import streamlit as st
 
 st.set_page_config(page_title="Buku Kating", layout="wide")
 
-# CSS Sidebar
+# ============================================================
+# 🎨 CSS GLOBAL (Sidebar + Hack Lebar Penuh)
+# ============================================================
 st.markdown("""
 <style>
+    /* 1. Warna Sidebar */
     [data-testid="stSidebar"] {
         background-color: #701c23 !important;
     }
@@ -16,34 +19,27 @@ st.markdown("""
         color: #ffffff !important;
         fill: #ffffff !important;
     }
+
+    /* 2. 💥 HANCURKAN BATAS LEBAR STREAMLIT (Agar Game Lebar) 💥 */
+    [data-testid="stAppViewBlockContainer"], .block-container {
+        max-width: 100% !important;
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+    iframe[title="streamlit_component"] {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    div[data-testid="stHtml"] {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
-# 💥 JAVASCRIPT HACK: Memaksa Iframe Game Melebar Penuh 💥
-st.components.v1.html("""
-<script>
-    const observer = new MutationObserver(() => {
-        const iframes = window.parent.document.querySelectorAll('iframe[title="streamlit_component"]');
-        iframes.forEach(iframe => {
-            iframe.style.width = '100%';
-            iframe.style.maxWidth = '100%';
-            iframe.style.height = '600px'; 
-            
-            let parent = iframe.parentElement;
-            while (parent) {
-                parent.style.maxWidth = '100%';
-                parent.style.width = '100%';
-                parent = parent.parentElement;
-            }
-        });
-    });
-    observer.observe(window.parent.document.body, { childList: true, subtree: true });
-</script>
-""", height=0, width=0)
-
-# ==========================================
-# (Biarkan sisa kode st.Page dan navigasi kamu di bawahnya)
-# ==========================================
+# ============================================================
+# 🧭 NAVIGASI HALAMAN
+# ============================================================
 st.session_state.pindah = True
 
 Homepage = st.Page("Halaman Utama/halaman_utama.py", title="07 - POISSON", default=True)
@@ -63,6 +59,9 @@ Mahasiswa11 = st.Page("Buku Kating/037_Nailatun Inayah.py", title="037 - Nailatu
 KREASI  = st.Page("tools/KREASI.py", title="KREASI", icon=":material/search:")
 KREASII = st.Page("tools/KREASII.py", title="KREASII", icon=":material/search:")
 
+# ============================================================
+# 🚀 JALANKAN APLIKASI
+# ============================================================
 if st.session_state.pindah:
     pg = st.navigation({
         "Halaman Utama": [Homepage],
