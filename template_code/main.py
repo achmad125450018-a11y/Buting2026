@@ -1,10 +1,34 @@
 import streamlit as st
-from utils import setup_common
 
 st.set_page_config(page_title="Buku Kating", layout="wide")
 
-# 💥 Panggil fungsi Sidebar dari utils.py
-setup_common()
+# ============================================================
+# 🎨 CSS GLOBAL & SIDEBAR (Lengkap dengan Font Premium)
+# ============================================================
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #701c23 0%, #4e1318 100%) !important;
+}
+[data-testid="stSidebar"] *,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] div,
+[data-testid="stSidebar"] svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+    font-family: 'Inter', sans-serif !important;
+}
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] [data-testid="stSidebarNav"] strong {
+    font-family: 'Playfair Display', serif !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
 # ============================================================
 # 🧭 NAVIGASI HALAMAN
