@@ -716,6 +716,13 @@ if menu == "Departemen Internal":
             "https://drive.google.com/uc?export=view&id=1eFcNTK_j6KuX2wQ7t2ihPqxLHWEkavoi",
             "https://drive.google.com/uc?export=view&id=1ZUsV9ASavAUFLqsTS979DwTt69ZzyP3W",
             "https://drive.google.com/uc?export=view&id=1lFpDTd0PFq48jDpLw24cAFordAPtvXPV",
+            "https://drive.google.com/uc?export=view&id=105r8hSCLAoAbLw7yN3FOQ4LtFTCMq1A7",
+            "https://drive.google.com/uc?export=view&id=1WZQiWEMpBA-Q9tjZxgPJ6gYczEvc-o7k",
+            "https://drive.google.com/uc?export=view&id=1nqCPQWKtWS-7brLdTeMRz79SbOkLOHSH",
+            "https://drive.google.com/uc?export=view&id=1Hz0l8pxRBVFr0zVMG2UxMjNb4T1bxDRl",
+            "https://drive.google.com/uc?export=view&id=1p8xvCONyTPvv-yvaRvXQ7Wbe_gEOl-yL",
+            "https://drive.google.com/uc?export=view&id=1v5cxRTyDE2exWzy71nfBsfU_3_4FeDtC",
+            "https://drive.google.com/uc?export=view&id=13zWUguzzpToq0JhJFbNj2AUWcmxmMftv",
         ]
         data_list = [
             {
@@ -816,6 +823,83 @@ if menu == "Departemen Internal":
                 "sosmed": "@rozaqramdani__",
                 "kesan": "Orangnya asik dan ramah",
                 "pesan": "Semangat terus kuliahnya!"
+            },
+            {
+                "nama": "Teresa Christiani Purba",
+                "nim": "124450046",
+                "umur": "19",
+                "asal": "Riau",
+                "alamat": "Belwis",
+                "hobbi": "Masak",
+                "sosmed": "@christiani8872",
+                "kesan": "Kakak ini sangat baik dan menyenangkan diajak diskusi",
+                "pesan": "Semoga lancar dan sukses terus perkuliahan serta kegiatannya!"
+            },
+            {
+                "nama": "Muhammad Hanif Dzaky",
+                "nim": "124450064",
+                "umur": "21",
+                "asal": "Padang Sumbar",
+                "alamat": "Perumnas Way Kandis",
+                "hobbi": "Ngedistro",
+                "sosmed": "@hnfdzky_",
+                "kesan": "Orangnya sangat seru dan gampang berbaur",
+                "pesan": "Sukses terus untuk kuliah dan impian-impiannya!"
+            },
+            {
+                "nama": "Audina Fitria",
+                "nim": "124450038",
+                "umur": "20",
+                "asal": "Sumatera Barat",
+                "alamat": "Sukarame",
+                "hobbi": "Main ke air terjun",
+                "sosmed": "@audinaf_03",
+                "kesan": "Sangat ramah dan selalu membawa suasana positif",
+                "pesan": "Tetap semangat dan sukses selalu kuliahnya!"
+            },
+            {
+                "nama": "Cika Adelia Br Marbun",
+                "nim": "124450107",
+                "umur": "20",
+                "asal": "Riau",
+                "alamat": "Belwis",
+                "hobbi": "Terlambat",
+                "sosmed": "@cikamrbn",
+                "kesan": "Orangnya asik dan suka bikin suasana jadi ceria",
+                "pesan": "Semangat terus perkuliahannya dan makin sukses!"
+            },
+            {
+                "nama": "Gustin Haleluya Tampubolon",
+                "nim": "124450068",
+                "umur": "21",
+                "asal": "Toba Sumatera Utara",
+                "alamat": "Airan",
+                "hobbi": "Nonton",
+                "sosmed": "@gustinhaleluya",
+                "kesan": "Orangnya santai dan enak diajak berteman",
+                "pesan": "Sukses terus untuk akademik dan aktivitas lainnya!"
+            },
+            {
+                "nama": "Muhammad Arvinsyah",
+                "nim": "124450128",
+                "umur": "20",
+                "asal": "Sumatera Selatan",
+                "alamat": "Belwis",
+                "hobbi": "Nembak Burung",
+                "sosmed": "@muhvinz_",
+                "kesan": "Sangat seru dan selalu meramaikan suasana",
+                "pesan": "Semangat terus kuliahnya dan sukses selalu!"
+            },
+            {
+                "nama": "Rafa Sabina Fahimah",
+                "nim": "124450036",
+                "umur": "20",
+                "asal": "Natar",
+                "alamat": "Natar",
+                "hobbi": "Cari duit",
+                "sosmed": "@snasaa._",
+                "kesan": "Kakak yang rajin dan sangat menginspirasi",
+                "pesan": "Semangat terus nyari cuan dan kuliahnya!"
             },
         ]
         display_images_with_data(gambar_urls, data_list)
