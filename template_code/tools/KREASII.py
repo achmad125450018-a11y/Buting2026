@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title="Cyber Hack: Terminal Override 4x4", layout="centered")
+st.set_page_config(page_title="Cyber Hack: Terminal Override 4x4", layout="wide")
 
 st.markdown("""
 <style>
@@ -19,7 +19,7 @@ h1 {
 """, unsafe_allow_html=True)
 
 st.title("CYBER HACK: TERMINAL OVERRIDE")
-st.markdown("<p style='text-align: center; color: #94a3b8;'>Matriks node diperluas menjadi 16 kotak (4x4)! Lacak pergerakan anomali target sebelum waktu habis.</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #94a3b8;'>Matriks 16 node (4x4) responsif penuh! Lacak pergerakan anomali target tanpa terpotong.</p>", unsafe_allow_html=True)
 
 game_html = """
 <!DOCTYPE html>
@@ -32,30 +32,31 @@ game_html = """
         font-family: 'Courier New', monospace;
         text-align: center;
         margin: 0;
-        padding: 5px;
+        padding: 10px;
         overflow-x: hidden;
     }
     .stats-panel {
         display: flex;
-        justify-content: space-around;
-        margin-bottom: 10px;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 15px;
     }
     .stat-box {
         background: #0f172a;
         border: 1px solid #38bdf8;
-        padding: 6px 12px;
+        padding: 8px 16px;
         border-radius: 8px;
         color: #38bdf8;
-        font-size: 12px;
+        font-size: 13px;
         font-weight: bold;
     }
     .trace-container {
         width: 100%;
-        max-width: 360px;
+        max-width: 500px;
         background: #1e293b;
-        height: 8px;
-        border-radius: 4px;
-        margin: 0 auto 10px auto;
+        height: 10px;
+        border-radius: 5px;
+        margin: 0 auto 15px auto;
         overflow: hidden;
         border: 1px solid #38bdf8;
     }
@@ -68,68 +69,70 @@ game_html = """
     .mission-box {
         background: #0f172a;
         border: 2px dashed #38bdf8;
-        padding: 8px;
+        padding: 10px;
         border-radius: 8px;
-        margin-bottom: 12px;
-        font-size: 13px;
+        margin: 0 auto 15px auto;
+        max-width: 500px;
+        font-size: 14px;
     }
     .target-highlight {
         color: #38bdf8;
         font-weight: bold;
-        font-size: 15px;
+        font-size: 16px;
     }
     .grid-container {
-        position: relative;
-        margin: 10px auto;
-        width: 340px;
-        height: 310px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin: 15px auto;
+        width: 100%;
+        max-width: 500px;
     }
     .node-box {
-        width: 75px;
-        height: 68px;
         background: #0f172a;
         border: 2px solid #38bdf8;
-        border-radius: 6px;
+        border-radius: 8px;
+        height: 80px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        position: absolute;
-        transition: left 0.3s ease-in-out, top 0.3s ease-in-out, border-color 0.2s;
         cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.2s, box-shadow 0.2s;
         box-shadow: 0 0 8px rgba(56, 189, 248, 0.15);
     }
     .node-box:hover {
         border-color: #4ade80;
+        transform: scale(1.03);
         box-shadow: 0 0 12px rgba(74, 222, 128, 0.4);
     }
     .node-val {
-        font-size: 11px;
+        font-size: 14px;
         font-weight: bold;
         color: #f8fafc;
     }
     .node-type {
-        font-size: 8px;
+        font-size: 10px;
         color: #94a3b8;
-        margin-top: 3px;
+        margin-top: 4px;
         text-transform: uppercase;
     }
     .terminal-msg {
-        margin-top: 10px;
-        font-size: 12px;
+        margin-top: 15px;
+        font-size: 14px;
         font-weight: bold;
-        height: 20px;
+        height: 24px;
     }
     .action-btn {
         background-color: #38bdf8;
         color: #030712;
         border: none;
-        padding: 10px 22px;
-        font-size: 14px;
+        padding: 12px 28px;
+        font-size: 15px;
         font-weight: bold;
         border-radius: 8px;
         cursor: pointer;
-        margin-top: 8px;
+        margin-top: 12px;
         font-family: 'Courier New', monospace;
         transition: background 0.2s;
     }
@@ -171,7 +174,6 @@ game_html = """
     let shuffleInterval = null;
 
     const totalNodes = 16;
-    const colsCount = 4;
 
     const pool = [
         { name: "Integer", vals: ["42", "108", "512", "999", "12", "7", "256", "88"] },
@@ -212,7 +214,7 @@ game_html = """
 
         nodes = rawNodes.map((n, idx) => ({
             ...n,
-            pos: idx
+            id: idx
         }));
 
         renderNodes();
@@ -229,12 +231,6 @@ game_html = """
         nodes.forEach((node, index) => {
             const el = document.createElement('div');
             el.className = 'node-box';
-            
-            let col = node.pos % colsCount;
-            let row = Math.floor(node.pos / colsCount);
-            
-            el.style.left = (col * 85) + 'px';
-            el.style.top = (row * 76) + 'px';
             el.onclick = () => handleNodeClick(index);
 
             el.innerHTML = `
@@ -251,21 +247,18 @@ game_html = """
 
         let totalSwaps = 6 + (level * 2);
         let currentSwap = 0;
-        let speed = Math.max(180, 350 - (level * 20));
+        let speed = Math.max(180, 320 - (level * 20));
 
         shuffleInterval = setInterval(() => {
-            let p1 = Math.floor(Math.random() * totalNodes);
-            let p2;
+            let idx1 = Math.floor(Math.random() * totalNodes);
+            let idx2;
             do {
-                p2 = Math.floor(Math.random() * totalNodes);
-            } while(p1 === p2);
+                idx2 = Math.floor(Math.random() * totalNodes);
+            } while(idx1 === idx2);
 
-            let node1 = nodes.find(n => n.pos === p1);
-            let node2 = nodes.find(n => n.pos === p2);
-
-            let temp = node1.pos;
-            node1.pos = node2.pos;
-            node2.pos = temp;
+            let temp = nodes[idx1];
+            nodes[idx1] = nodes[idx2];
+            nodes[idx2] = temp;
 
             renderNodes();
             currentSwap++;
@@ -356,4 +349,4 @@ game_html = """
 </html>
 """
 
-components.html(game_html, height=520)
+components.html(game_html, height=580)
