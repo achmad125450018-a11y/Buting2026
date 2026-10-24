@@ -141,9 +141,6 @@ if not st.session_state.game_over:
                             else:
                                 init_puzzle()
                             st.rerun()
-
-    time.sleep(1)
-    st.rerun()
 else:
     st.error("Koneksi Terputus! Nyawa sistem habis.")
     st.metric("Skor Akhir", st.session_state.score)
