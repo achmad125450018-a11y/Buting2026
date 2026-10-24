@@ -5,16 +5,19 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 
 
-# JANGAN DIUBAH
+# Pengamanan pemuatan gambar agar tidak error jika link bermasalah
 @st.cache_data
 def load_image(url):
-  response = requests.get(url)
-  img = Image.open(BytesIO(response.content))
-  img = ImageOps.exif_transpose(img)
-  return img
+  try:
+    response = requests.get(url, timeout=10)
+    if response.status_code == 200:
+      img = Image.open(BytesIO(response.content))
+      img = ImageOps.exif_transpose(img)
+      return img
+  except Exception:
+    pass
+  return None
 
-
-# JANGAN DIUBAH
 
 # Pengaturan Tema Global: Background Krim dengan Grafik Pola Modern Dot-Grid & Diagonal
 st.markdown(
@@ -92,7 +95,9 @@ def layout(url):
   with col1:
     st.write("")
   with col2:
-    st.image(load_image(url), use_container_width=True, width=350)
+    img = load_image(url)
+    if img:
+      st.image(img, use_container_width=True)
   with col3:
     st.write("")
 
@@ -272,7 +277,9 @@ if menu == "Home":
     foto_kelompok_url = (
         "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B"
     )
-    st.image(load_image(foto_kelompok_url), use_container_width=True)
+    img_kelompok = load_image(foto_kelompok_url)
+    if img_kelompok:
+      st.image(img_kelompok, use_container_width=True)
 
     st.markdown(
         """
@@ -348,17 +355,21 @@ if menu == "Home":
       )
       col1, col2 = st.columns(2)
       with col1:
-        st.image(
-            load_image(album_photos[0]),
-            caption="Dokumentasi 1 (Halaman Kiri)",
-            use_container_width=True,
-        )
+        img_a0 = load_image(album_photos[0])
+        if img_a0:
+          st.image(
+              img_a0,
+              caption="Dokumentasi 1 (Halaman Kiri)",
+              use_container_width=True,
+          )
       with col2:
-        st.image(
-            load_image(album_photos[1]),
-            caption="Dokumentasi 2 (Halaman Kanan)",
-            use_container_width=True,
-        )
+        img_a1 = load_image(album_photos[1])
+        if img_a1:
+          st.image(
+              img_a1,
+              caption="Dokumentasi 2 (Halaman Kanan)",
+              use_container_width=True,
+          )
       st.markdown("</div>", unsafe_allow_html=True)
 
       c1, c2, c3 = st.columns([1, 2, 1])
@@ -381,17 +392,21 @@ if menu == "Home":
       )
       col1, col2 = st.columns(2)
       with col1:
-        st.image(
-            load_image(album_photos[2]),
-            caption="Dokumentasi 3 (Halaman Kiri)",
-            use_container_width=True,
-        )
+        img_a2 = load_image(album_photos[2])
+        if img_a2:
+          st.image(
+              img_a2,
+              caption="Dokumentasi 3 (Halaman Kiri)",
+              use_container_width=True,
+          )
       with col2:
-        st.image(
-            load_image(album_photos[3]),
-            caption="Dokumentasi 4 (Halaman Kanan)",
-            use_container_width=True,
-        )
+        img_a3 = load_image(album_photos[3])
+        if img_a3:
+          st.image(
+              img_a3,
+              caption="Dokumentasi 4 (Halaman Kanan)",
+              use_container_width=True,
+          )
       st.markdown("</div>", unsafe_allow_html=True)
 
       c1, c2, c3 = st.columns([1, 2, 1])
@@ -414,17 +429,21 @@ if menu == "Home":
       )
       col1, col2 = st.columns(2)
       with col1:
-        st.image(
-            load_image(album_photos[4]),
-            caption="Dokumentasi 5 (Halaman Kiri)",
-            use_container_width=True,
-        )
+        img_a4 = load_image(album_photos[4])
+        if img_a4:
+          st.image(
+              img_a4,
+              caption="Dokumentasi 5 (Halaman Kiri)",
+              use_container_width=True,
+          )
       with col2:
-        st.image(
-            load_image(album_photos[5]),
-            caption="Dokumentasi 6 (Halaman Kanan)",
-            use_container_width=True,
-        )
+        img_a5 = load_image(album_photos[5])
+        if img_a5:
+          st.image(
+              img_a5,
+              caption="Dokumentasi 6 (Halaman Kanan)",
+              use_container_width=True,
+          )
       st.markdown("</div>", unsafe_allow_html=True)
 
       c1, c2, c3 = st.columns([1, 2, 1])
@@ -597,7 +616,8 @@ elif menu == "About Us":
         col_img, col_bio = st.columns([1, 1.4])
 
         with col_img:
-          st.image(img, use_container_width=True)
+          if img:
+            st.image(img, use_container_width=True)
 
         with col_bio:
           st.markdown(
@@ -617,4 +637,16 @@ elif menu == "About Us":
                         overflow: hidden;
                         margin-bottom: 20px;">
                         <div style="position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(135deg, transparent 50%, rgba(181,142,75,0.25) 50%); pointer-events: none;"></div>
-                        <h3 style="margin-top: 0; color: #4a3324; border-bottom: 2px solid #b58e4b; padding-bottom:
+                        <h3 style="margin-top: 0; color: #4a3324; border-bottom: 2px solid #b58e4b; padding-bottom: 10px; font-family: 'Outfit', sans-serif; font-weight: 800;">{data['nama']}</h3>
+                        <p style="margin: 10px 0; font-size: 1.05em; color: #1e1b18; font-weight: 500;"><b>Sebagai:</b> {data['sebagai']}</p>
+                        <p style="margin: 10px 0; font-size: 1.05em; color: #1e1b18; font-weight: 500;"><b>NIM:</b> {data['nim']}</p>
+                        <p style="margin: 10px 0; font-size: 1.05em; color: #1e1b18; font-weight: 500;"><b>Fun Fact:</b> {data['fun_fact']}</p>
+                        <p style="margin: 10px 0; font-size: 1.05em; color: #1e1b18; font-weight: 500;"><b>Motto Hidup:</b> <i>"{data['motto_hidup']}"</i></p>
+                    </div>
+                    """,
+              unsafe_allow_html=True,
+          )
+
+        st.write("---")
+
+  about_page()
