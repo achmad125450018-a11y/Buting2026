@@ -187,7 +187,7 @@ game_html = """
 
 <div class="btn-group">
     <button class="action-btn" style="background-color: #27272a; color: #ffffff;" onclick="resetSelection()">RESET</button>
-    <button class="action-btn" onclick="submitEquation()">EKsekusi</button>
+    <button class="action-btn" onclick="submitEquation()">EKSEKUSI</button>
 </div>
 
 <div class="terminal-msg" id="terminal-msg"></div>
@@ -220,35 +220,41 @@ game_html = """
         document.getElementById('terminal-msg').innerText = "";
         document.getElementById('expr-display').innerText = "Pilih ubin untuk merakit rumus...";
 
-        // Buat target yang valid dari operasi acak sederhana (misal: a op b op c)
-        let n1 = Math.floor(Math.random() * 8) + 2;
-        let n2 = Math.floor(Math.random() * 8) + 2;
-        let n3 = Math.floor(Math.random() * 6) + 1;
-        let op1 = operators[Math.floor(Math.random() * operators.length)];
-        let op2 = operators[Math.floor(Math.random() * operators.length)];
-        
-        // Hitung target riil
-        let subExpr = `${n1} ${op1} ${n2} ${op2} ${n3}`;
-        targetNum = Math.round(eval(subExpr));
+        let n1, n2, n3, op1, op2, valid = false;
 
-        // Jika target negatif atau terlalu besar, buat ulang
-        if (targetNum < 2 || targetNum > 60) {
-            return initRound();
+        // Pastikan rumus menghasilkan target yang bersih dan masuk akal
+        while (!valid) {
+            n1 = Math.floor(Math.random() * 8) + 2;
+            n2 = Math.floor(Math.random() * 8) + 2;
+            n3 = Math.floor(Math.random() * 5) + 1;
+            op1 = operators[Math.floor(Math.random() * operators.length)];
+            op2 = operators[Math.floor(Math.random() * operators.length)];
+
+            try {
+                targetNum = eval(`${n1} ${op1} ${n2} ${op2} ${n3}`);
+                if (Number.isInteger(targetNum) && targetNum >= 1 && targetNum <= 80) {
+                    valid = true;
+                }
+            } catch (e) {
+                valid = false;
+            }
         }
 
         document.getElementById('target-display').innerText = targetNum;
 
-        // Siapkan ubin matriks 4x4 (masukkan n1, n2, n3, op1, op2 + angka/operator pengecoh)
-        let tileValues = [n1.toString(), n2.toString(), n3.toString(), op1, op2];
+        // Masukkan komponen rumus yang dijamin ada di papan
+        let tileValues = [n1.toString(), op1, n2.toString(), op2, n3.toString()];
+
+        // Lengkapi hingga 16 ubin dengan angka/operator acak
         while(tileValues.length < 16) {
-            if (Math.random() < 0.3) {
+            if (Math.random() < 0.35) {
                 tileValues.push(operators[Math.floor(Math.random() * operators.length)]);
             } else {
-                tileValues.push((Math.floor(Math.random() * 12) + 1).toString());
+                tileValues.push((Math.floor(Math.random() * 9) + 1).toString());
             }
         }
 
-        // Acak ubin
+        // Acak posisi ubin
         tileValues.sort(() => Math.random() - 0.5);
 
         gridTiles = tileValues.map((val, idx) => ({
@@ -326,7 +332,7 @@ game_html = """
                 handleFailure(`SALAH! ${exprString} = ${result} (Target: ${targetNum})`);
             }
         } catch (e) {
-            handleFailure("PERSAMAAN TIDAK VALID!");
+            handleFailure("FORMAT RUMUS SALAH!");
         }
     }
 
@@ -352,7 +358,7 @@ game_html = """
 
     function startTimer() {
         timeLeft = 100;
-        let maxTime = Math.max(5000, 14000 - (level * 600));
+        let maxTime = Math.max(6000, 16000 - (level * 600));
         let intervalTime = 50;
         let decrement = (intervalTime / maxTime) * 100;
 
