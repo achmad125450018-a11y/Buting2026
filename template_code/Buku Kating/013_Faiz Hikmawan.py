@@ -3,35 +3,49 @@ from streamlit_option_menu import option_menu
 import requests
 from PIL import Image, ImageOps
 from io import BytesIO
+import base64
+
+st.set_page_config(layout="wide")
 
 st.markdown("""<style>.centered-title {text-align: center;}</style>""", unsafe_allow_html=True)
 st.markdown("<h1 class='centered-title'>BUKU KATING</h1>", unsafe_allow_html=True)
+
 st.markdown(
     """
     <style>
-    /* Mengubah warna latar belakang header (bar atas) */
+    /* Sembunyikan header bawaan Streamlit untuk tampilan full-screen yang bersih */
     [data-testid="stHeader"] {
-        background-color: transparent;
-    }
-    </style>
-    <style>
-    /* Mengubah warna latar belakang sidebar */
-    [data-testid="stSidebar"] {
-        background-color: #e3651e; /* Ganti kode ini dengan warna yang Anda inginkan */
-    }
-    
-    /* (Opsional) Jika Anda ingin gradien di sidebar juga, gunakan kode di bawah ini alih-alih background-color: */
-    /*
-    [data-testid="stSidebar"] {
-        background: linear-gradient(to bottom, #e3651e, #f7c26e);
+        visibility: hidden;
     }
 
-    <style>
-    /* Menambahkan background gradien dari putih ke oranye (#f7c26e) */
+    /* Mengubah background utama menjadi gradasi (terang di kiri atas, gelap di kanan bawah) */
     .stApp {
-        background: linear-gradient(to bottom, #e3651e, #f7c26e);
+        background: linear-gradient(to bottom right, #ff9a22, #e14627);
+        color: white; 
+    }
+
+    /* Memberikan warna solid pada sidebar agar terpisah dari background gradasi */
+    [data-testid="stSidebar"] {
+        background-color: #bd411b !important; /* Warna oranye gelap */
     }
     
+    /* Memastikan teks di dalam sidebar berwarna putih */
+    [data-testid="stSidebar"] * {
+        color: white !important;
+    }
+
+    /* Memaksa SEMUA elemen teks di dalam tab menjadi putih */
+    [data-testid="stTabs"] button, 
+    [data-testid="stTabs"] button * {
+        color: white !important;
+    }
+    
+    /* Mengubah warna garis bawah pada tab yang sedang aktif agar senada */
+    [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
+        background-color: white !important;
+    }
+
+    /* Animasi gambar bawaan Anda */
     .gambar-timbul {
         width: 100%;
         border-radius: 8px;
@@ -41,6 +55,15 @@ st.markdown(
     .gambar-timbul:hover {
         transform: translateY(-8px) scale(1.03); 
         box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
+    /* KODE UNTUK TAB STREAMLIT */
+    /* Mengubah warna teks tab menjadi putih */
+    [data-testid="stTabs"] button p {
+        color: white !important;
+    }
+    
+    /* Mengubah warna garis bawah tab yang aktif menjadi putih (menggantikan warna biru bawaan) */
+    [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
+        background-color: white !important;
     }
     </style>
     """,
@@ -78,16 +101,31 @@ def streamlit_menu():
         default_index=0,
         orientation="horizontal",
         styles={
-            "container": {"padding": "0!important", "background-color": "#fafafa"},
-            "icon": {"color": "black", "font-size": "19px"},
-            "nav-link": {
-                "font-size": "15px",
-                "text-align": "left",
-                "margin": "0px",
-                "--hover-color": "#eee",
+            "container": {
+                "padding": "10px !important", 
+                "background-color": "#c84b22", 
+                "border": "none !important", 
+                "border-radius": "0 !important", 
+                "box-shadow": "none !important" 
             },
-            "nav-link-selected": {"background-color": "#3FBAD8"},
-        },
+            "icon": {
+                "color": "white", 
+                "font-size": "19px"
+            },
+            "nav-link": {
+                "font-size": "14px",
+                "text-align": "center",
+                "margin": "5px", 
+                "color": "white",
+                "background-color": "transparent", 
+                "--hover-color": "rgba(255, 255, 255, 0.1)",
+            },
+            "nav-link-selected": {
+                "background-color": "#8c3010", 
+                "color": "white",
+                "border-radius": "10px" 
+            },
+            },
     )
     return selected
 
@@ -576,192 +614,216 @@ elif menu == "Badan Legislatif":
     
 elif menu == "Departemen Minbak":
     def Departemen_Minbak():
-        gambar_urls = [
+        st.markdown("<h3 style='text-align: center;'>Badan Minat dan bakat</h3>", unsafe_allow_html=True)
+        tab1, tab2, tab3, tab4= st.tabs(["Kepala Departemen", "Sekretaris Departemen", "Manajemen Aktivitas dan Kompetisi", "Manajemen Minat dan Bakat"])
+        
+        with tab1:
+            gambar_urls_kepala_departemen_minbak= [
             "https://drive.google.com/uc?export=view&id=18x8qz_Lqj6i6PEFA3JUyCfPJlReMZvUB",
-            "https://drive.google.com/uc?export=view&id=1qsEatLS2i26ptSaL9N73Mg8Zr3kBvuCd",
+            ]
+            data_list_kepala_departemen_minbak= [
+            {
+            "nama": "Kevin Antonio Junior",
+            "nim": "123450109",
+            "umur": "23",
+            "asal": "Sulawesi Tengah",
+            "alamat": "Panjang",
+            "hobbi": "Mancing",
+            "sosmed": "@kevinaja__",
+            "kesan": "Sangat menginspirasi dan memimpin dengan baik",
+            "pesan": "Semangat terus kak!"
+            },
+            ]
+            display_images_with_data(gambar_urls_kepala_departemen_minbak, data_list_kepala_departemen_minbak)
+
+        with tab2:
+            # Pindahkan URL dan Data anggota Sekretaris ke dalam list ini
+            gambar_urls_sekretaris_departemen_minbak = ["https://drive.google.com/uc?export=view&id=1qsEatLS2i26ptSaL9N73Mg8Zr3kBvuCd",]
+            data_list_sekretaris_departemen_minbak = [ 
+            {
+            "nama": "Gusti Putu Ferazka Dhiyamika",
+            "nim": "123450046",
+            "umur": "21",
+            "asal": "Bekasi",
+            "alamat": "Way Dadi",
+            "hobbi": "Mendaki",
+            "sosmed": "@ferazkaa",
+            "kesan": "Sangat rapi dan cekatan dalam mengelola administrasi",
+            "pesan": "Sukses selalu kak!"
+            },
+            ]
+            display_images_with_data(gambar_urls_sekretaris_departemen_minbak, data_list_sekretaris_departemen_minbak)
+
+        with tab3:
+            gambar_urls_manajemen_aktivitas_dan_kompetisi = [
             "https://drive.google.com/uc?export=view&id=1KCjrYYX695GBHhMlhc5Ay7fM4X0rcray",
             "https://drive.google.com/uc?export=view&id=1RIlVyC4-CUxWubRIhL6adMHNdQl6u2GX",
             "https://drive.google.com/uc?export=view&id=1y4-G6rgI6U1V0RTUpiS6zRi_pDkOLVsR",
             "https://drive.google.com/uc?export=view&id=1_eYRFgBp2AQMI82bDUc4UdsqoWnwL4jM",
             "https://drive.google.com/uc?export=view&id=1V_YJBsavn3kTKejwmJ6hk-ivjNly7J2j",
             "https://drive.google.com/uc?export=view&id=1oHO4Y4CL1xaqk1fIfC_HnFLdZGc4hxe5",
-            "https://drive.google.com/uc?export=view&id=1Pa7Bf-cFWhQ6OWOxKgLyTFTpsLNCJcLu",
-            "https://drive.google.com/uc?export=view&id=1O0fPU57LFyUr0bQSX8HofN0bgnjZbGHz",
-            "https://drive.google.com/uc?export=view&id=1wojg09H8RB56V8_zAvXtc5VhXALqu-ZK",
-            "https://drive.google.com/uc?export=view&id=17NH9Vc1UFPd81rKP1q0Ll6OnKj51Fo7X",
-            "https://drive.google.com/uc?export=view&id=18NYYMnIUvEaIuVehyadgt_ig6q9njJqS",
-            "https://drive.google.com/uc?export=view&id=1C8_2h67_WKBnPUpwkkTm9AfSi7W2H7_z",
-            "https://drive.google.com/uc?export=view&id=1mjHinYhIBpyeWsNWf_jMBdvWHjECt162",
-        ]
-        data_list = [
-    {
-        "nama": "Kevin Antonio Junior",
-        "nim": "123450109",
-        "umur": "23",
-        "asal": "Sulawesi Tengah",
-        "alamat": "Panjang",
-        "hobbi": "Mancing",
-        "sosmed": "@kevinaja__",
-        "kesan": "Sangat menginspirasi dan memimpin dengan baik",
-        "pesan": "Semangat terus kak!"
-    },
-    {
-        "nama": "Gusti Putu Ferazka Dhiyamika",
-        "nim": "123450046",
-        "umur": "21",
-        "asal": "Bekasi",
-        "alamat": "Way Dadi",
-        "hobbi": "Mendaki",
-        "sosmed": "@ferazkaa",
-        "kesan": "Sangat rapi dan cekatan dalam mengelola administrasi",
-        "pesan": "Sukses selalu kak!"
-    },
-    {
-        "nama": "Ali Aristo Muthahhari Parisi",
-        "nim": "123450088",
-        "umur": "21",
-        "asal": "Lampung Timur",
-        "alamat": "Gang Sakum Belwis",
-        "hobbi": "Nonton F1",
-        "sosmed": "@ali_parisi3",
-        "kesan": "Keren dan selalu memberikan arahan yang jelas",
-        "pesan": "Semangat menjalankan tugasnya kak!"
-    },
-    {
-        "nama": "Ayu Andriani Parlina Wati",
-        "nim": "124450058",
-        "umur": "20",
-        "asal": "Lampung Barat",
-        "alamat": "Airan",
-        "hobbi": "Belajar + menghitung uang",
-        "sosmed": "@aayuandriani_",
-        "kesan": "Sangat ramah dan aktif berkontribusi",
-        "pesan": "Tetap semangat dan sukses terus!"
-    },
-    {
-        "nama": "Dafa Elpriza",
-        "nim": "124450131",
-        "umur": "21",
-        "asal": "Bekasi",
-        "alamat": "Way Kandis",
-        "hobbi": "Jogging",
-        "sosmed": "@dafaelpriza_",
-        "kesan": "Sangat menyenangkan dan mudah diajak kerja sama",
-        "pesan": "Sukses terus perkuliahan dan aktivitasnya!"
-    },
-    {
-        "nama": "Juwita Sari",
-        "nim": "124450066",
-        "umur": "19",
-        "asal": "Lampung Barat",
-        "alamat": "Pemda",
-        "hobbi": "Mancing",
-        "sosmed": "@ju.juwitaaa_",
-        "kesan": "Sangat baik dan murah senyum",
-        "pesan": "Semangat terus kuliahnya!"
-    },
-    {
-        "nama": "Muhammad Afdal Luthfi",
-        "nim": "124450047",
-        "umur": "19",
-        "asal": "Lampung Tengah",
-        "alamat": "Jl. Pulau Damar",
-        "hobbi": "Memantau dl tugas",
-        "sosmed": "@afdall.03",
-        "kesan": "Sangat bertanggung jawab dan fokus",
-        "pesan": "Semangat terus kakak!"
-    },
-    {
-        "nama": "Salsabila Nazwa Putri",
-        "nim": "124450002",
-        "umur": "20",
-        "asal": "Metro",
-        "alamat": "Korpri",
-        "hobbi": "Nongkrong di kopken",
-        "sosmed": "@slbnzw_",
-        "kesan": "Sangat asik dan ceria",
-        "pesan": "Tetap semangat kuliahnya ya kak!"
-    },
-    {
-        "nama": "Muhammad Ridwan",
-        "nim": "123450091",
-        "umur": "21",
-        "asal": "Lampung Tengah",
-        "alamat": "Belwis",
-        "hobbi": "Badminton",
-        "sosmed": "@mridwaan_22",
-        "kesan": "Sangat mengayomi dan membimbing dengan sabar",
-        "pesan": "Semangat terus memimpin divisinya kak!"
-    },
-    {
-        "nama": "Andra Ilham Bintang",
-        "nim": "124450060",
-        "umur": "18",
-        "asal": "Sumatera Selatan",
-        "alamat": "Kotabaru",
-        "hobbi": "Main rubik",
-        "sosmed": "@andra.lhm",
-        "kesan": "Sangat kreatif dan pintar",
-        "pesan": "Sukses selalu kuliahnya!"
-    },
-    {
-        "nama": "Bryan Paskah Telaumbanua",
-        "nim": "124450003",
-        "umur": "20",
-        "asal": "Nias",
-        "alamat": "Belwis",
-        "hobbi": "Live tiktok",
-        "sosmed": "@bryantel_",
-        "kesan": "Sangat menghibur dan ramah",
-        "pesan": "Semangat terus berkarya kak!"
-    },
-    {
-        "nama": "Ghiyats Thabularasa Meardhy",
-        "nim": "124450067",
-        "umur": "17",
-        "asal": "Surabaya",
-        "alamat": "Kemiling",
-        "hobbi": "Nanem Sawit",
-        "sosmed": "@meardhy_ghiyats",
-        "kesan": "Sangat unik dan bersemangat",
-        "pesan": "Tetap semangat dan sukses selalu!"
-    },
-    {
-        "nama": "Indah Julia Mawar Pratiwi",
-        "nim": "124450055",
-        "umur": "20",
-        "asal": "Pringsewu",
-        "alamat": "Airan",
-        "hobbi": "Bengong",
-        "sosmed": "@indahjuliaa",
-        "kesan": "Sangat baik dan bersahabat",
-        "pesan": "Sukses terus perkuliahannya kak!"
-    },
-    {
-        "nama": "Jacinda Kesya Alvara",
-        "nim": "124450023",
-        "umur": "18",
-        "asal": "Kalimantan Barat",
-        "alamat": "Korpri",
-        "hobbi": "Nyapu depan gacoan",
-        "sosmed": "@cacalvra",
-        "kesan": "Sangat ceria dan menyenangkan",
-        "pesan": "Semangat terus ya kak!"
-    },
-    {
-        "nama": "Muhammad Rafka",
-        "nim": "124450089",
-        "umur": "20",
-        "asal": "Padang",
-        "alamat": "Kotabaru",
-        "hobbi": "Bangun pagi",
-        "sosmed": "@muhammdrafka_",
-        "kesan": "Sangat disiplin dan dapat diandalkan",
-        "pesan": "Sukses selalu buat perkuliahannya!"
-    }
-]
+            
+            ]
+            data_list_manajemen_aktivitas_dan_kompetisi = [
+            {
+            "nama": "Ali Aristo Muthahhari Parisi",
+            "nim": "123450088",
+            "umur": "21",
+            "asal": "Lampung Timur",
+            "alamat": "Gang Sakum Belwis",
+            "hobbi": "Nonton F1",
+            "sosmed": "@ali_parisi3",
+            "kesan": "Keren dan selalu memberikan arahan yang jelas",
+            "pesan": "Semangat menjalankan tugasnya kak!"
+            },
+            {
+            "nama": "Ayu Andriani Parlina Wati",
+            "nim": "124450058",
+            "umur": "20",
+            "asal": "Lampung Barat",
+            "alamat": "Airan",
+            "hobbi": "Belajar + menghitung uang",
+            "sosmed": "@aayuandriani_",
+            "kesan": "Sangat ramah dan aktif berkontribusi",
+            "pesan": "Tetap semangat dan sukses terus!"
+            },
+            {
+            "nama": "Dafa Elpriza",
+            "nim": "124450131",
+            "umur": "21",
+            "asal": "Bekasi",
+            "alamat": "Way Kandis",
+            "hobbi": "Jogging",
+            "sosmed": "@dafaelpriza_",
+            "kesan": "Sangat menyenangkan dan mudah diajak kerja sama",
+            "pesan": "Sukses terus perkuliahan dan aktivitasnya!"
+            },
+            {
+            "nama": "Juwita Sari",
+            "nim": "124450066",
+            "umur": "19",
+            "asal": "Lampung Barat",
+            "alamat": "Pemda",
+            "hobbi": "Mancing",
+            "sosmed": "@ju.juwitaaa_",
+            "kesan": "Sangat baik dan murah senyum",
+            "pesan": "Semangat terus kuliahnya!"
+            },
+            {
+            "nama": "Muhammad Afdal Luthfi",
+            "nim": "124450047",
+            "umur": "19",
+            "asal": "Lampung Tengah",
+            "alamat": "Jl. Pulau Damar",
+            "hobbi": "Memantau dl tugas",
+            "sosmed": "@afdall.03",
+            "kesan": "Sangat bertanggung jawab dan fokus",
+            "pesan": "Semangat terus kakak!"
+            },
+            {
+            "nama": "Salsabila Nazwa Putri",
+            "nim": "124450002",
+            "umur": "20",
+            "asal": "Metro",
+            "alamat": "Korpri",
+            "hobbi": "Nongkrong di kopken",
+            "sosmed": "@slbnzw_",
+            "kesan": "Sangat asik dan ceria",
+            "pesan": "Tetap semangat kuliahnya ya kak!"
+            },
+            ]
+            display_images_with_data(gambar_urls_manajemen_aktivitas_dan_kompetisi, data_list_manajemen_aktivitas_dan_kompetisi)
 
-        display_images_with_data(gambar_urls, data_list)
+        with tab4:
+            gambar_urls_manajemen_minat_dan_bakat = [
+                "https://drive.google.com/uc?export=view&id=1Pa7Bf-cFWhQ6OWOxKgLyTFTpsLNCJcLu",
+                "https://drive.google.com/uc?export=view&id=1O0fPU57LFyUr0bQSX8HofN0bgnjZbGHz",
+                "https://drive.google.com/uc?export=view&id=1wojg09H8RB56V8_zAvXtc5VhXALqu-ZK",
+                "https://drive.google.com/uc?export=view&id=17NH9Vc1UFPd81rKP1q0Ll6OnKj51Fo7X",
+                "https://drive.google.com/uc?export=view&id=18NYYMnIUvEaIuVehyadgt_ig6q9njJqS",
+                "https://drive.google.com/uc?export=view&id=1C8_2h67_WKBnPUpwkkTm9AfSi7W2H7_z",
+                "https://drive.google.com/uc?export=view&id=1mjHinYhIBpyeWsNWf_jMBdvWHjECt162",
+            ]
+            data_list_manajemen_minat_dan_bakat = [
+            {
+                "nama": "Muhammad Ridwan",
+                "nim": "123450091",
+                "umur": "21",
+                "asal": "Lampung Tengah",
+                "alamat": "Belwis",
+                "hobbi": "Badminton",
+                "sosmed": "@mridwaan_22",
+                "kesan": "Sangat mengayomi dan membimbing dengan sabar",
+                "pesan": "Semangat terus memimpin divisinya kak!"
+            },
+            {
+                "nama": "Andra Ilham Bintang",
+                "nim": "124450060",
+                "umur": "18",
+                "asal": "Sumatera Selatan",
+                "alamat": "Kotabaru",
+                "hobbi": "Main rubik",
+                "sosmed": "@andra.lhm",
+                "kesan": "Sangat kreatif dan pintar",
+                "pesan": "Sukses selalu kuliahnya!"
+            },
+            {
+                "nama": "Bryan Paskah Telaumbanua",
+                "nim": "124450003",
+                "umur": "20",
+                "asal": "Nias",
+                "alamat": "Belwis",
+                "hobbi": "Live tiktok",
+                "sosmed": "@bryantel_",
+                "kesan": "Sangat menghibur dan ramah",
+                "pesan": "Semangat terus berkarya kak!"
+            },
+            {
+                "nama": "Ghiyats Thabularasa Meardhy",
+                "nim": "124450067",
+                "umur": "17",
+                "asal": "Surabaya",
+                "alamat": "Kemiling",
+                "hobbi": "Nanem Sawit",
+                "sosmed": "@meardhy_ghiyats",
+                "kesan": "Sangat unik dan bersemangat",
+                "pesan": "Tetap semangat dan sukses selalu!"
+            },
+            {
+                "nama": "Indah Julia Mawar Pratiwi",
+                "nim": "124450055",
+                "umur": "20",
+                "asal": "Pringsewu",
+                "alamat": "Airan",
+                "hobbi": "Bengong",
+                "sosmed": "@indahjuliaa",
+                "kesan": "Sangat baik dan bersahabat",
+                "pesan": "Sukses terus perkuliahannya kak!"
+            },
+            {
+                "nama": "Jacinda Kesya Alvara",
+                "nim": "124450023",
+                "umur": "18",
+                "asal": "Kalimantan Barat",
+                "alamat": "Korpri",
+                "hobbi": "Nyapu depan gacoan",
+                "sosmed": "@cacalvra",
+                "kesan": "Sangat ceria dan menyenangkan",
+                "pesan": "Semangat terus ya kak!"
+            },
+            {
+                "nama": "Muhammad Rafka",
+                "nim": "124450089",
+                "umur": "20",
+                "asal": "Padang",
+                "alamat": "Kotabaru",
+                "hobbi": "Bangun pagi",
+                "sosmed": "@muhammdrafka_",
+                "kesan": "Sangat disiplin dan dapat diandalkan",
+                "pesan": "Sukses selalu buat perkuliahannya!"
+            }
+            ]
+            display_images_with_data(gambar_urls_manajemen_minat_dan_bakat, data_list_manajemen_minat_dan_bakat)  
 
     Departemen_Minbak()
 
@@ -770,25 +832,13 @@ elif menu == "Departemen PSDA":
         st.markdown("<h3 style='text-align: center;'>Departemen Pengembangan Sumber Daya Anggota</h3>", unsafe_allow_html=True)
 
         # Template Tab Divisi PSDA
-        tab1, tab2, tab3= st.tabs(["Inti","Divisi Kaderisasi", "Divisi Peningkatan Mutu Anggota"])
+        tab1, tab2, tab3, tab4 = st.tabs(["Kepala Departemen", "Sekretaris Departemen", "Divisi Kaderisasi", "Divisi Peningkatan Mutu Anggota"])
 
         with tab1:
-            gambar_urls_Inti = [
+            gambar_urls_Kadep_psda = [
             "https://drive.google.com/uc?export=view&id=1l2mlr7vZPK41txxoyWGfxdGzpn2TJGoA",
-            "https://drive.google.com/uc?export=view&id=1PF8M1Y58whudIhc83cL6I0uxK-hC5lDp",
             ]
-            data_list_Inti = [
-            {
-            "nama": "",
-            "nim": "",
-            "umur": "",
-            "asal": "",
-            "alamat": "",
-            "hobbi": "",
-            "sosmed": "",
-            "kesan": "",  
-            "pesan": ""
-            },
+            data_list_Kadep_psda = [
             {
             "nama": "",
             "nim": "",
@@ -801,9 +851,28 @@ elif menu == "Departemen PSDA":
             "pesan": ""
             },
             ]
-            display_images_with_data(gambar_urls_Inti, data_list_Inti)
+            display_images_with_data(gambar_urls_Kadep_psda, data_list_Kadep_psda)
 
         with tab2:
+            gambar_urls_sekdep_psda = [
+            "https://drive.google.com/uc?export=view&id=1PF8M1Y58whudIhc83cL6I0uxK-hC5lDp",
+            ]
+            data_list_sekdep_psda = [
+            {
+            "nama": "",
+            "nim": "",
+            "umur": "",
+            "asal": "",
+            "alamat": "",
+            "hobbi": "",
+            "sosmed": "",
+            "kesan": "",  
+            "pesan": ""
+            },
+            ]
+            display_images_with_data(gambar_urls_sekdep_psda, data_list_sekdep_psda)
+
+        with tab3:
             gambar_urls_Divisi_Kaderisasi = [
                 "https://drive.google.com/uc?export=view&id=1Wo-8soBycLgfDxPR7Rb50iSC7Mj_SW4N",
                 "https://drive.google.com/uc?export=view&id=1ZBiVMQIlfOFOO1V17kk2a_uw0tlXSYNH",
@@ -881,7 +950,7 @@ elif menu == "Departemen PSDA":
             ]
             display_images_with_data(gambar_urls_Divisi_Kaderisasi, data_list_Divisi_Kaderisasi)
 
-        with tab3:
+        with tab4:
             gambar_urls_Divisi_Peningkatan_Mutu_Anggota = [
             "https://drive.google.com/uc?export=view&id=1cc-Wlmi94WY19QG1zf35BwW9IWSFRlfa",
             "https://drive.google.com/uc?export=view&id=1Uw7KgQAlkNLkRxB6hE79jHAv6QU6LNE5",
@@ -1055,25 +1124,13 @@ elif menu == "Departemen SSD":
     def ssd():
         st.markdown("<h3 style='text-align: center;'>Departemen Pengembangan Sumber Daya Anggota</h3>", unsafe_allow_html=True)
         
-        tab1, tab2, tab3= st.tabs(["Inti","Divisi Kemitraan", "Divisi Kewirausahaan"])
+        tab1, tab2, tab3, tab4 = st.tabs(["Kepala Departemen", "Sekretaris Departemen","Divisi Kemitraan", "Divisi Kewirausahaan"])
 
         with tab1:
-            gambar_urls_Inti1 = [
+            gambar_urls_Kadep_ssd = [
             "https://drive.google.com/uc?export=view&id=1N4dIHHdB5CeVz8OygZn-hNOX1MjASRk1",
-            "https://drive.google.com/uc?export=view&id=",
             ]
-            data_list_Inti1 = [
-            {
-            "nama": "",
-            "nim": "",
-            "umur": "",
-            "asal": "",
-            "alamat": "",
-            "hobbi": "",
-            "sosmed": "",
-            "kesan": "",  
-            "pesan": ""
-            },
+            data_list_Kadep_ssd = [
             {
             "nama": "",
             "nim": "",
@@ -1086,9 +1143,28 @@ elif menu == "Departemen SSD":
             "pesan": ""
             },
             ]
-            display_images_with_data(gambar_urls_Inti1, data_list_Inti1)
-
+            display_images_with_data(gambar_urls_Kadep_ssd, data_list_Kadep_ssd)
+            
         with tab2:
+            gambar_urls_sekdep_ssd = [
+            "https://drive.google.com/uc?export=view&id=1E3GvqoGWxhja7K_jKk9NpgEVjuLBgrcP",
+            ]
+            data_list_sekdep_ssd = [
+            {
+            "nama": "",
+            "nim": "",
+            "umur": "",
+            "asal": "",
+            "alamat": "",
+            "hobbi": "",
+            "sosmed": "",
+            "kesan": "",  
+            "pesan": ""
+            },
+            ]
+            display_images_with_data(gambar_urls_sekdep_ssd, data_list_sekdep_ssd)
+
+        with tab3:
             gambar_urls_kemitraan = [
             "https://drive.google.com/uc?export=view&id=1NdxI7kuTgiEiutow57MPkZtSBkau1lK0",
             "https://drive.google.com/uc?export=view&id=1LNA6K_zrpCh_8B787bIxo8JB1UCWVwl9",
@@ -1143,7 +1219,7 @@ elif menu == "Departemen SSD":
             ]
             display_images_with_data(gambar_urls_kemitraan, data_list_kemitraan)
 
-        with tab3:
+        with tab4:
             gambar_urls_kewirausahaan = [
             "https://drive.google.com/uc?export=view&id=1TUqVePQ0R95loxH2Zqbb_Le74GsnOxTN",
             "https://drive.google.com/uc?export=view&id=1PhtcoQexxeNPD-B53SSojJ-ieX61ZSpx",
@@ -1209,20 +1285,139 @@ elif menu == "Departemen SSD":
             "pesan": ""
             },
         ]
-        display_images_with_data(gambar_urls_kewirausahaan, data_list_kewirausahaan)
+            display_images_with_data(gambar_urls_kewirausahaan, data_list_kewirausahaan)
     ssd()
 
 elif menu == "Departemen Medkraf":
     def medkraf():
-        gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=",
-            "https://drive.google.com/uc?export=view&id=",
-            "https://drive.google.com/uc?export=view&id=",
-            "https://drive.google.com/uc?export=view&id=",
-            "https://drive.google.com/uc?export=view&id=",
-            "https://drive.google.com/uc?export=view&id=",
-        ]
-        data_list = [
+        st.markdown("<h3 style='text-align: center;'>Departemen Pengembangan Sumber Daya Anggota</h3>", unsafe_allow_html=True)
+        
+        tab1, tab2, tab3, tab4, tab5 = st.tabs(["Kepala Departemen", "Sekretaris Departemen", "Divisi Dokumentasi", "Divisi Media dan Konten Spesialis", "Visual Design"])
+
+        with tab1:
+            gambar_urls_Kadep_medkraf = [
+            "https://drive.google.com/uc?export=view&id=1b5BlJfjO0SGyy0XTUPyN8ZOJ8zkvOBUD",
+            ]
+            data_list_Kadep_medkraf = [
+            {
+            "nama": "",
+            "nim": "",
+            "umur": "",
+            "asal": "",
+            "alamat": "",
+            "hobbi": "",
+            "sosmed": "",
+            "kesan": "",  
+            "pesan": ""
+            },
+            ]
+            display_images_with_data(gambar_urls_Kadep_medkraf, data_list_Kadep_medkraf)
+
+        with tab2:
+            gambar_urls_sekdep_medkraf = [
+            "https://drive.google.com/uc?export=view&id=1hB4PN9eK9z13aE5sxeq218htzjTkEVS9",
+            ]
+            data_list_sekdep_medkraf = [
+            {
+            "nama": "",
+            "nim": "",
+            "umur": "",
+            "asal": "",
+            "alamat": "",
+            "hobbi": "",
+            "sosmed": "",
+            "kesan": "",  
+            "pesan": ""
+            },
+            ]
+            display_images_with_data(gambar_urls_sekdep_medkraf, data_list_sekdep_medkraf)
+
+        with tab3:
+            gambar_urls_Divisi_dokumentasi = [
+            "https://drive.google.com/uc?export=view&id=1Re_t0YbK2mT-mjnestjAdTS11mGbAtc6",
+            "https://drive.google.com/uc?export=view&id=1GSlalGfy31swutJV2zZpWdSRgGK9tlSo",
+            "https://drive.google.com/uc?export=view&id=1YEEeDJoyZpavqkCRiyzLAPkp30gGWcJs",
+            "https://drive.google.com/uc?export=view&id=1yZWmRobFZhHEX0y-5e0_PH2eJ4LnK748",
+            ]
+            data_list_Divisi_dokumentasi = [
+            {
+            "nama": "",
+            "nim": "",
+            "umur": "",
+            "asal": "",
+            "alamat": "",
+            "hobbi": "",
+            "sosmed": "",
+            "kesan": "",  
+            "pesan": ""
+            },
+            {
+            "nama": "",
+            "nim": "",
+            "umur": "",
+            "asal": "",
+            "alamat": "",
+            "hobbi": "",
+            "sosmed": "",
+            "kesan": "",  
+            "pesan": ""
+            },
+            {
+            "nama": "",
+            "nim": "",
+            "umur": "",
+            "asal": "",
+            "alamat": "",
+            "hobbi": "",
+            "sosmed": "",
+            "kesan": "",  
+            "pesan": ""
+            },
+            {
+            "nama": "",
+            "nim": "",
+            "umur": "",
+            "asal": "",
+            "alamat": "",
+            "hobbi": "",
+            "sosmed": "",
+            "kesan": "",  
+            "pesan": ""
+            },
+            {
+            "nama": "",
+            "nim": "",
+            "umur": "",
+            "asal": "",
+            "alamat": "",
+            "hobbi": "",
+            "sosmed": "",
+            "kesan": "",  
+            "pesan": ""
+            },
+            {
+            "nama": "",
+            "nim": "",
+            "umur": "",
+            "asal": "",
+            "alamat": "",
+            "hobbi": "",
+            "sosmed": "",
+            "kesan": "",  
+            "pesan": ""
+            },
+            ]
+            display_images_with_data(gambar_urls_Divisi_dokumentasi, data_list_Divisi_dokumentasi)
+
+        with tab4:
+            gambar_urls_Divisi_Media_dan_Konten_Spesialis = [
+            "https://drive.google.com/uc?export=view&id=1Vx0Nk2OylnbrRx_L6ZW5JQ6GVqgI3rTQ",
+            "https://drive.google.com/uc?export=view&id=1Y-n9WgzEVokH0XimAqDOSa_epwnhnwmZ",
+            "https://drive.google.com/uc?export=view&id=1qLUI-SymckwaduId3Bbk4DEOa0mGPnY9",
+            "https://drive.google.com/uc?export=view&id=1m_my97kVsCVPinEGsp19Rg4rFgbUG8S_",
+            "https://drive.google.com/uc?export=view&id=1n0jpZiHb2p-lVgL4sXTd76oGO8sfi1Ed",
+            ]
+            data_list_Divisi_Media_dan_Konten_Spesialis = [
             {
                 "nama": "",
                 "nim": "",
@@ -1234,7 +1429,161 @@ elif menu == "Departemen Medkraf":
                 "kesan": "",  
                 "pesan": ""
             },
-        ]
-        display_images_with_data(gambar_urls, data_list)
+            {
+                "nama": "",
+                "nim": "",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan": ""
+            },
+            {
+                "nama": "",
+                "nim": "",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan": ""
+            },
+            {
+                "nama": "",
+                "nim": "",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan": ""
+            },
+            {
+                "nama": "",
+                "nim": "",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan": ""
+            },
+            {
+                "nama": "",
+                "nim": "",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan": ""
+            },
+            {
+                "nama": "",
+                "nim": "",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan": ""
+            }
+            ]
+            display_images_with_data(gambar_urls_Divisi_Media_dan_Konten_Spesialis, data_list_Divisi_Media_dan_Konten_Spesialis)
+
+        with tab5:
+            gambar_urls_Divisi_Visual_Design = [
+            "https://drive.google.com/uc?export=view&id=1atZTxIoNLVNQVFRr4CRIL7sWe8SGNYbq",
+            "https://drive.google.com/uc?export=view&id=1KSezc8FGz4EDRuYnUxfB0J5kcA6xw1Q3",
+            "https://drive.google.com/uc?export=view&id=1AZeqrWofTPAnMCbqZdGvhoUcoraK6SZt",
+            "https://drive.google.com/uc?export=view&id=1xR39p8ryuUsU9tngr4Vb1Cw37p4zQ4y8",
+            ]
+            data_list_Divisi_Visual_Design = [
+            {
+                "nama": "",
+                "nim": "",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan": ""
+            },
+            {
+                "nama": "",
+                "nim": "",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan": ""
+            },
+            {
+                "nama": "",
+                "nim": "",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan": ""
+            },
+            {
+                "nama": "",
+                "nim": "",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan": ""
+            },
+            {
+                "nama": "",
+                "nim": "",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan": ""
+            },
+            {
+                "nama": "",
+                "nim": "",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan": ""
+            },
+            {
+                "nama": "",
+                "nim": "",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",  
+                "pesan": ""
+            }
+            ]
+            display_images_with_data(gambar_urls_Divisi_Visual_Design, data_list_Divisi_Visual_Design)
     medkraf()
 

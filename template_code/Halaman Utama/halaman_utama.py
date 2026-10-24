@@ -10,21 +10,15 @@ st.set_page_config(layout="wide")
 st.markdown(
     """
     <style>
-    /* Sembunyikan header bawaan Streamlit untuk tampilan full-screen yang bersih */
-    [data-testid="stHeader"] {
-        visibility: hidden;
-    }
-
-    /* Mengubah background utama menjadi oranye pekat solid */
+    /* Mengubah background utama menjadi gradasi */
     .stApp {
-        background: #d85226; /* Warna oranye utama */
-        color: white; /* Mengubah teks umum menjadi putih */
+        background: linear-gradient(to bottom right, #ff9a22, #e14627);
+        color: white; 
     }
 
-    /* Membuat sidebar sedikit lebih gelap dari warna utama */
+    /* Memberikan warna solid pada sidebar */
     [data-testid="stSidebar"] {
-        background-color: #bd411b !important; 
-        border-right: none; /* Menghilangkan garis batas bawaan */
+        background-color: #bd411b !important;
     }
     
     /* Memastikan teks di dalam sidebar berwarna putih */
@@ -32,7 +26,18 @@ st.markdown(
         color: white !important;
     }
 
-    /* Animasi gambar bawaan Anda */
+    /* Memaksa elemen teks di dalam tab menjadi putih */
+    [data-testid="stTabs"] button, 
+    [data-testid="stTabs"] button * {
+        color: white !important;
+    }
+    
+    /* Mengubah warna garis bawah pada tab yang sedang aktif */
+    [data-testid="stTabs"] [data-baseweb="tab-highlight"] {
+        background-color: white !important;
+    }
+
+    /* Animasi gambar */
     .gambar-timbul {
         width: 100%;
         border-radius: 8px;
@@ -221,14 +226,14 @@ elif menu == "About Us":
             "https://drive.google.com/uc?export=view&id=1rbivE1TuHa3baKFVMcQ2MV0AVto2Or-a",
             "https://drive.google.com/uc?export=view&id=1VHIRvPCdaDsop3n_T_J7gVKBQbhSKt5O",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1OLYzTHsfElGfjBXvzUUoMg24zf8W7QD9",
             "https://drive.google.com/uc?export=view&id=1C6pkVy5sjsffTqdeOSv1M5zff_1zZL8f",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1jflu-Tr_51LeSApGIa6cLeiSVWIrpQ6d",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1fbOElyLKDLJD5L7sY0Kit8OGqp-jXOiK",
             "https://drive.google.com/uc?export=view&id=1bVrnE6ZDK6nTWkiKGjUeGw-BfMLG-s81",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         ]
