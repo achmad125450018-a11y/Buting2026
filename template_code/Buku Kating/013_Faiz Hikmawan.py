@@ -6,6 +6,46 @@ from io import BytesIO
 
 st.markdown("""<style>.centered-title {text-align: center;}</style>""", unsafe_allow_html=True)
 st.markdown("<h1 class='centered-title'>BUKU KATING</h1>", unsafe_allow_html=True)
+st.markdown(
+    """
+    <style>
+    /* Mengubah warna latar belakang header (bar atas) */
+    [data-testid="stHeader"] {
+        background-color: transparent;
+    }
+    </style>
+    <style>
+    /* Mengubah warna latar belakang sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #e3651e; /* Ganti kode ini dengan warna yang Anda inginkan */
+    }
+    
+    /* (Opsional) Jika Anda ingin gradien di sidebar juga, gunakan kode di bawah ini alih-alih background-color: */
+    /*
+    [data-testid="stSidebar"] {
+        background: linear-gradient(to bottom, #e3651e, #f7c26e);
+    }
+
+    <style>
+    /* Menambahkan background gradien dari putih ke oranye (#f7c26e) */
+    .stApp {
+        background: linear-gradient(to bottom, #e3651e, #f7c26e);
+    }
+    
+    .gambar-timbul {
+        width: 100%;
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        cursor: pointer;
+    }
+    .gambar-timbul:hover {
+        transform: translateY(-8px) scale(1.03); 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # bagian sini jangan diubah
 def streamlit_menu():
