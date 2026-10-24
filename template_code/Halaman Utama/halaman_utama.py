@@ -20,7 +20,7 @@ st.markdown(
     """
     <div style='text-align: center;'>
         <h1 style='font-size: 5.5em;'>WEBSITE KATING</h1>
-        <p style='font-size: 2em;'>CEO HMSD Adyatama ITERA 2024</p>
+        <p style='font-size: 2em;'>CEO HMSD Adyatama ITERA 2026</p>
     </div>
     """,
     unsafe_allow_html=True,
@@ -188,7 +188,7 @@ if menu == "Home":
         unsafe_allow_html=True,
     )
 
-    # 2. Foto Kelompok (Pasti Muncul)
+    # 2. Foto Kelompok
     foto_kelompok_url = (
         "https://drive.google.com/uc?export=view&id=1Ut4jNfhkL6GAum5ppq5O5AJ4z_aV7D-B"
     )
@@ -199,7 +199,7 @@ if menu == "Home":
         """
         <div class="photo-caption-box">
             <div class="badge-cosval">✦ KELUARGA COSVAL ✦</div>
-            <p class="photo-text-title">COSVAL kuat, COSVAL tuntas, semangat membara sampai akhir batas!</p>
+            <p class="photo-text-title">COSVAL kuat, COSVAL tuntas, Semangat Terus Sampai Tuntas!</p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -214,7 +214,7 @@ if menu == "Home":
                 COSVAL adalah kelompok yang mengutamakan kerja sama, semangat, dan tanggung jawab dalam setiap proses belajar. 
                 Dengan visi <b>“Cosval Kuat Semangat, Terus Sampai Tuntas,”</b> COSVAL berkomitmen untuk terus belajar, saling membantu, 
                 dan tidak mudah menyerah saat menghadapi kesulitan. Bersama-sama, kami berusaha memberikan yang terbaik dan menyelesaikan 
-                setiap tantangan sampai tuntas dalam rangkaian kegiatan pengenalan kampus dan penugasan Buku Kating.
+                setiap tantangan sampai tuntas salah satunya penugasan Buku Kating ini. Di sini kami saling berkolaborasi dan berkerja sama satu sama lain, kami berproses bersama, belajar bersama, dan akan menghadapi semuanya bersama-sama.
             </p>
         </div>
         """,
