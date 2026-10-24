@@ -311,11 +311,11 @@ elif menu == "Departemen Medkraf":
         "https://drive.google.com/uc?export=view&id=1uldvmHPpTo7KuAq6WxMwvnPH7gyK0n_4",
         "https://drive.google.com/uc?export=view&id=1GtoH93BH3oO8eB5Lcab6g71BhT89nGH3",
         "https://drive.google.com/uc?export=view&id=1c_xEQ_0edrA9TEdpBwM-RckaKoLwJMNP",
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1kCGCN9nuJNOS5FyNm5VeootRboL-YawC",
         "https://drive.google.com/uc?export=view&id=1TXczhSAV1e0DFdQ7rBtQ6XwLtOHVaX5M",
         "https://drive.google.com/uc?export=view&id=1jqpe5nWNyJ5HwsJ4ihHdoizx8bkcwEI0",
         "https://drive.google.com/uc?export=view&id=1UKkwqBsLFl62XaN69frWNrLdqYu9OY3p",
-        "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+        "https://drive.google.com/uc?export=view&id=1Zm0HGc0sTXtUaa8KEKFgHTmKh0Km6atF",
     ]
     data_list = [
         {"nama": "Nayla Salsabila Fathianisa", "jabatan": "Staf Medkraf", "nim": "123450082", "umur": "20", "asal": "Payakumbuh, Sumatera Barat", "alamat": "Way Huwi", "hobbi": "Musingin TA", "sosmed": "@naylasalsabilaa._", "kesan": "Kreatif banget", "pesan": "Karya tanpa batas!"},
