@@ -496,6 +496,8 @@ if menu == "Departemen MIKFES":
             "https://drive.google.com/uc?export=view&id=15cq-IfafVPT5QyJpVhF3kE7vGJoSGkLR",
             "https://drive.google.com/uc?export=view&id=1gexcjHkKZoxx9lxoZvPYbhmQ8rCso1GC",
             "https://drive.google.com/uc?export=view&id=1BSyGem1tMTKdubzR8fhmoBJ80LrthHoG",
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=",
         ]
 
         data_list = [
