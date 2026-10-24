@@ -88,6 +88,12 @@ elif menu == "Baleg":
                 "pesan": "-",
             },
             {
+                "nama": "Monica Patricia Tanjung",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
+                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
+            },
+            {
                 "nama": "Gh Mikael Niko A S",
                 "link_gdrive": "https://drive.google.com/uc?export=view&id=1IvA_nI4wpruLlaCVw1ZL-JnDiMi1K03R",
                 "kesan": "-",
@@ -113,12 +119,6 @@ elif menu == "Baleg":
             },
             {
                 "nama": "Jeremia Halim",
-                "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-                "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
-                "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",
-            },
-            {
-                "nama": "Monica Patricia Tanjung",
                 "link_gdrive": "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
                 "kesan": "Kakaknya sangat ramah, humble, dan menginspirasi!",
                 "pesan": "Semangat terus kuliah dan menjalankan amanahnya di HMSD!",

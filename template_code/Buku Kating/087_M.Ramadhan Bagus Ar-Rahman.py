@@ -88,6 +88,12 @@ elif menu == "Baleg":
                 "pesan": "semangat menjalankan amanahnya bang",
             },
             {
+                "nama": "Monica Patricia Tanjung",
+                "link_gdrive": "https://drive.google.com/uc?export=view&id=1VJHORmrZM1NbJmDwTxUtAuLJQrJeRmJn",
+                "kesan": "tegas dan berwibawa",
+                "pesan": "semangat menjalankan amanahnya kakkkk",
+            },
+            {
                 "nama": "Gh Mikael Niko A S",
                 "link_gdrive": "https://drive.google.com/uc?export=view&id=1DVIWHiNruGq7mzPlTwF-GWQvCVK38lDF",
                 "kesan": "tegas dan berwibawa",
@@ -116,12 +122,6 @@ elif menu == "Baleg":
                 "link_gdrive": "https://drive.google.com/uc?export=view&id=1GR7rcXMVJjBRlD9H0OATbzO8gPng7fy-",
                 "kesan": "tegas dan berwibawa",
                 "pesan": "semangat menjalankan amanahnya bang",
-            },
-            {
-                "nama": "Monica Patricia Tanjung",
-                "link_gdrive": "https://drive.google.com/uc?export=view&id=1VJHORmrZM1NbJmDwTxUtAuLJQrJeRmJn",
-                "kesan": "tegas dan berwibawa",
-                "pesan": "semangat menjalankan amanahnya kakkkk",
             },
             {
                 "nama": "Jona Timothy Ogatse Panjaitan",
