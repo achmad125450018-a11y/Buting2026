@@ -2,6 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="Buku Kating", layout="wide")
 
+# CSS Sidebar
 st.markdown("""
 <style>
     [data-testid="stSidebar"] {
@@ -18,9 +19,35 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# 💥 JAVASCRIPT HACK: Memaksa Iframe Game Melebar Penuh 💥
+st.components.v1.html("""
+<script>
+    // Script ini berjalan diam-diam untuk menghancurkan batas lebar Streamlit
+    const observer = new MutationObserver(() => {
+        const iframes = window.parent.document.querySelectorAll('iframe[title="streamlit_component"]');
+        iframes.forEach(iframe => {
+            iframe.style.width = '100%';
+            iframe.style.maxWidth = '100%';
+            iframe.style.height = '600px'; // Kunci tinggi game
+            
+            // Paksa kontainer pembungkusnya juga ikut lebar
+            let parent = iframe.parentElement;
+            while (parent) {
+                parent.style.maxWidth = '100%';
+                parent.style.width = '100%';
+                parent = parent.parentElement;
+            }
+        });
+    });
+    observer.observe(window.parent.document.body, { childList: true, subtree: true });
+</script>
+""", height=0, width=0)
+
+# (Biarkan sisa kode st.Page dan st.navigation kamu di bawahnya)
 st.session_state.pindah = True
 
 Homepage = st.Page("Halaman Utama/halaman_utama.py", title="07 - POISSON", default=True)
+# ... (sisa kode main.py kamu) ...
 
 Mahasiswa1  = st.Page("Buku Kating/116_Yobel Imanuel Pasaribu.py", title="116 - Yobel Imanuel Pasaribu", icon=":material/person:")
 Mahasiswa2  = st.Page("Buku Kating/109_Rena Aprilia.py", title="109 - Rena Aprilia", icon=":material/person:")
