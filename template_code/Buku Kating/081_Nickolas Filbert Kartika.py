@@ -1100,3 +1100,209 @@ if menu == "Departemen MIKFES":
         ]
         display_images_with_data(gambar_urls, data_list)
     Departemen_MIKFES()
+    elif menu == "Departemen Medkraf":
+    def Departemen_Medkraf():
+        gambar_urls = [  
+            "https://drive.google.com/uc?export=view&id=1qGyX0gfTRQ0sjee8IzOfKwQ4vHzo3RQZ",
+            "https://drive.google.com/uc?export=view&id=1CVvkil3TpP40X5ZC7Cx95Bo2vdRlZ8_N",
+            "https://drive.google.com/uc?export=view&id=1Ynn-WNj6zMX1FAMtlgyy27EQ1vSO600k",
+            "https://drive.google.com/uc?export=view&id=1Frb-BuZUJwOIdofA1dNYdxTcIdm2JXyn",
+            "https://drive.google.com/uc?export=view&id=17dpUphATk_34ryqJ_og6KjkF7tninTP-",
+            "https://drive.google.com/uc?export=view&id=17bAT67zRfnk9dWPQP06Zl5X_qU-nw6bQ-",
+            "https://drive.google.com/uc?export=view&id=1xRbWLnNa5v-BsInNxI_BkaszKwdCZsGE",
+            "https://drive.google.com/uc?export=view&id=1u_3KMzlHve-UXh1dJIUREAZU5BgJtEGJ",
+            "https://drive.google.com/uc?export=view&id=1cER0jmfRikv93bsZtpm9FApEx5XbqfNm",
+            "https://drive.google.com/uc?export=view&id=1CVvkil3TpP40X5ZC7Cx95Bo2vdRlZ8_N",
+            "https://drive.google.com/uc?export=view&id=11pg5OJNy9wZCOBh2uU57mgJ4GFdNlPf5",
+            "https://drive.google.com/uc?export=view&id=17dpUphATk_34ryqJ_og6KjkF7tninTP-",
+            "https://drive.google.com/uc?export=view&id=1c8_USSfBjqf-6P_9eRaJNvpWCia8WmPO",
+            "https://drive.google.com/uc?export=view&id=1saf0Aplxz97DDKprHQTNyVf1b0sIf397",
+            "https://drive.google.com/uc?export=view&id=1Frb-BuZUJwOIdofA1dNYdxTcIdm2JXyn",
+            "https://drive.google.com/uc?export=view&id=1ORU0LY7eOHoz2zMZesYWuPUCr466wc93",
+            "https://drive.google.com/uc?export=view&id=12JEk_r-HLbki5VR7ZeaNgjr852yUfwmA",
+            "https://drive.google.com/uc?export=view&id=1mUHeRYFCFxmgzDLaYP2FL8-o0313rcB3",
+        ]
+
+        data_list = [
+            {
+                "nama": "Labo Napitupulu",
+                "nim": "37",
+                "umur": "20",
+                "asal": "Jakpus, Medan, Palembang",
+                "alamat": "Way Huwi",
+                "hobbi": "Tong setan",
+                "sosmed": "noerruuu",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Donna Maya Puspita",
+                "nim": "123450028",
+                "umur": "20",
+                "asal": "Bekasi",
+                "alamat": "Way Huwi",
+                "hobbi": "Berenang",
+                "sosmed": "@donnamaya.p",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Nayla Salsabila Fathianisa",
+                "nim": "123450082",
+                "umur": "20",
+                "asal": "Payakumbuh, Sumatera Barat",
+                "alamat": "Way Huwi",
+                "hobbi": "Musingin TA",
+                "sosmed": "@naylasalsabilaa._",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Sania Dwi Ayu Lestari",
+                "nim": "123450086",
+                "umur": "21",
+                "asal": "Karawang",
+                "alamat": "Airan",
+                "hobbi": "Nongkrong depan ruang prodi",
+                "sosmed": "saniayyllstr",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Nazla",
+                "nim": "054",
+                "umur": "",
+                "asal": "",
+                "alamat": "",
+                "hobbi": "",
+                "sosmed": "",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Raihanna Adelia Putri",
+                "nim": "123450041",
+                "umur": "20",
+                "asal": "Terbanggi Besar",
+                "alamat": "Airan Raya 1",
+                "hobbi": "Menulis, membaca",
+                "sosmed": "n1tg._",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Alya Ramadhanti",
+                "nim": "091",
+                "umur": "19",
+                "asal": "Jambi",
+                "alamat": "Airan",
+                "hobbi": "Jalan-jalan dengan sepatu roda",
+                "sosmed": "alya.rmdhnti",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Bunga Clarissa Sefa",
+                "nim": "124450097",
+                "umur": "20",
+                "asal": "Lampung Selatan",
+                "alamat": "Pemda",
+                "hobbi": "Belajar",
+                "sosmed": "bungaclrssf",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Muhammad Razan Maulana Pratama",
+                "nim": "124450031",
+                "umur": "18",
+                "asal": "Rumah",
+                "alamat": "Ryacudu",
+                "hobbi": "Bully Felisya Nabila Nugroho",
+                "sosmed": "muh_razan_",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Anash Tasya Ausyaqila",
+                "nim": "124450050",
+                "umur": "20",
+                "asal": "Bandar Lampung",
+                "alamat": "Way Halim",
+                "hobbi": "Nonton F1",
+                "sosmed": "@anshtsyaaql",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Felisya Nabila Putri Nugroho",
+                "nim": "124450104",
+                "umur": "18",
+                "asal": "Bekasi",
+                "alamat": "Belwis",
+                "hobbi": "Mancing",
+                "sosmed": "felisyanbl__",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Difanya Husakina",
+                "nim": "124450043",
+                "umur": "Gada yang tau",
+                "asal": "Rumah bapak",
+                "alamat": "Gedung F",
+                "hobbi": "Ngitungin beras di karung",
+                "sosmed": "difanyhsa_",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Zannuba Arifah Ilman",
+                "nim": "112",
+                "umur": "19",
+                "asal": "Jabung",
+                "alamat": "Rajabasa",
+                "hobbi": "Bobo",
+                "sosmed": "Xifasky",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Lucia Advencia Rachel Nainggolan",
+                "nim": "124450085",
+                "umur": "20",
+                "asal": "Bekasi",
+                "alamat": "Belwis",
+                "hobbi": "Mencintai Andrew Garfield",
+                "sosmed": "luciarachel_",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Edsel Adya Pradipta",
+                "nim": "124450098",
+                "umur": "20",
+                "asal": "Lampung Selatan",
+                "alamat": "Natar",
+                "hobbi": "Scroll fesnuk",
+                "sosmed": "edsel_0712",
+                "kesan": "",
+                "pesan": ""
+            },
+            {
+                "nama": "Daffa Kharisma Adzana",
+                "nim": "124450061",
+                "umur": "21",
+                "asal": "Surabaya",
+                "alamat": "Sukarame",
+                "hobbi": "Nyuluh manuk",
+                "sosmed": "@daffascript_",
+                "kesan": "",
+                "pesan": ""
+            },
+        ]
+
+        st.subheader("Departemen Medkraf")
+        display_images_with_data(gambar_urls, data_list)
+
+    Departemen_Medkraf()
