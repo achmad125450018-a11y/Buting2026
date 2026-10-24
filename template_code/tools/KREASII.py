@@ -48,7 +48,7 @@ label, p, span, div {
 """, unsafe_allow_html=True)
 
 st.title("CyberAnomaly: Time-Attack Matrix")
-st.markdown("Isolasi anomali data dalam matriks 4x4 sebelum batas waktu habis.")
+st.markdown("Isolasi anomali data dalam matriks 4x4 sebelum batas waktu habis dan jaga nyawa sistem Anda.")
 
 if "score" not in st.session_state:
     st.session_state.score = 0
@@ -56,8 +56,10 @@ if "streak" not in st.session_state:
     st.session_state.streak = 0
 if "round" not in st.session_state:
     st.session_state.round = 1
-if "start_time" not in st.session_state:
-    st.session_state.start_time = time.time()
+if "lives" not in st.session_state:
+    st.session_state.lives = 3
+if "game_over" not in st.session_state:
+    st.session_state.game_over = False
 
 TIME_LIMIT = 15
 
@@ -84,62 +86,72 @@ def generate_matrix_puzzle():
     random.shuffle(items)
     return dom_name, anom_name, items
 
-if "puzzle_data" not in st.session_state or not isinstance(st.session_state.puzzle_data, tuple) or "puzzle_items" not in st.session_state:
-    st.session_state.dom_name, st.session_state.anom_name, st.session_state.puzzle_items = generate_matrix_puzzle()
-    st.session_state.start_time = time.time()
-    st.session_state.puzzle_data = True
+def init_puzzle():
+    dom_name, anom_name, items = generate_matrix_puzzle()
+    st.session_state.dom_name = dom_name
+    st.session_state.anom_name = anom_name
+    st.session_state.puzzle_items = items
+    st.session_state.round_start_time = time.time()
 
-elapsed = int(time.time() - st.session_state.start_time)
+if "puzzle_items" not in st.session_state:
+    init_puzzle()
+
+elapsed = int(time.time() - st.session_state.round_start_time)
 time_left = max(0, TIME_LIMIT - elapsed)
 
-col1, col2, col3, col4 = st.columns(4)
-col1.metric("Skor Total", st.session_state.score)
-col2.metric("Streak", st.session_state.streak)
-col3.metric("Ronde", st.session_state.round)
-col4.metric("Waktu", f"{time_left}s")
-
-st.markdown("---")
-st.markdown(f"### Misi Matrix: Cari tipe <span style='color: #00f0ff;'>{st.session_state.anom_name}</span> di antara dominasi tipe <span style='color: #38bdf8;'>{st.session_state.dom_name}</span>!", unsafe_allow_html=True)
-
-items = st.session_state.puzzle_items
-for row in range(4):
-    cols = st.columns(4)
-    for col in range(4):
-        idx = row * 4 + col
-        if idx < len(items):
-            item = items[idx]
-            with cols[col]:
-                if st.button(f"[{idx+1}] {item['val']}", key=f"btn_matrix_{idx}_{st.session_state.round}", use_container_width=True):
-                    if item["is_anom"]:
-                        st.session_state.score += 50
-                        st.session_state.streak += 1
-                        st.success(f"Akurat! Unit anomali {item['type']} terisolasi tepat waktu.")
-                        st.session_state.round += 1
-                        st.session_state.dom_name, st.session_state.anom_name, st.session_state.puzzle_items = generate_matrix_puzzle()
-                        st.session_state.start_time = time.time()
-                        st.rerun()
-                    else:
-                        st.session_state.streak = 0
-                        st.session_state.score = max(0, st.session_state.score - 15)
-                        st.error(f"Salah! Unit tersebut adalah data normal {item['type']}.")
-
-if time_left == 0:
+if time_left == 0 and not st.session_state.game_over:
     st.session_state.streak = 0
-    st.session_state.score = max(0, st.session_state.score - 20)
-    st.error("Waktu habis! Sanksi penalti waktu diberlakukan dan soal diperbarui.")
-    st.session_state.dom_name, st.session_state.anom_name, st.session_state.puzzle_items = generate_matrix_puzzle()
-    st.session_state.start_time = time.time()
+    st.session_state.lives -= 1
+    if st.session_state.lives <= 0:
+        st.session_state.game_over = True
+    else:
+        init_puzzle()
+    st.rerun()
+
+if not st.session_state.game_over:
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("Skor Total", st.session_state.score)
+    col2.metric("Streak", st.session_state.streak)
+    col3.metric("Nyawa", st.session_state.lives)
+    col4.metric("Waktu", f"{time_left}s")
+
+    st.markdown("---")
+    st.markdown(f"### Misi Matrix: Cari tipe <span style='color: #00f0ff;'>{st.session_state.anom_name}</span> di antara dominasi tipe <span style='color: #38bdf8;'>{st.session_state.dom_name}</span>!", unsafe_allow_html=True)
+
+    items = st.session_state.puzzle_items
+    for row in range(4):
+        cols = st.columns(4)
+        for col in range(4):
+            idx = row * 4 + col
+            if idx < len(items):
+                item = items[idx]
+                with cols[col]:
+                    if st.button(f"[{idx+1}] {item['val']}", key=f"btn_matrix_{idx}_{st.session_state.round}", use_container_width=True):
+                        if item["is_anom"]:
+                            st.session_state.score += 50
+                            st.session_state.streak += 1
+                            st.session_state.round += 1
+                            init_puzzle()
+                            st.rerun()
+                        else:
+                            st.session_state.streak = 0
+                            st.session_state.lives -= 1
+                            if st.session_state.lives <= 0:
+                                st.session_state.game_over = True
+                            else:
+                                init_puzzle()
+                            st.rerun()
+
     time.sleep(1)
     st.rerun()
 else:
-    time.sleep(1)
-    st.rerun()
-
-st.markdown("---")
-if st.button("Reset Sistem Matrix", key="reset_time_btn"):
-    st.session_state.score = 0
-    st.session_state.streak = 0
-    st.session_state.round = 1
-    st.session_state.dom_name, st.session_state.anom_name, st.session_state.puzzle_items = generate_matrix_puzzle()
-    st.session_state.start_time = time.time()
-    st.rerun()
+    st.error("Koneksi Terputus! Nyawa sistem habis.")
+    st.metric("Skor Akhir", st.session_state.score)
+    if st.button("Inisialisasi Ulang Sistem"):
+        st.session_state.score = 0
+        st.session_state.streak = 0
+        st.session_state.round = 1
+        st.session_state.lives = 3
+        st.session_state.game_over = False
+        init_puzzle()
+        st.rerun()
