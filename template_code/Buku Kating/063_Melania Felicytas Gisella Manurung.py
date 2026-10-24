@@ -479,18 +479,18 @@ if menu == "Senator":
 if menu == "Departemen SSD":
     def Departemen_SSD():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1ObzBbXuSr4uMY0fLMg1xSvQ8XzdB3x7W",
-            "https://drive.google.com/uc?export=view&id=1tDgLRF296R9hOU9z1ightiVzItpxEvkd",
-            "https://drive.google.com/uc?export=view&id=1bIevSTkPmhB0M0WpB9AbRsLukaUB6pR6", 
-            "https://drive.google.com/uc?export=view&id=18TTVfodChJVMbhGZU4rivzwgl182JT_T",
-            "https://drive.google.com/uc?export=view&id=1NTihFBUcvW5-V83tEO6UXnieDej_8dVm",
-            "https://drive.google.com/uc?export=view&id=1vO3Qc4G9NK74UENY_a-Tta0_X3-CkXm3", 
-            "https://drive.google.com/uc?export=view&id=1mX4xQBKWmpkD5fC_l1GOkPwP2e0XpyoQ",
-            "https://drive.google.com/uc?export=view&id=1d_HcLyxaJok-xqhfK8owHyc8t2MlgmHc",
-            "https://drive.google.com/uc?export=view&id=1kl4DksmdHmUF_PI4r0_SUslBV_4mGrIX", 
-            "https://drive.google.com/uc?export=view&id=1F7iX3QxRbDSWWcEbB2l0GjP39NognBg5",
-            "https://drive.google.com/uc?export=view&id=16teJ8bqGNNZqWiUspzEw5bjd9ID0t74X",
-            "https://drive.google.com/uc?export=view&id=1CkSFWvE-0fUTvnfaL2rqe5KPgamSiEUs",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_", 
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_", 
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_", 
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
         ]
         data_list = [
             {
@@ -633,7 +633,7 @@ if menu == "Departemen SSD":
 if menu == "Departemen Internal":
     def Departemen_Internal():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1BDuiB5YvBu6OgXg_XQzU4eHG0UK6ygw_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_", 
             "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
