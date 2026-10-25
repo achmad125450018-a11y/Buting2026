@@ -1515,17 +1515,17 @@ elif menu == "Departemen SSD":
 
         with tab1:
             gambar_urls_Kadep_ssd = [
-            "https://drive.google.com/uc?export=view&id=1N4dIHHdB5CeVz8OygZn-hNOX1MjASRk1",
+            "https://drive.google.com/uc?export=view&id=1CSwgJej4dFkWF4nJF_GDXfC4zQlFbMVS",
             ]
             data_list_Kadep_ssd = [
             {
-            "nama": "",
-            "nim": "",
-            "umur": "",
-            "asal": "",
-            "alamat": "",
+            "nama": "Ihsan Maulana Yusuf",
+            "nim": "123450110",
+            "umur": "21",
+            "asal": "Sumatra Barat",
+            "alamat": "Belwis",
             "hobbi": "",
-            "sosmed": "",
+            "sosmed": "@ihsan.myusuf",
             "kesan": "",  
             "pesan": "a"
             },
@@ -1538,13 +1538,13 @@ elif menu == "Departemen SSD":
             ]
             data_list_sekdep_ssd = [
             {
-            "nama": "",
-            "nim": "",
-            "umur": "",
-            "asal": "",
-            "alamat": "",
-            "hobbi": "",
-            "sosmed": "",
+            "nama": "Hanifah Inaya Sani",
+            "nim": "123450123",
+            "umur": "20",
+            "asal": "Bandar Lampung",
+            "alamat": "Bandar Lampung",
+            "hobbi": "Masak",
+            "sosmed": "@_inayasani",
             "kesan": "",  
             "pesan": ""
             },
@@ -1560,37 +1560,37 @@ elif menu == "Departemen SSD":
             ]
             data_list_kemitraan = [
             {
-            "nama": "",
-            "nim": "",
-            "umur": "",
-            "asal": "",
-            "alamat": "",
-            "hobbi": "",
-            "sosmed": "",
+            "nama": "Afifah Fauziah",
+            "nim": "125450002",
+            "umur": "20",
+            "asal": "Bandung",
+            "alamat": "Airan",
+            "hobbi": "Nonton Marvel",
+            "sosmed": "@fifah.zy",
             "kesan": "",  
             "pesan": ""
             },
             {
-            "nama": "",
+            "nama": "Hasan Nur Ramadhan",
             "nim": "",
-            "umur": "",
-            "asal": "",
-            "alamat": "",
-            "hobbi": "",
+            "umur": "20",
+            "asal": "Depok",
+            "alamat": "Korpri",
+            "hobbi": "Coding",
             "sosmed": "",
             "kesan": "",  
-            "pesan": ""
+            "pesan": "@hasan.ramadhan08"
             },
             {
-            "nama": "",
-            "nim": "",
-            "umur": "",
-            "asal": "",
-            "alamat": "",
-            "hobbi": "",
+            "nama": "Layina Ropiqo",
+            "nim": "124450016",
+            "umur": "19",
+            "asal": "Bandar Lampung",
+            "alamat": "Bandar Lampung",
+            "hobbi": "Nonton Dracin",
             "sosmed": "",
             "kesan": "",  
-            "pesan": ""
+            "pesan": "@lay.inr_"
             },
             {
             "nama": "",
