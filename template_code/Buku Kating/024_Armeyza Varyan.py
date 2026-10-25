@@ -5,7 +5,22 @@ from PIL import Image, ImageOps
 from io import BytesIO
 import html
 
-st.markdown("""<style>.centered-title {text-align: center;}</style>""",unsafe_allow_html=True)
+st.markdown("""
+    <style>
+    .centered-title {
+        text-align: center;
+    }
+    .stApp {
+            background: linear-gradient(160deg, #DCE8D2 0%, #E9F0DE 50%, #F1F2E3 100%);
+            background-attachment: fixed;
+            color: var(--bark);
+    }
+    [data-testid="stHeader"] {
+        background: linear-gradient(160deg, #DCE8D2 0%, #E9F0DE 50%, #F1F2E3 100%) !important;
+        background-attachment: fixed !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
 st.markdown("<h1 class='centered-title'>BUKU KATING</h1>", unsafe_allow_html=True)
  
 # bagian sini jangan diubah
@@ -39,15 +54,15 @@ def streamlit_menu():
         default_index=0,
         orientation="horizontal",
         styles={
-            "container": {"padding": "0!important", "background-color": "#fafafa"},
-            "icon": {"color": "black", "font-size": "16px"},
+            "container": {"padding": "0!important", "background-color": "#FBF8F0"},
+            "icon": {"color": "#C08552", "font-size": "16px"},
             "nav-link": {
                 "font-size": "13px",
                 "text-align": "left",
                 "margin": "0px",
-                "--hover-color": "#eee",
+                "--hover-color": "#E3EDD9",
             },
-            "nav-link-selected": {"background-color": "#3FBAD8"},
+            "nav-link-selected": {"background-color": "#6B8F5E"},
         },
     )
     return selected
@@ -107,8 +122,8 @@ def display_images_with_data(gambar_urls, data_list):
         for col, (img, data) in zip(cols, pasangan[i:i + 2]):
             with col:
                 tampilkan_kartu(img, data)
-menu = streamlit_menu()
 
+menu = streamlit_menu()
  # KESEKJENAN
 if menu == "Kesekjenan":
     def kesekjenan():
