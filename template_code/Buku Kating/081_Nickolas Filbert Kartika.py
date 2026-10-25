@@ -1316,6 +1316,7 @@ elif menu == "Departemen Internal":
 elif menu == "Departemen Internal":
     def Departemen_Internal():
         gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=1KGNhbecJJbvZr65wajrzMgkyEvFRewTU"
         ]
 
         data_list = [
