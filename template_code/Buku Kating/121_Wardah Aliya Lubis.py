@@ -414,8 +414,8 @@ elif menu == "Departemen SSD":
             "https://drive.google.com/uc?export=view&id=1sECCXB4H_nPKyJX9riNihBRwmSb0imxx",
             "https://drive.google.com/uc?export=view&id=1H926uCv7ZYVnnb3-rL7HJgxDg4ryehiP",
         ]
-        data_list = [
-            # Pimpinan & Sekretaris
+         data_list = [
+            # --- Pimpinan & Sekretaris ---
             {
                 "nama": "Ihsan Maulana Yusuf",
                 "nim": "123450110",
@@ -425,10 +425,20 @@ elif menu == "Departemen SSD":
                 "hobbi": "Baca jurnal, cari jurnal yang berhubungan ta",
                 "sosmed": "@ihsan.myusuf",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "Semangat terus kuliahnya kakak !!!"
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
-
-            # Divisi Kemitraan
+            {
+                "nama": "Hanifah Inaya Sani",
+                "nim": "123450000",
+                "umur": "21",
+                "asal": "Balam",
+                "alamat": "Korpri",
+                "hobbi": "Memasak",
+                "sosmed": "@_inayasani",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
+            },
+            # --- Divisi Kemitraan ---
             {
                 "nama": "Afifah Fauziah",
                 "nim": "123450002",
@@ -438,7 +448,7 @@ elif menu == "Departemen SSD":
                 "hobbi": "Baca jurnal, nonton Marvel",
                 "sosmed": "-",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "Semangat terus kuliahnya kakak !!!"
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Hasan Nur Ramadhan",
@@ -449,7 +459,7 @@ elif menu == "Departemen SSD":
                 "hobbi": "Nonton yutub",
                 "sosmed": "-",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "Semangat terus kuliahnya kakak !!!"
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Layina Ropiqo",
@@ -460,7 +470,7 @@ elif menu == "Departemen SSD":
                 "hobbi": "Nonton dracin",
                 "sosmed": "@layinr_",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "Semangat terus kuliahnya kakak !!!"
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Talitha Justine",
@@ -471,10 +481,19 @@ elif menu == "Departemen SSD":
                 "hobbi": "Nonton",
                 "sosmed": "@talljtine_",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "Semangat terus kuliahnya kakak !!!"
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
-
-            # Divisi Kewirausahaan
+            {
+                "nama": "Mochammad Iqbal Az-zahir",
+                "nim": "124450052",
+                "umur": "20",
+                "asal": "Bekasi",
+                "alamat": "Natar",
+                "hobbi": "Nonton Drakor",
+                "sosmed": "@iqbalazzahir_",
+                "kesan": "Kakak ini asik saya suka belajar dengan dia",
+                "pesan": "semangat terus kuliahnya kakak !!!",
+            },
             {
                 "nama": "Anadia Carana",
                 "nim": "123450019",
@@ -484,7 +503,7 @@ elif menu == "Departemen SSD":
                 "hobbi": "Nyari duit",
                 "sosmed": "@anadiacrn",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "Semangat terus kuliahnya kakak !!!"
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Abdillah Fikri Al pome",
@@ -495,7 +514,7 @@ elif menu == "Departemen SSD":
                 "hobbi": "Basket",
                 "sosmed": "@pomest",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "Semangat terus kuliahnya kakak !!!"
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Afdhal Rahmad Setiawan",
@@ -506,7 +525,7 @@ elif menu == "Departemen SSD":
                 "hobbi": "Fishing and game",
                 "sosmed": "@Afdhal",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "Semangat terus kuliahnya kakak !!!"
+                "pesan": "semangat terus kuliahnya kakak !!!",
             },
             {
                 "nama": "Anggun Nita",
@@ -517,7 +536,7 @@ elif menu == "Departemen SSD":
                 "hobbi": "Nonton kartun",
                 "sosmed": "@anggunitaaa_",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "Semangat terus kuliahnya kakak !!!"
+                "pesan": "Semangat terus kuliahnya kakak !!!"  
             },
             {
                 "nama": "Della Anisa Fitri",
@@ -528,14 +547,12 @@ elif menu == "Departemen SSD":
                 "hobbi": "Olahraga",
                 "sosmed": "@delaanisafitri",
                 "kesan": "Kakak ini asik saya suka belajar dengan dia",
-                "pesan": "Semangat terus kuliahnya kakak !!!"
-            }
+                "pesan": "semangat terus kuliahnya kakak !!!",
+            },
         ]
-
-        st.subheader("Departemen SSD")
         display_images_with_data(gambar_urls, data_list)
-
     Departemen_SSD()
+
     
 elif menu == "Bason":
     def Bason():
