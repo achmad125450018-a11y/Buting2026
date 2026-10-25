@@ -825,7 +825,7 @@ elif menu == "Departemen SSD":
         ]
 
         display_images_with_data(gambar_urls, data_list)
-
+        
     Departemen_SSD()
 if menu == "Departemen MIKFES":
     def Departemen_MIKFES():
@@ -1099,7 +1099,7 @@ if menu == "Departemen MIKFES":
                 },
             ]
             display_images_with_data(gambar_urls, data_list)
-        Departemen_MIKFES()
+    Departemen_MIKFES()
 elif menu == "Departemen Medkraf":
         def Departemen_Medkraf():
             gambar_urls = [  
@@ -1302,5 +1302,5 @@ elif menu == "Departemen Medkraf":
         
                 st.subheader("Departemen Medkraf")
                 display_images_with_data(gambar_urls, data_list)
-        
+            
     Departemen_Medkraf()
