@@ -84,7 +84,7 @@ elif menu == "Departemen PSDA":
 elif menu == "Departemen MIKFES":
     gambar_urls = ["https://drive.google.com/uc?export=view&id=1Vrf6tfghe4NB6LkTN8Oknosvx-tvjIuT",
                    "https://drive.google.com/uc?export=view&id=1DJHzP85moU2DdSX4CxJGm-_-F41UjGNy",
-                   "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+                   "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy",
                    "https://drive.google.com/uc?export=view&id=19TTnEGSUEpbkRYRqOHKYryECCpjv8C4R",
                    "https://drive.google.com/uc?export=view&id=1yOoxvdC9Gt64-rwPCIGI7Ewa2cNO0By3",
                    "https://drive.google.com/uc?export=view&id=1UhJh2xq3RUjmqHllYVMonwgll5fWdK-H",
