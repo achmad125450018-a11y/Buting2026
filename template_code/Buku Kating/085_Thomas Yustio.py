@@ -689,28 +689,28 @@ if menu == "Departemen PSDA":
 if menu == "Departemen MIKFES":
     def mikfes():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1k9qOgC8Jy5T1GmbUjAK9l40qnkTaiMEX",
-            "https://drive.google.com/uc?export=view&id=11wUEBPV45C0U0Esc8qnXqPz1erOPp5DA",
-            "https://drive.google.com/uc?export=view&id=1V08FJPHJT5_nqYunlbkbz_jwn_XhJQJD",
-            "https://drive.google.com/uc?export=view&id=1iGumeR1S3U9yQqaU0i1G7Xco2Nhd1n_B",
-            "https://drive.google.com/uc?export=view&id=1YGUPHII8Hy1woOPzwfTk8s8tg-I2Yu6C",
-            "https://drive.google.com/uc?export=view&id=1a8_PVXZ_c_3i-Xewc-LenPHVuOHzy_K-",
-            "https://drive.google.com/uc?export=view&id=11YvNKZTlvu3uzVQzu-9TZ_r-Pe0beaif",
-            "https://drive.google.com/uc?export=view&id=1Z3NYAirEDmU1vcbMm1fyZjK9C75ug9gU",
-            "https://drive.google.com/uc?export=view&id=1XQsULfmrta_F3nzPAK9_jocW53pkEil4",
-            "https://drive.google.com/uc?export=view&id=1UGuUsRwoAog_sizQz65VhOxGOrJTcqYZ",
-            "https://drive.google.com/uc?export=view&id=1vPPuZI7OaCHaMBm3VKq6o6nYC1dDaa35",
-            "https://drive.google.com/uc?export=view&id=1Z7cgq9vQLJ_RwSZFEHui5IDNSdnSt8rg",
-            "https://drive.google.com/uc?export=view&id=1peO0hywNeSkOEAT5ZkuPvV4OtiMtHMk5",
-            "https://drive.google.com/uc?export=view&id=1jWQgs9QAwL39MDuqeGqYXPJnWxcQP4YT",
-            "https://drive.google.com/uc?export=view&id=1bg8RNbkT-gPkKy7ErOLtg4ClUwPbfneZ",
-            "https://drive.google.com/uc?export=view&id=1qRNbe8S3luyI5dWXcLgjlp8KL9cYJm1J",
-            "https://drive.google.com/uc?export=view&id=1XOkAyTkb6Rsq6hpIzoUpd3bFwYMUtYw5",
-            "https://drive.google.com/uc?export=view&id=1wQi2i23XB40jzw40NXj1vp-niCnsHbr1",
-            "https://drive.google.com/uc?export=view&id=1Syvj3tiV0Ify1LocU0_WbAaMgbS-zfbj",
-            "https://drive.google.com/uc?export=view&id=12QaAByzynw6Ypldj6Vr09W_e1oX8xRQW",
-            "https://drive.google.com/uc?export=view&id=1yMPPAoBc73_E1sqJtKVBr2nByChgHbab",
-            "https://drive.google.com/uc?export=view&id=10Ry3gAfbHgGUn6MKy3rsJRcXyxqC6E8a",
+            "https://drive.google.com/uc?export=view&id=1r0XuZMS6UQssdXSxNbycuWgiCbW7NqX6",
+            "https://drive.google.com/uc?export=view&id=1d9C-2cdh1ZCbFR8N1R8_HCGCtNW1mkQL",
+            "https://drive.google.com/uc?export=view&id=1J1p5o7DwFwHjfajSIIErN0VkP6yMZ-j6",
+            "https://drive.google.com/uc?export=view&id=12EmMZoZe0QukMt7eJpYSkMoCmWIh9Ct5",
+            "https://drive.google.com/uc?export=view&id=1K6UaU1GhkbaxvlTVp1iklAtlCCCzR4zS",
+            "https://drive.google.com/uc?export=view&id=1OOGgZ0ZafofSqMjkzDDdXB96rNVGzEuw",
+            "https://drive.google.com/uc?export=view&id=1MniMvn3k8O15Yyr1RkTfXExUWu7ShHwf",
+            "https://drive.google.com/uc?export=view&id=1W4Wt9XyX4QbuGGiaPNKHI309vCp8WU00",
+            "https://drive.google.com/uc?export=view&id=1f-YeYlba9xd7Sjb0W-SlWmhQU2rCn0X8",
+            "https://drive.google.com/uc?export=view&id=15_LY9MZ-zmCMsi871AT25-KbdT1M4DZm",
+            "https://drive.google.com/uc?export=view&id=1wIQOhXZf1yiX1puqMWZznmH2p8sF4oTF",
+            "https://drive.google.com/uc?export=view&id=1l7rjTIUDIhJhDEQaytvUvqHXwBA5qV7Q",
+            "https://drive.google.com/uc?export=view&id=1R0MS1k1yrFFnirFU-aYwJ18JTRD6MMI8",
+            "https://drive.google.com/uc?export=view&id=1DTWuMTusd2yWzlSDYimEz889QNv5T0uZ",
+            "https://drive.google.com/uc?export=view&id=1QATLERM9ERQ3fbr-k9KbJr7yXEXeaWB6",
+            "https://drive.google.com/uc?export=view&id=1LNQghMWslXOOZb3xnoKs9PZ5pX3-d4d1",
+            "https://drive.google.com/uc?export=view&id=1w2rZg2uh2V21OU44xmh32VUfFV_AuwoI",
+            "https://drive.google.com/uc?export=view&id=1pVYJ5Q92gCiwIjI3D1R3iNN-C6OITcSb",
+            "https://drive.google.com/uc?export=view&id=18lkvVqQ6YlcjzS1YAM23Dev8mF_ZhUV1",
+            "https://drive.google.com/uc?export=view&id=1wQo-v6O-VKZL4dxrZDzCXzCbgSC-Xipr",
+            "https://drive.google.com/uc?export=view&id=13VzCdUwso2Zbb0NJWDr-ztT4LIDZrQUu",
+            "https://drive.google.com/uc?export=view&id=11xpJyU8Ce9DChGu-5R0ThwNP9Jd4olUw",
         ]
         data_list = [
             {
@@ -721,8 +721,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Tidur",
                 "Umur" : "21",
                 "Sosmed" : "@biyokcb",
-                "Kesan" : "Abangnya keren suka marvel.",
-                "Pesan" : "Ayok nobar Doomsday bang."
+                "Kesan" : "Abangnya baik, ramah, dan asik, the best banget deh pokoknya.",
+                "Pesan" : "Semoga selalu sehat, sukses kuliahnya, dan lancar dalam segala hal, bang."
             },
             {
                 "Nama": "Tanty Widiyastuti",
@@ -732,8 +732,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Membaca",
                 "Umur" : "21",
                 "Sosmed" : "@tvnty_",
-                "Kesan" : "Tenang dan suka memperhatikan hal-hal kecil.",
-                "Pesan" : "Terus bagikan ketelitianmu ke kami, Kak."
+                "Kesan" : "kakak orangnya baik, ramah, dan asik banget banget banget",
+                "Pesan" : "Semoga kakak selalu sehat, sukses kuliahnya, dan lancar dalam segala hal, kak."
             },
             {
                 "Nama": "Fadil Prasetyo Alfaritzi",
@@ -743,8 +743,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Gitar",
                 "Umur" : "21",
                 "Sosmed" : "@fadilalfarizzii",
-                "Kesan" : "Permainan gitarnya bikin suasana nyaman.",
-                "Pesan" : "Sering-sering hibur kami lewat musikmu, Kak."
+                "Kesan" : "Abangnya baik, ramah, dan asik banget, keren banget bisa jadi duta",
+                "Pesan" : "Semoga apa yang bang Fadil capai dapat menginspirasi dan memotivasi saya dan teman - teman yang lain, bang."
             },
             {
                 "Nama": "Manuel Frederika",
@@ -754,8 +754,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Tenis meja",
                 "Umur" : "20",
                 "Sosmed" : "@manuelfdk_",
-                "Kesan" : "Energik dan cepat akrab dengan siapa saja.",
-                "Pesan" : "Tetap semangat dan jangan berubah, Kak."
+                "Kesan" : "Abang orangnya baik, ramah, dan asik banget, katanya sih calon kadep heheheh",
+                "Pesan" : "Tetap semangat dan sukses selalu dalam segala hal, bang."
             },
             {
                 "Nama": "Ni Made Okta Viola Darma Putri",
@@ -765,8 +765,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Menghayal",
                 "Umur" : "12",
                 "Sosmed" : "Violaadrtr_",
-                "Kesan" : "Pembawaannya kalem dan penuh imajinasi.",
-                "Pesan" : "Semoga ide-idemu terus berkembang, Kak."
+                "Kesan" : "Kakaknya baik, ramah, dan asik banget, selalu semangat dalam segala hal.",
+                "Pesan" : "Semoga sukses kuliahnya dan lancar selalu kak"
             },
             {
                 "Nama": "Risa Romadona",
@@ -787,8 +787,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Nonton KHW",
                 "Umur" : "19",
                 "Sosmed" : "@vunnycaa",
-                "Kesan" : "Ramah dan selalu terlihat ceria.",
-                "Pesan" : "Tetap jadi pribadi yang menyenangkan, Kak."
+                "Kesan" : "Kakaknya Ramah dan selalu terlihat ceria.",
+                "Pesan" : "Semoga tetap jadi pribadi yang menyenangkan, Kak."
             },
             {
                 "Nama": "Yulia Cristine Malau",
@@ -798,8 +798,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Belum Tahu",
                 "Umur" : "Belum Tahu",
                 "Sosmed" : "Belum Tahu",
-                "Kesan" : "Sopan dan menghargai orang lain.",
-                "Pesan" : "Semoga selalu sukses dalam setiap kegiatan, Kak."
+                "Kesan" : "Kakak orangnya baik, ramah, dan asik banget.",
+                "Pesan" : "Semangat terus kakak, semoga sukses kuliahnya dan lancar dalam segala hal."
             },
             {
                 "Nama": "Akeyla Fairuz Shafi",
@@ -809,8 +809,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Dengerin Musik",
                 "Umur" : "21",
                 "Sosmed" : "@keyashafi",
-                "Kesan" : "Pendengar yang baik dan tidak suka menghakimi.",
-                "Pesan" : "Tetap jadi teman cerita yang nyaman, Kak."
+                "Kesan" : "Abangnya baik, ramah, dan asik banget, selalu semangat dalam segala hal.",
+                "Pesan" : "Tetap semangat dan sukses selalu dalam segala hal, bang."
             },
             {
                 "Nama": "Elsa Sitorus",
@@ -820,19 +820,19 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Rebahan",
                 "Umur" : "21",
                 "Sosmed" : "_els.a",
-                "Kesan" : "Murah senyum dan enak diajak bicara.",
-                "Pesan" : "Tetap jadi kakak yang hangat, ya, Kak."
+                "Kesan" : "Kakaknya ramah, hangat, dan selalu menyenangkan saat berinteraksi.",
+                "Pesan" : "Semoga selalu sehat dan sukses dalam segala hal, dan juga tetap tersenyum kak"
             },
             {
-                "Nama": "Fadya Izzatul ‘Aini",
+                "Nama": "Fadya Izzatul Aini",
                 "NIM" : "124450062",
                 "Asal" : "Pringsewu",
                 "Alamat" : "Airan",
                 "Hobi": "Mancing",
                 "Umur" : "20",
                 "Sosmed" : "fadyaizzatul_",
-                "Kesan" : "Sabar dan telaten kalau menjelaskan sesuatu.",
-                "Pesan" : "Jangan bosan membimbing kami, Kak."
+                "Kesan" : "Kakaknya baik dan selalu membantu.",
+                "Pesan" : "Semoga selalu sehat dan sukses dalam segala hal, Kak."
             },
             {
                 "Nama": "Lovianora Saragih",
@@ -842,8 +842,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Dengerin Musik",
                 "Umur" : "19",
                 "Sosmed" : "_loviaa",
-                "Kesan" : "Kalem tapi tetap hangat saat berinteraksi.",
-                "Pesan" : "Semoga selalu dimudahkan dalam studinya, Kak."
+                "Kesan" : "Kakaknya ramah, hangat, dan selalu positive vibes",
+                "Pesan" : "Semoga selalu sehat, sukses, dan lancar terus dalam segala hal, Kak."
             },
             {
                 "Nama": "M. Alsi Syahrulloh",
@@ -853,8 +853,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Main Game, Tidur",
                 "Umur" : "20",
                 "Sosmed" : "@aluccy_",
-                "Kesan" : "Humoris dan gampang bikin tawa.",
-                "Pesan" : "Jangan lupa tetap fokus kuliah juga, Kak."
+                "Kesan" : "Abangnya selalu baik, ramah, dan keren banget.",
+                "Pesan" : "Semoga selalu sehat, sukses kuliahnya, dan lancar dalam segala hal, bang."
             },
             {
                 "Nama": "Sherena Florencia",
@@ -864,8 +864,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Make up",
                 "Umur" : "19",
                 "Sosmed" : "sher_renna",
-                "Kesan" : "Rapi dan selalu tampil percaya diri.",
-                "Pesan" : "Tetap jadi inspirasi bagi adik tingkat, Kak."
+                "Kesan" : "Kakaknya baik banget, ramah, dan selalu membimbing.",
+                "Pesan" : "Semoga sehat selalu dan tetap jadi inspirasi bagi adik tingkat, Kak."
             },
             {
                 "Nama": "Razin Hafid Hamdi",
@@ -875,8 +875,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Futsal",
                 "Umur" : "21",
                 "Sosmed" : "@razyn.hfd",
-                "Kesan" : "Sportif dan semangat kerja samanya tinggi.",
-                "Pesan" : "Terus ajak kami aktif bersama, Kak."
+                "Kesan" : "Abangnya pintar, baik, dan selalu membimbing dengan sabar.",
+                "Pesan" : "Semoga selalu sehat, sukses kuliahnya, dan lancar dalam tugas akhirnya bang."
             },
             {
                 "Nama": "Faiza Try Anjani",
@@ -886,8 +886,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Membaca Novel",
                 "Umur" : "19",
                 "Sosmed" : "FAIZAANJANII",
-                "Kesan" : "Tutur katanya sopan dan penuh pertimbangan.",
-                "Pesan" : "Tetap jadi kakak yang bijak, Kak."
+                "Kesan" : "Kakaknya keren bisa dapat Ozt di TPB, baik juga, dan selalu membimbing.",
+                "Pesan" : "Tetap jadi kakak yang baik dan membimbing adik tingkat, semoga sukses kuliahnya dan lancar dalam segala hal, Kak."
             },
             {
                 "Nama": "Gathfan Nadif Ali",
@@ -897,8 +897,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Main game",
                 "Umur" : "20",
                 "Sosmed" : "@gathfannadif",
-                "Kesan" : "Santai tapi tetap bertanggung jawab.",
-                "Pesan" : "Terus jaga keseimbangan itu, Kak."
+                "Kesan" : "Abangnya menginspirasi saya untuk belajar lebih giat dan semangat ikut lomba",
+                "Pesan" : "Semoga abangnya dapat membimbing adik - adiknya dalam banyak hal seperti perlombaan"
             },
             {
                 "Nama": "Hafidz Wahdiansyah",
@@ -908,8 +908,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "3N (Ngoding, Ngegame, Nyibukin diri)",
                 "Umur" : "20",
                 "Sosmed" : "@apiszzaja_",
-                "Kesan" : "Cekatan soal teknis dan mau berbagi ilmu.",
-                "Pesan" : "Ajari kami ngoding dengan sabar, Kak."
+                "Kesan" : "Bang Hafidz orangnya asik banget, ramah banget, dan pintar dalam membuat website, keren banget bang",
+                "Pesan" : "Semoga ilmu web nya menular ke saya dan teman - teman yang lainnya bang."
             },
             {
                 "Nama": "Kaleb Filbert Istel",
@@ -919,8 +919,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Ngegym, baca novel",
                 "Umur" : "20",
                 "Sosmed" : "@kelelep_comberan",
-                "Kesan" : "Konsisten menjaga kebiasaan hidup sehat.",
-                "Pesan" : "Tularkan semangat hidup sehatmu ke kami, Kak."
+                "Kesan" : "Abangnya keren banget, baik, ramah juga, dan bisa konsisten olahraga + akademik rata kanan",
+                "Pesan" : "Semoga kami juga bisa se pintar dan se baik abang."
             },
             {
                 "Nama": "Melva Shaprina Febrianti",
@@ -930,7 +930,7 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Scroll",
                 "Umur" : "19",
                 "Sosmed" : "@melva_fbrt",
-                "Kesan" : "Ceria dan mudah menyesuaikan diri.",
+                "Kesan" : "Kakaknya baik, ramah, dan asik banget kalau ngobrol.",
                 "Pesan" : "Tetap jadi pribadi yang ramah, Kak."
             },
             {
@@ -941,8 +941,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Belum Tahu",
                 "Umur" : "Belum Tahu",
                 "Sosmed" : "@syaafiqui",
-                "Kesan" : "Pendiam tapi diam-diam bisa diandalkan.",
-                "Pesan" : "Jangan sungkan berbagi pendapat ke kami, Kak."
+                "Kesan" : "Abangnya keren banget, baik, asik, dan pintar analisisnya",
+                "Pesan" : "Semoga ilmu dari abang dapat berguna bagi saya, dan dapat se baik abang juga dalam membagikannya juga."
             },
             {
                 "Nama": "Rifky Henry Ferdianto",
@@ -952,8 +952,8 @@ if menu == "Departemen MIKFES":
                 "Hobi": "Lari dari kenyataan",
                 "Umur" : "28",
                 "Sosmed" : "henryferdianto",
-                "Kesan" : "Humornya unik dan bikin suasana cair.",
-                "Pesan" : "Semoga kenyataan selalu ramah padamu, Kak."
+                "Kesan" : "Abangnya keren banget, asik, dan ilmunya luas banget, pengalamannya juga pastinya.",
+                "Pesan" : "Semoga sehat selalu bang, sukses dalam"
             },
         ]
         display_images_with_data(gambar_urls, data_list)
