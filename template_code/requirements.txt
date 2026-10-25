@@ -1,5 +1,6 @@
-streamlit == 1.48.0
-streamlit-option-menu == 0.4.0
-Pillow == 11.3.0
-pandas==3.0.3
-
+streamlit
+streamlit-option-menu
+Pillow
+requests
+pandas
+plotly
