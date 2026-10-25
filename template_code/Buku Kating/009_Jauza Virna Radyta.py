@@ -480,7 +480,7 @@ elif menu == "Departemen Minbak":
                 "sosmed": "@muhammdrafka_",
                 "kesan": "Bang Rafka keren, baikk, dan juga ramahh",  
                 "pesan":"Semoga semua keinginan bang rafka cepat terwujud"# 1
-            }
+            },
             {
                 "nama": "Ghiyats Thabularasa Meardhy",
                 "nim": "124450067",
