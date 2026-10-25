@@ -1332,21 +1332,21 @@ if menu == "Departemen Eksternal":
 if menu == "Departemen Minbak":
     def Departemen_Minbak():
         gambar_urls = [
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
-            "https://drive.google.com/uc?export=view&id=1tBo0l5pxH4N8o3rNk-Iupet4c12OATy_",
+            "https://drive.google.com/uc?export=view&id=1KUNFu9rZFf3Rbgyju-gisTfEJylF5qSg",
+            "https://drive.google.com/uc?export=view&id=19fBlGgdj552d3Jw0yB99MnnlZEwTjwsW",
+            "https://drive.google.com/uc?export=view&id=1ul7XJF-_URLurA1DJFnLru6PZdFFeZ9Z",
+            "https://drive.google.com/uc?export=view&id=1TfDPNLdtL8JbpzTzrLosAjLlfDsC6b_7",
+            "https://drive.google.com/uc?export=view&id=1ZNWRtPjmptrLo5Gd1yDIqWGHW5C80S3S",
+            "https://drive.google.com/uc?export=view&id=1nzkpLXOKhY6wGtpfGjLUM9Uwq62zBH43",
+            "https://drive.google.com/uc?export=view&id=1bhBvYAgKUz-BI8ijIdUKAJy-BThmQnFl",
+            "https://drive.google.com/uc?export=view&id=10akpYJ0MSq18KnCaZ5UFHD7DtejOZUZx",
+            "https://drive.google.com/uc?export=view&id=1hsQRGFDaxl2jW5nOxFLkv_dYj23JvtED",
+            "https://drive.google.com/uc?export=view&id=1vfN_1ai_079pcIcce0PpEHjCN4fIfDif",
+            "https://drive.google.com/uc?export=view&id=1lq80jkkePZt6oZt7PaKxUyCMfdtd1mlk",
+            "https://drive.google.com/uc?export=view&id=1hL2TVvc7tAoZmLlXgkmwC9bvDXGqrkIk",
+            "https://drive.google.com/uc?export=view&id=1gT2JV2L7gKI4VqoBaJy2-7U8C_LCM7c6",
+            "https://drive.google.com/uc?export=view&id=1CSf7rQGNyd3snRNDsG4AZPaZ8LPNZ9fE",
+            "https://drive.google.com/uc?export=view&id=1f8uhoWJeOj5OHfhSy-fcXd5-RzqCyJ1L",
         ]
         data_list = [
             {
@@ -1372,7 +1372,7 @@ if menu == "Departemen Minbak":
                 "pesan": "semangat terus kuliahnya kakak !!!"
             },
             {
-                "nama": "Ari Aristo Muthahari Parisi",
+                "nama": "Ali Aristo Muthahari Parisi",
                 "nim": "123450088",
                 "umur": "21 tahun",
                 "asal": "Lampung Timur",
