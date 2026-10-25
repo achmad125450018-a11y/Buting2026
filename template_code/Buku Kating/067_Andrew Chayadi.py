@@ -541,7 +541,7 @@ elif menu == "Departemen Minbak":
         
         with tab1:
             gambar_urls_kepala_departemen_minbak= [
-            "https://drive.google.com/uc?export=view&id=18x8qz_Lqj6i6PEFA3JUyCfPJlReMZvUB",
+            "https://drive.google.com/uc?export=view&id=12QOfSNfjMqEfLwP3pk5Gg9AjoIcuKE_O",
             ]
             data_list_kepala_departemen_minbak= [
             {
@@ -560,7 +560,7 @@ elif menu == "Departemen Minbak":
 
         with tab2:
             # Pindahkan URL dan Data anggota Sekretaris ke dalam list ini
-            gambar_urls_sekretaris_departemen_minbak = ["https://drive.google.com/uc?export=view&id=1qsEatLS2i26ptSaL9N73Mg8Zr3kBvuCd",]
+            gambar_urls_sekretaris_departemen_minbak = ["https://drive.google.com/uc?export=view&id=1v4Gx1LnKyMPQ7YXSDYj6cXXJdsvx2h7N",]
             data_list_sekretaris_departemen_minbak = [ 
             {
             "nama": "Gusti Putu Ferazka Dhiyamika",
@@ -578,12 +578,12 @@ elif menu == "Departemen Minbak":
 
         with tab3:
             gambar_urls_manajemen_aktivitas_dan_kompetisi = [
-            "https://drive.google.com/uc?export=view&id=1KCjrYYX695GBHhMlhc5Ay7fM4X0rcray",
-            "https://drive.google.com/uc?export=view&id=1RIlVyC4-CUxWubRIhL6adMHNdQl6u2GX",
-            "https://drive.google.com/uc?export=view&id=1y4-G6rgI6U1V0RTUpiS6zRi_pDkOLVsR",
-            "https://drive.google.com/uc?export=view&id=1_eYRFgBp2AQMI82bDUc4UdsqoWnwL4jM",
-            "https://drive.google.com/uc?export=view&id=1V_YJBsavn3kTKejwmJ6hk-ivjNly7J2j",
-            "https://drive.google.com/uc?export=view&id=1oHO4Y4CL1xaqk1fIfC_HnFLdZGc4hxe5",
+            "https://drive.google.com/uc?export=view&id=1ukRXDoD9AcY83O8RzjKReZFYzxW2oKmB",
+            "https://drive.google.com/uc?export=view&id=1A6UjUE-8JDvoQAzRJsIN04UlNQXxfCj1",
+            "https://drive.google.com/uc?export=view&id=19aZL3HXHjIgPNRt4t2afY7BsqNS4QAxC",
+            "https://drive.google.com/uc?export=view&id=1UUWG7wy3dw2XCUepwe0v9lcz5JPslfti",
+            "https://drive.google.com/uc?export=view&id=1FesizaWmDQGZSFVcVmh_nmtQVNrN_fk5",
+            "https://drive.google.com/uc?export=view&id=1LrR9YBcxKwIXTui_CLDIzDT52OGaIjrY",
             
             ]
             data_list_manajemen_aktivitas_dan_kompetisi = [
@@ -658,13 +658,13 @@ elif menu == "Departemen Minbak":
 
         with tab4:
             gambar_urls_manajemen_minat_dan_bakat = [
-                "https://drive.google.com/uc?export=view&id=1aueAKLJHP25N45ZiSWgZFIedz0YQRtx-",
-                "https://drive.google.com/uc?export=view&id=1O0fPU57LFyUr0bQSX8HofN0bgnjZbGHz",
-                "https://drive.google.com/uc?export=view&id=1wojg09H8RB56V8_zAvXtc5VhXALqu-ZK",
-                "https://drive.google.com/uc?export=view&id=17NH9Vc1UFPd81rKP1q0Ll6OnKj51Fo7X",
-                "https://drive.google.com/uc?export=view&id=18NYYMnIUvEaIuVehyadgt_ig6q9njJqS",
-                "https://drive.google.com/uc?export=view&id=1C8_2h67_WKBnPUpwkkTm9AfSi7W2H7_z",
-                "https://drive.google.com/uc?export=view&id=1mjHinYhIBpyeWsNWf_jMBdvWHjECt162",
+                "https://drive.google.com/uc?export=view&id=1beTFZVK1JkqqFEluOj8wQTdGEG5newe-",
+                "https://drive.google.com/uc?export=view&id=1BzoAEefRUd_6pRibFmr9mfq3ztI2ictU",
+                "https://drive.google.com/uc?export=view&id=1XWhKwI0vmASijbtxREkuRt2NjeT8dlVf",
+                "https://drive.google.com/uc?export=view&id=1wTj3IEpr0vt_advP1kdQoxlidINfMihJ",
+                "https://drive.google.com/uc?export=view&id=1hWFq1yNhPul0IvmasCEmzbUoWUHMgNBR",
+                "https://drive.google.com/uc?export=view&id=1LCHVLYPVRj7kRdJzZ7hw8yeb90vk0sk9",
+                "https://drive.google.com/uc?export=view&id=1GXwVs1gKStV9ei_5d3Jv7lYxzBejOYhn",
             ]
             data_list_manajemen_minat_dan_bakat = [
             {
