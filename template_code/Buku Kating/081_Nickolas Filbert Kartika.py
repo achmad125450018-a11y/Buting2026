@@ -14,8 +14,8 @@ def streamlit_menu():
         menu_title=None,
         options=[
             "Kesekjenan",
-            "Baleg",
-            "Bason",
+            "Badan Legislatif",
+            "Badan Kesenatoran",
             "Departemen PSDA",
             "Departemen MIKFES",
             "Departemen Eksternal",
@@ -1542,3 +1542,58 @@ elif menu == "Departemen Internal":
         display_images_with_data(gambar_urls, data_list)
 
     Departemen_Internal()
+elif menu == "Departemen Eksternal":
+    def Departemen_Eksternal():
+        gambar_urls = [
+        ]
+        data_list = [
+            {"nama": "Anggota 1", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 2", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 3", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 4", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 5", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 6", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 7", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 8", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 9", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 10", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 11", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 12", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 13", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 14", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 15", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 16", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 17", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 18", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 19", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 20", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 21", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 22", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""}
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    Departemen_Eksternal()
+elif menu == "Departemen PSDA":
+    def Departemen_PSDA():
+        gambar_urls = [
+        ]
+        data_list = [
+            {"nama": "Anggota 1", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 2", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 3", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 4", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 5", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 6", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 7", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 8", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 9", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 10", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 11", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 12", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 13", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 14", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 15", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 16", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 17", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""}
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    Departemen_PSDA()
