@@ -1100,3 +1100,38 @@ if menu == "Departemen MIKFES":
             ]
             display_images_with_data(gambar_urls, data_list)
     Departemen_MIKFES()
+elif menu == "Departemen Medkraf":
+    def Departemen_Medkraf():
+        gambar_urls = [
+            "https://drive.google.com/uc?export=view&id=...", "https://drive.google.com/uc?export=view&id=...",
+            "https://drive.google.com/uc?export=view&id=...", "https://drive.google.com/uc?export=view&id=...",
+            "https://drive.google.com/uc?export=view&id=...", "https://drive.google.com/uc?export=view&id=...",
+            "https://drive.google.com/uc?export=view&id=...", "https://drive.google.com/uc?export=view&id=...",
+            "https://drive.google.com/uc?export=view&id=...", "https://drive.google.com/uc?export=view&id=...",
+            "https://drive.google.com/uc?export=view&id=...", "https://drive.google.com/uc?export=view&id=...",
+            "https://drive.google.com/uc?export=view&id=...", "https://drive.google.com/uc?export=view&id=...",
+            "https://drive.google.com/uc?export=view&id=...", "https://drive.google.com/uc?export=view&id=...",
+            "https://drive.google.com/uc?export=view&id=...", "https://drive.google.com/uc?export=view&id=..."
+        ]
+        data_list = [
+            {"nama": "Anggota 1", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 2", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 3", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 4", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 5", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 6", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 7", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 8", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 9", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 10", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 11", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 12", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 13", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 14", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 15", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 16", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 17", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""},
+            {"nama": "Anggota 18", "nim": "", "umur": "", "asal": "", "alamat": "", "hobbi": "", "sosmed": "", "kesan": "", "pesan": ""}
+        ]
+        display_images_with_data(gambar_urls, data_list)
+    Departemen_Medkraf()
