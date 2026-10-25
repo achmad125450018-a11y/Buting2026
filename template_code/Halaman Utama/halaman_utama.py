@@ -272,11 +272,11 @@ data_list = [
         "Motto Hidup": "Hari ini berjuang, hari esok kita ber-uang",
     },
     {
-        "Nama": "Sakinah Farhana Alqitsi",
+        "Nama": "Sakinah Farhana Al Qisthi",
         "Sebagai": "Anggota",
         "NIM": "125450016",
-        "Fun Fact": "Suka makan pecel",
-        "Motto Hidup": "Tetap semangat",
+        "Fun Fact": "Suka daging kambing karna bau nya",
+        "Motto Hidup": "Kita punya keinginan tapi semesta punya kenyataan",
     },
     {
         "Nama": "Muhammad Helmi Fahma",
@@ -294,7 +294,7 @@ data_list = [
     },
     {
         "Nama": "Lian Ilham Nurthoriq",
-        "Sebagai": "Pelengkap Markov",
+        "Sebagai": "Anggota",
         "NIM": "125450025",
         "Fun Fact": "Suka yang manis, padahal aku udah manis",
         "Motto Hidup": "Belajar untuk hari ini, hidup untuk besok",
@@ -442,7 +442,7 @@ def about_page():
     search = st.text_input("Cari anggota", placeholder="🔍 Ketik nama atau NIM...")
     role = st.radio(
         "Peran",
-        ["Semua", "Pak Lurah", "Bu Lurah", "Anggota", "Pelengkap Markov"],
+        ["Semua", "Pak Lurah", "Bu Lurah", "Anggota"],
         horizontal=True,
         label_visibility="collapsed",
     )
